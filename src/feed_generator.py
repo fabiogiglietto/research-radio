@@ -163,6 +163,31 @@ def format_duration(seconds: int) -> str:
         return f"{minutes}:{secs:02d}"
 
 
+def format_authors_apa7(authors: list[str]) -> str:
+    """Format authors list in APA7 style."""
+    if not authors:
+        return "Unknown"
+
+    def format_name(name: str) -> str:
+        """Convert 'First Middle Last' to 'Last, F. M.' format."""
+        parts = name.strip().split()
+        if len(parts) == 1:
+            return parts[0]
+        # Last name is typically the final part
+        last = parts[-1]
+        initials = '. '.join(p[0].upper() for p in parts[:-1]) + '.'
+        return f"{last}, {initials}"
+
+    formatted = [format_name(a) for a in authors]
+
+    if len(formatted) == 1:
+        return formatted[0]
+    elif len(formatted) == 2:
+        return f"{formatted[0]} & {formatted[1]}"
+    else:
+        return ', '.join(formatted[:-1]) + ', & ' + formatted[-1]
+
+
 def create_episode_from_paper(
     paper_id: str,
     paper_title: str,
@@ -170,19 +195,28 @@ def create_episode_from_paper(
     audio_filename: str,
     audio_size: int,
     duration: int,
-    pub_date: Optional[datetime] = None
+    pub_date: Optional[datetime] = None,
+    paper_url: Optional[str] = None,
+    paper_year: Optional[str] = None
 ) -> Episode:
     """Create an Episode object from paper metadata."""
     if pub_date is None:
         pub_date = datetime.now()
 
-    # Build description
-    authors_str = ', '.join(paper_authors) if paper_authors else 'Unknown authors'
-    description = f"AI-generated podcast discussion of the paper: {paper_title} by {authors_str}"
+    if paper_year is None:
+        paper_year = str(pub_date.year)
+
+    # Build APA7-style citation
+    authors_apa = format_authors_apa7(paper_authors)
+    citation = f"{authors_apa} ({paper_year}). {paper_title}."
+    if paper_url:
+        citation += f" {paper_url}"
+
+    description = f"AI-generated podcast discussion.\n\nReference:\n{citation}"
 
     return Episode(
         id=paper_id,
-        title=f"Research Radio: {paper_title}",
+        title=f"FG's Research Radio: {paper_title}",
         description=description,
         audio_url=get_github_release_url(audio_filename),
         audio_size=audio_size,

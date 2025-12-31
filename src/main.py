@@ -98,6 +98,14 @@ def process_paper(
         except ValueError:
             pass
 
+    # Extract year from date_published
+    paper_year = None
+    if paper.date_published:
+        import re
+        year_match = re.search(r'(\d{4})', paper.date_published)
+        if year_match:
+            paper_year = year_match.group(1)
+
     episode = create_episode_from_paper(
         paper_id=paper.id,
         paper_title=paper.title,
@@ -105,7 +113,9 @@ def process_paper(
         audio_filename=audio_filename,
         audio_size=audio_size,
         duration=audio_duration,
-        pub_date=pub_date
+        pub_date=pub_date,
+        paper_url=paper.external_url or paper.url,
+        paper_year=paper_year
     )
 
     add_episode(episode)
