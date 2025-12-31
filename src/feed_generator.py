@@ -119,6 +119,7 @@ def generate_podcast_feed(output_path: Optional[str] = None) -> str:
     fg.podcast.itunes_explicit('no')
     fg.podcast.itunes_owner(name=PODCAST_AUTHOR, email=PODCAST_EMAIL or 'noreply@example.com')
     fg.podcast.itunes_summary(PODCAST_DESCRIPTION)
+    fg.podcast.itunes_image(f"{PODCAST_WEBSITE}/cover.jpg")
 
     # Add episodes
     for episode in episodes:
