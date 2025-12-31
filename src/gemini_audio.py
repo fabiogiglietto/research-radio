@@ -40,7 +40,7 @@ class GeminiAudioGenerator:
         host_name = self.VOICES.get('host', 'Kore')
         cohost_name = self.VOICES.get('cohost', 'Charon')
 
-        prompt = f"""You are a podcast script writer. Create an engaging episode of "Research Radio",
+        prompt = f"""You are a podcast script writer. Create an engaging episode of "FG's Research Radio",
 a podcast featuring deep dive discussions on recent academic papers in computational social science,
 platform studies, misinformation research, and the evolving landscape of social media and AI.
 

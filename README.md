@@ -6,7 +6,7 @@ An automated pipeline that converts academic papers into podcast episodes using 
 
 This repository contains the **code** for generating AI-powered podcast discussions of academic papers.
 
-**Note:** "Research Radio" is a podcast produced using this code, focusing on computational social science, platform studies, and misinformation research. If you use this code to create your own podcast, please choose a different name and branding for your show.
+**Note:** "FG's Research Radio" is a podcast produced using this code, focusing on computational social science, platform studies, and misinformation research. If you use this code to create your own podcast, please choose a different name and branding for your show.
 
 ## Features
 
@@ -87,7 +87,7 @@ The workflow runs hourly, checking for new papers and generating episodes automa
 
 This code is released under the MIT License. See [LICENSE](LICENSE) for details.
 
-You are free to use, modify, and distribute this code to create your own paper-to-podcast pipeline. However, please create your own podcast identity (name, branding, description) rather than using "Research Radio."
+You are free to use, modify, and distribute this code to create your own paper-to-podcast pipeline. However, please create your own podcast identity (name, branding, description) rather than using "FG's Research Radio."
 
 ## Acknowledgments
 
