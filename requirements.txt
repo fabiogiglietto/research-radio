@@ -1,0 +1,17 @@
+# Google APIs
+google-genai>=1.0.0          # Gemini API (new SDK for 2.0+)
+google-api-python-client>=2.100.0  # Google Drive API
+google-auth>=2.23.0          # Authentication
+
+# PDF processing
+pypdf>=3.17.0
+
+# Web and RSS
+requests>=2.31.0
+feedgen>=1.0.0
+
+# Environment
+python-dotenv>=1.0.0
+
+# GitHub
+PyGithub>=2.1.0

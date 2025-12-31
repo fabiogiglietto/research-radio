@@ -1,0 +1,151 @@
+{
+  "episodes": [
+    {
+      "id": "bibtex:Matias2025-px",
+      "title": "Research Radio: How public involvement can improve the science of AI",
+      "description": "AI-generated podcast discussion of the paper: How public involvement can improve the science of AI by J. Nathan Matias, Megan Price",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Matias2025-px.mp3",
+      "audio_size": 4237485,
+      "duration": 400,
+      "pub_date": "2025-12-02T00:00:00+00:00",
+      "authors": [
+        "J. Nathan Matias",
+        "Megan Price"
+      ]
+    },
+    {
+      "id": "bibtex:Kalsnes2025-zb",
+      "title": "Research Radio: \u2018More than a feeling\u2019 \u2013 Facebook reactions and the sharing of political posts during Scandinavian elections",
+      "description": "AI-generated podcast discussion of the paper: \u2018More than a feeling\u2019 \u2013 Facebook reactions and the sharing of political posts during Scandinavian elections by Bente Kalsnes, Anders Olof Larsson",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Kalsnes2025-zb.mp3",
+      "audio_size": 4257285,
+      "duration": 415,
+      "pub_date": "2025-12-31T11:37:03.247235+00:00",
+      "authors": [
+        "Bente Kalsnes",
+        "Anders Olof Larsson"
+      ]
+    },
+    {
+      "id": "bibtex:Iannucci2025-eg",
+      "title": "Research Radio: Detecting coordinated activities through temporal, multiplex, and collaborative analysis",
+      "description": "AI-generated podcast discussion of the paper: Detecting coordinated activities through temporal, multiplex, and collaborative analysis by Letizia Iannucci, Elisa Muratore, Antonis Matakos, Mikko Kivel\u00e4",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Iannucci2025-eg.mp3",
+      "audio_size": 4478853,
+      "duration": 434,
+      "pub_date": "2025-12-31T11:40:07.694947+00:00",
+      "authors": [
+        "Letizia Iannucci",
+        "Elisa Muratore",
+        "Antonis Matakos",
+        "Mikko Kivel\u00e4"
+      ]
+    },
+    {
+      "id": "bibtex:Song2025-yh",
+      "title": "Research Radio: The spread of pro- and anti-vaccine views by coordinated communities on facebook during COVID-19 pandemic",
+      "description": "AI-generated podcast discussion of the paper: The spread of pro- and anti-vaccine views by coordinated communities on facebook during COVID-19 pandemic by Yunya Song, Yin Zhang, Sheng Zou, Xian Yang, Qintao Huang",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Song2025-yh.mp3",
+      "audio_size": 3617397,
+      "duration": 358,
+      "pub_date": "2025-11-15T00:00:00+00:00",
+      "authors": [
+        "Yunya Song",
+        "Yin Zhang",
+        "Sheng Zou",
+        "Xian Yang",
+        "Qintao Huang"
+      ]
+    },
+    {
+      "id": "bibtex:Triedman2025-uy",
+      "title": "Research Radio: What did Elon change? A comprehensive analysis of Grokipedia",
+      "description": "AI-generated podcast discussion of the paper: What did Elon change? A comprehensive analysis of Grokipedia by Harold Triedman, Alexios Mantzarlis",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Triedman2025-uy.mp3",
+      "audio_size": 5124765,
+      "duration": 468,
+      "pub_date": "2025-11-12T00:00:00+00:00",
+      "authors": [
+        "Harold Triedman",
+        "Alexios Mantzarlis"
+      ]
+    },
+    {
+      "id": "bibtex:Allen2025-ot",
+      "title": "Research Radio: Platform-independent experiments on social media",
+      "description": "AI-generated podcast discussion of the paper: Platform-independent experiments on social media by Jennifer Allen, Joshua A. Tucker",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Allen2025-ot.mp3",
+      "audio_size": 4067805,
+      "duration": 388,
+      "pub_date": "2025-12-31T11:42:26.538440+00:00",
+      "authors": [
+        "Jennifer Allen",
+        "Joshua A. Tucker"
+      ]
+    },
+    {
+      "id": "bibtex:Lin2025-xp",
+      "title": "Research Radio: Persuading voters using human\u2013artificial intelligence dialogues",
+      "description": "AI-generated podcast discussion of the paper: Persuading voters using human\u2013artificial intelligence dialogues by Hause Lin, Gabriela Czarnek, Benjamin Lewis, Joshua P. White, Adam J. Berinsky, Thomas Costello, Gordon Pennycook, David G. Rand",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Lin2025-xp.mp3",
+      "audio_size": 3577509,
+      "duration": 351,
+      "pub_date": "2025-12-31T11:34:06.335920+00:00",
+      "authors": [
+        "Hause Lin",
+        "Gabriela Czarnek",
+        "Benjamin Lewis",
+        "Joshua P. White",
+        "Adam J. Berinsky",
+        "Thomas Costello",
+        "Gordon Pennycook",
+        "David G. Rand"
+      ]
+    },
+    {
+      "id": "bibtex:Thiele2025-ol",
+      "title": "Research Radio: Attributing coordinated social media manipulation: A theoretical model and typology",
+      "description": "AI-generated podcast discussion of the paper: Attributing coordinated social media manipulation: A theoretical model and typology by Daniel Thiele, Miriam Milzner, Annett Heft, Baoning Gong, Barbara Pfetsch",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Thiele2025-ol.mp3",
+      "audio_size": 3885909,
+      "duration": 380,
+      "pub_date": "2025-12-31T11:44:40.815047+00:00",
+      "authors": [
+        "Daniel Thiele",
+        "Miriam Milzner",
+        "Annett Heft",
+        "Baoning Gong",
+        "Barbara Pfetsch"
+      ]
+    },
+    {
+      "id": "bibtex:Marwick2025-vx",
+      "title": "Research Radio: True costs of misinformation| mountains of evidence: Processual \u201credpilling\u201d as a Socio-technical effect of disinformation",
+      "description": "AI-generated podcast discussion of the paper: True costs of misinformation| mountains of evidence: Processual \u201credpilling\u201d as a Socio-technical effect of disinformation by Marwick, Alice E, Furl, Katherine",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Marwick2025-vx.mp3",
+      "audio_size": 3818013,
+      "duration": 370,
+      "pub_date": "2025-12-31T11:47:41.177847+00:00",
+      "authors": [
+        "Marwick, Alice E",
+        "Furl, Katherine"
+      ]
+    },
+    {
+      "id": "bibtex:Freelon2024-sc",
+      "title": "Research Radio: The post-API age of social media data access: Past, present, and future",
+      "description": "AI-generated podcast discussion of the paper: The post-API age of social media data access: Past, present, and future by Deen Freelon, Cristina Monzer, Gayoung Jeon, Cameron Moy, Natasha Williams",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Freelon2024-sc.mp3",
+      "audio_size": 4171461,
+      "duration": 404,
+      "pub_date": "2025-12-31T11:50:35.301127+00:00",
+      "authors": [
+        "Deen Freelon",
+        "Cristina Monzer",
+        "Gayoung Jeon",
+        "Cameron Moy",
+        "Natasha Williams"
+      ]
+    }
+  ]
+}
