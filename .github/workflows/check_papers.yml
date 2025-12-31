@@ -48,7 +48,7 @@ jobs:
           GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
         run: |
           mkdir -p credentials
-          echo "$GCP_SA_KEY" > credentials/service-account.json
+          printf '%s' "$GCP_SA_KEY" > credentials/service-account.json
 
       - name: Run podcast generator
         env:
