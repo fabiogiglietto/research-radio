@@ -1,0 +1,65 @@
+name: Generate Podcast Episodes
+
+on:
+  # Run every hour
+  schedule:
+    - cron: '0 * * * *'
+
+  # Allow manual trigger
+  workflow_dispatch:
+
+  # Run on push to main for testing
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/**'
+      - 'config.py'
+      - 'requirements.txt'
+      - '.github/workflows/**'
+
+jobs:
+  generate-podcasts:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write  # For GitHub Releases
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install ffmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Set up Google credentials
+        run: |
+          mkdir -p credentials
+          echo '${{ secrets.GCP_SA_KEY }}' > credentials/service-account.json
+
+      - name: Run podcast generator
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GOOGLE_APPLICATION_CREDENTIALS: credentials/service-account.json
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPO: ${{ github.repository }}
+        run: python src/main.py
+
+      - name: Commit updated data files
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add data/*.json docs/feed.xml
+          git diff --staged --quiet || git commit -m "Update podcast data [skip ci]"
+          git push
