@@ -88,7 +88,7 @@ class DriveClient:
             query = f"'{self.folder_id}' in parents and mimeType='application/pdf'"
             results = self.service.files().list(
                 q=query,
-                fields="nextPageToken, files(id, name, size)",
+                fields="nextPageToken, files(id, name, size, modifiedTime)",
                 pageSize=1000,
                 pageToken=page_token
             ).execute()

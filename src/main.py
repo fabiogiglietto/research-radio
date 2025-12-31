@@ -9,7 +9,7 @@ Converts academic papers into podcast episodes using:
 
 import os
 import sys
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 
 # Add parent directory to path for imports
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -115,15 +115,20 @@ def process_paper(
     return True
 
 
-def get_papers_from_drive(drive_client: DriveClient, processed_file: str) -> list[Paper]:
+def get_papers_from_drive(drive_client: DriveClient, processed_file: str, max_age_days: int = 30) -> list[Paper]:
     """
     Get papers from the feed that have matching PDFs in Drive.
 
-    Returns only unprocessed papers that have a PDF in the Drive folder.
+    Returns only unprocessed papers that have a PDF in the Drive folder
+    that was modified within the last max_age_days.
     """
     feed_data = fetch_feed(FEED_URL)
     all_papers = parse_papers(feed_data)
     processed_ids = load_processed_ids(processed_file)
+
+    # Calculate cutoff date for recent PDFs
+    cutoff_date = datetime.now(timezone.utc) - timedelta(days=max_age_days)
+    cutoff_str = cutoff_date.strftime('%Y-%m-%d')
 
     papers_with_pdfs = []
     for paper in all_papers:
@@ -133,7 +138,10 @@ def get_papers_from_drive(drive_client: DriveClient, processed_file: str) -> lis
         # Check if PDF exists in Drive
         pdf_info = drive_client.find_pdf(paper)
         if pdf_info:
-            papers_with_pdfs.append(paper)
+            # Check if PDF was modified recently
+            modified_time = pdf_info.get('modifiedTime', '')
+            if modified_time >= cutoff_str:
+                papers_with_pdfs.append(paper)
 
     return papers_with_pdfs
 
@@ -164,11 +172,12 @@ def main():
     )
     audio_generator = GeminiAudioGenerator(api_key=GEMINI_API_KEY)
 
-    # Get new papers with PDFs in Drive
+    # Get new papers with PDFs in Drive (only from last 30 days)
     print(f"\nFetching feed from: {FEED_URL}")
     print(f"Checking Drive folder: {GOOGLE_DRIVE_FOLDER_ID}")
+    print(f"Only processing PDFs modified in the last 30 days")
 
-    papers = get_papers_from_drive(drive_client, PROCESSED_FILE)
+    papers = get_papers_from_drive(drive_client, PROCESSED_FILE, max_age_days=30)
 
     if not papers:
         print("\nNo new papers with matching PDFs found.")
