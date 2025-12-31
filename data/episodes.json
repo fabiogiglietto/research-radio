@@ -29,11 +29,11 @@
     {
       "id": "bibtex:Iannucci2025-eg",
       "title": "FG's Research Radio: Detecting coordinated activities through temporal, multiplex, and collaborative analysis",
-      "description": "AI-generated podcast discussion on Iannucci, L., Muratore, E., Matakos, A., & Kivel\u00e4, M. (2025). Detecting coordinated activities through temporal, multiplex, and collaborative analysis. http://arxiv.org/abs/2512.19677v1",
+      "description": "AI-generated podcast discussion.\n\nReference:\nIannucci, L., Muratore, E., Matakos, A., & Kivel\u00e4, M. (2025). Detecting coordinated activities through temporal, multiplex, and collaborative analysis. http://arxiv.org/abs/2512.19677v1",
       "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Iannucci2025-eg.mp3",
-      "audio_size": 4478853,
-      "duration": 434,
-      "pub_date": "2025-12-31T11:40:07.694947+00:00",
+      "audio_size": 3682821,
+      "duration": 352,
+      "pub_date": "2025-12-22T00:00:00+00:00",
       "authors": [
         "Letizia Iannucci",
         "Elisa Muratore",
