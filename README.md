@@ -8,6 +8,11 @@ This repository contains the **code** for generating AI-powered podcast discussi
 
 **Note:** "FG's Research Radio" is a podcast produced using this code, focusing on computational social science, platform studies, and misinformation research. If you use this code to create your own podcast, please choose a different name and branding for your show.
 
+## Listen to FG's Research Radio
+
+- [Spotify](https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX)
+- [RSS Feed](https://fabiogiglietto.github.io/research-radio/feed.xml)
+
 ## Features
 
 - Fetches papers from a JSON feed (e.g., from a reference manager)
