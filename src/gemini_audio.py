@@ -58,6 +58,7 @@ Guidelines:
 - Have both hosts share insights and build on each other's points
 - Discuss implications and significance for the field
 - End with takeaways for the audience
+- At the very end, the host should remind listeners that if they want to read the full paper, they can find the complete reference in the episode description, and encourage them to subscribe on Spotify and Apple Podcasts
 - Use natural, conversational language
 - Target length: 8-12 minutes of dialogue (roughly 1200-1800 words)
 - Format each line exactly as "Host: [dialogue]" or "Cohost: [dialogue]"
