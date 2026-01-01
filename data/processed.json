@@ -1,16 +1,17 @@
 {
   "processed_papers": [
-    "bibtex:Freelon2024-sc",
-    "bibtex:FitzGerald2025-nv",
-    "bibtex:Allen2025-ot",
-    "bibtex:Marwick2025-vx",
-    "bibtex:Bastos2025-ya",
-    "bibtex:Lin2025-xp",
+    "bibtex:Gerard2025-br",
+    "bibtex:Kalsnes2025-zb",
     "bibtex:Costello2024-kp",
-    "bibtex:Cabbuag2024-me",
+    "bibtex:Allen2025-ot",
     "bibtex:Iannucci2025-eg",
     "bibtex:Rodriguez_Farres2025-sg",
+    "bibtex:Bastos2025-ya",
+    "bibtex:Cabbuag2024-me",
+    "bibtex:Lin2025-xp",
+    "bibtex:FitzGerald2025-nv",
     "bibtex:Thiele2025-ol",
-    "bibtex:Kalsnes2025-zb"
+    "bibtex:Freelon2024-sc",
+    "bibtex:Marwick2025-vx"
   ]
 }
