@@ -213,21 +213,6 @@
         "Pennycook, Gordon",
         "Rand, David G"
       ]
-    },
-    {
-      "id": "bibtex:Gerard2025-br",
-      "title": "FG's Research Radio: Bridging the narrative divide: Cross-platform discourse networks in fragmented ecosystems",
-      "description": "AI-generated podcast discussion.\n\nReference:\nPatrick, G., A, H. H. W., Luca, L., & Emilio, F. (2025). Bridging the narrative divide: Cross-platform discourse networks in fragmented ecosystems. https://scholar.google.com/scholar?q=Bridging%20the%20narrative%20divide%3A%20Cross-platform%20discourse%20networks%20in%20fragmented%20ecosystems",
-      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Gerard2025-br.mp3",
-      "audio_size": 4324509,
-      "duration": 428,
-      "pub_date": "2025-05-15T00:00:00+00:00",
-      "authors": [
-        "Gerard, Patrick",
-        "Hanley, Hans W A",
-        "Luceri, Luca",
-        "Ferrara, Emilio"
-      ]
     }
   ]
 }
