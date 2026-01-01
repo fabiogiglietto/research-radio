@@ -146,6 +146,73 @@
         "Cameron Moy",
         "Natasha Williams"
       ]
+    },
+    {
+      "id": "bibtex:FitzGerald2025-nv",
+      "title": "FG's Research Radio: The persistence of informational manipulation and the appropriation of emerging events",
+      "description": "AI-generated podcast discussion.\n\nReference:\nM, F. K., Daniel, W., & Timothy, G. (2025). The persistence of informational manipulation and the appropriation of emerging events. https://scholar.google.com/scholar?q=The%20persistence%20of%20informational%20manipulation%20and%20the%20appropriation%20of%20emerging%20events",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/FitzGerald2025-nv.mp3",
+      "audio_size": 1260837,
+      "duration": 123,
+      "pub_date": "2025-11-15T00:00:00+00:00",
+      "authors": [
+        "FitzGerald, Katherine M",
+        "Whelan-Shamy, Daniel",
+        "Graham, Timothy"
+      ]
+    },
+    {
+      "id": "bibtex:Rodriguez_Farres2025-sg",
+      "title": "FG's Research Radio: Real time detection of coordinated bots on Bluesky",
+      "description": "AI-generated podcast discussion.\n\nReference:\nPol, R. F., Athina, M., & Jesus, C. (2025). Real time detection of coordinated bots on Bluesky. https://scholar.google.com/scholar?q=Real%20time%20detection%20of%20coordinated%20bots%20on%20Bluesky",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Rodriguez_Farres2025-sg.mp3",
+      "audio_size": 4138677,
+      "duration": 398,
+      "pub_date": "2025-09-15T00:00:00+00:00",
+      "authors": [
+        "Rodr\u00edguez Farr\u00e9s, Pol",
+        "Masali, Athina",
+        "Cerquides, Jesus"
+      ]
+    },
+    {
+      "id": "bibtex:Bastos2025-ya",
+      "title": "FG's Research Radio: So long twitter, and thanks for all the tweets",
+      "description": "AI-generated podcast discussion.\n\nReference:\nT, B. M. (2025). So long twitter, and thanks for all the tweets. https://scholar.google.com/scholar?q=So%20long%20twitter%2C%20and%20thanks%20for%20all%20the%20tweets",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Bastos2025-ya.mp3",
+      "audio_size": 1573485,
+      "duration": 152,
+      "pub_date": "2025-04-15T00:00:00+00:00",
+      "authors": [
+        "Bastos, Marco T"
+      ]
+    },
+    {
+      "id": "bibtex:Cabbuag2024-me",
+      "title": "FG's Research Radio: TikTok \u2018dogshows\u2019 and the amplification of online incivility among Gen Z influencers in the Philippines",
+      "description": "AI-generated podcast discussion.\n\nReference:\nI, C. S. & Crystal, A. (2024). TikTok \u2018dogshows\u2019 and the amplification of online incivility among Gen Z influencers in the Philippines. https://scholar.google.com/scholar?q=TikTok%20%E2%80%98dogshows%E2%80%99%20and%20the%20amplification%20of%20online%20incivility%20among%20Gen%20Z%20influencers%20in%20the%20Philippines",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Cabbuag2024-me.mp3",
+      "audio_size": 3698709,
+      "duration": 350,
+      "pub_date": "2024-12-15T00:00:00+00:00",
+      "authors": [
+        "Cabbuag, Samuel I",
+        "Abidin, Crystal"
+      ]
+    },
+    {
+      "id": "bibtex:Costello2024-kp",
+      "title": "FG's Research Radio: Durably reducing conspiracy beliefs through dialogues with AI",
+      "description": "AI-generated podcast discussion.\n\nReference:\nH, C. T., Gordon, P., & G, R. D. (2024). Durably reducing conspiracy beliefs through dialogues with AI. https://scholar.google.com/scholar?q=Durably%20reducing%20conspiracy%20beliefs%20through%20dialogues%20with%20AI",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Costello2024-kp.mp3",
+      "audio_size": 4427133,
+      "duration": 425,
+      "pub_date": "2024-09-15T00:00:00+00:00",
+      "authors": [
+        "Costello, Thomas H",
+        "Pennycook, Gordon",
+        "Rand, David G"
+      ]
     }
   ]
 }
