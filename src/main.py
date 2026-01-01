@@ -90,13 +90,8 @@ def process_paper(
     if not upload_success:
         print("  Warning: Failed to upload. Episode will be added but audio URL may not work.")
 
-    # Create and save episode
-    pub_date = datetime.now()
-    if paper.date_published:
-        try:
-            pub_date = datetime.fromisoformat(paper.date_published.replace('Z', '+00:00'))
-        except ValueError:
-            pass
+    # Create and save episode - use current date (when episode is created)
+    pub_date = datetime.now(timezone.utc)
 
     # Extract year from date_published
     paper_year = None
