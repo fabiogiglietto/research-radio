@@ -213,6 +213,36 @@
         "Pennycook, Gordon",
         "Rand, David G"
       ]
+    },
+    {
+      "id": "bibtex:Efstratiou2025-gs",
+      "title": "FG's Research Radio: Rabble-rousers in the new king&#x27;s court: Algorithmic effects on account visibility in pre-X twitter",
+      "description": "AI-generated podcast discussion.\n\nReference:\nEfstratiou, A., Duskin, K., Starbird, K., & Spiro, E. S. (2025). Rabble-rousers in the new king&#x27;s court: Algorithmic effects on account visibility in pre-X twitter. https://arxiv.org/abs/2512.06129",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Efstratiou2025-gs.mp3",
+      "audio_size": 3098637,
+      "duration": 304,
+      "pub_date": "2026-01-01T16:37:06.708475+00:00",
+      "authors": [
+        "Alexandros Efstratiou",
+        "Kayla Duskin",
+        "Kate Starbird",
+        "Emma S. Spiro"
+      ]
+    },
+    {
+      "id": "bibtex:Gerard2025-br",
+      "title": "FG's Research Radio: Bridging the narrative divide: Cross-platform discourse networks in fragmented ecosystems",
+      "description": "AI-generated podcast discussion.\n\nReference:\nGerard, P., Hanley, H. W. A., Luceri, L., & Ferrara, E. (2025). Bridging the narrative divide: Cross-platform discourse networks in fragmented ecosystems. http://arxiv.org/abs/2505.21729v1",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Gerard2025-br.mp3",
+      "audio_size": 1413885,
+      "duration": 141,
+      "pub_date": "2026-01-01T16:38:14.115218+00:00",
+      "authors": [
+        "Patrick Gerard",
+        "Hans W. A. Hanley",
+        "Luca Luceri",
+        "Emilio Ferrara"
+      ]
     }
   ]
 }
