@@ -42,3 +42,4 @@ Thumbs.db
 *.json
 !data/processed.json
 !data/episodes.json
+!docs/episodes.json

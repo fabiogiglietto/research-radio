@@ -1,0 +1,218 @@
+{
+  "episodes": [
+    {
+      "id": "bibtex:Matias2025-px",
+      "title": "FG's Research Radio: How public involvement can improve the science of AI",
+      "description": "AI-generated podcast discussion on Matias, J. N. & Price, M. (2025). How public involvement can improve the science of AI. Proceedings of the National Academy of Sciences, 122, e2421111122. https://doi.org/10.1073/pnas.2421111122",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Matias2025-px.mp3",
+      "audio_size": 4237485,
+      "duration": 400,
+      "pub_date": "2025-12-02T00:00:00+00:00",
+      "authors": [
+        "J. Nathan Matias",
+        "Megan Price"
+      ]
+    },
+    {
+      "id": "bibtex:Kalsnes2025-zb",
+      "title": "FG's Research Radio: \u2018More than a feeling\u2019 \u2013 Facebook reactions and the sharing of political posts during Scandinavian elections",
+      "description": "AI-generated podcast discussion.\n\nReference:\nKalsnes, B. & Larsson, A. O. (2025). \u2018More than a feeling\u2019 \u2013 Facebook reactions and the sharing of political posts during Scandinavian elections. https://doi.org/10.1080/1369118x.2025.2595670",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Kalsnes2025-zb.mp3",
+      "audio_size": 3684045,
+      "duration": 356,
+      "pub_date": "2025-12-05T00:00:00+00:00",
+      "authors": [
+        "Bente Kalsnes",
+        "Anders Olof Larsson"
+      ]
+    },
+    {
+      "id": "bibtex:Iannucci2025-eg",
+      "title": "FG's Research Radio: Detecting coordinated activities through temporal, multiplex, and collaborative analysis",
+      "description": "AI-generated podcast discussion.\n\nReference:\nIannucci, L., Muratore, E., Matakos, A., & Kivel\u00e4, M. (2025). Detecting coordinated activities through temporal, multiplex, and collaborative analysis. http://arxiv.org/abs/2512.19677v1",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Iannucci2025-eg.mp3",
+      "audio_size": 3682821,
+      "duration": 352,
+      "pub_date": "2025-12-22T00:00:00+00:00",
+      "authors": [
+        "Letizia Iannucci",
+        "Elisa Muratore",
+        "Antonis Matakos",
+        "Mikko Kivel\u00e4"
+      ]
+    },
+    {
+      "id": "bibtex:Song2025-yh",
+      "title": "FG's Research Radio: The spread of pro- and anti-vaccine views by coordinated communities on facebook during COVID-19 pandemic",
+      "description": "AI-generated podcast discussion on Song, Y., Zhang, Y., Zou, S., Yang, X., & Huang, Q. (2025). The spread of pro- and anti-vaccine views by coordinated communities on facebook during COVID-19 pandemic. Springer Science and Business Media LLC, 8. https://doi.org/10.1007/s42001-025-00401-y",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Song2025-yh.mp3",
+      "audio_size": 3617397,
+      "duration": 358,
+      "pub_date": "2025-11-15T00:00:00+00:00",
+      "authors": [
+        "Yunya Song",
+        "Yin Zhang",
+        "Sheng Zou",
+        "Xian Yang",
+        "Qintao Huang"
+      ]
+    },
+    {
+      "id": "bibtex:Triedman2025-uy",
+      "title": "FG's Research Radio: What did Elon change? A comprehensive analysis of Grokipedia",
+      "description": "AI-generated podcast discussion on Triedman, H. & Mantzarlis, A. (2025). What did Elon change? A comprehensive analysis of Grokipedia. http://arxiv.org/abs/2511.09685v1",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Triedman2025-uy.mp3",
+      "audio_size": 5124765,
+      "duration": 468,
+      "pub_date": "2025-11-12T00:00:00+00:00",
+      "authors": [
+        "Harold Triedman",
+        "Alexios Mantzarlis"
+      ]
+    },
+    {
+      "id": "bibtex:Allen2025-ot",
+      "title": "FG's Research Radio: Platform-independent experiments on social media",
+      "description": "AI-generated podcast discussion.\n\nReference:\nAllen, J. & Tucker, J. A. (2025). Platform-independent experiments on social media. https://doi.org/10.1126/science.aec7388",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Allen2025-ot.mp3",
+      "audio_size": 3993309,
+      "duration": 386,
+      "pub_date": "2025-11-27T00:00:00+00:00",
+      "authors": [
+        "Jennifer Allen",
+        "Joshua A. Tucker"
+      ]
+    },
+    {
+      "id": "bibtex:Lin2025-xp",
+      "title": "FG's Research Radio: Persuading voters using human\u2013artificial intelligence dialogues",
+      "description": "AI-generated podcast discussion.\n\nReference:\nLin, H., Czarnek, G., Lewis, B., White, J. P., Berinsky, A. J., Costello, T., Pennycook, G., & Rand, D. G. (2025). Persuading voters using human\u2013artificial intelligence dialogues. https://doi.org/10.1038/s41586-025-09771-9",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Lin2025-xp.mp3",
+      "audio_size": 3567213,
+      "duration": 359,
+      "pub_date": "2025-12-11T00:00:00+00:00",
+      "authors": [
+        "Hause Lin",
+        "Gabriela Czarnek",
+        "Benjamin Lewis",
+        "Joshua P. White",
+        "Adam J. Berinsky",
+        "Thomas Costello",
+        "Gordon Pennycook",
+        "David G. Rand"
+      ]
+    },
+    {
+      "id": "bibtex:Thiele2025-ol",
+      "title": "FG's Research Radio: Attributing coordinated social media manipulation: A theoretical model and typology",
+      "description": "AI-generated podcast discussion.\n\nReference:\nThiele, D., Milzner, M., Heft, A., Gong, B., & Pfetsch, B. (2025). Attributing coordinated social media manipulation: A theoretical model and typology. https://doi.org/10.1177/14614448251350100",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Thiele2025-ol.mp3",
+      "audio_size": 4319109,
+      "duration": 423,
+      "pub_date": "2025-07-29T00:00:00+00:00",
+      "authors": [
+        "Daniel Thiele",
+        "Miriam Milzner",
+        "Annett Heft",
+        "Baoning Gong",
+        "Barbara Pfetsch"
+      ]
+    },
+    {
+      "id": "bibtex:Marwick2025-vx",
+      "title": "FG's Research Radio: True costs of misinformation| mountains of evidence: Processual \u201credpilling\u201d as a Socio-technical effect of disinformation",
+      "description": "AI-generated podcast discussion.\n\nReference:\nE, M. A. & Katherine, F. (2025). True costs of misinformation| mountains of evidence: Processual \u201credpilling\u201d as a Socio-technical effect of disinformation. https://scholar.google.com/scholar?q=True%20costs%20of%20misinformation%7C%20mountains%20of%20evidence%3A%20Processual%20%E2%80%9Credpilling%E2%80%9D%20as%20a%20Socio-technical%20effect%20of%20disinformation",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Marwick2025-vx.mp3",
+      "audio_size": 3969453,
+      "duration": 394,
+      "pub_date": "2025-06-15T00:00:00+00:00",
+      "authors": [
+        "Marwick, Alice E",
+        "Furl, Katherine"
+      ]
+    },
+    {
+      "id": "bibtex:Freelon2024-sc",
+      "title": "FG's Research Radio: The post-API age of social media data access: Past, present, and future",
+      "description": "AI-generated podcast discussion.\n\nReference:\nFreelon, D., Monzer, C., Jeon, G., Moy, C., & Williams, N. (2024). The post-API age of social media data access: Past, present, and future. https://doi.org/10.1177/00027162251372557",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Freelon2024-sc.mp3",
+      "audio_size": 4463013,
+      "duration": 429,
+      "pub_date": "2024-09-15T00:00:00+00:00",
+      "authors": [
+        "Deen Freelon",
+        "Cristina Monzer",
+        "Gayoung Jeon",
+        "Cameron Moy",
+        "Natasha Williams"
+      ]
+    },
+    {
+      "id": "bibtex:FitzGerald2025-nv",
+      "title": "FG's Research Radio: The persistence of informational manipulation and the appropriation of emerging events",
+      "description": "AI-generated podcast discussion.\n\nReference:\nM, F. K., Daniel, W., & Timothy, G. (2025). The persistence of informational manipulation and the appropriation of emerging events. https://scholar.google.com/scholar?q=The%20persistence%20of%20informational%20manipulation%20and%20the%20appropriation%20of%20emerging%20events",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/FitzGerald2025-nv.mp3",
+      "audio_size": 1260837,
+      "duration": 123,
+      "pub_date": "2025-11-15T00:00:00+00:00",
+      "authors": [
+        "FitzGerald, Katherine M",
+        "Whelan-Shamy, Daniel",
+        "Graham, Timothy"
+      ]
+    },
+    {
+      "id": "bibtex:Rodriguez_Farres2025-sg",
+      "title": "FG's Research Radio: Real time detection of coordinated bots on Bluesky",
+      "description": "AI-generated podcast discussion.\n\nReference:\nPol, R. F., Athina, M., & Jesus, C. (2025). Real time detection of coordinated bots on Bluesky. https://scholar.google.com/scholar?q=Real%20time%20detection%20of%20coordinated%20bots%20on%20Bluesky",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Rodriguez_Farres2025-sg.mp3",
+      "audio_size": 4138677,
+      "duration": 398,
+      "pub_date": "2025-09-15T00:00:00+00:00",
+      "authors": [
+        "Rodr\u00edguez Farr\u00e9s, Pol",
+        "Masali, Athina",
+        "Cerquides, Jesus"
+      ]
+    },
+    {
+      "id": "bibtex:Bastos2025-ya",
+      "title": "FG's Research Radio: So long twitter, and thanks for all the tweets",
+      "description": "AI-generated podcast discussion.\n\nReference:\nT, B. M. (2025). So long twitter, and thanks for all the tweets. https://scholar.google.com/scholar?q=So%20long%20twitter%2C%20and%20thanks%20for%20all%20the%20tweets",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Bastos2025-ya.mp3",
+      "audio_size": 1573485,
+      "duration": 152,
+      "pub_date": "2025-04-15T00:00:00+00:00",
+      "authors": [
+        "Bastos, Marco T"
+      ]
+    },
+    {
+      "id": "bibtex:Cabbuag2024-me",
+      "title": "FG's Research Radio: TikTok \u2018dogshows\u2019 and the amplification of online incivility among Gen Z influencers in the Philippines",
+      "description": "AI-generated podcast discussion.\n\nReference:\nI, C. S. & Crystal, A. (2024). TikTok \u2018dogshows\u2019 and the amplification of online incivility among Gen Z influencers in the Philippines. https://scholar.google.com/scholar?q=TikTok%20%E2%80%98dogshows%E2%80%99%20and%20the%20amplification%20of%20online%20incivility%20among%20Gen%20Z%20influencers%20in%20the%20Philippines",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Cabbuag2024-me.mp3",
+      "audio_size": 3698709,
+      "duration": 350,
+      "pub_date": "2024-12-15T00:00:00+00:00",
+      "authors": [
+        "Cabbuag, Samuel I",
+        "Abidin, Crystal"
+      ]
+    },
+    {
+      "id": "bibtex:Costello2024-kp",
+      "title": "FG's Research Radio: Durably reducing conspiracy beliefs through dialogues with AI",
+      "description": "AI-generated podcast discussion.\n\nReference:\nH, C. T., Gordon, P., & G, R. D. (2024). Durably reducing conspiracy beliefs through dialogues with AI. https://scholar.google.com/scholar?q=Durably%20reducing%20conspiracy%20beliefs%20through%20dialogues%20with%20AI",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Costello2024-kp.mp3",
+      "audio_size": 4427133,
+      "duration": 425,
+      "pub_date": "2024-09-15T00:00:00+00:00",
+      "authors": [
+        "Costello, Thomas H",
+        "Pennycook, Gordon",
+        "Rand, David G"
+      ]
+    }
+  ]
+}

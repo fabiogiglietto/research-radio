@@ -113,6 +113,24 @@
             font-size: 0.875rem;
             color: #888;
         }
+        .episode-description {
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 0.75rem;
+            line-height: 1.5;
+            white-space: pre-line;
+        }
+        .episode-link {
+            display: inline-block;
+            margin-top: 0.75rem;
+            color: #1DB954;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        .episode-link:hover {
+            text-decoration: underline;
+        }
         footer {
             text-align: center;
             padding: 2rem 0;
@@ -160,28 +178,77 @@
         </section>
 
         <section class="episodes">
-            <h2>Recent Episodes</h2>
-            <div class="episode">
-                <h3>Persuading voters using human-artificial intelligence dialogues</h3>
-                <p class="episode-meta">Lin et al. (2025) &bull; 5:51</p>
-            </div>
-            <div class="episode">
-                <h3>'More than a feeling' - Facebook reactions and the sharing of political posts during Scandinavian elections</h3>
-                <p class="episode-meta">Kalsnes & Larsson (2025) &bull; 6:55</p>
-            </div>
-            <div class="episode">
-                <h3>Detecting coordinated activities through temporal, multiplex, and collaborative analysis</h3>
-                <p class="episode-meta">Iannucci et al. (2025) &bull; 7:14</p>
-            </div>
-            <div class="episode">
-                <h3>Platform-independent experiments on social media</h3>
-                <p class="episode-meta">Allen & Tucker (2025) &bull; 6:28</p>
-            </div>
-            <div class="episode">
-                <h3>Attributing coordinated social media manipulation: A theoretical model and typology</h3>
-                <p class="episode-meta">Thiele et al. (2025) &bull; 6:20</p>
+            <h2>Episodes</h2>
+            <div id="episodes-container">
+                <p>Loading episodes...</p>
             </div>
         </section>
+
+        <script>
+            function formatDuration(seconds) {
+                const mins = Math.floor(seconds / 60);
+                const secs = seconds % 60;
+                return `${mins}:${secs.toString().padStart(2, '0')}`;
+            }
+
+            function formatAuthors(authors) {
+                if (!authors || authors.length === 0) return '';
+                if (authors.length === 1) {
+                    const name = authors[0];
+                    const lastName = name.includes(',') ? name.split(',')[0] : name.split(' ').pop();
+                    return lastName;
+                }
+                if (authors.length === 2) {
+                    const name1 = authors[0];
+                    const name2 = authors[1];
+                    const last1 = name1.includes(',') ? name1.split(',')[0] : name1.split(' ').pop();
+                    const last2 = name2.includes(',') ? name2.split(',')[0] : name2.split(' ').pop();
+                    return `${last1} & ${last2}`;
+                }
+                const name = authors[0];
+                const lastName = name.includes(',') ? name.split(',')[0] : name.split(' ').pop();
+                return `${lastName} et al.`;
+            }
+
+            function getYear(pubDate) {
+                return new Date(pubDate).getFullYear();
+            }
+
+            async function loadEpisodes() {
+                try {
+                    const response = await fetch('episodes.json');
+                    const data = await response.json();
+                    const container = document.getElementById('episodes-container');
+
+                    // Sort episodes by publication date (newest first)
+                    const episodes = data.episodes.sort((a, b) =>
+                        new Date(b.pub_date) - new Date(a.pub_date)
+                    );
+
+                    container.innerHTML = episodes.map(episode => {
+                        const title = episode.title.replace("FG's Research Radio: ", '');
+                        const authorStr = formatAuthors(episode.authors);
+                        const year = getYear(episode.pub_date);
+                        const duration = formatDuration(episode.duration);
+
+                        return `
+                            <div class="episode">
+                                <h3>${title}</h3>
+                                <p class="episode-meta">${authorStr} (${year}) &bull; ${duration}</p>
+                                <p class="episode-description">${episode.description}</p>
+                                <a href="${episode.audio_url}" class="episode-link">▶ Listen to episode</a>
+                            </div>
+                        `;
+                    }).join('');
+                } catch (error) {
+                    console.error('Error loading episodes:', error);
+                    document.getElementById('episodes-container').innerHTML =
+                        '<p>Error loading episodes. Please try refreshing the page.</p>';
+                }
+            }
+
+            loadEpisodes();
+        </script>
 
         <footer>
             <p>Created by <a href="https://github.com/fabiogiglietto">Fabio Giglietto</a> &bull; <a href="https://github.com/fabiogiglietto/research-radio">Source Code</a></p>
