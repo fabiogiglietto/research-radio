@@ -131,6 +131,13 @@
         .episode-link:hover {
             text-decoration: underline;
         }
+        .paper-link {
+            color: #0066cc;
+            word-break: break-all;
+        }
+        .paper-link:hover {
+            text-decoration: underline;
+        }
         footer {
             text-align: center;
             padding: 2rem 0;
@@ -214,6 +221,18 @@
                 return new Date(pubDate).getFullYear();
             }
 
+            function linkifyUrls(text) {
+                // Convert URLs to clickable links
+                const urlRegex = /(https?:\/\/[^\s]+)/g;
+                return text.replace(urlRegex, '<a href="$1" target="_blank" rel="noopener" class="paper-link">$1</a>');
+            }
+
+            function escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+
             async function loadEpisodes() {
                 try {
                     const response = await fetch('episodes.json');
@@ -230,12 +249,14 @@
                         const authorStr = formatAuthors(episode.authors);
                         const year = getYear(episode.pub_date);
                         const duration = formatDuration(episode.duration);
+                        // Escape HTML first, then linkify URLs
+                        const descriptionHtml = linkifyUrls(escapeHtml(episode.description));
 
                         return `
                             <div class="episode">
-                                <h3>${title}</h3>
-                                <p class="episode-meta">${authorStr} (${year}) &bull; ${duration}</p>
-                                <p class="episode-description">${episode.description}</p>
+                                <h3>${escapeHtml(title)}</h3>
+                                <p class="episode-meta">${escapeHtml(authorStr)} (${year}) &bull; ${duration}</p>
+                                <p class="episode-description">${descriptionHtml}</p>
                                 <a href="${episode.audio_url}" class="episode-link">▶ Listen to episode</a>
                             </div>
                         `;

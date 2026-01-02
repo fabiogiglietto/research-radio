@@ -3,7 +3,7 @@
     {
       "id": "bibtex:Matias2025-px",
       "title": "FG's Research Radio: How public involvement can improve the science of AI",
-      "description": "AI-generated podcast discussion on Matias, J. N. & Price, M. (2025). How public involvement can improve the science of AI. Proceedings of the National Academy of Sciences, 122, e2421111122. https://doi.org/10.1073/pnas.2421111122",
+      "description": "AI-generated podcast discussion.\n\nReference:\nMatias, J. N. & Price, M. (2025). How public involvement can improve the science of AI. https://doi.org/10.1073/pnas.2421111122",
       "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Matias2025-px.mp3",
       "audio_size": 4237485,
       "duration": 400,
@@ -44,7 +44,7 @@
     {
       "id": "bibtex:Song2025-yh",
       "title": "FG's Research Radio: The spread of pro- and anti-vaccine views by coordinated communities on facebook during COVID-19 pandemic",
-      "description": "AI-generated podcast discussion on Song, Y., Zhang, Y., Zou, S., Yang, X., & Huang, Q. (2025). The spread of pro- and anti-vaccine views by coordinated communities on facebook during COVID-19 pandemic. Springer Science and Business Media LLC, 8. https://doi.org/10.1007/s42001-025-00401-y",
+      "description": "AI-generated podcast discussion.\n\nReference:\nSong, Y., Zhang, Y., Zou, S., Yang, X., & Huang, Q. (2025). The spread of pro- and anti-vaccine views by coordinated communities on facebook during COVID-19 pandemic. https://doi.org/10.1007/s42001-025-00401-y",
       "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Song2025-yh.mp3",
       "audio_size": 3617397,
       "duration": 358,
@@ -60,7 +60,7 @@
     {
       "id": "bibtex:Triedman2025-uy",
       "title": "FG's Research Radio: What did Elon change? A comprehensive analysis of Grokipedia",
-      "description": "AI-generated podcast discussion on Triedman, H. & Mantzarlis, A. (2025). What did Elon change? A comprehensive analysis of Grokipedia. http://arxiv.org/abs/2511.09685v1",
+      "description": "AI-generated podcast discussion.\n\nReference:\nTriedman, H. & Mantzarlis, A. (2025). What did Elon change? A comprehensive analysis of Grokipedia. http://arxiv.org/abs/2511.09685v1",
       "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Triedman2025-uy.mp3",
       "audio_size": 5124765,
       "duration": 468,
@@ -212,6 +212,36 @@
         "Costello, Thomas H",
         "Pennycook, Gordon",
         "Rand, David G"
+      ]
+    },
+    {
+      "id": "bibtex:Efstratiou2025-gs",
+      "title": "FG's Research Radio: Rabble-rousers in the new king&#x27;s court: Algorithmic effects on account visibility in pre-X twitter",
+      "description": "AI-generated podcast discussion.\n\nReference:\nEfstratiou, A., Duskin, K., Starbird, K., & Spiro, E. S. (2025). Rabble-rousers in the new king&#x27;s court: Algorithmic effects on account visibility in pre-X twitter. https://arxiv.org/abs/2512.06129",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Efstratiou2025-gs.mp3",
+      "audio_size": 3098637,
+      "duration": 304,
+      "pub_date": "2026-01-01T16:37:06.708475+00:00",
+      "authors": [
+        "Alexandros Efstratiou",
+        "Kayla Duskin",
+        "Kate Starbird",
+        "Emma S. Spiro"
+      ]
+    },
+    {
+      "id": "bibtex:Gerard2025-br",
+      "title": "FG's Research Radio: Bridging the narrative divide: Cross-platform discourse networks in fragmented ecosystems",
+      "description": "AI-generated podcast discussion.\n\nReference:\nGerard, P., Hanley, H. W. A., Luceri, L., & Ferrara, E. (2025). Bridging the narrative divide: Cross-platform discourse networks in fragmented ecosystems. http://arxiv.org/abs/2505.21729v1",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Gerard2025-br.mp3",
+      "audio_size": 1413885,
+      "duration": 141,
+      "pub_date": "2026-01-01T16:38:14.115218+00:00",
+      "authors": [
+        "Patrick Gerard",
+        "Hans W. A. Hanley",
+        "Luca Luceri",
+        "Emilio Ferrara"
       ]
     }
   ]
