@@ -13,10 +13,21 @@ This repository contains the **code** for generating AI-powered podcast discussi
 - [Spotify](https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX)
 - [RSS Feed](https://fabiogiglietto.github.io/research-radio/feed.xml)
 
+## Related Project: ToRead
+
+This project is designed to work with [ToRead](https://github.com/fabiogiglietto/toread), which converts Paperpile BibTeX exports into JSON feeds enriched with academic metadata (DOIs, citation counts, open access status).
+
+**The full pipeline:**
+1. **Paperpile** - Curate papers in your "To Read" folder
+2. **ToRead** - Automatically exports to a JSON feed with enriched metadata
+3. **Research-Radio** - Converts papers from the feed into podcast episodes
+
+You can use research-radio with any JSON feed of papers, but it's optimized for the feed format produced by ToRead.
+
 ## Features
 
-- Fetches papers from a JSON feed (e.g., from a reference manager)
-- Retrieves PDFs from Google Drive (PaperPile integration)
+- Fetches papers from a JSON feed (compatible with [ToRead](https://github.com/fabiogiglietto/toread))
+- Retrieves PDFs from Google Drive (Paperpile integration)
 - Generates natural two-host conversation scripts using Gemini AI
 - Produces multi-speaker audio with configurable voices
 - Publishes as an RSS podcast feed
