@@ -75,13 +75,16 @@ def process_paper(
     audio_generator.VOICES['host'] = TTS_HOST_VOICE
     audio_generator.VOICES['cohost'] = TTS_COHOST_VOICE
 
-    result = audio_generator.generate_podcast(paper_text, paper.title, audio_path)
-    if not result:
+    podcast_result = audio_generator.generate_podcast(paper_text, paper.title, audio_path)
+    if not podcast_result:
         print("  Failed to generate podcast. Skipping paper.")
         return False
 
-    audio_size = os.path.getsize(audio_path)
-    audio_duration = audio_generator.get_audio_duration(audio_path)
+    # Use generated episode title if available, otherwise fall back to paper title
+    episode_title = podcast_result.episode_title or paper.title
+
+    audio_size = os.path.getsize(podcast_result.audio_path)
+    audio_duration = audio_generator.get_audio_duration(podcast_result.audio_path)
     print(f"  Audio: {audio_filename} ({audio_size / 1024 / 1024:.1f}MB, {audio_duration // 60}:{audio_duration % 60:02d})")
 
     # Step 3: Upload to GitHub Release
@@ -110,7 +113,8 @@ def process_paper(
         duration=audio_duration,
         pub_date=pub_date,
         paper_url=paper.external_url or paper.url,
-        paper_year=paper_year
+        paper_year=paper_year,
+        episode_title=episode_title
     )
 
     add_episode(episode)

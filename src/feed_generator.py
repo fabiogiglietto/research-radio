@@ -203,7 +203,8 @@ def create_episode_from_paper(
     duration: int,
     pub_date: Optional[datetime] = None,
     paper_url: Optional[str] = None,
-    paper_year: Optional[str] = None
+    paper_year: Optional[str] = None,
+    episode_title: Optional[str] = None
 ) -> Episode:
     """Create an Episode object from paper metadata."""
     if pub_date is None:
@@ -220,9 +221,12 @@ def create_episode_from_paper(
 
     description = f"AI-generated podcast discussion.\n\nReference:\n{citation}"
 
+    # Use provided episode title or fall back to paper title
+    title = episode_title if episode_title else paper_title
+
     return Episode(
         id=paper_id,
-        title=f"FG's Research Radio: {paper_title}",
+        title=f"FG's Research Radio: {title}",
         description=description,
         audio_url=get_github_release_url(audio_filename),
         audio_size=audio_size,

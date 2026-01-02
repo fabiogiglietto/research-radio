@@ -8,8 +8,16 @@ import os
 import wave
 import subprocess
 from typing import Optional
+from dataclasses import dataclass
 from google import genai
 from google.genai import types
+
+
+@dataclass
+class PodcastResult:
+    """Result of podcast generation."""
+    audio_path: str
+    episode_title: Optional[str] = None
 
 
 class GeminiAudioGenerator:
@@ -185,12 +193,52 @@ Generate the podcast script now:"""
             print("ffmpeg not found. Please install ffmpeg.")
             return False
 
+    def generate_episode_title(self, script: str, paper_title: str) -> Optional[str]:
+        """
+        Generate a podcast-style episode title based on the transcript.
+
+        Args:
+            script: The generated podcast script/transcript
+            paper_title: Original paper title (for context)
+
+        Returns:
+            A catchy, podcast-appropriate episode title
+        """
+        prompt = f"""You are a podcast producer for "FG's Research Radio", a podcast about computational social science research.
+
+Based on the following podcast transcript, generate a compelling episode title that:
+- Is catchy and engaging for podcast listeners
+- Captures the main theme or most interesting finding discussed
+- Is concise (ideally 5-10 words, maximum 15 words)
+- Sounds like a podcast episode title, not an academic paper title
+- Does NOT start with "FG's Research Radio:" (that prefix will be added separately)
+
+Original paper title (for context): {paper_title}
+
+Podcast transcript:
+{script[:15000]}
+
+Generate ONLY the episode title, nothing else. No quotes, no explanation, just the title itself."""
+
+        try:
+            response = self.client.models.generate_content(
+                model=self.SCRIPT_MODEL,
+                contents=prompt,
+            )
+            title = response.text.strip()
+            # Remove any quotes that might have been added
+            title = title.strip('"\'')
+            return title
+        except Exception as e:
+            print(f"Error generating episode title: {e}")
+            return None
+
     def generate_podcast(
         self,
         paper_text: str,
         paper_title: str,
         output_path: str,
-    ) -> Optional[str]:
+    ) -> Optional[PodcastResult]:
         """
         Generate a complete podcast episode from paper text.
 
@@ -202,7 +250,7 @@ Generate the podcast script now:"""
             output_path: Where to save the MP3 file
 
         Returns:
-            Path to generated audio file, or None if failed
+            PodcastResult with audio path and episode title, or None if failed
         """
         print(f"Generating podcast for: {paper_title}")
 
@@ -213,11 +261,19 @@ Generate the podcast script now:"""
             print("  Failed to generate script")
             return None
 
-        # Step 2: Convert to audio
+        # Step 2: Generate episode title from script
+        print("  Generating episode title...")
+        episode_title = self.generate_episode_title(script, paper_title)
+        if episode_title:
+            print(f"  Episode title: {episode_title}")
+        else:
+            print("  Warning: Failed to generate episode title, will use paper title")
+
+        # Step 3: Convert to audio
         print("  Converting to audio...")
         if self.generate_audio(script, output_path):
             print(f"  Saved to: {output_path}")
-            return output_path
+            return PodcastResult(audio_path=output_path, episode_title=episode_title)
 
         return None
 
