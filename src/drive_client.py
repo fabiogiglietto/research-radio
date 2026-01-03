@@ -37,8 +37,10 @@ class DriveClient:
         """
         Build the expected filename pattern from paper metadata.
         PaperPile format: [FirstAuthor] [Year] - [Title].pdf
+        Or for multiple authors: [FirstAuthor] et al. [Year] - [Title].pdf
 
         Example: "Matias 2025 - How public involvement can improve the science of AI.pdf"
+        Example: "Pierri et al. 2025 - Research opportunities and challenges.pdf"
         """
         # Extract first author's last name
         first_author = "Unknown"
@@ -48,6 +50,11 @@ class DriveClient:
             parts = author_name.split()
             if parts:
                 first_author = parts[-1]  # Last word is typically the surname
+
+        # Add "et al." for multiple authors
+        author_part = first_author
+        if paper.authors and len(paper.authors) > 1:
+            author_part = f"{first_author} et al."
 
         # Extract year from date_published or fall back to ID
         year = ""
@@ -65,9 +72,9 @@ class DriveClient:
 
         # Build the search pattern
         if year:
-            return f"{first_author} {year} - {paper.title}"
+            return f"{author_part} {year} - {paper.title}"
         else:
-            return f"{first_author} - {paper.title}"
+            return f"{author_part} - {paper.title}"
 
     def _normalize_for_search(self, text: str) -> str:
         """Normalize text for fuzzy matching."""
