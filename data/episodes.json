@@ -15,8 +15,8 @@
     },
     {
       "id": "bibtex:Kalsnes2025-zb",
-      "title": "FG's Research Radio: ‘More than a feeling’ – Facebook reactions and the sharing of political posts during Scandinavian elections",
-      "description": "AI-generated podcast discussion.\n\nReference:\nKalsnes, B. & Larsson, A. O. (2025). ‘More than a feeling’ – Facebook reactions and the sharing of political posts during Scandinavian elections. https://doi.org/10.1080/1369118x.2025.2595670",
+      "title": "FG's Research Radio: \u2018More than a feeling\u2019 \u2013 Facebook reactions and the sharing of political posts during Scandinavian elections",
+      "description": "AI-generated podcast discussion.\n\nReference:\nKalsnes, B. & Larsson, A. O. (2025). \u2018More than a feeling\u2019 \u2013 Facebook reactions and the sharing of political posts during Scandinavian elections. https://doi.org/10.1080/1369118x.2025.2595670",
       "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Kalsnes2025-zb.mp3",
       "audio_size": 3684045,
       "duration": 356,
@@ -29,7 +29,7 @@
     {
       "id": "bibtex:Iannucci2025-eg",
       "title": "FG's Research Radio: Detecting coordinated activities through temporal, multiplex, and collaborative analysis",
-      "description": "AI-generated podcast discussion.\n\nReference:\nIannucci, L., Muratore, E., Matakos, A., & Kivelä, M. (2025). Detecting coordinated activities through temporal, multiplex, and collaborative analysis. http://arxiv.org/abs/2512.19677v1",
+      "description": "AI-generated podcast discussion.\n\nReference:\nIannucci, L., Muratore, E., Matakos, A., & Kivel\u00e4, M. (2025). Detecting coordinated activities through temporal, multiplex, and collaborative analysis. http://arxiv.org/abs/2512.19677v1",
       "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Iannucci2025-eg.mp3",
       "audio_size": 3682821,
       "duration": 352,
@@ -38,7 +38,7 @@
         "Letizia Iannucci",
         "Elisa Muratore",
         "Antonis Matakos",
-        "Mikko Kivelä"
+        "Mikko Kivel\u00e4"
       ]
     },
     {
@@ -85,8 +85,8 @@
     },
     {
       "id": "bibtex:Lin2025-xp",
-      "title": "FG's Research Radio: Persuading voters using human–artificial intelligence dialogues",
-      "description": "AI-generated podcast discussion.\n\nReference:\nLin, H., Czarnek, G., Lewis, B., White, J. P., Berinsky, A. J., Costello, T., Pennycook, G., & Rand, D. G. (2025). Persuading voters using human–artificial intelligence dialogues. https://doi.org/10.1038/s41586-025-09771-9",
+      "title": "FG's Research Radio: Persuading voters using human\u2013artificial intelligence dialogues",
+      "description": "AI-generated podcast discussion.\n\nReference:\nLin, H., Czarnek, G., Lewis, B., White, J. P., Berinsky, A. J., Costello, T., Pennycook, G., & Rand, D. G. (2025). Persuading voters using human\u2013artificial intelligence dialogues. https://doi.org/10.1038/s41586-025-09771-9",
       "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Lin2025-xp.mp3",
       "audio_size": 3567213,
       "duration": 359,
@@ -120,8 +120,8 @@
     },
     {
       "id": "bibtex:Marwick2025-vx",
-      "title": "FG's Research Radio: True costs of misinformation| mountains of evidence: Processual “redpilling” as a Socio-technical effect of disinformation",
-      "description": "AI-generated podcast discussion.\n\nReference:\nE, M. A. & Katherine, F. (2025). True costs of misinformation| mountains of evidence: Processual “redpilling” as a Socio-technical effect of disinformation. https://scholar.google.com/scholar?q=True%20costs%20of%20misinformation%7C%20mountains%20of%20evidence%3A%20Processual%20%E2%80%9Credpilling%E2%80%9D%20as%20a%20Socio-technical%20effect%20of%20disinformation",
+      "title": "FG's Research Radio: True costs of misinformation| mountains of evidence: Processual \u201credpilling\u201d as a Socio-technical effect of disinformation",
+      "description": "AI-generated podcast discussion.\n\nReference:\nE, M. A. & Katherine, F. (2025). True costs of misinformation| mountains of evidence: Processual \u201credpilling\u201d as a Socio-technical effect of disinformation. https://scholar.google.com/scholar?q=True%20costs%20of%20misinformation%7C%20mountains%20of%20evidence%3A%20Processual%20%E2%80%9Credpilling%E2%80%9D%20as%20a%20Socio-technical%20effect%20of%20disinformation",
       "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Marwick2025-vx.mp3",
       "audio_size": 3969453,
       "duration": 394,
@@ -164,13 +164,13 @@
     {
       "id": "bibtex:Rodriguez_Farres2025-sg",
       "title": "FG's Research Radio: Real time detection of coordinated bots on Bluesky",
-      "description": "AI-generated podcast discussion.\n\nReference:\nFarrés, P. R., Masali, A., & Cerquides, J. (2025). Real time detection of coordinated bots on Bluesky. https://doi.org/10.3233/faia250576",
+      "description": "AI-generated podcast discussion.\n\nReference:\nFarr\u00e9s, P. R., Masali, A., & Cerquides, J. (2025). Real time detection of coordinated bots on Bluesky. https://doi.org/10.3233/faia250576",
       "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Rodriguez_Farres2025-sg.mp3",
       "audio_size": 4138677,
       "duration": 398,
       "pub_date": "2025-09-15T00:00:00+00:00",
       "authors": [
-        "Pol Rodríguez Farrés",
+        "Pol Rodr\u00edguez Farr\u00e9s",
         "Athina Masali",
         "Jesus Cerquides"
       ]
@@ -189,8 +189,8 @@
     },
     {
       "id": "bibtex:Cabbuag2024-me",
-      "title": "FG's Research Radio: TikTok ‘dogshows’ and the amplification of online incivility among Gen Z influencers in the Philippines",
-      "description": "AI-generated podcast discussion.\n\nReference:\nCabbuag, S. I. & Abidin, C. (2024). TikTok ‘dogshows’ and the amplification of online incivility among Gen Z influencers in the Philippines. https://doi.org/10.5210/spir.v2024i0.13913",
+      "title": "FG's Research Radio: TikTok \u2018dogshows\u2019 and the amplification of online incivility among Gen Z influencers in the Philippines",
+      "description": "AI-generated podcast discussion.\n\nReference:\nCabbuag, S. I. & Abidin, C. (2024). TikTok \u2018dogshows\u2019 and the amplification of online incivility among Gen Z influencers in the Philippines. https://doi.org/10.5210/spir.v2024i0.13913",
       "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Cabbuag2024-me.mp3",
       "audio_size": 3698709,
       "duration": 350,
@@ -242,6 +242,25 @@
         "Hans W. A. Hanley",
         "Luca Luceri",
         "Emilio Ferrara"
+      ]
+    },
+    {
+      "id": "bibtex:Pierri2025-hm",
+      "title": "FG's Research Radio: Decoding the DSA: Can Research Tame Big Tech?",
+      "description": "AI-generated podcast discussion.\n\nReference:\nPierri, F., Araujo, T., Kruikemeier, S., Lorenz-Spreen, P., Abeele, M. M. P. V., Vandenbosch, L., Gon\u00e7alves-Sa, J., & Grabowicz, P. A. (2025). Research opportunities and challenges of the EU&#x27;s Digital Services Act. http://arxiv.org/abs/2512.14223v1",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Pierri2025-hm.mp3",
+      "audio_size": 4265949,
+      "duration": 424,
+      "pub_date": "2026-01-03T09:24:00.472670+00:00",
+      "authors": [
+        "Francesco Pierri",
+        "Theo Araujo",
+        "Sanne Kruikemeier",
+        "Philipp Lorenz-Spreen",
+        "Mariek M. P. Vanden Abeele",
+        "Laura Vandenbosch",
+        "Joana Gon\u00e7alves-Sa",
+        "Przemyslaw A. Grabowicz"
       ]
     }
   ]
