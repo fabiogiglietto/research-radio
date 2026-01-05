@@ -288,6 +288,20 @@
         "Axel Bruns",
         "Timothy Graham"
       ]
+    },
+    {
+      "id": "bibtex:Knupfer2025-vt",
+      "title": "FG's Research Radio: Digital Factions: How Online Networks Radicalize Politics",
+      "description": "AI-generated podcast discussion.\n\nReference:\nKn\u00fcpfer, C. B., Yang, Y., & Cowburn, M. (2025). The logic of connective faction: How digitally networked elites and hyper-partisan media radicalize politics. https://doi.org/10.1080/10584609.2025.2604708",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Knupfer2025-vt.mp3",
+      "audio_size": 3012117,
+      "duration": 303,
+      "pub_date": "2026-01-05T19:29:26.835282+00:00",
+      "authors": [
+        "Curd B. Kn\u00fcpfer",
+        "Yunkang Yang",
+        "Mike Cowburn"
+      ]
     }
   ]
 }
