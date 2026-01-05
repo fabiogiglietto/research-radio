@@ -262,6 +262,32 @@
         "Joana Gon\u00e7alves-Sa",
         "Przemyslaw A. Grabowicz"
       ]
+    },
+    {
+      "id": "bibtex:Emilio2026-ik",
+      "title": "FG's Research Radio: AI's Synthetic Reality: Can We Still Trust Anything?",
+      "description": "AI-generated podcast discussion.\n\nReference:\nFerrara, E. (2026). The Generative AI Paradox: GenAI and the erosion of trust, the corrosion of information verification, and the demise of truth. https://scholar.google.com/scholar?q=The%20Generative%20AI%20Paradox%3A%20GenAI%20and%20the%20erosion%20of%20trust%2C%20the%20corrosion%20of%20information%20verification%2C%20and%20the%20demise%20of%20truth",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Emilio2026-ik.mp3",
+      "audio_size": 3547629,
+      "duration": 355,
+      "pub_date": "2026-01-05T08:45:44.864829+00:00",
+      "authors": [
+        "Emilio, Ferrara"
+      ]
+    },
+    {
+      "id": "bibtex:Copland2025-em",
+      "title": "FG's Research Radio: Sky News Australia: From Niche Cable to Global Propaganda?",
+      "description": "AI-generated podcast discussion.\n\nReference:\nSimon, C., Axel, B., & Timothy, G. (2025). Sky News Australia as network propaganda: how a niche cable channel became an international right-wing propaganda machine. https://scholar.google.com/scholar?q=Sky%20News%20Australia%20as%20network%20propaganda%3A%20how%20a%20niche%20cable%20channel%20became%20an%20international%20right-wing%20propaganda%20machine",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Copland2025-em.mp3",
+      "audio_size": 3092445,
+      "duration": 309,
+      "pub_date": "2026-01-05T08:47:52.552969+00:00",
+      "authors": [
+        "Copland, Simon",
+        "Bruns, Axel",
+        "Graham, Timothy"
+      ]
     }
   ]
 }
