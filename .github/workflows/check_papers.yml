@@ -56,6 +56,11 @@ jobs:
           GOOGLE_APPLICATION_CREDENTIALS: credentials/service-account.json
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPO: ${{ github.repository }}
+          PODCAST_TITLE: "Research Radio"
+          PODCAST_DESCRIPTION: "AI-generated deep dives into computational social science research. Papers curated by Fabio Giglietto, discussions produced by Google Gemini."
+          PODCAST_AUTHOR: "Fabio Giglietto & Gemini AI"
+          PODCAST_EMAIL: "fabio.giglietto+research-radio@gmail.com"
+          PODCAST_WEBSITE: "https://fabiogiglietto.github.io/research-radio"
         run: python src/main.py
 
       - name: Commit updated data files
