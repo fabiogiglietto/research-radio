@@ -10,8 +10,9 @@ This repository contains the **code** for generating AI-powered podcast discussi
 
 ## Listen to FG's Research Radio
 
-- [Spotify](https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX)
 - [RSS Feed](https://fabiogiglietto.github.io/research-radio/feed.xml)
+- [Spotify](https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX)
+- [Apple Podcasts](https://podcasts.apple.com/us/podcast/research-radio/id1866587707)
 
 ## Related Project: ToRead
 
