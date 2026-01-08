@@ -302,6 +302,22 @@
         "Yunkang Yang",
         "Mike Cowburn"
       ]
+    },
+    {
+      "id": "bibtex:Arceneaux2026-xk",
+      "title": "FG's Research Radio: Bot Agendas: How Social Bots Shape Political Campaigns",
+      "description": "AI-generated podcast discussion.\n\nReference:\nArceneaux, P., Anderson, J., Lukito, J., Shah, M., & Kiousis, S. (2026). Social bots as agenda-builders: Evaluating the impact of algorithmic amplification on organizational messaging. https://doi.org/10.1080/1062726x.2025.2606676",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Arceneaux2026-xk.mp3",
+      "audio_size": 3548421,
+      "duration": 353,
+      "pub_date": "2026-01-08T07:33:53.412722+00:00",
+      "authors": [
+        "Phillip Arceneaux",
+        "Joshua Anderson",
+        "Josephine Lukito",
+        "Mansi Shah",
+        "Spiro Kiousis"
+      ]
     }
   ]
 }
