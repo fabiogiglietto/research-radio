@@ -343,6 +343,23 @@
         "Serge Poliakoff",
         "Florian Toepfl"
       ]
+    },
+    {
+      "id": "bibtex:Iris2026-pg",
+      "title": "FG's Research Radio: Radical Right's Media Edge: Fair Coverage in Europe?",
+      "description": "AI-generated podcast discussion.\n\nReference:\nDami\u00e3o, \u00cd., Franco, J., Silva, M., Almeida, P., Magalh\u00e3es, P. C., & Gon\u00e7alves-S\u00e1, J. (2026). Cross-national evidence of disproportionate media visibility for the Radical Right in the 2024 European elections. http://arxiv.org/abs/2601.05826v1",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Iris2026-pg.mp3",
+      "audio_size": 3705189,
+      "duration": 363,
+      "pub_date": "2026-01-12T15:36:08.872468+00:00",
+      "authors": [
+        "\u00cdris Dami\u00e3o",
+        "Jo\u00e3o Franco",
+        "Mariana Silva",
+        "Paulo Almeida",
+        "Pedro C. Magalh\u00e3es",
+        "Joana Gon\u00e7alves-S\u00e1"
+      ]
     }
   ]
 }
