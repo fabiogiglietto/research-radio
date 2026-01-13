@@ -360,6 +360,20 @@
         "Pedro C. Magalh\u00e3es",
         "Joana Gon\u00e7alves-S\u00e1"
       ]
+    },
+    {
+      "id": "bibtex:Rieder2026-pp",
+      "title": "FG's Research Radio: YouTube's Tate-space: Deplatforming's Limits and Ambient Ideology",
+      "description": "AI-generated podcast discussion.\n\nReference:\nRieder, B., August, B., & Latil, B. (2026). The Tate-space on YouTube: Ambient ideology and the limits of platform moderation. https://doi.org/10.1177/14614448251409209",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Rieder2026-pp.mp3",
+      "audio_size": 3800709,
+      "duration": 382,
+      "pub_date": "2026-01-13T07:33:48.728460+00:00",
+      "authors": [
+        "Bernhard Rieder",
+        "Bastian August",
+        "Brogan Latil"
+      ]
     }
   ]
 }
