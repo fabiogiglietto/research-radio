@@ -374,6 +374,19 @@
         "Bastian August",
         "Brogan Latil"
       ]
+    },
+    {
+      "id": "bibtex:Bouchafra2026-ts",
+      "title": "FG's Research Radio: Sweden Democrats' TikTok: Viral Memes, Real-World Walls?",
+      "description": "AI-generated podcast discussion.\n\nReference:\nBouchafra, S. & \u00c5kerlund, M. (2026). \u2018My Europe Builds Walls\u2019: A cross-platform visual analysis of the Sweden Democrats\u2019 2024 EU election campaign. https://doi.org/10.1177/14614448251408336",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Bouchafra2026-ts.mp3",
+      "audio_size": 4151181,
+      "duration": 404,
+      "pub_date": "2026-01-16T06:45:40.022311+00:00",
+      "authors": [
+        "Salma Bouchafra",
+        "Mathilda \u00c5kerlund"
+      ]
     }
   ]
 }
