@@ -57,20 +57,14 @@ def load_episodes() -> list[Episode]:
 
 
 def save_episodes(episodes: list[Episode]):
-    """Save episodes to the episodes file and docs directory."""
+    """Save episodes to the episodes file."""
     data = {
         'episodes': [
             {**asdict(ep), 'pub_date': ep.pub_date.isoformat()}
             for ep in episodes
         ]
     }
-    # Save to data directory
     with open(EPISODES_FILE, 'w') as f:
-        json.dump(data, f, indent=2)
-
-    # Also save to docs directory for website access
-    docs_episodes_file = os.path.join(DOCS_DIR, "episodes.json")
-    with open(docs_episodes_file, 'w') as f:
         json.dump(data, f, indent=2)
 
 

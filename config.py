@@ -40,7 +40,7 @@ AUDIO_DIR = os.path.join(PROJECT_ROOT, "audio")
 DOCS_DIR = os.path.join(PROJECT_ROOT, "docs")
 CREDENTIALS_DIR = os.path.join(PROJECT_ROOT, "credentials")
 PROCESSED_FILE = os.path.join(DATA_DIR, "processed.json")
-EPISODES_FILE = os.path.join(DATA_DIR, "episodes.json")
+EPISODES_FILE = os.path.join(DOCS_DIR, "episodes.json")
 FEED_FILE = os.path.join(DOCS_DIR, "feed.xml")
 
 # Gemini TTS voices (options: Puck, Charon, Kore, Fenrir, Aoede)
