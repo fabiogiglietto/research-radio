@@ -35,7 +35,7 @@ class Episode:
     authors: list[str]
 
 
-EPISODES_FILE = os.path.join(DATA_DIR, "episodes.json")
+EPISODES_FILE = os.path.join(DOCS_DIR, "episodes.json")
 
 
 def load_episodes() -> list[Episode]:
