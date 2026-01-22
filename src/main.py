@@ -31,7 +31,11 @@ from src.feed_generator import (
     create_episode_from_paper,
     add_episode,
     generate_podcast_feed,
+    load_episodes,
 )
+
+# Rate limiting: minimum hours between episode publications
+MIN_HOURS_BETWEEN_EPISODES = 24
 from src.github_uploader import upload_audio_to_release
 
 
@@ -40,6 +44,30 @@ def sanitize_filename(paper_id: str) -> str:
     # Remove 'bibtex:' prefix and replace unsafe characters
     name = paper_id.replace('bibtex:', '').replace('/', '_').replace('\\', '_')
     return name[:100]  # Limit length
+
+
+def can_publish_new_episode() -> tuple[bool, str]:
+    """
+    Check if enough time has passed since the last episode to publish a new one.
+
+    Returns:
+        Tuple of (can_publish: bool, reason: str)
+    """
+    episodes = load_episodes()
+
+    if not episodes:
+        return True, "No existing episodes"
+
+    # Find the most recent episode by publication date
+    latest_episode = max(episodes, key=lambda e: e.pub_date)
+    time_since_last = datetime.now(timezone.utc) - latest_episode.pub_date
+    hours_since_last = time_since_last.total_seconds() / 3600
+
+    if hours_since_last >= MIN_HOURS_BETWEEN_EPISODES:
+        return True, f"{hours_since_last:.1f} hours since last episode"
+    else:
+        hours_remaining = MIN_HOURS_BETWEEN_EPISODES - hours_since_last
+        return False, f"Only {hours_since_last:.1f} hours since last episode. Wait {hours_remaining:.1f} more hours."
 
 
 def process_paper(
@@ -197,21 +225,37 @@ def main():
     for i, paper in enumerate(papers, 1):
         print(f"  {i}. {paper.title}")
 
-    # Process each paper
+    # Check rate limiting - only publish if enough time has passed
+    can_publish, reason = can_publish_new_episode()
+    print(f"\nRate limit check: {reason}")
+
+    if not can_publish:
+        print(f"Skipping processing to avoid overloading listeners.")
+        print(f"Papers will be queued for future runs.")
+        return
+
+    # Process only ONE paper per run to maintain regular publishing schedule
+    # This creates a natural queue when multiple papers are available
+    paper_to_process = papers[0]
+    remaining = len(papers) - 1
+
+    print(f"\nProcessing 1 paper (rate limit: 1 per {MIN_HOURS_BETWEEN_EPISODES} hours)")
+    if remaining > 0:
+        print(f"  {remaining} paper(s) queued for future runs")
+
     successful = 0
     failed = 0
 
-    for paper in papers:
-        try:
-            if process_paper(paper, drive_client, audio_generator):
-                successful += 1
-            else:
-                failed += 1
-        except Exception as e:
-            print(f"\nError processing paper: {e}")
-            import traceback
-            traceback.print_exc()
+    try:
+        if process_paper(paper_to_process, drive_client, audio_generator):
+            successful += 1
+        else:
             failed += 1
+    except Exception as e:
+        print(f"\nError processing paper: {e}")
+        import traceback
+        traceback.print_exc()
+        failed += 1
 
     # Generate updated feed
     print("\n" + "="*60)
@@ -221,8 +265,10 @@ def main():
     # Summary
     print("\n" + "="*60)
     print("Summary:")
-    print(f"  Successful: {successful}")
+    print(f"  Processed: {successful}")
     print(f"  Failed: {failed}")
+    if remaining > 0:
+        print(f"  Queued for later: {remaining}")
     print("="*60)
 
 
