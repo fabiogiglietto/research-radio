@@ -7,6 +7,7 @@ This script identifies:
 2. Episodes in episodes.json that reference non-existent MP3 files
 3. Papers in processed.json that don't have corresponding episodes
 4. Feed.xml entries that don't match episodes.json
+5. Publication queue status (rate limiting)
 
 Usage:
     python scripts/validate_sync.py [--fix] [--dry-run]
@@ -20,7 +21,7 @@ import argparse
 import json
 import os
 import sys
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from typing import Optional
 
 import requests
@@ -34,6 +35,9 @@ from config import GITHUB_REPO, FEED_URL, PROCESSED_FILE, DOCS_DIR
 EPISODES_FILE = os.path.join(DOCS_DIR, "episodes.json")
 FEED_FILE = os.path.join(DOCS_DIR, "feed.xml")
 GITHUB_API_URL = f"https://api.github.com/repos/{GITHUB_REPO}/releases/tags/audio"
+
+# Rate limiting settings (must match main.py)
+MIN_HOURS_BETWEEN_EPISODES = 24
 
 
 class ValidationResult:
@@ -234,6 +238,108 @@ def fetch_paper_metadata(paper_id: str) -> Optional[dict]:
     return None
 
 
+def get_publication_queue_status(episodes: dict, new_papers: list) -> dict:
+    """
+    Check the publication queue status based on rate limiting rules.
+
+    Returns dict with:
+        - can_publish: bool
+        - hours_since_last: float
+        - hours_until_next: float (0 if can publish now)
+        - next_publish_time: datetime
+        - latest_episode: dict or None
+        - queued_count: int
+    """
+    result = {
+        'can_publish': True,
+        'hours_since_last': None,
+        'hours_until_next': 0,
+        'next_publish_time': datetime.now(timezone.utc),
+        'latest_episode': None,
+        'queued_count': len(new_papers)
+    }
+
+    if not episodes:
+        return result
+
+    # Find latest episode by pub_date
+    latest = None
+    latest_date = None
+
+    for ep_id, ep in episodes.items():
+        pub_date_str = ep.get('pub_date', '')
+        try:
+            pub_date = datetime.fromisoformat(pub_date_str)
+            if pub_date.tzinfo is None:
+                pub_date = pub_date.replace(tzinfo=timezone.utc)
+
+            if latest_date is None or pub_date > latest_date:
+                latest_date = pub_date
+                latest = ep
+        except (ValueError, TypeError):
+            continue
+
+    if latest_date is None:
+        return result
+
+    result['latest_episode'] = latest
+    time_since = datetime.now(timezone.utc) - latest_date
+    hours_since = time_since.total_seconds() / 3600
+    result['hours_since_last'] = hours_since
+
+    if hours_since >= MIN_HOURS_BETWEEN_EPISODES:
+        result['can_publish'] = True
+        result['hours_until_next'] = 0
+        result['next_publish_time'] = datetime.now(timezone.utc)
+    else:
+        result['can_publish'] = False
+        hours_remaining = MIN_HOURS_BETWEEN_EPISODES - hours_since
+        result['hours_until_next'] = hours_remaining
+        result['next_publish_time'] = datetime.now(timezone.utc) + timedelta(hours=hours_remaining)
+
+    return result
+
+
+def print_queue_status(queue_status: dict):
+    """Print the publication queue status report."""
+    print("\n" + "=" * 60)
+    print("PUBLICATION QUEUE STATUS")
+    print("=" * 60)
+
+    if queue_status['latest_episode']:
+        ep = queue_status['latest_episode']
+        title = ep.get('title', 'Unknown')[:50]
+        print(f"\n  Latest episode: {title}...")
+        print(f"  Published: {ep.get('pub_date', 'Unknown')}")
+
+    if queue_status['hours_since_last'] is not None:
+        print(f"\n  Hours since last publication: {queue_status['hours_since_last']:.1f}")
+        print(f"  Rate limit: 1 episode per {MIN_HOURS_BETWEEN_EPISODES} hours")
+
+    if queue_status['can_publish']:
+        print(f"\n  ✓ Can publish now")
+    else:
+        print(f"\n  ⏳ Rate limited - wait {queue_status['hours_until_next']:.1f} more hours")
+        print(f"  Next publish eligible: {queue_status['next_publish_time'].strftime('%Y-%m-%d %H:%M UTC')}")
+
+    if queue_status['queued_count'] > 0:
+        print(f"\n  📋 Papers in queue: {queue_status['queued_count']}")
+        if queue_status['can_publish']:
+            print(f"     → 1 will be processed on next run")
+            print(f"     → {queue_status['queued_count'] - 1} will remain queued")
+        else:
+            print(f"     → All queued until rate limit resets")
+
+        # Estimate when all queued papers will be published
+        if queue_status['queued_count'] > 1:
+            days_to_clear = queue_status['queued_count'] - 1  # First one publishes immediately when eligible
+            if not queue_status['can_publish']:
+                days_to_clear += queue_status['hours_until_next'] / 24
+            print(f"\n  📅 Estimated queue clear time: ~{days_to_clear:.1f} days")
+    else:
+        print(f"\n  📋 No papers in queue")
+
+
 def dry_run_pipeline():
     """Simulate the main pipeline without making changes."""
     print("\n" + "=" * 60)
@@ -241,7 +347,7 @@ def dry_run_pipeline():
     print("=" * 60)
 
     # Step 1: Fetch papers from feed
-    print("\n[1/5] Fetching papers feed...")
+    print("\n[1/6] Fetching papers feed...")
     try:
         response = requests.get(FEED_URL, timeout=30)
         response.raise_for_status()
@@ -253,11 +359,11 @@ def dry_run_pipeline():
         return
 
     # Step 2: Load processed papers
-    print("\n[2/5] Loading processed papers...")
+    print("\n[2/6] Loading processed papers...")
     processed = load_processed()
 
     # Step 3: Identify new papers
-    print("\n[3/5] Identifying new papers...")
+    print("\n[3/6] Identifying new papers...")
     new_papers = []
     for paper in papers:
         paper_id = paper.get('id', '').replace('bibtex:', '')
@@ -271,12 +377,17 @@ def dry_run_pipeline():
         print(f"    ... and {len(new_papers) - 5} more")
 
     # Step 4: Check what would be generated
-    print("\n[4/5] Checking current state...")
+    print("\n[4/6] Checking current state...")
     mp3_files = get_mp3_files_from_releases()
     episodes = load_episodes()
 
-    # Step 5: Validate consistency
-    print("\n[5/5] Validating consistency...")
+    # Step 5: Check publication queue status
+    print("\n[5/6] Checking publication queue status...")
+    queue_status = get_publication_queue_status(episodes, new_papers)
+    print_queue_status(queue_status)
+
+    # Step 6: Validate consistency
+    print("\n[6/6] Validating consistency...")
     result = validate()
     result.print_report()
 
@@ -290,10 +401,21 @@ def dry_run_pipeline():
     print(f"  MP3 files in releases: {len(mp3_files)}")
     print(f"  Episodes in feed:      {len(episodes)}")
 
+    # Queue status summary
+    if new_papers:
+        if queue_status['can_publish']:
+            print(f"\n  ▶ Next run: Will process 1 paper")
+            if len(new_papers) > 1:
+                print(f"    {len(new_papers) - 1} papers remain queued")
+        else:
+            hours_left = queue_status['hours_until_next']
+            print(f"\n  ⏸ Rate limited: {hours_left:.1f}h until next publish")
+            print(f"    {len(new_papers)} papers queued")
+
     if result.has_issues:
         print("\n  ⚠ ISSUES DETECTED - Run with --fix to repair")
     else:
-        print("\n  ✓ No issues detected")
+        print("\n  ✓ No sync issues detected")
 
 
 def main():
