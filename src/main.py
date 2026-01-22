@@ -91,7 +91,8 @@ def process_paper(
     print("\n[3/3] Uploading to GitHub Release...")
     upload_success = upload_audio_to_release(audio_path)
     if not upload_success:
-        print("  Warning: Failed to upload. Episode will be added but audio URL may not work.")
+        print("  Failed to upload audio. Skipping episode to prevent orphan entry.")
+        return False
 
     # Create and save episode - use current date (when episode is created)
     pub_date = datetime.now(timezone.utc)

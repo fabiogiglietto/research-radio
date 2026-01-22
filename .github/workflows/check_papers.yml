@@ -18,6 +18,11 @@ on:
       - 'requirements.txt'
       - '.github/workflows/**'
 
+# Prevent concurrent runs to avoid race conditions with data files
+concurrency:
+  group: podcast-generation
+  cancel-in-progress: false
+
 jobs:
   generate-podcasts:
     runs-on: ubuntu-latest
@@ -63,10 +68,24 @@ jobs:
           PODCAST_WEBSITE: "https://fabiogiglietto.github.io/research-radio"
         run: python src/main.py
 
+      - name: Validate sync before commit
+        env:
+          GITHUB_REPO: ${{ github.repository }}
+        run: |
+          echo "Validating consistency between MP3 files and episodes..."
+          python scripts/validate_sync.py
+          if [ $? -ne 0 ]; then
+            echo "::warning::Sync validation found issues. Check the logs above."
+          fi
+
       - name: Commit updated data files
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
+
+          # Pull latest changes to avoid conflicts
+          git pull --rebase origin main || true
+
           git add data/processed.json docs/episodes.json docs/feed.xml
           git diff --staged --quiet || git commit -m "Update podcast data [skip ci]"
           git push
