@@ -1,19 +1,6 @@
 {
   "episodes": [
     {
-      "id": "bibtex:Matias2025-px",
-      "title": "FG's Research Radio: How public involvement can improve the science of AI",
-      "description": "AI-generated podcast discussion.\n\nReference:\nMatias, J. N. & Price, M. (2025). How public involvement can improve the science of AI. https://doi.org/10.1073/pnas.2421111122",
-      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Matias2025-px.mp3",
-      "audio_size": 4237485,
-      "duration": 400,
-      "pub_date": "2025-12-02T00:00:00+00:00",
-      "authors": [
-        "J. Nathan Matias",
-        "Megan Price"
-      ]
-    },
-    {
       "id": "bibtex:Kalsnes2025-zb",
       "title": "FG's Research Radio: \u2018More than a feeling\u2019 \u2013 Facebook reactions and the sharing of political posts during Scandinavian elections",
       "description": "AI-generated podcast discussion.\n\nReference:\nKalsnes, B. & Larsson, A. O. (2025). \u2018More than a feeling\u2019 \u2013 Facebook reactions and the sharing of political posts during Scandinavian elections. https://doi.org/10.1080/1369118x.2025.2595670",
@@ -39,35 +26,6 @@
         "Elisa Muratore",
         "Antonis Matakos",
         "Mikko Kivel\u00e4"
-      ]
-    },
-    {
-      "id": "bibtex:Song2025-yh",
-      "title": "FG's Research Radio: The spread of pro- and anti-vaccine views by coordinated communities on facebook during COVID-19 pandemic",
-      "description": "AI-generated podcast discussion.\n\nReference:\nSong, Y., Zhang, Y., Zou, S., Yang, X., & Huang, Q. (2025). The spread of pro- and anti-vaccine views by coordinated communities on facebook during COVID-19 pandemic. https://doi.org/10.1007/s42001-025-00401-y",
-      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Song2025-yh.mp3",
-      "audio_size": 3617397,
-      "duration": 358,
-      "pub_date": "2025-11-15T00:00:00+00:00",
-      "authors": [
-        "Yunya Song",
-        "Yin Zhang",
-        "Sheng Zou",
-        "Xian Yang",
-        "Qintao Huang"
-      ]
-    },
-    {
-      "id": "bibtex:Triedman2025-uy",
-      "title": "FG's Research Radio: What did Elon change? A comprehensive analysis of Grokipedia",
-      "description": "AI-generated podcast discussion.\n\nReference:\nTriedman, H. & Mantzarlis, A. (2025). What did Elon change? A comprehensive analysis of Grokipedia. http://arxiv.org/abs/2511.09685v1",
-      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Triedman2025-uy.mp3",
-      "audio_size": 5124765,
-      "duration": 468,
-      "pub_date": "2025-11-12T00:00:00+00:00",
-      "authors": [
-        "Harold Triedman",
-        "Alexios Mantzarlis"
       ]
     },
     {
@@ -302,6 +260,149 @@
         "Jevin West",
         "Cailin O'Connor",
         "Carl T. Bergstrom"
+      ]
+    },
+    {
+      "id": "bibtex:Arceneaux2026-xk",
+      "title": "FG's Research Radio: Social bots as agenda-builders: Evaluating the impact of algorithmic amplification on organizational messaging",
+      "description": "AI-generated podcast discussion.\n\nReference:\nArceneaux, P., Anderson, J., Lukito, J., Shah, M., & Kiousis, S. (2026). Social bots as agenda-builders: Evaluating the impact of algorithmic amplification on organizational messaging. https://doi.org/10.1080/1062726x.2025.2606676",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Arceneaux2026-xk.mp3",
+      "audio_size": 3548421,
+      "duration": 342,
+      "pub_date": "2026-01-04T00:00:00+00:00",
+      "authors": [
+        "Phillip Arceneaux",
+        "Joshua Anderson",
+        "Josephine Lukito",
+        "Mansi Shah",
+        "Spiro Kiousis"
+      ]
+    },
+    {
+      "id": "bibtex:Bouchafra2026-ts",
+      "title": "FG's Research Radio: 'My Europe Builds Walls': A cross-platform visual analysis of the Sweden Democrats' 2024 EU election campaign",
+      "description": "AI-generated podcast discussion.\n\nReference:\nBouchafra, S. & \u00c5kerlund, M. (2026). 'My Europe Builds Walls': A cross-platform visual analysis of the Sweden Democrats' 2024 EU election campaign. https://doi.org/10.1177/14614448251408336",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Bouchafra2026-ts.mp3",
+      "audio_size": 4151181,
+      "duration": 400,
+      "pub_date": "2026-01-12T00:00:00+00:00",
+      "authors": [
+        "Salma Bouchafra",
+        "Mathilda \u00c5kerlund"
+      ]
+    },
+    {
+      "id": "bibtex:De2026-ld",
+      "title": "FG's Research Radio: The discursive flexibility of changecraft: Platform change discourse in Meta, TikTok, YouTube, and X",
+      "description": "AI-generated podcast discussion.\n\nReference:\nDe, A. & Cotter, K. (2026). The discursive flexibility of changecraft: Platform change discourse in Meta, TikTok, YouTube, and X. https://doi.org/10.1177/29768624251408212",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/De2026-ld.mp3",
+      "audio_size": 4367709,
+      "duration": 421,
+      "pub_date": "2026-01-15T00:00:00+00:00",
+      "authors": [
+        "Ankolika De",
+        "Kelley Cotter"
+      ]
+    },
+    {
+      "id": "bibtex:Dubey2026-bl",
+      "title": "FG's Research Radio: Investigating perceived trust and utility of balanced news chatbots among individuals with varying conspiracy beliefs",
+      "description": "AI-generated podcast discussion.\n\nReference:\nDubey, S., Ketelaar, P. E., Dingler, T., Peetz, H. K., & van Schie, H. T. (2026). Investigating perceived trust and utility of balanced news chatbots among individuals with varying conspiracy beliefs. https://doi.org/10.1016/j.chb.2026.108920",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Dubey2026-bl.mp3",
+      "audio_size": 3136845,
+      "duration": 302,
+      "pub_date": "2026-01-15T00:00:00+00:00",
+      "authors": [
+        "Shreya Dubey",
+        "Paul E. Ketelaar",
+        "Tilman Dingler",
+        "Hannah K. Peetz",
+        "Hein T. van Schie"
+      ]
+    },
+    {
+      "id": "bibtex:Iris2026-pg",
+      "title": "FG's Research Radio: Cross-national evidence of disproportionate media visibility for the Radical Right in the 2024 European elections",
+      "description": "AI-generated podcast discussion.\n\nReference:\nDami\u00e3o, \u00cd., Franco, J., Silva, M., Almeida, P., Magalh\u00e3es, P. C., & Gon\u00e7alves-S\u00e1, J. (2026). Cross-national evidence of disproportionate media visibility for the Radical Right in the 2024 European elections. http://arxiv.org/abs/2601.05826v1",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Iris2026-pg.mp3",
+      "audio_size": 3705189,
+      "duration": 357,
+      "pub_date": "2026-01-09T00:00:00+00:00",
+      "authors": [
+        "\u00cdris Dami\u00e3o",
+        "Jo\u00e3o Franco",
+        "Mariana Silva",
+        "Paulo Almeida",
+        "Pedro C. Magalh\u00e3es",
+        "Joana Gon\u00e7alves-S\u00e1"
+      ]
+    },
+    {
+      "id": "bibtex:Knupfer2025-vt",
+      "title": "FG's Research Radio: The logic of connective faction: How digitally networked elites and hyper-partisan media radicalize politics",
+      "description": "AI-generated podcast discussion.\n\nReference:\nKn\u00fcpfer, C. B., Yang, Y., & Cowburn, M. (2025). The logic of connective faction: How digitally networked elites and hyper-partisan media radicalize politics. https://doi.org/10.1080/10584609.2025.2604708",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Knupfer2025-vt.mp3",
+      "audio_size": 3012117,
+      "duration": 290,
+      "pub_date": "2025-12-23T00:00:00+00:00",
+      "authors": [
+        "Curd B. Kn\u00fcpfer",
+        "Yunkang Yang",
+        "Mike Cowburn"
+      ]
+    },
+    {
+      "id": "bibtex:Larsson2026-ro",
+      "title": "FG's Research Radio: \"Meet the new boss \u2013 Same as the old boss\": A longitudinal study of political post sentiment and Facebook engagement",
+      "description": "AI-generated podcast discussion.\n\nReference:\nLarsson, A. O. (2026). \"Meet the new boss \u2013 Same as the old boss\": A longitudinal study of political post sentiment and Facebook engagement. https://doi.org/10.5210/fm.v31i1.14448",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Larsson2026-ro.mp3",
+      "audio_size": 3289797,
+      "duration": 317,
+      "pub_date": "2026-01-08T00:00:00+00:00",
+      "authors": [
+        "Anders Olof Larsson"
+      ]
+    },
+    {
+      "id": "bibtex:Poliakoff2026-fa",
+      "title": "FG's Research Radio: Prigozhin's propaganda team: The St. Petersburg Internet Research Agency (2013\u20132021)",
+      "description": "AI-generated podcast discussion.\n\nReference:\nPoliakoff, S. & Toepfl, F. (2026). Prigozhin's propaganda team: The St. Petersburg Internet Research Agency (2013\u20132021). https://doi.org/10.1080/09668136.2025.2588334",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Poliakoff2026-fa.mp3",
+      "audio_size": 3753093,
+      "duration": 362,
+      "pub_date": "2026-01-08T00:00:00+00:00",
+      "authors": [
+        "Serge Poliakoff",
+        "Florian Toepfl"
+      ]
+    },
+    {
+      "id": "bibtex:Rieder2026-pp",
+      "title": "FG's Research Radio: The Tate-space on YouTube: Ambient ideology and the limits of platform moderation",
+      "description": "AI-generated podcast discussion.\n\nReference:\nRieder, B., August, B., & Latil, B. (2026). The Tate-space on YouTube: Ambient ideology and the limits of platform moderation. https://doi.org/10.1177/14614448251409209",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Rieder2026-pp.mp3",
+      "audio_size": 3800709,
+      "duration": 366,
+      "pub_date": "2026-01-12T00:00:00+00:00",
+      "authors": [
+        "Bernhard Rieder",
+        "Bastian August",
+        "Brogan Latil"
+      ]
+    },
+    {
+      "id": "bibtex:Voelkel2026-lc",
+      "title": "FG's Research Radio: A registered report megastudy on the persuasiveness of the most-cited climate messages",
+      "description": "AI-generated podcast discussion.\n\nReference:\nVoelkel, J. G., et al. (2026). A registered report megastudy on the persuasiveness of the most-cited climate messages. https://doi.org/10.31235/osf.io/xwceg_v2",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Voelkel2026-lc.mp3",
+      "audio_size": 4022037,
+      "duration": 388,
+      "pub_date": "2026-01-15T00:00:00+00:00",
+      "authors": [
+        "Jan G. Voelkel",
+        "Ashwini Ashokkumar",
+        "Adina T. Abeles",
+        "et al."
       ]
     }
   ]
