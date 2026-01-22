@@ -288,6 +288,21 @@
         "Axel Bruns",
         "Timothy Graham"
       ]
+    },
+    {
+      "id": "bibtex:Bak-Coleman2026-mk",
+      "title": "FG's Research Radio: Social Media Research: How Biased is the Data?",
+      "description": "AI-generated podcast discussion.\n\nReference:\nBak-Coleman, J., West, J., O'Connor, C., & Bergstrom, C. T. (2026). Industry influence in high-profile social media research. http://arxiv.org/abs/2601.11507v1",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Bak-Coleman2026-mk.mp3",
+      "audio_size": 3753093,
+      "duration": 363,
+      "pub_date": "2026-01-22T07:36:34.952922+00:00",
+      "authors": [
+        "Joseph Bak-Coleman",
+        "Jevin West",
+        "Cailin O'Connor",
+        "Carl T. Bergstrom"
+      ]
     }
   ]
 }
