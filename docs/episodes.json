@@ -431,6 +431,24 @@
         "Michael Hameleers",
         "Toni van der Meer"
       ]
+    },
+    {
+      "id": "bibtex:Balluff2026-bv",
+      "title": "FG's Research Radio: Journalism for Sale? Unpacking an Austrian Media Scandal",
+      "description": "AI-generated podcast discussion.\n\nReference:\nBalluff, P., Eberl, J., Oberh\u00e4nsli, S. J., Bernhard-Harrer, J., Boomgaarden, H. G., Fahr, A., & Huber, M. (2026). The Austrian political advertisement scandal: Patterns of \u201cjournalism for sale\u201d. https://doi.org/10.1177/19401612241285672",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Balluff2026-bv.mp3",
+      "audio_size": 3584685,
+      "duration": 351,
+      "pub_date": "2026-01-28T07:35:14.067540+00:00",
+      "authors": [
+        "Paul Balluff",
+        "Jakob-Moritz Eberl",
+        "Sarina Joy Oberh\u00e4nsli",
+        "Jana Bernhard-Harrer",
+        "Hajo G. Boomgaarden",
+        "Andreas Fahr",
+        "Martin Huber"
+      ]
     }
   ]
 }
