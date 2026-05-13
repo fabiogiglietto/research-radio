@@ -1227,6 +1227,18 @@
         "Maximilian Lechner",
         "Brigitte Naderer"
       ]
+    },
+    {
+      "id": "bibtex:Volpe2026-um",
+      "title": "FG's Research Radio: Niche Know",
+      "description": "AI-generated podcast discussion.\n\nReference:\nCamilla, V. (2026). Posting what you know and caring for the niche: How micro-influencers survive platform culture demands. https://scholar.google.com/scholar?q=Posting%20what%20you%20know%20and%20caring%20for%20the%20niche%3A%20How%20micro-influencers%20survive%20platform%20culture%20demands",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Volpe2026-um.mp3",
+      "audio_size": 6315429,
+      "duration": 620,
+      "pub_date": "2026-05-13T06:57:34.349920+00:00",
+      "authors": [
+        "Volpe, Camilla"
+      ]
     }
   ]
 }
