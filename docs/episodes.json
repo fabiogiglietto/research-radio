@@ -1239,6 +1239,24 @@
       "authors": [
         "Volpe, Camilla"
       ]
+    },
+    {
+      "id": "bibtex:Waight2026-ts",
+      "title": "FG's Research Radio: AI's",
+      "description": "AI-generated podcast discussion.\n\nReference:\nWaight, H., Yang, E., Yuan, Y., Messing, S., Roberts, M. E., Stewart, B. M., & Tucker, J. A. (2026). State media control influences large language models. https://doi.org/10.1038/s41586-026-10506-7",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Waight2026-ts.mp3",
+      "audio_size": 6229821,
+      "duration": 612,
+      "pub_date": "2026-05-14T07:53:25.079257+00:00",
+      "authors": [
+        "Hannah Waight",
+        "Eddie Yang",
+        "Yin Yuan",
+        "Solomon Messing",
+        "Margaret E. Roberts",
+        "Brandon M. Stewart",
+        "Joshua A. Tucker"
+      ]
     }
   ]
 }
