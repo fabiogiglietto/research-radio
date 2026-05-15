@@ -1257,6 +1257,23 @@
         "Brandon M. Stewart",
         "Joshua A. Tucker"
       ]
+    },
+    {
+      "id": "bibtex:Spampatti2026-kx",
+      "title": "FG's Research Radio: Climate Psychology's",
+      "description": "AI-generated podcast discussion.\n\nReference:\nSpampatti, T., Ve\u0107kalov, B., Geiger, S. J., Linden, S. V. D., Lewandowsky, S., & Hornsey, M. (2026). Six insights from climate psychology for the study of misinformation. https://doi.org/10.31234/osf.io/swdrq_v1",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Spampatti2026-kx.mp3",
+      "audio_size": 5947317,
+      "duration": 571,
+      "pub_date": "2026-05-15T08:01:46.855561+00:00",
+      "authors": [
+        "Tobia Spampatti",
+        "Bojana Ve\u0107kalov",
+        "Sandra Jeanette Geiger",
+        "Sander van der Linden",
+        "Stephan Lewandowsky",
+        "Matthew Hornsey"
+      ]
     }
   ]
 }
