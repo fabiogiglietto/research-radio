@@ -1274,6 +1274,23 @@
         "Stephan Lewandowsky",
         "Matthew Hornsey"
       ]
+    },
+    {
+      "id": "bibtex:Mahl2026-hc",
+      "title": "FG's Research Radio: No Silver",
+      "description": "AI-generated podcast discussion.\n\nReference:\nMahl, D., Kessler, S. H., Sch\u00e4fer, M. S., Jobin, A., Zeng, J., & Georgi, F. (2026). Conspiracy theories and misinformation in digital media: An international expert assessment of challenges, trends, and interventions. https://doi.org/10.1515/commun-2024-0123",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Mahl2026-hc.mp3",
+      "audio_size": 5627949,
+      "duration": 547,
+      "pub_date": "2026-05-16T08:57:04.345640+00:00",
+      "authors": [
+        "Daniela Mahl",
+        "Sabrina H. Kessler",
+        "Mike S. Sch\u00e4fer",
+        "Anna Jobin",
+        "Jing Zeng",
+        "Fanny Georgi"
+      ]
     }
   ]
 }
