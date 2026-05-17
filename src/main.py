@@ -4,7 +4,8 @@ Research Radio - Main Orchestrator
 
 Converts academic papers into podcast episodes using:
 - PaperPile PDFs from Google Drive
-- Gemini for script generation and TTS
+- Claude for podcast script generation
+- Gemini for multi-speaker TTS
 """
 
 import os
@@ -19,6 +20,7 @@ from config import (
     PROCESSED_FILE,
     AUDIO_DIR,
     GEMINI_API_KEY,
+    ANTHROPIC_API_KEY,
     GOOGLE_APPLICATION_CREDENTIALS,
     GOOGLE_DRIVE_FOLDER_ID,
     TTS_HOST_VOICE,
@@ -94,8 +96,8 @@ def process_paper(
         return False
     print(f"  Extracted {len(paper_text)} characters")
 
-    # Step 2: Generate podcast audio with Gemini
-    print("\n[2/3] Generating podcast with Gemini...")
+    # Step 2: Generate podcast (Claude script + Gemini TTS)
+    print("\n[2/3] Generating podcast (Claude script + Gemini TTS)...")
     audio_filename = f"{sanitize_filename(paper.id)}.mp3"
     audio_path = os.path.join(AUDIO_DIR, audio_filename)
 
@@ -193,6 +195,10 @@ def main():
     # Validate configuration
     if not GEMINI_API_KEY:
         print("Error: GEMINI_API_KEY not set")
+        sys.exit(1)
+
+    if not ANTHROPIC_API_KEY:
+        print("Error: ANTHROPIC_API_KEY not set")
         sys.exit(1)
 
     if not GOOGLE_APPLICATION_CREDENTIALS:
