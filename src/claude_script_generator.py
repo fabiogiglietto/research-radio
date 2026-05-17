@@ -16,6 +16,22 @@ import anthropic
 # HTTP statuses worth retrying (rate limit, overload, transient server errors).
 _RETRYABLE_STATUS = {429, 500, 502, 503, 504, 529}
 
+# fg-zettelkasten summary fields used to scaffold the discussion (in order).
+_SUMMARY_FIELDS = ("key_claims", "contributions", "methods", "findings", "framing")
+
+
+def _format_summary(summary: dict) -> str:
+    """Render an fg-zettelkasten structured summary as a prompt scaffold."""
+    lines = []
+    for field in _SUMMARY_FIELDS:
+        value = summary.get(field)
+        if not value:
+            continue
+        if isinstance(value, list):
+            value = "; ".join(str(v) for v in value)
+        lines.append(f"{field.replace('_', ' ').title()}: {value}")
+    return "\n".join(lines)
+
 
 class ClaudeScriptGenerator:
     """Generates podcast scripts and episode titles with the Claude API."""
@@ -64,11 +80,14 @@ class ClaudeScriptGenerator:
         paper_title: str,
         host_name: str = "Kore",
         cohost_name: str = "Charon",
+        summary: Optional[dict] = None,
     ) -> Optional[str]:
         """
         Generate a podcast conversation script from paper text.
 
-        Returns formatted dialogue like:
+        `summary`, when given, is the fg-zettelkasten structured summary; it
+        scaffolds the discussion while the full paper text remains the source
+        of fidelity. Returns formatted dialogue like:
         Host: Welcome to Research Radio...
         Cohost: Great to be here...
         """
@@ -76,6 +95,20 @@ class ClaudeScriptGenerator:
         ai_humor_guideline = ""
         if random.random() < 0.05:
             ai_humor_guideline = "\n- Include one or two brief, self-aware jokes about being AI-generated hosts — e.g., a playful quip about mispronunciations, audio glitches, or the quirks of AI-generated podcasts. Keep it light, natural, and don't overdo it."
+
+        # Optional scaffold: a structured summary from the fg-zettelkasten vault.
+        scaffold = ""
+        if summary:
+            digest = _format_summary(summary)
+            if digest:
+                scaffold = (
+                    "\nA structured summary of this paper, from the curated "
+                    "research vault, is provided as a scaffold. Use it to shape "
+                    "the arc of the discussion around the key claims, findings "
+                    "and framing — but ground every specific detail (numbers, "
+                    "methods, quotes) in the full paper content below.\n\n"
+                    f"Structured summary:\n{digest}\n"
+                )
 
         prompt = f"""You are a podcast script writer. Create an engaging episode of "FG's Research Radio",
 a podcast featuring deep dive discussions on recent academic papers in computational social science,
@@ -100,7 +133,7 @@ Guidelines:
 - Use natural, conversational language{ai_humor_guideline}
 - Target length: 8-12 minutes of dialogue (roughly 1200-1800 words)
 - Format each line exactly as "Host: [dialogue]" or "Cohost: [dialogue]"
-
+{scaffold}
 Paper Title: {paper_title}
 
 Paper Content:

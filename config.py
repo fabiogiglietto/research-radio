@@ -19,6 +19,12 @@ GEMINI_TTS_MODEL = os.getenv("GEMINI_TTS_MODEL", "gemini-2.5-flash-preview-tts")
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
 CLAUDE_SCRIPT_MODEL = os.getenv("CLAUDE_SCRIPT_MODEL", "claude-opus-4-7")
 
+# fg-zettelkasten structured summaries (public raw URL) — optional script scaffold
+ZETTELKASTEN_SUMMARY_BASE = os.getenv(
+    "ZETTELKASTEN_SUMMARY_BASE",
+    "https://raw.githubusercontent.com/fabiogiglietto/fg-zettelkasten/main/data/summaries",
+)
+
 # GitHub
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 GITHUB_REPO = os.getenv("GITHUB_REPO")

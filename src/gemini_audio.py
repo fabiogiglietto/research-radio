@@ -184,6 +184,7 @@ class GeminiAudioGenerator:
         paper_text: str,
         paper_title: str,
         output_path: str,
+        summary: Optional[dict] = None,
     ) -> Optional[PodcastResult]:
         """
         Generate a complete podcast episode from paper text.
@@ -195,6 +196,8 @@ class GeminiAudioGenerator:
             paper_text: Full text content of the paper
             paper_title: Title of the paper
             output_path: Where to save the MP3 file
+            summary: Optional fg-zettelkasten structured summary, passed to the
+                script generator as a scaffold
 
         Returns:
             PodcastResult with audio path and episode title, or None if failed
@@ -208,6 +211,7 @@ class GeminiAudioGenerator:
             paper_title,
             host_name=self.VOICES.get('host', 'Kore'),
             cohost_name=self.VOICES.get('cohost', 'Charon'),
+            summary=summary,
         )
         if not script:
             print("  Failed to generate script")
