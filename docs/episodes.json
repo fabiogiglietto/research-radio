@@ -1291,6 +1291,20 @@
         "Jing Zeng",
         "Fanny Georgi"
       ]
+    },
+    {
+      "id": "bibtex:Rodarte2026-dk",
+      "title": "FG's Research Radio: Who Controls Truth?",
+      "description": "AI-generated podcast discussion.\n\nReference:\nRodarte, A. K., Kuahara, C. V., & Arif, A. (2026). Who controls the narrative? How Brazilian parliamentarians pursue epistemic authority in times of crisis. https://doi.org/10.1080/21670811.2026.2669534",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Rodarte2026-dk.mp3",
+      "audio_size": 6362253,
+      "duration": 655,
+      "pub_date": "2026-05-17T09:57:17.855433+00:00",
+      "authors": [
+        "Andr\u00e9 K. Rodarte",
+        "Carolina V. Kuahara",
+        "Ahmer Arif"
+      ]
     }
   ]
 }
