@@ -1,11 +1,11 @@
 """
-Gemini Audio Generator - Generates podcast audio directly from paper text.
+Gemini Audio Generator - Generates podcast audio from a paper.
 
-Uses Gemini to generate a conversation script, then Gemini TTS for multi-speaker audio.
+The dialogue script is written by Claude (see claude_script_generator);
+Gemini is used only for multi-speaker TTS.
 """
 
 import os
-import random
 import subprocess
 import time
 from typing import Optional
@@ -13,7 +13,8 @@ from dataclasses import dataclass
 from google import genai
 from google.genai import types
 
-from config import GEMINI_SCRIPT_MODEL, GEMINI_TTS_MODEL
+from config import GEMINI_TTS_MODEL, ANTHROPIC_API_KEY, CLAUDE_SCRIPT_MODEL
+from claude_script_generator import ClaudeScriptGenerator
 
 
 @dataclass
@@ -24,7 +25,7 @@ class PodcastResult:
 
 
 class GeminiAudioGenerator:
-    """Generates podcast audio using Gemini AI."""
+    """Generates podcast episodes: Claude writes the script, Gemini TTS renders audio."""
 
     # Available voices for multi-speaker TTS
     VOICES = {
@@ -33,7 +34,6 @@ class GeminiAudioGenerator:
     }
 
     # Model IDs (defaults, overridden by config)
-    SCRIPT_MODEL = GEMINI_SCRIPT_MODEL
     TTS_MODEL = GEMINI_TTS_MODEL
 
     # Retry settings
@@ -41,8 +41,15 @@ class GeminiAudioGenerator:
     RETRY_BASE_DELAY = 2  # seconds
 
     def __init__(self, api_key: str):
-        """Initialize with Gemini API key."""
+        """Initialize with the Gemini API key.
+
+        The Claude script generator is built from config (ANTHROPIC_API_KEY,
+        CLAUDE_SCRIPT_MODEL).
+        """
         self.client = genai.Client(api_key=api_key)
+        self.script_generator = ClaudeScriptGenerator(
+            ANTHROPIC_API_KEY, CLAUDE_SCRIPT_MODEL
+        )
 
     def _generate_with_retry(self, **kwargs):
         """Call generate_content with retry on transient errors."""
@@ -58,67 +65,6 @@ class GeminiAudioGenerator:
                     time.sleep(delay)
                     continue
                 raise
-
-    def generate_script(self, paper_text: str, paper_title: str) -> Optional[str]:
-        """
-        Generate a podcast conversation script from paper text.
-
-        Returns formatted dialogue like:
-        Host: Welcome to Research Radio...
-        Cohost: Great to be here...
-        """
-        host_name = self.VOICES.get('host', 'Kore')
-        cohost_name = self.VOICES.get('cohost', 'Charon')
-
-        # ~5% chance of including self-aware AI humor in this episode
-        ai_humor_guideline = ""
-        if random.random() < 0.05:
-            ai_humor_guideline = "\n- Include one or two brief, self-aware jokes about being AI-generated hosts — e.g., a playful quip about mispronunciations, audio glitches, or the quirks of AI-generated podcasts. Keep it light, natural, and don't overdo it."
-
-        prompt = f"""You are a podcast script writer. Create an engaging episode of "FG's Research Radio",
-a podcast featuring deep dive discussions on recent academic papers in computational social science,
-platform studies, misinformation research, and the evolving landscape of social media and AI.
-
-The conversation should be between two hosts:
-- Host (named {host_name}): The main host who guides the discussion and provides context
-- Cohost (named {cohost_name}): A co-host who offers analysis, asks probing questions, and adds perspective
-
-Important: This is a discussion ABOUT the paper by two podcast hosts. They are NOT the authors
-and should not pretend to be. They should refer to the authors in third person (e.g., "The
-researchers found..." or "According to the authors...").
-
-Guidelines:
-- Start by welcoming listeners to Research Radio, have the hosts briefly introduce themselves by name, then introduce the paper's topic and authors
-- Mention the authors by name naturally in the conversation (e.g., "As Boyd argues..." or "The team led by Ferrara found...")
-- Explain the key findings and methodology in accessible terms
-- Have both hosts share insights and build on each other's points
-- Discuss implications and significance for the field
-- End with takeaways for the audience
-- At the very end, the host should remind listeners that if they want to read the full paper, they can find the complete reference in the episode description, and encourage them to subscribe on Spotify and Apple Podcasts
-- Use natural, conversational language{ai_humor_guideline}
-- Target length: 8-12 minutes of dialogue (roughly 1200-1800 words)
-- Format each line exactly as "Host: [dialogue]" or "Cohost: [dialogue]"
-
-Paper Title: {paper_title}
-
-Paper Content:
-{paper_text[:60000]}
-
-Generate the podcast script now:"""
-
-        try:
-            response = self._generate_with_retry(
-                model=self.SCRIPT_MODEL,
-                contents=prompt,
-                config=types.GenerateContentConfig(
-                    temperature=0.7,
-                    max_output_tokens=8192,
-                ),
-            )
-            return response.text
-        except Exception as e:
-            print(f"Error generating script: {e}")
-            return None
 
     def generate_audio(
         self,
@@ -233,50 +179,6 @@ Generate the podcast script now:"""
             print("ffmpeg not found. Please install ffmpeg.")
             return False
 
-    def generate_episode_title(self, script: str, paper_title: str) -> Optional[str]:
-        """
-        Generate a podcast-style episode title based on the transcript.
-
-        Args:
-            script: The generated podcast script/transcript
-            paper_title: Original paper title (for context)
-
-        Returns:
-            A catchy, podcast-appropriate episode title
-        """
-        prompt = f"""You are a podcast producer for "FG's Research Radio", a podcast about computational social science research.
-
-Based on the following podcast transcript, generate a compelling episode title that:
-- Is catchy and engaging for podcast listeners
-- Captures the main theme or most interesting finding discussed
-- Is concise (ideally 5-10 words, maximum 15 words)
-- Sounds like a podcast episode title, not an academic paper title
-- Does NOT start with "FG's Research Radio:" (that prefix will be added separately)
-
-Original paper title (for context): {paper_title}
-
-Podcast transcript:
-{script[:15000]}
-
-Generate ONLY the episode title, nothing else. No quotes, no explanation, just the title itself."""
-
-        try:
-            response = self._generate_with_retry(
-                model=self.SCRIPT_MODEL,
-                contents=prompt,
-                config=types.GenerateContentConfig(
-                    temperature=0.9,
-                    max_output_tokens=100,
-                ),
-            )
-            title = response.text.strip()
-            # Remove any quotes that might have been added
-            title = title.strip('"\'')
-            return title
-        except Exception as e:
-            print(f"Error generating episode title: {e}")
-            return None
-
     def generate_podcast(
         self,
         paper_text: str,
@@ -286,7 +188,8 @@ Generate ONLY the episode title, nothing else. No quotes, no explanation, just t
         """
         Generate a complete podcast episode from paper text.
 
-        This is the main entry point - generates script and audio in one call.
+        This is the main entry point - generates script (Claude) and audio
+        (Gemini TTS) in one call.
 
         Args:
             paper_text: Full text content of the paper
@@ -298,22 +201,27 @@ Generate ONLY the episode title, nothing else. No quotes, no explanation, just t
         """
         print(f"Generating podcast for: {paper_title}")
 
-        # Step 1: Generate conversation script
+        # Step 1: Generate conversation script (Claude)
         print("  Generating script...")
-        script = self.generate_script(paper_text, paper_title)
+        script = self.script_generator.generate_script(
+            paper_text,
+            paper_title,
+            host_name=self.VOICES.get('host', 'Kore'),
+            cohost_name=self.VOICES.get('cohost', 'Charon'),
+        )
         if not script:
             print("  Failed to generate script")
             return None
 
-        # Step 2: Generate episode title from script
+        # Step 2: Generate episode title from script (Claude)
         print("  Generating episode title...")
-        episode_title = self.generate_episode_title(script, paper_title)
+        episode_title = self.script_generator.generate_episode_title(script, paper_title)
         if episode_title:
             print(f"  Episode title: {episode_title}")
         else:
             print("  Warning: Failed to generate episode title, will use paper title")
 
-        # Step 3: Convert to audio
+        # Step 3: Convert to audio (Gemini TTS)
         print("  Converting to audio...")
         if self.generate_audio(script, output_path):
             print(f"  Saved to: {output_path}")
