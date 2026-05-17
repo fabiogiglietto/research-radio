@@ -1,9 +1,13 @@
 name: Generate Podcast Episodes
 
 on:
-  # Run every hour
+  # Triggered by toread when the feed changes (see PIPELINE.md)
+  repository_dispatch:
+    types: [pipeline-tick]
+
+  # Daily fallback in case a dispatch is missed
   schedule:
-    - cron: '0 * * * *'
+    - cron: '0 7 * * *'
 
   # Allow manual trigger
   workflow_dispatch:
@@ -90,3 +94,12 @@ jobs:
           git add data/processed.json docs/episodes.json docs/feed.xml
           git diff --staged --quiet || git commit -m "Update podcast data [skip ci]"
           git push
+
+      # Propagate the tick downstream even if no episode was produced this run,
+      # so github.io still picks up the new toread feed.
+      - name: Trigger downstream pipeline (github.io)
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.PIPELINE_DISPATCH_TOKEN }}
+          repository: fabiogiglietto/fabiogiglietto.github.io
+          event-type: pipeline-tick
