@@ -33,6 +33,7 @@ from config import (
     TTS_COHOST_VOICE,
     AUDIO_DIR,
     PROCESSED_FILE,
+    ZETTELKASTEN_SUMMARY_BASE,
 )
 
 
@@ -43,7 +44,7 @@ def _require(name: str, value) -> None:
 
 
 def get_paper_text_from_drive():
-    """Pick the first unprocessed paper with a Drive PDF; return (title, text)."""
+    """Pick the first unprocessed paper with a Drive PDF; return (title, text, id)."""
     _require("GOOGLE_APPLICATION_CREDENTIALS", GOOGLE_APPLICATION_CREDENTIALS)
     from src.drive_client import DriveClient
     from src.main import get_papers_from_drive
@@ -61,7 +62,7 @@ def get_paper_text_from_drive():
         print("Could not extract text from the PDF.")
         sys.exit(1)
     print(f"Extracted {len(text)} characters of paper text.\n")
-    return paper.title, text
+    return paper.title, text, paper.id
 
 
 def main() -> None:
@@ -81,16 +82,31 @@ def main() -> None:
         with open(args.text_file, encoding="utf-8") as fh:
             text = fh.read()
         title = args.title or os.path.splitext(os.path.basename(args.text_file))[0]
+        paper_id = None
         print(f"Test paper (from file): {title}\n")
     else:
-        title, text = get_paper_text_from_drive()
+        title, text, paper_id = get_paper_text_from_drive()
+
+    # fg-zettelkasten summary scaffold (Part B).
+    summary = None
+    if paper_id:
+        from src.summary_client import fetch_summary
+
+        summary = fetch_summary(paper_id, ZETTELKASTEN_SUMMARY_BASE)
+    print(
+        "Summary scaffold: "
+        + ("fg-zettelkasten summary found" if summary else "none — PDF text only")
+        + "\n"
+    )
 
     # Step 1: Claude writes the dialogue script.
     from src.claude_script_generator import ClaudeScriptGenerator
 
     script_gen = ClaudeScriptGenerator(ANTHROPIC_API_KEY, CLAUDE_SCRIPT_MODEL)
     print(f"[1] Generating script with Claude ({CLAUDE_SCRIPT_MODEL})...")
-    script = script_gen.generate_script(text, title, TTS_HOST_VOICE, TTS_COHOST_VOICE)
+    script = script_gen.generate_script(
+        text, title, TTS_HOST_VOICE, TTS_COHOST_VOICE, summary=summary
+    )
     if not script:
         print("Script generation failed.")
         sys.exit(1)

@@ -25,10 +25,12 @@ from config import (
     GOOGLE_DRIVE_FOLDER_ID,
     TTS_HOST_VOICE,
     TTS_COHOST_VOICE,
+    ZETTELKASTEN_SUMMARY_BASE,
 )
 from src.feed_parser import get_new_papers, save_processed_id, Paper, parse_papers, fetch_feed, load_processed_ids
 from src.drive_client import DriveClient
 from src.gemini_audio import GeminiAudioGenerator
+from src.summary_client import fetch_summary
 from src.feed_generator import (
     create_episode_from_paper,
     add_episode,
@@ -105,7 +107,14 @@ def process_paper(
     audio_generator.VOICES['host'] = TTS_HOST_VOICE
     audio_generator.VOICES['cohost'] = TTS_COHOST_VOICE
 
-    podcast_result = audio_generator.generate_podcast(paper_text, paper.title, audio_path)
+    # Optional scaffold: the structured summary from the fg-zettelkasten vault.
+    summary = fetch_summary(paper.id, ZETTELKASTEN_SUMMARY_BASE)
+    if summary:
+        print("  Using fg-zettelkasten summary as a scaffold")
+
+    podcast_result = audio_generator.generate_podcast(
+        paper_text, paper.title, audio_path, summary=summary
+    )
     if not podcast_result:
         print("  Failed to generate podcast. Skipping paper.")
         return False
