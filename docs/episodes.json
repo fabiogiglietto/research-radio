@@ -1305,6 +1305,177 @@
         "Carolina V. Kuahara",
         "Ahmer Arif"
       ]
+    },
+    {
+      "id": "bibtex:Ng2026-og",
+      "title": "FG's Research Radio: Why Aligned AI Agents Still Misbehave in Crowds",
+      "description": "AI-generated podcast discussion.\n\nReference:\nNg, L. H. X., Cruickshank, I. J., Lim, A. X. W., & Carley, K. M. (2026). Social theory should be a structural prior for agentic AI: A formal framework for multi-Agent Social Systems. https://arxiv.org/abs/2605.07069",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Ng2026-og.mp3",
+      "audio_size": 4970013,
+      "duration": 502,
+      "pub_date": "2026-05-18T09:57:17.855433+00:00",
+      "authors": [
+        "Lynnette Hui Xian Ng",
+        "Iain J. Cruickshank",
+        "Adrian Xuan Wei Lim",
+        "Kathleen M. Carley"
+      ]
+    },
+    {
+      "id": "bibtex:Bruns2026-yv",
+      "title": "FG's Research Radio: Twitter's Obituary: Why We Keep Building the Same Broken Platform",
+      "description": "AI-generated podcast discussion.\n\nReference:\nBruns, A. (2026). The death of Twitter and the decline of Public Debate online. https://doi.org/10.5204/mcj.3247",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Bruns2026-yv.mp3",
+      "audio_size": 5489805,
+      "duration": 546,
+      "pub_date": "2026-05-19T09:57:17.855433+00:00",
+      "authors": [
+        "Axel Bruns"
+      ]
+    },
+    {
+      "id": "bibtex:Bailard2024-pj",
+      "title": "FG's Research Radio: The Hidden Speech That Predicts Extremist Violence",
+      "description": "AI-generated podcast discussion.\n\nReference:\nBAILARD, C. S., TROMBLE, R., ZHONG, W., BIANCHI, F., HOSSEINI, P., & BRONIATOWSKI, D. (2024). \u201ckeep your heads held high boys!\u201d: Examining the relationship between the Proud Boys\u2019 online discourse and offline activities. https://doi.org/10.1017/s0003055423001478",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Bailard2024-pj.mp3",
+      "audio_size": 4902333,
+      "duration": 481,
+      "pub_date": "2026-05-20T09:57:17.855433+00:00",
+      "authors": [
+        "CATIE SNOW BAILARD",
+        "REBEKAH TROMBLE",
+        "WEI ZHONG",
+        "FEDERICO BIANCHI",
+        "PEDRAM HOSSEINI",
+        "DAVID BRONIATOWSKI"
+      ]
+    },
+    {
+      "id": "bibtex:Adam2026-tz",
+      "title": "FG's Research Radio: When Debunking Backfires: How COVID Conspiracies Spread Online",
+      "description": "AI-generated podcast discussion.\n\nReference:\nAdam, S., Rohrbach, T., Keller, F., Makhortykh, M., Le\u00f3n, E. D., Valli, C., Baghumyan, A., & Sydorova, M. (2026). How do media contribute to the dissemination of conspiracy beliefs? A field study combining panel and web tracking at the outbreak of the COVID-19 pandemic. https://doi.org/10.1093/joc/jqaf033",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Adam2026-tz.mp3",
+      "audio_size": 5189325,
+      "duration": 527,
+      "pub_date": "2026-05-21T09:57:17.855433+00:00",
+      "authors": [
+        "Silke Adam",
+        "Tobias Rohrbach",
+        "Franziska Keller",
+        "Mykola Makhortykh",
+        "Ernesto de Le\u00f3n",
+        "Chiara Valli",
+        "Ani Baghumyan",
+        "Maryna Sydorova"
+      ]
+    },
+    {
+      "id": "bibtex:Nguyen2026-vm",
+      "title": "FG's Research Radio: Does ChatGPT Really \"Think\"? How News Media Frames AI",
+      "description": "AI-generated podcast discussion.\n\nReference:\nNguyen, D. & Wischnewski, M. (2026). Generative AI, large language models, and their agentic framing in news media. https://doi.org/10.1007/s00146-026-03070-1",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Nguyen2026-vm.mp3",
+      "audio_size": 5143701,
+      "duration": 510,
+      "pub_date": "2026-05-22T09:57:17.855433+00:00",
+      "authors": [
+        "Dennis Nguyen",
+        "Magdalena Wischnewski"
+      ]
+    },
+    {
+      "id": "bibtex:Yang2026-tq",
+      "title": "FG's Research Radio: The Post-API Age: What We Lose When Platforms Lock Down",
+      "description": "AI-generated podcast discussion.\n\nReference:\nYang, K., Goel, P., Pruden, M. L., Wu, Q., Eagan, C., Lazer, D., & Freelon, D. (2026). A systematic review of social science studies analyzing social media data, 2010-2024. https://doi.org/10.31235/osf.io/yexp6_v1",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Yang2026-tq.mp3",
+      "audio_size": 5601309,
+      "duration": 546,
+      "pub_date": "2026-05-23T09:57:17.855433+00:00",
+      "authors": [
+        "Kai-Cheng Yang",
+        "Pranav Goel",
+        "Meredith L. Pruden",
+        "Qunfang Wu",
+        "Colby Eagan",
+        "David Lazer",
+        "Deen Freelon"
+      ]
+    },
+    {
+      "id": "bibtex:Gerbaudo2026-fo",
+      "title": "FG's Research Radio: From Friends to Algorithms: How TikTok Rewired the Social",
+      "description": "AI-generated podcast discussion.\n\nReference:\nGerbaudo, P. (2026). TikTok and the algorithmic transformation of social media publics: From social networks to social interest clusters. https://doi.org/10.1177/14614448241304106",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Gerbaudo2026-fo.mp3",
+      "audio_size": 6019125,
+      "duration": 593,
+      "pub_date": "2026-05-24T09:57:17.855433+00:00",
+      "authors": [
+        "Paolo Gerbaudo"
+      ]
+    },
+    {
+      "id": "bibtex:Tornberg2026-lc",
+      "title": "FG's Research Radio: The End of Social Media as We Know It",
+      "description": "AI-generated podcast discussion.\n\nReference:\nT\u00f6rnberg, P. & Rogers, R. (2026). Towards a Post-Social Media Studies. https://doi.org/10.31235/osf.io/6nue7_v1",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Tornberg2026-lc.mp3",
+      "audio_size": 6052221,
+      "duration": 590,
+      "pub_date": "2026-05-25T09:57:17.855433+00:00",
+      "authors": [
+        "Petter T\u00f6rnberg",
+        "Richard Rogers"
+      ]
+    },
+    {
+      "id": "bibtex:Helmond2026-ll",
+      "title": "FG's Research Radio: From Like Buttons to Satellites: Rethinking Platformization in the AI Era",
+      "description": "AI-generated podcast discussion.\n\nReference:\nHelmond, A. (2026). The platformization of everything: From the end of the Like button to AI infrastructure in space. https://doi.org/10.1177/20563051261436101",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Helmond2026-ll.mp3",
+      "audio_size": 4870533,
+      "duration": 482,
+      "pub_date": "2026-05-26T09:57:17.855433+00:00",
+      "authors": [
+        "Anne Helmond"
+      ]
+    },
+    {
+      "id": "bibtex:van-Eck2026-xg",
+      "title": "FG's Research Radio: The Polarization Paradox: When Recommendations Outrun Evidence",
+      "description": "AI-generated podcast discussion.\n\nReference:\nEck, C. W. V., Meyer, H. M. A., & Br\u00fcggemann, M. (2026). What to do about polarization? Evaluating the evidence base of recommendations for depolarization. https://doi.org/10.1093/anncom/wlag012",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/van-Eck2026-xg.mp3",
+      "audio_size": 4953981,
+      "duration": 489,
+      "pub_date": "2026-05-27T09:57:17.855433+00:00",
+      "authors": [
+        "Christel W van Eck",
+        "Hendrik M A Meyer",
+        "Michael Br\u00fcggemann"
+      ]
+    },
+    {
+      "id": "bibtex:Peters2026-mo",
+      "title": "FG's Research Radio: Who Decides What Counts as Good Data? Inside the DSA's Quality Battle",
+      "description": "AI-generated podcast discussion.\n\nReference:\nPeters, Y. & Weller, K. (2026). Little mentioning, moderate attention, great relevance: The quality of online platform data in the Digital Services Act. https://doi.org/10.1177/29768624261438624",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Peters2026-mo.mp3",
+      "audio_size": 6094125,
+      "duration": 595,
+      "pub_date": "2026-05-28T09:57:17.855433+00:00",
+      "authors": [
+        "Yannik Peters",
+        "Katrin Weller"
+      ]
+    },
+    {
+      "id": "bibtex:Tornberg2025-ir",
+      "title": "FG's Research Radio: The End of Social Media as We Know It",
+      "description": "AI-generated podcast discussion.\n\nReference:\nT\u00f6rnberg, P. & Chueri, J. (2026). When do parties lie? Misinformation and radical-right populism across 26 countries. https://doi.org/10.1177/19401612241311886",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Tornberg2025-ir.mp3",
+      "audio_size": 5636781,
+      "duration": 558,
+      "pub_date": "2026-05-29T09:57:17.855433+00:00",
+      "authors": [
+        "Petter T\u00f6rnberg",
+        "Juliana Chueri"
+      ]
     }
   ]
 }
