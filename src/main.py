@@ -184,14 +184,14 @@ def get_papers_from_drive(drive_client: DriveClient, processed_file: str, max_ag
 
 
 def resolve_own_paper_text(paper: Paper, drive_client: DriveClient) -> Optional[str]:
-    """Best-effort source text for one of the author's own publications.
+    """Full-text source for one of the author's own publications — a PDF or nothing.
 
-    Order: a manually-added Paperpile Drive PDF wins; then the open-access PDF
-    advertised by the feed; then the abstract. research-radio has no Paperpile
-    PDF for the author's own papers, so an abstract-only episode is an accepted
-    fallback — shorter and lighter, but still grounded in the paper.
+    Order: a manually-added Paperpile Drive PDF, then the open-access PDF from
+    the feed (the green-OA copy the author deposits in ORA). There is no
+    abstract fallback: an own paper with no PDF is skipped, since an
+    abstract-only episode would be too thin to publish.
 
-    Returns the text, or None when nothing usable is available.
+    Returns the extracted text, or None when no PDF is available.
     """
     # 1. Manual override: a PDF dropped into the Paperpile Drive folder.
     text = drive_client.get_pdf_text(paper)
@@ -199,20 +199,14 @@ def resolve_own_paper_text(paper: Paper, drive_client: DriveClient) -> Optional[
         print(f"  Source text: Drive PDF ({len(text)} chars)")
         return text
 
-    # 2. Open-access PDF advertised by the feed.
+    # 2. Open-access PDF advertised by the feed (resolved from ORA green OA).
     if paper.open_access_pdf_url:
         text = get_paper_text(paper.open_access_pdf_url)
         if text:
             text = truncate_text(text, 80000)
             print(f"  Source text: open-access PDF ({len(text)} chars)")
             return text
-        print("  Open-access PDF not usable; falling back to abstract")
-
-    # 3. Abstract-only.
-    if paper.content_text and paper.content_text.strip():
-        text = paper.content_text.strip()
-        print(f"  Source text: abstract only, no full text ({len(text)} chars)")
-        return text
+        print("  Open-access PDF could not be downloaded or read")
 
     return None
 
@@ -324,13 +318,13 @@ def main():
             traceback.print_exc()
             failed += 1
 
-    # Own publications — text from an open-access PDF or, failing that, the abstract.
+    # Own publications — full text from a PDF; papers with no PDF are skipped.
     for paper in own_papers:
         try:
             print(f"\nResolving source text for own paper: {paper.title}")
             paper_text = resolve_own_paper_text(paper, drive_client)
             if not paper_text:
-                print(f"No usable text for own paper {paper.id}; skipping.")
+                print(f"No PDF for own paper {paper.id}; skipping.")
                 failed += 1
                 continue
             if process_paper(paper, paper_text, audio_generator):
