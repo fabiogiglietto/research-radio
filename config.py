@@ -19,10 +19,13 @@ GEMINI_TTS_MODEL = os.getenv("GEMINI_TTS_MODEL", "gemini-2.5-flash-preview-tts")
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
 CLAUDE_SCRIPT_MODEL = os.getenv("CLAUDE_SCRIPT_MODEL", "claude-opus-4-7")
 
-# fg-zettelkasten structured summaries (public raw URL) — optional script scaffold
+# fg-zettelkasten structured summaries — optional podcast-script scaffold.
+# GitHub Contents API directory (served fresh, unlike the ~5-min-cached
+# raw.githubusercontent.com CDN — the summary is committed moments before
+# research-radio runs, so a cached fetch would miss it).
 ZETTELKASTEN_SUMMARY_BASE = os.getenv(
     "ZETTELKASTEN_SUMMARY_BASE",
-    "https://raw.githubusercontent.com/fabiogiglietto/fg-zettelkasten/main/data/summaries",
+    "https://api.github.com/repos/fabiogiglietto/fg-zettelkasten/contents/data/summaries",
 )
 
 # GitHub
