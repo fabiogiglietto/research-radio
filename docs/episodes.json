@@ -11,7 +11,8 @@
       "authors": [
         "Bente Kalsnes",
         "Anders Olof Larsson"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Iannucci2025-eg",
@@ -26,7 +27,8 @@
         "Elisa Muratore",
         "Antonis Matakos",
         "Mikko Kivel\u00e4"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Allen2025-ot",
@@ -39,7 +41,8 @@
       "authors": [
         "Jennifer Allen",
         "Joshua A. Tucker"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Lin2025-xp",
@@ -58,7 +61,8 @@
         "Thomas Costello",
         "Gordon Pennycook",
         "David G. Rand"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Thiele2025-ol",
@@ -74,7 +78,8 @@
         "Annett Heft",
         "Baoning Gong",
         "Barbara Pfetsch"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Marwick2025-vx",
@@ -87,7 +92,8 @@
       "authors": [
         "Marwick, Alice E",
         "Furl, Katherine"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Freelon2024-sc",
@@ -103,7 +109,8 @@
         "Gayoung Jeon",
         "Cameron Moy",
         "Natasha Williams"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:FitzGerald2025-nv",
@@ -117,7 +124,8 @@
         "Katherine M. FitzGerald",
         "Daniel Whelan-Shamy",
         "Timothy Graham"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Rodriguez_Farres2025-sg",
@@ -131,7 +139,8 @@
         "Pol Rodr\u00edguez Farr\u00e9s",
         "Athina Masali",
         "Jesus Cerquides"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Bastos2025-ya",
@@ -143,7 +152,8 @@
       "pub_date": "2025-04-15T00:00:00+00:00",
       "authors": [
         "Marco T. Bastos"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Cabbuag2024-me",
@@ -156,7 +166,8 @@
       "authors": [
         "Samuel Idris Cabbuag",
         "Crystal Abidin"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Costello2024-kp",
@@ -170,7 +181,8 @@
         "Thomas H. Costello",
         "Gordon Pennycook",
         "David G. Rand"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Efstratiou2025-gs",
@@ -185,7 +197,8 @@
         "Kayla Duskin",
         "Kate Starbird",
         "Emma S. Spiro"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Gerard2025-br",
@@ -200,7 +213,8 @@
         "Hans W. A. Hanley",
         "Luca Luceri",
         "Emilio Ferrara"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Pierri2025-hm",
@@ -219,7 +233,8 @@
         "Laura Vandenbosch",
         "Joana Gon\u00e7alves-Sa",
         "Przemyslaw A. Grabowicz"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Emilio2026-ik",
@@ -231,7 +246,8 @@
       "pub_date": "2026-01-05T08:45:44.864829+00:00",
       "authors": [
         "Emilio Ferrara"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Copland2025-em",
@@ -245,7 +261,8 @@
         "Simon Copland",
         "Axel Bruns",
         "Timothy Graham"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Bak-Coleman2026-mk",
@@ -260,7 +277,8 @@
         "Jevin West",
         "Cailin O'Connor",
         "Carl T. Bergstrom"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Arceneaux2026-xk",
@@ -276,7 +294,8 @@
         "Josephine Lukito",
         "Mansi Shah",
         "Spiro Kiousis"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Bouchafra2026-ts",
@@ -289,7 +308,8 @@
       "authors": [
         "Salma Bouchafra",
         "Mathilda \u00c5kerlund"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:De2026-ld",
@@ -302,7 +322,8 @@
       "authors": [
         "Ankolika De",
         "Kelley Cotter"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Dubey2026-bl",
@@ -318,7 +339,8 @@
         "Tilman Dingler",
         "Hannah K. Peetz",
         "Hein T. van Schie"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Iris2026-pg",
@@ -335,7 +357,8 @@
         "Paulo Almeida",
         "Pedro C. Magalh\u00e3es",
         "Joana Gon\u00e7alves-S\u00e1"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Knupfer2025-vt",
@@ -349,7 +372,8 @@
         "Curd B. Kn\u00fcpfer",
         "Yunkang Yang",
         "Mike Cowburn"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Larsson2026-ro",
@@ -361,7 +385,8 @@
       "pub_date": "2026-01-08T00:00:00+00:00",
       "authors": [
         "Anders Olof Larsson"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Poliakoff2026-fa",
@@ -374,7 +399,8 @@
       "authors": [
         "Serge Poliakoff",
         "Florian Toepfl"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Rieder2026-pp",
@@ -388,7 +414,8 @@
         "Bernhard Rieder",
         "Bastian August",
         "Brogan Latil"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Voelkel2026-lc",
@@ -403,7 +430,8 @@
         "Ashwini Ashokkumar",
         "Adina T. Abeles",
         "et al."
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Di-Domenico2026-zq",
@@ -417,7 +445,8 @@
         "Giandomenico Di Domenico",
         "Federico Mangi\u00f3",
         "Denitsa Dineva"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Hameleers2026-mc",
@@ -430,7 +459,8 @@
       "authors": [
         "Michael Hameleers",
         "Toni van der Meer"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Balluff2026-bv",
@@ -448,7 +478,8 @@
         "Hajo G. Boomgaarden",
         "Andreas Fahr",
         "Martin Huber"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Kim2026-wg",
@@ -463,7 +494,8 @@
         "Ross Dahlke",
         "Hyebin Song",
         "Richard Heinrich"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Hollingshead2026-vx",
@@ -477,7 +509,8 @@
         "William Hollingshead",
         "Anatoliy Gruzd",
         "Philip Mai"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Elfes2026-jb",
@@ -491,7 +524,8 @@
         "Jan Elfes",
         "Marco Bastos",
         "Luca Maria Aiello"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Bollenbacher2026-vz",
@@ -505,7 +539,8 @@
         "John Bollenbacher",
         "Filippo Menczer",
         "John Bryden"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Szabo2026-rd",
@@ -523,7 +558,8 @@
         "Bharathi Sekar",
         "Koji Yatani",
         "Simo Hosio"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:van-der-Linden2026-jt",
@@ -539,7 +575,8 @@
         "Nicholas Blazer",
         "Nancy S. Noble",
         "Jon Roozenbeek"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Lyons2026-ca",
@@ -554,7 +591,8 @@
         "Andy J. King",
         "Rebecca L. Barter",
         "Kimberly A. Kaphingst"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Graham2026-fb",
@@ -567,7 +605,8 @@
       "authors": [
         "Timothy Graham",
         "Dominique Carlon"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Cazzamatta2026-lo",
@@ -579,7 +618,8 @@
       "pub_date": "2026-02-12T22:41:47.131682+00:00",
       "authors": [
         "Regina Cazzamatta"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Gillespie2026-aa",
@@ -594,7 +634,8 @@
         "Ryland Shaw",
         "Mary L. Gray",
         "Jina Suh"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Schroeder2026-im",
@@ -626,7 +667,8 @@
         "Sander van der Linden",
         "Dawn Song",
         "Jonas R. Kunst"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Heiss2026-qv",
@@ -639,7 +681,8 @@
       "authors": [
         "Raffael Heiss",
         "Isabelle Freiling"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Inacio-da-Silva2026-zf",
@@ -655,7 +698,8 @@
         "Pedro Olmo Vaz de Melo",
         "Oana Goga",
         "Fabr\u00edcio Benevenuto"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Lieu2025-nl",
@@ -669,7 +713,8 @@
         "Renee Lieu",
         "Oliver R. Hayes",
         "John Cook"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Gauthier2026-iq",
@@ -684,7 +729,8 @@
         "Roland Hodler",
         "Philine Widmer",
         "Ekaterina Zhuravskaya"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Stanusch2026-ec",
@@ -697,7 +743,8 @@
       "authors": [
         "Natalia Stanusch",
         "Richard Rogers"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Balluff2026-if",
@@ -716,7 +763,8 @@
         "Luca Rossi",
         "Irina Shklovski",
         "Chung-hong Chan"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Scalco2026-bd",
@@ -731,7 +779,8 @@
         "Francesco Gesualdo",
         "Roy Cerqueti",
         "Matteo Cinelli"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:DeVerna2025-dl",
@@ -746,7 +795,8 @@
         "Kai-Cheng Yang",
         "Harry Yaojun Yan",
         "Filippo Menczer"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Ober2026-vd",
@@ -760,7 +810,8 @@
         "Teresa Ober",
         "Karyssa A. Courey",
         "Michael Flor"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Ferrara2026-io",
@@ -772,7 +823,8 @@
       "pub_date": "2026-03-03T08:54:33.351197+00:00",
       "authors": [
         "Emilio Ferrara"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:DiGiuseppe2026-pu",
@@ -785,7 +837,8 @@
       "authors": [
         "Matthew DiGiuseppe",
         "Joshua Robison"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Baym2026-tr",
@@ -797,7 +850,8 @@
       "pub_date": "2026-03-06T23:36:13.263785+00:00",
       "authors": [
         "Baym, Nancy"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Hourigan2026-oc",
@@ -813,7 +867,8 @@
         "Tanya Notley",
         "Sora Park",
         "Michael Dezuanni"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Farkas2026-lr",
@@ -826,7 +881,8 @@
       "authors": [
         "Johan Farkas",
         "Mette Bengtsson"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Dierickx2026-tw",
@@ -841,7 +897,8 @@
         "Andreas L. Opdahl",
         "Fredrik Bjerknes",
         "Carl-Gustav Lind\u00e9n"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Shi2026-ko",
@@ -853,7 +910,8 @@
       "pub_date": "2026-03-11T05:57:55.249276+00:00",
       "authors": [
         "Yiru Shi"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Hackenburg2025-dj",
@@ -874,7 +932,8 @@
         "Helen Margetts",
         "David G. Rand",
         "Christopher Summerfield"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Schiffrin_undated-gi",
@@ -892,7 +951,8 @@
         "Williams, Kaylee",
         "Huseynova, Elnara",
         "Hatfield, Audrey"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Rossini2026-jn",
@@ -906,7 +966,8 @@
         "Rossini, Patr\u00edcia",
         "Kalogeropoulos, Antonis",
         "Mont'Alverne, Camila"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Lee2026-je",
@@ -923,7 +984,8 @@
         "Yong-Yeol Ahn",
         "Haewoon Kwak",
         "Jisun An"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Dehghan2026-sy",
@@ -939,7 +1001,8 @@
         "Kateryna Kasianenko",
         "Ashwin Nagappa",
         "Vish Padinjaredath Suresh"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Yoo2026-ev",
@@ -953,7 +1016,8 @@
         "Joseph J. Yoo",
         "Hannah Lee",
         "Soontae An"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Bouchaud2026-lr",
@@ -966,7 +1030,8 @@
       "authors": [
         "Paul Bouchaud",
         "Pedro Ramaciotti"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Stagnaro2025-pz",
@@ -983,7 +1048,8 @@
         "Antonio Alonso Arechar",
         "Robb Willer",
         "David Gertler Rand"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Wang2026-ub",
@@ -997,7 +1063,8 @@
         "Xinyu Wang",
         "Sai Koneru",
         "Sarah Rajtmajer"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Efstratiou2026-ij",
@@ -1011,7 +1078,8 @@
         "Alexandros Efstratiou",
         "Giuseppe Russo",
         "Luca Luceri"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Ahuja2025-ku",
@@ -1026,7 +1094,8 @@
         "Johanna Gunawan",
         "Nataliia Bielova",
         "Cristiana Santos"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Ventura2026-yc",
@@ -1042,7 +1111,8 @@
         "Margaret E. Roberts",
         "Christopher Schwarz",
         "Joshua A Tucker"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Dodds2026-df",
@@ -1058,7 +1128,8 @@
         "Natali Helberger",
         "Andrea L. Guzman",
         "Nicholas Diakopoulos"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Karo2026-dn",
@@ -1072,7 +1143,8 @@
         "Gilad Karo",
         "Tom Divon",
         "Blake Hallinan"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Li2026-wq",
@@ -1086,7 +1158,8 @@
         "Xiyue Li",
         "Yunseung Lee",
         "Bumsoo Kim"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Appel2026-qr",
@@ -1129,7 +1202,8 @@
         "Winter Mason",
         "Natalie Jomini Stroud",
         "Joshua A. Tucker"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Marwick2026-ss",
@@ -1141,7 +1215,8 @@
       "pub_date": "2026-04-17T17:46:54.794800+00:00",
       "authors": [
         "Alice E. Marwick"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Boyd2026-op",
@@ -1153,7 +1228,8 @@
       "pub_date": "2026-04-18T19:03:57.804727+00:00",
       "authors": [
         "danah boyd"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Swartz2026-zb",
@@ -1165,7 +1241,8 @@
       "pub_date": "2026-04-19T20:50:04.869521+00:00",
       "authors": [
         "Lana Swartz"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Marwick2026-qd",
@@ -1180,7 +1257,8 @@
         "Elaine Schnabel",
         "Shannon McGregor",
         "Carolyn Schmitt"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Rothut2026-wt",
@@ -1196,7 +1274,8 @@
         "Julian Hohner",
         "Simon Greipl",
         "Diana Rieger"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Achmann-Denkler2026-lx",
@@ -1210,7 +1289,8 @@
         "Michael Achmann-Denkler",
         "Mario Haim",
         "Christian Wolff"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Rothut2026-or",
@@ -1226,7 +1306,8 @@
         "Diana Rieger",
         "Maximilian Lechner",
         "Brigitte Naderer"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Volpe2026-um",
@@ -1238,7 +1319,8 @@
       "pub_date": "2026-05-13T06:57:34.349920+00:00",
       "authors": [
         "Volpe, Camilla"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Waight2026-ts",
@@ -1256,7 +1338,8 @@
         "Margaret E. Roberts",
         "Brandon M. Stewart",
         "Joshua A. Tucker"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Spampatti2026-kx",
@@ -1273,7 +1356,8 @@
         "Sander van der Linden",
         "Stephan Lewandowsky",
         "Matthew Hornsey"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Mahl2026-hc",
@@ -1290,7 +1374,8 @@
         "Anna Jobin",
         "Jing Zeng",
         "Fanny Georgi"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Rodarte2026-dk",
@@ -1304,7 +1389,8 @@
         "Andr\u00e9 K. Rodarte",
         "Carolina V. Kuahara",
         "Ahmer Arif"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Ng2026-og",
@@ -1319,7 +1405,8 @@
         "Iain J. Cruickshank",
         "Adrian Xuan Wei Lim",
         "Kathleen M. Carley"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Bruns2026-yv",
@@ -1331,7 +1418,8 @@
       "pub_date": "2026-05-19T09:57:17.855433+00:00",
       "authors": [
         "Axel Bruns"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Bailard2024-pj",
@@ -1348,7 +1436,8 @@
         "FEDERICO BIANCHI",
         "PEDRAM HOSSEINI",
         "DAVID BRONIATOWSKI"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Adam2026-tz",
@@ -1367,7 +1456,8 @@
         "Chiara Valli",
         "Ani Baghumyan",
         "Maryna Sydorova"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Nguyen2026-vm",
@@ -1380,7 +1470,8 @@
       "authors": [
         "Dennis Nguyen",
         "Magdalena Wischnewski"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Yang2026-tq",
@@ -1398,7 +1489,8 @@
         "Colby Eagan",
         "David Lazer",
         "Deen Freelon"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Gerbaudo2026-fo",
@@ -1410,7 +1502,8 @@
       "pub_date": "2026-05-24T09:57:17.855433+00:00",
       "authors": [
         "Paolo Gerbaudo"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Tornberg2026-lc",
@@ -1423,7 +1516,8 @@
       "authors": [
         "Petter T\u00f6rnberg",
         "Richard Rogers"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Helmond2026-ll",
@@ -1435,7 +1529,8 @@
       "pub_date": "2026-05-26T09:57:17.855433+00:00",
       "authors": [
         "Anne Helmond"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:van-Eck2026-xg",
@@ -1449,7 +1544,8 @@
         "Christel W van Eck",
         "Hendrik M A Meyer",
         "Michael Br\u00fcggemann"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Peters2026-mo",
@@ -1462,7 +1558,8 @@
       "authors": [
         "Yannik Peters",
         "Katrin Weller"
-      ]
+      ],
+      "own": false
     },
     {
       "id": "bibtex:Tornberg2025-ir",
@@ -1475,7 +1572,53 @@
       "authors": [
         "Petter T\u00f6rnberg",
         "Juliana Chueri"
-      ]
+      ],
+      "own": false
+    },
+    {
+      "id": "bibtex:Askanius2026-de",
+      "title": "FG's Research Radio: When Neo-Nazis Meet Wellness Influencers: Sweden's Far-Right YouTube",
+      "description": "AI-generated podcast discussion.\n\nReference:\nAskanius, T., Stoencheva, J., & Mondani, H. (2026). The alternative influence network (AIN) of far-right YouTubers in Sweden: Connectivity and hybridisation of online extremism during the Covid-19 pandemic. https://doi.org/10.2478/nor-2026-0008",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Askanius2026-de.mp3",
+      "audio_size": 1074165,
+      "duration": 99,
+      "pub_date": "2026-05-30T09:57:17.855433+00:00",
+      "authors": [
+        "Tina Askanius",
+        "Jullietta Stoencheva",
+        "Hernan Mondani"
+      ],
+      "own": false
+    },
+    {
+      "id": "bibtex:Giglietto2026-855a54cb",
+      "title": "FG's Research Radio: Inside the Data Abyss: Who Gets to Study Social Media?",
+      "description": "AI-generated podcast discussion.\n\nReference:\nGiglietto, F. & Puschmann, C. (2026). From the Wild West to the Walled Garden. https://doi.org/10.5204/mcj.3257",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Giglietto2026-855a54cb.mp3",
+      "audio_size": 5337381,
+      "duration": 526,
+      "pub_date": "2026-05-31T09:57:17.855433+00:00",
+      "authors": [
+        "Fabio Giglietto",
+        "Cornelius Puschmann"
+      ],
+      "own": true
+    },
+    {
+      "id": "bibtex:Giglietto2026-9b6a992d",
+      "title": "FG's Research Radio: How AI Supercharged the Gambling Ad Machine",
+      "description": "AI-generated podcast discussion.\n\nReference:\nGiglietto, F., Terenzi, M., Chakraborty, A., & Marino, G. (2026). Synthetic seduction: Evolving visual persuasion in coordinated online gambling promotion with generative {AI}. https://doi.org/10.1007/978-3-032-11782-3_4",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Giglietto2026-9b6a992d.mp3",
+      "audio_size": 4971813,
+      "duration": 510,
+      "pub_date": "2026-06-01T09:57:17.855433+00:00",
+      "authors": [
+        "Fabio Giglietto",
+        "Massimo Terenzi",
+        "Anwesha Chakraborty",
+        "Giada Marino"
+      ],
+      "own": true
     }
   ]
 }
