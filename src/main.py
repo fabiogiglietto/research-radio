@@ -35,7 +35,7 @@ from src.feed_generator import (
     create_episode_from_paper,
     add_episode,
     generate_podcast_feed,
-    load_episodes,
+    next_publish_slot,
 )
 
 # Rate limiting: minimum hours between episode publications
@@ -48,30 +48,6 @@ def sanitize_filename(paper_id: str) -> str:
     # Remove 'bibtex:' prefix and replace unsafe characters
     name = paper_id.replace('bibtex:', '').replace('/', '_').replace('\\', '_')
     return name[:100]  # Limit length
-
-
-def can_publish_new_episode() -> tuple[bool, str]:
-    """
-    Check if enough time has passed since the last episode to publish a new one.
-
-    Returns:
-        Tuple of (can_publish: bool, reason: str)
-    """
-    episodes = load_episodes()
-
-    if not episodes:
-        return True, "No existing episodes"
-
-    # Find the most recent episode by publication date
-    latest_episode = max(episodes, key=lambda e: e.pub_date)
-    time_since_last = datetime.now(timezone.utc) - latest_episode.pub_date
-    hours_since_last = time_since_last.total_seconds() / 3600
-
-    if hours_since_last >= MIN_HOURS_BETWEEN_EPISODES:
-        return True, f"{hours_since_last:.1f} hours since last episode"
-    else:
-        hours_remaining = MIN_HOURS_BETWEEN_EPISODES - hours_since_last
-        return False, f"Only {hours_since_last:.1f} hours since last episode. Wait {hours_remaining:.1f} more hours."
 
 
 def process_paper(
@@ -133,8 +109,11 @@ def process_paper(
         print("  Failed to upload audio. Skipping episode to prevent orphan entry.")
         return False
 
-    # Create and save episode - use current date (when episode is created)
-    pub_date = datetime.now(timezone.utc)
+    # Schedule the episode into the next free RSS slot. The audio is already
+    # live on GitHub Releases (uploaded above); pub_date controls only when the
+    # episode surfaces in the podcast feed, pacing listeners to one per slot.
+    pub_date = next_publish_slot(MIN_HOURS_BETWEEN_EPISODES)
+    print(f"  Scheduled for publication: {pub_date.strftime('%Y-%m-%d %H:%M UTC')}")
 
     # Extract year from date_published
     paper_year = None
@@ -234,43 +213,37 @@ def main():
 
     if not papers:
         print("\nNo new papers with matching PDFs found.")
+        # Still regenerate the feed: a previously-queued episode may have
+        # reached its scheduled slot and now needs to surface.
+        print("Regenerating feed so any due episodes can surface...")
+        generate_podcast_feed()
         return
 
     print(f"\nFound {len(papers)} new paper(s) with PDFs in Drive:")
     for i, paper in enumerate(papers, 1):
         print(f"  {i}. {paper.title}")
 
-    # Check rate limiting - only publish if enough time has passed
-    can_publish, reason = can_publish_new_episode()
-    print(f"\nRate limit check: {reason}")
-
-    if not can_publish:
-        print(f"Skipping processing to avoid overloading listeners.")
-        print(f"Papers will be queued for future runs.")
-        return
-
-    # Process only ONE paper per run to maintain regular publishing schedule
-    # This creates a natural queue when multiple papers are available
-    paper_to_process = papers[0]
-    remaining = len(papers) - 1
-
-    print(f"\nProcessing 1 paper (rate limit: 1 per {MIN_HOURS_BETWEEN_EPISODES} hours)")
-    if remaining > 0:
-        print(f"  {remaining} paper(s) queued for future runs")
+    # Generate a podcast for every queued paper now — generation is no longer
+    # rate-limited. Publication is paced separately: each episode is scheduled
+    # into the next free RSS slot (see next_publish_slot / generate_podcast_feed),
+    # so Spotify/Apple listeners still receive about one per slot.
+    print(f"\nGenerating {len(papers)} podcast(s); "
+          f"publication paced one per {MIN_HOURS_BETWEEN_EPISODES}h")
 
     successful = 0
     failed = 0
 
-    try:
-        if process_paper(paper_to_process, drive_client, audio_generator):
-            successful += 1
-        else:
+    for paper in papers:
+        try:
+            if process_paper(paper, drive_client, audio_generator):
+                successful += 1
+            else:
+                failed += 1
+        except Exception as e:
+            print(f"\nError processing paper {paper.id}: {e}")
+            import traceback
+            traceback.print_exc()
             failed += 1
-    except Exception as e:
-        print(f"\nError processing paper: {e}")
-        import traceback
-        traceback.print_exc()
-        failed += 1
 
     # Generate updated feed
     print("\n" + "="*60)
@@ -280,10 +253,8 @@ def main():
     # Summary
     print("\n" + "="*60)
     print("Summary:")
-    print(f"  Processed: {successful}")
+    print(f"  Generated: {successful}")
     print(f"  Failed: {failed}")
-    if remaining > 0:
-        print(f"  Queued for later: {remaining}")
     print("="*60)
 
 

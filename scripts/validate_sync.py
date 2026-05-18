@@ -206,10 +206,26 @@ def validate() -> ValidationResult:
     # Check 4: Episodes without processed entry
     result.episodes_without_processed = sorted(episode_ids - processed)
 
-    # Check 5: Feed count mismatch
-    if feed_count != len(episodes):
+    # Check 5: feed.xml should list exactly the *published* episodes — those
+    # whose scheduled pub_date has arrived. Episodes scheduled into a future
+    # slot are intentionally held back from the RSS feed (deferred publication),
+    # so feed_count is compared against the published subset, not every episode.
+    now = datetime.now(timezone.utc)
+    published = 0
+    for ep in episodes.values():
+        try:
+            pub_date = datetime.fromisoformat(ep.get('pub_date', ''))
+            if pub_date.tzinfo is None:
+                pub_date = pub_date.replace(tzinfo=timezone.utc)
+        except (ValueError, TypeError):
+            published += 1  # unparseable date: treat as published (legacy entry)
+            continue
+        if pub_date <= now:
+            published += 1
+    if feed_count != published:
         result.feed_mismatch.append(
-            f"Feed has {feed_count} items but episodes.json has {len(episodes)}"
+            f"Feed has {feed_count} items but {published} of "
+            f"{len(episodes)} episodes are published (pub_date <= now)"
         )
 
     return result

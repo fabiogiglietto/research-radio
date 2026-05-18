@@ -4,7 +4,7 @@ Feed Generator - Creates RSS 2.0 podcast feed with iTunes extensions.
 
 import os
 import json
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from typing import Optional
 from dataclasses import dataclass, asdict
 
@@ -82,6 +82,24 @@ def add_episode(episode: Episode):
     save_episodes(episodes)
 
 
+def next_publish_slot(interval_hours: int) -> datetime:
+    """Return the next free RSS publication slot.
+
+    Episodes are revealed in the feed one per `interval_hours`: the slot is
+    `interval_hours` after the latest already-scheduled episode, or now if that
+    is in the past (or there are no episodes yet). The audio is uploaded to
+    GitHub Releases immediately regardless — this only paces when an episode
+    surfaces in the feed for Spotify/Apple listeners.
+    """
+    now = datetime.now(timezone.utc)
+    episodes = load_episodes()
+    if not episodes:
+        return now
+    latest = max(ep.pub_date for ep in episodes)
+    candidate = latest + timedelta(hours=interval_hours)
+    return candidate if candidate > now else now
+
+
 def get_github_release_url(filename: str) -> str:
     """Get the GitHub release download URL for an audio file."""
     # Format: https://github.com/owner/repo/releases/download/TAG/filename
@@ -98,7 +116,11 @@ def generate_podcast_feed(output_path: Optional[str] = None) -> str:
     if output_path is None:
         output_path = os.path.join(DOCS_DIR, "feed.xml")
 
-    episodes = load_episodes()
+    # Only episodes whose scheduled slot has arrived appear in the RSS feed —
+    # this is the one-per-slot pace Spotify/Apple see. Audio for not-yet-due
+    # episodes is already live on GitHub Releases and linked from the vault.
+    now = datetime.now(timezone.utc)
+    episodes = [ep for ep in load_episodes() if ep.pub_date <= now]
 
     # Sort episodes by date (newest first)
     episodes.sort(key=lambda e: e.pub_date, reverse=True)
