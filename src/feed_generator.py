@@ -33,6 +33,7 @@ class Episode:
     duration: int  # seconds
     pub_date: datetime
     authors: list[str]
+    own: bool = False  # True when the episode is one of the author's own papers
 
 
 EPISODES_FILE = os.path.join(DOCS_DIR, "episodes.json")
@@ -220,7 +221,8 @@ def create_episode_from_paper(
     pub_date: Optional[datetime] = None,
     paper_url: Optional[str] = None,
     paper_year: Optional[str] = None,
-    episode_title: Optional[str] = None
+    episode_title: Optional[str] = None,
+    is_own: bool = False
 ) -> Episode:
     """Create an Episode object from paper metadata."""
     if pub_date is None:
@@ -248,5 +250,6 @@ def create_episode_from_paper(
         audio_size=audio_size,
         duration=duration,
         pub_date=pub_date,
-        authors=paper_authors
+        authors=paper_authors,
+        own=is_own
     )

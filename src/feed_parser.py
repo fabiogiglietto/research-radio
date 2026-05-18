@@ -21,6 +21,11 @@ class Paper:
     date_published: Optional[str]
     authors: list[str]
     pdf_url: Optional[str] = None
+    # Set for the author's own publications (see parse_own_papers).
+    year: Optional[int] = None
+    doi: Optional[str] = None
+    open_access_pdf_url: Optional[str] = None
+    is_own: bool = False
 
     def __post_init__(self):
         """Extract PDF URL from available fields."""
@@ -103,6 +108,43 @@ def parse_papers(feed_data: dict) -> list[Paper]:
             authors=authors
         )
         papers.append(paper)
+
+    return papers
+
+
+def parse_own_papers(feed_data: dict) -> list[Paper]:
+    """Parse the own-publications JSON Feed into Paper objects.
+
+    Same JSON Feed shape as the toread feed, with an extra `_academic` object
+    carrying the DOI, publication year and (best-effort) open-access PDF URL.
+    These papers have no Paperpile Drive PDF; their text is resolved downstream
+    from an open-access PDF or the abstract.
+    """
+    papers = []
+
+    for item in feed_data.get('items', []):
+        authors = []
+        for author in item.get('authors', []):
+            if isinstance(author, dict):
+                authors.append(author.get('name', 'Unknown'))
+            else:
+                authors.append(str(author))
+
+        academic = item.get('_academic') or {}
+        papers.append(Paper(
+            id=item.get('id', ''),
+            title=item.get('title', 'Untitled'),
+            url=item.get('url', ''),
+            external_url=item.get('external_url'),
+            content_text=item.get('content_text'),
+            content_html=item.get('content_html'),
+            date_published=item.get('date_published'),
+            authors=authors,
+            year=academic.get('year'),
+            doi=academic.get('doi'),
+            open_access_pdf_url=academic.get('open_access_pdf_url'),
+            is_own=True,
+        ))
 
     return papers
 

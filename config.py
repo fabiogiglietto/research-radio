@@ -38,6 +38,15 @@ FEED_URL = os.getenv(
     "https://raw.githubusercontent.com/fabiogiglietto/toread/main/output/feed.json"
 )
 
+# Own-publications feed — Fabio Giglietto's own papers, published by
+# fabiogiglietto.github.io. A podcast is generated only for the recent ones
+# (OWN_PAPERS_MIN_YEAR onward); older own papers are intentionally skipped.
+OWN_FEED_URL = os.getenv(
+    "OWN_FEED_URL",
+    "https://raw.githubusercontent.com/fabiogiglietto/fabiogiglietto.github.io/main/public/data/own-publications.json"
+)
+OWN_PAPERS_MIN_YEAR = int(os.getenv("OWN_PAPERS_MIN_YEAR", "2026"))
+
 # Podcast metadata
 PODCAST_TITLE = os.getenv("PODCAST_TITLE", "Research Radio")
 PODCAST_DESCRIPTION = os.getenv(
