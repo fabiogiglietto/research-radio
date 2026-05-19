@@ -120,8 +120,15 @@ def generate_podcast_feed(output_path: Optional[str] = None) -> str:
     # Only episodes whose scheduled slot has arrived appear in the RSS feed —
     # this is the one-per-slot pace Spotify/Apple see. Audio for not-yet-due
     # episodes is already live on GitHub Releases and linked from the vault.
+    #
+    # Own-publication episodes (`own=True`) are excluded from the public RSS
+    # feed entirely: they are surfaced only as podcast links on the author's
+    # site (fabiogiglietto.github.io), never as episodes of the public show.
+    # episodes.json still records them — that is what the website reads.
     now = datetime.now(timezone.utc)
-    episodes = [ep for ep in load_episodes() if ep.pub_date <= now]
+    episodes = [
+        ep for ep in load_episodes() if ep.pub_date <= now and not ep.own
+    ]
 
     # Sort episodes by date (newest first)
     episodes.sort(key=lambda e: e.pub_date, reverse=True)
