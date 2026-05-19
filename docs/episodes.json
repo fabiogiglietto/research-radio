@@ -1619,6 +1619,21 @@
         "Giada Marino"
       ],
       "own": true
+    },
+    {
+      "id": "bibtex:Weinbrand2026-sf",
+      "title": "FG's Research Radio: Who Decides What Google Knows? The AI Overview Wars",
+      "description": "AI-generated podcast discussion.\n\nReference:\nWeinbrand, S., Nagappa, A., & Angus, D. (2026). Framing the future of search: A discourse analysis of Google\u2019s AI Overviews. https://doi.org/10.1177/17504813261447684",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Weinbrand2026-sf.mp3",
+      "audio_size": 5218557,
+      "duration": 513,
+      "pub_date": "2026-06-02T09:57:17.855433+00:00",
+      "authors": [
+        "Shir Weinbrand",
+        "Ashwin Nagappa",
+        "Daniel Angus"
+      ],
+      "own": false
     }
   ]
 }
