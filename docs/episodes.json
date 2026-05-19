@@ -1603,22 +1603,6 @@
         "Cornelius Puschmann"
       ],
       "own": true
-    },
-    {
-      "id": "bibtex:Giglietto2026-9b6a992d",
-      "title": "FG's Research Radio: How AI Supercharged the Gambling Ad Machine",
-      "description": "AI-generated podcast discussion.\n\nReference:\nGiglietto, F., Terenzi, M., Chakraborty, A., & Marino, G. (2026). Synthetic seduction: Evolving visual persuasion in coordinated online gambling promotion with generative {AI}. https://doi.org/10.1007/978-3-032-11782-3_4",
-      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Giglietto2026-9b6a992d.mp3",
-      "audio_size": 4971813,
-      "duration": 510,
-      "pub_date": "2026-06-01T09:57:17.855433+00:00",
-      "authors": [
-        "Fabio Giglietto",
-        "Massimo Terenzi",
-        "Anwesha Chakraborty",
-        "Giada Marino"
-      ],
-      "own": true
     }
   ]
 }
