@@ -1645,6 +1645,25 @@
       "pub_date": "2026-06-03T09:57:17.855433+00:00",
       "authors": [],
       "own": false
+    },
+    {
+      "id": "bibtex:Van_Erkel2026-mk",
+      "title": "FG's Research Radio: Why Both Sides Think Misinformation Is Out to Get Them",
+      "description": "AI-generated podcast discussion.\n\nReference:\nErkel, P. V., Hameleers, M., Farooq, A., Gattermann, K., Tulin, M., Hoogen, E. V. D., & Vreese, C. D. (2026). The hostile misinformation effect: How ideological congruence drives the assessment of misinformation targets. https://doi.org/10.1080/10584609.2026.2671760",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Van_Erkel2026-mk.mp3",
+      "audio_size": 5824533,
+      "duration": 559,
+      "pub_date": "2026-06-04T09:57:17.855433+00:00",
+      "authors": [
+        "Patrick van Erkel",
+        "Michael Hameleers",
+        "Aqsa Farooq",
+        "Katjana Gattermann",
+        "Marina Tulin",
+        "Elske van den Hoogen",
+        "Claes de Vreese"
+      ],
+      "own": false
     }
   ]
 }
