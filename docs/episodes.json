@@ -1664,6 +1664,22 @@
         "Claes de Vreese"
       ],
       "own": false
+    },
+    {
+      "id": "bibtex:Grusauskaite2026-po",
+      "title": "FG's Research Radio: Why Fact-Checking Conspiracy Theorists Backfires",
+      "description": "AI-generated podcast discussion.\n\nReference:\nGrusauskaite, K., Bondt, M. D., Wildt, L. D., & Aupers, S. (2026). \u201cWe, the conspiracy theorists.\u201d How people do symbolic boundary work in the \u201cGreat Reset\u201d debates across social media platforms. https://doi.org/10.1177/14614448261446590",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Grusauskaite2026-po.mp3",
+      "audio_size": 5633037,
+      "duration": 563,
+      "pub_date": "2026-06-05T09:57:17.855433+00:00",
+      "authors": [
+        "Kamile Grusauskaite",
+        "Matthias De Bondt",
+        "Lars de Wildt",
+        "Stef Aupers"
+      ],
+      "own": false
     }
   ]
 }
