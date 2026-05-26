@@ -1680,6 +1680,22 @@
         "Stef Aupers"
       ],
       "own": false
+    },
+    {
+      "id": "bibtex:Schulte2026-df",
+      "title": "FG's Research Radio: Why One Platform Isn't Enough to Understand Elections",
+      "description": "AI-generated podcast discussion.\n\nReference:\nSchulte, L., Pasic, D., Goanta, C., & Iamnitchi, A. (2026). Multi-platform analysis of electoral discourse on social media as a research infrastructure problem. https://doi.org/10.1145/3795513.3807440",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Schulte2026-df.mp3",
+      "audio_size": 5367381,
+      "duration": 536,
+      "pub_date": "2026-06-06T09:57:17.855433+00:00",
+      "authors": [
+        "Ludwig Schulte",
+        "Dino Pasic",
+        "Catalina Goanta",
+        "Adriana Iamnitchi"
+      ],
+      "own": false
     }
   ]
 }
