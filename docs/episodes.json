@@ -1696,6 +1696,19 @@
         "Adriana Iamnitchi"
       ],
       "own": false
+    },
+    {
+      "id": "bibtex:Hepp2026-oi",
+      "title": "FG's Research Radio: The APIcalypse: Why Election Research Is Broken",
+      "description": "AI-generated podcast discussion.\n\nReference:\nHepp, A. (2026). The imaginative landscape of AI: Locating Silicon Valley\u2019s \u201cquiet futuring\u201d. https://doi.org/10.1177/01634437261454515",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Hepp2026-oi.mp3",
+      "audio_size": 4773141,
+      "duration": 464,
+      "pub_date": "2026-06-07T09:57:17.855433+00:00",
+      "authors": [
+        "Andreas Hepp"
+      ],
+      "own": false
     }
   ]
 }
