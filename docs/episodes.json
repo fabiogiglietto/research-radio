@@ -1709,6 +1709,36 @@
         "Andreas Hepp"
       ],
       "own": false
+    },
+    {
+      "id": "bibtex:Vertesi2026-lv",
+      "title": "FG's Research Radio: The Five Decoys Hiding AI's Real Power Grab",
+      "description": "AI-generated podcast discussion.\n\nReference:\nVertesi, J., boyd, D., Taylor, A., & Shestakofsky, B. (2026). Reckoning with the political economy of AI: Avoiding decoys in pursuit of accountability. http://arxiv.org/abs/2604.16106v2",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Vertesi2026-lv.mp3",
+      "audio_size": 5198133,
+      "duration": 529,
+      "pub_date": "2026-06-08T09:57:17.855433+00:00",
+      "authors": [
+        "Janet Vertesi",
+        "danah boyd",
+        "Alex Taylor",
+        "Benjamin Shestakofsky"
+      ],
+      "own": false
+    },
+    {
+      "id": "bibtex:Giglietto2026-632ef967",
+      "title": "FG's Research Radio: Break the Glass: How Facebook Quietly Rewrites What You See",
+      "description": "AI-generated podcast discussion.\n\nReference:\nGiglietto, F. & Marino, G. (2026). Beyond the share button: How partisan alignment, journalistic quality, and algorithmic governance shape what millions see on Facebook. https://doi.org/10.1177/29768624261452529",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Giglietto2026-632ef967.mp3",
+      "audio_size": 5888853,
+      "duration": 576,
+      "pub_date": "2026-06-09T09:57:17.855433+00:00",
+      "authors": [
+        "Fabio Giglietto",
+        "Giada Marino"
+      ],
+      "own": true
     }
   ]
 }
