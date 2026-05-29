@@ -1739,6 +1739,29 @@
         "Giada Marino"
       ],
       "own": true
+    },
+    {
+      "id": "bibtex:Brady2026-ln",
+      "title": "FG's Research Radio: Rewiring the Feed: Can Algorithms Heal Political Divides?",
+      "description": "AI-generated podcast discussion.\n\nReference:\nBrady, W. J., Doyle, M., Elnakouri, A., Finkel, E. J., Jackson, J. C., Kteily, N., Parker, V., Puryear, C., Spelman, T., Teeny, J., & Torres, M. (2026). Redesigning algorithms to intervene on social norm misperceptions during a national election. https://doi.org/10.1038/s41586-026-10536-1",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Brady2026-ln.mp3",
+      "audio_size": 5333229,
+      "duration": 509,
+      "pub_date": "2026-06-10T09:57:17.855433+00:00",
+      "authors": [
+        "William J. Brady",
+        "Meriel Doyle",
+        "Abdo Elnakouri",
+        "Eli J. Finkel",
+        "Joshua Conrad Jackson",
+        "Nour Kteily",
+        "Victoria Parker",
+        "Curtis Puryear",
+        "Trevor Spelman",
+        "Jacob Teeny",
+        "Mark Torres"
+      ],
+      "own": false
     }
   ]
 }
