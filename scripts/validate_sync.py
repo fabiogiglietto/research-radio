@@ -210,9 +210,13 @@ def validate() -> ValidationResult:
     # whose scheduled pub_date has arrived. Episodes scheduled into a future
     # slot are intentionally held back from the RSS feed (deferred publication),
     # so feed_count is compared against the published subset, not every episode.
+    # Own-publication episodes (own=True) are also excluded from the public RSS
+    # feed by generate_podcast_feed(), so they must not be counted here either.
     now = datetime.now(timezone.utc)
     published = 0
     for ep in episodes.values():
+        if ep.get('own'):
+            continue
         try:
             pub_date = datetime.fromisoformat(ep.get('pub_date', ''))
             if pub_date.tzinfo is None:
