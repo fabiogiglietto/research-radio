@@ -1762,6 +1762,20 @@
         "Mark Torres"
       ],
       "own": false
+    },
+    {
+      "id": "bibtex:Lukito2026-nb",
+      "title": "FG's Research Radio: Who Gets to Study Elections? The Hidden Barriers to Platform Data",
+      "description": "AI-generated podcast discussion.\n\nReference:\nLukito, J. & Mimizuka, K. (2026). Price, proficiency, or permission: assessing platform data access for election research. https://doi.org/10.1080/1369118x.2026.2667921",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Lukito2026-nb.mp3",
+      "audio_size": 4839789,
+      "duration": 489,
+      "pub_date": "2026-06-11T09:57:17.855433+00:00",
+      "authors": [
+        "Josephine Lukito",
+        "Kayo Mimizuka"
+      ],
+      "own": false
     }
   ]
 }
