@@ -1776,6 +1776,20 @@
         "Kayo Mimizuka"
       ],
       "own": false
+    },
+    {
+      "id": "bibtex:de-Vreese2026-zx",
+      "title": "FG's Research Radio: When Platforms Push Back: Why Data Access Friction Means Regulation Is Working",
+      "description": "AI-generated podcast discussion.\n\nReference:\nVreese, C. H. D. & Tromble, R. (2026). Moving targets, moving politics: The state of play in social media data access. https://doi.org/10.1080/10584609.2026.2681041",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/de-Vreese2026-zx.mp3",
+      "audio_size": 4796037,
+      "duration": 469,
+      "pub_date": "2026-06-12T09:57:17.855433+00:00",
+      "authors": [
+        "Claes H. de Vreese",
+        "Rebekah Tromble"
+      ],
+      "own": false
     }
   ]
 }
