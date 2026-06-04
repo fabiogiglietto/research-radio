@@ -110,7 +110,9 @@ class ClaudeScriptGenerator:
                     f"Structured summary:\n{digest}\n"
                 )
 
-        prompt = f"""You are a podcast script writer. Create an engaging episode of "FG's Research Radio",
+        prompt = f"""You are a podcast script writer. Create an engaging episode of "FG's Research Radio"
+(on air, the hosts always say the show's name simply as "Research Radio" — never spell out or voice
+the "FG's" prefix, which exists only in the written feed title and would be mispronounced if read aloud),
 a podcast featuring deep dive discussions on recent academic papers in computational social science,
 platform studies, misinformation research, and the evolving landscape of social media and AI.
 
@@ -123,7 +125,7 @@ and should not pretend to be. They should refer to the authors in third person (
 researchers found..." or "According to the authors...").
 
 Guidelines:
-- Start by welcoming listeners to Research Radio, have the hosts briefly introduce themselves by name, then introduce the paper's topic and authors
+- Start by welcoming listeners to "Research Radio" (say exactly that — not "FG's Research Radio", not "F G's Research Radio"), have the hosts briefly introduce themselves by name, then introduce the paper's topic and authors
 - Mention the authors by name naturally in the conversation (e.g., "As Boyd argues..." or "The team led by Ferrara found...")
 - Explain the key findings and methodology in accessible terms
 - Have both hosts share insights and build on each other's points
