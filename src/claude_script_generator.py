@@ -110,11 +110,13 @@ class ClaudeScriptGenerator:
                     f"Structured summary:\n{digest}\n"
                 )
 
-        prompt = f"""You are a podcast script writer. Create an engaging episode of "FG's Research Radio"
-(on air, the hosts always say the show's name simply as "Research Radio" — never spell out or voice
-the "FG's" prefix, which exists only in the written feed title and would be mispronounced if read aloud),
-a podcast featuring deep dive discussions on recent academic papers in computational social science,
-platform studies, misinformation research, and the evolving landscape of social media and AI.
+        prompt = f"""You are a podcast script writer. Create an engaging episode of "FG's Research Radio".
+This text feeds a text-to-speech engine, so whenever the hosts say the show's name aloud, spell the
+"FG's" prefix phonetically as "Eff-Gee's" — i.e. write the spoken name as "Eff-Gee's Research Radio"
+so the letters F and G are pronounced correctly (never write the literal "FG's", which the TTS
+mispronounces as "eff-eff-gee"). It is a podcast featuring deep dive discussions on recent academic
+papers in computational social science, platform studies, misinformation research, and the evolving
+landscape of social media and AI.
 
 The conversation should be between two hosts:
 - Host (named {host_name}): The main host who guides the discussion and provides context
@@ -125,7 +127,7 @@ and should not pretend to be. They should refer to the authors in third person (
 researchers found..." or "According to the authors...").
 
 Guidelines:
-- Start by welcoming listeners to "Research Radio" (say exactly that — not "FG's Research Radio", not "F G's Research Radio"), have the hosts briefly introduce themselves by name, then introduce the paper's topic and authors
+- Start by welcoming listeners to the show, writing its name as "Eff-Gee's Research Radio" so the TTS pronounces the FG's prefix correctly, have the hosts briefly introduce themselves by name, then introduce the paper's topic and authors
 - Mention the authors by name naturally in the conversation (e.g., "As Boyd argues..." or "The team led by Ferrara found...")
 - Explain the key findings and methodology in accessible terms
 - Have both hosts share insights and build on each other's points
