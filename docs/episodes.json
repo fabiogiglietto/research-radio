@@ -1790,6 +1790,21 @@
         "Rebekah Tromble"
       ],
       "own": false
+    },
+    {
+      "id": "bibtex:Fan2026-af",
+      "title": "FG's Research Radio: Every Tap, Swipe, and Scroll: Mining the Sequences of Digital Life",
+      "description": "AI-generated podcast discussion.\n\nReference:\nFan, Y., Ohme, J., & Wedel, L. (2026). Exploring temporal dynamics in digital trace data: mining user-sequences for communication research. https://doi.org/10.1080/19312458.2026.2664873",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Fan2026-af.mp3",
+      "audio_size": 5500629,
+      "duration": 538,
+      "pub_date": "2026-06-13T09:57:17.855433+00:00",
+      "authors": [
+        "Yangliu Fan",
+        "Jakob Ohme",
+        "Lion Wedel"
+      ],
+      "own": false
     }
   ]
 }
