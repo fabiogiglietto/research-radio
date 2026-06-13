@@ -1805,6 +1805,24 @@
         "Lion Wedel"
       ],
       "own": false
+    },
+    {
+      "id": "bibtex:Brown2026-br",
+      "title": "FG's Research Radio: Who's Really Driving YouTube's Rabbit Holes?",
+      "description": "AI-generated podcast discussion.\n\nReference:\nBrown, M. A., Bisbee, J., Lai, A., Bonneau, R., Nagler, J., & Tucker, J. A. (2026). Evaluating echo chambers, rabbit holes, and radicalization pathways on YouTube. https://doi.org/10.1080/10584609.2026.2671765",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Brown2026-br.mp3",
+      "audio_size": 5174901,
+      "duration": 489,
+      "pub_date": "2026-06-14T09:57:17.855433+00:00",
+      "authors": [
+        "Megan A. Brown",
+        "James Bisbee",
+        "Angela Lai",
+        "Richard Bonneau",
+        "Jonathan Nagler",
+        "Joshua A. Tucker"
+      ],
+      "own": false
     }
   ]
 }
