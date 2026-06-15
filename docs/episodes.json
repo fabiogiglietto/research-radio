@@ -1823,6 +1823,23 @@
         "Joshua A. Tucker"
       ],
       "own": false
+    },
+    {
+      "id": "bibtex:Alizadeh2026-es",
+      "title": "FG's Research Radio: When AI Agents Replicate Science\u2014and When They Fake It",
+      "description": "AI-generated podcast discussion.\n\nReference:\nAlizadeh, M., Mosleh, M., Gilardi, F., Kasirzadeh, A., & Tucker, J. (2026). AI coding agents can reproduce social science findings. http://arxiv.org/abs/2606.11447v1",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Alizadeh2026-es.mp3",
+      "audio_size": 5510253,
+      "duration": 544,
+      "pub_date": "2026-06-15T09:57:17.855433+00:00",
+      "authors": [
+        "Meysam Alizadeh",
+        "Mohsen Mosleh",
+        "Fabrizio Gilardi",
+        "Atoosa Kasirzadeh",
+        "Joshua Tucker"
+      ],
+      "own": false
     }
   ]
 }
