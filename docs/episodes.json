@@ -1840,6 +1840,19 @@
         "Joshua Tucker"
       ],
       "own": false
+    },
+    {
+      "id": "bibtex:Wedel2026-ix",
+      "title": "FG's Research Radio: Beyond News: How Young Adults Actually Decide What's Informative",
+      "description": "AI-generated podcast discussion.\n\nReference:\nWedel, L. (2026). What is informative to young adults? Decoding informativeness perceptions among audiences of audio-visual digital platforms. https://doi.org/10.1080/21670811.2026.2685660",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Wedel2026-ix.mp3",
+      "audio_size": 5378037,
+      "duration": 529,
+      "pub_date": "2026-06-16T09:57:17.855433+00:00",
+      "authors": [
+        "Lion Wedel"
+      ],
+      "own": false
     }
   ]
 }
