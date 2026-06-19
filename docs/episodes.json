@@ -1869,6 +1869,22 @@
         "Christian Katzenbach"
       ],
       "own": false
+    },
+    {
+      "id": "bibtex:Fattorini2026-bo",
+      "title": "FG's Research Radio: Robots, Chatbots, and Critical Ambivalence: Italy's AI Mindset",
+      "description": "AI-generated podcast discussion.\n\nReference:\nFattorini, E., Rubin, A., Saracino, B., & Bucchi, M. (2026). Italians\u2019 attitudes towards AI: how technology issues travel across social conversation. https://doi.org/10.1080/1369118x.2026.2689030",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Fattorini2026-bo.mp3",
+      "audio_size": 5151357,
+      "duration": 515,
+      "pub_date": "2026-06-19T16:33:00.797497+00:00",
+      "authors": [
+        "Eliana Fattorini",
+        "Andrea Rubin",
+        "Barbara Saracino",
+        "Massimiano Bucchi"
+      ],
+      "own": false
     }
   ]
 }
