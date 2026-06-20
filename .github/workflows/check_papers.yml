@@ -66,6 +66,9 @@ jobs:
           GOOGLE_APPLICATION_CREDENTIALS: credentials/service-account.json
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPO: ${{ github.repository }}
+          # Optional: per-episode Spotify links (Apple needs no credentials).
+          SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
+          SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
           PODCAST_TITLE: "Research Radio"
           PODCAST_DESCRIPTION: "AI-generated deep dives into computational social science research. Papers curated by Fabio Giglietto, scripts by Anthropic's Claude, narration by Google Gemini."
           PODCAST_AUTHOR: "Fabio Giglietto, Claude & Gemini"

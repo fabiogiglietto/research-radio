@@ -49,6 +49,7 @@ from src.feed_generator import (
     generate_podcast_feed,
     next_publish_slot,
 )
+from src.platform_links import enrich_and_save
 
 # Rate limiting: minimum hours between episode publications
 MIN_HOURS_BETWEEN_EPISODES = 24
@@ -280,6 +281,8 @@ def main():
         print("\nNo new papers found.")
         # Still regenerate the feed: a previously-queued episode may have
         # reached its scheduled slot and now needs to surface.
+        print("Refreshing Spotify/Apple episode links...")
+        print(f"  {enrich_and_save()} episode(s) updated")
         print("Regenerating feed so any due episodes can surface...")
         generate_podcast_feed()
         return
@@ -336,6 +339,10 @@ def main():
             import traceback
             traceback.print_exc()
             failed += 1
+
+    # Refresh per-episode Spotify/Apple links before regenerating the feed.
+    print("\nRefreshing Spotify/Apple episode links...")
+    print(f"  {enrich_and_save()} episode(s) updated")
 
     # Generate updated feed
     print("\n" + "="*60)
