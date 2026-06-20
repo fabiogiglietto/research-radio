@@ -58,14 +58,13 @@ PODCAST_EMAIL = os.getenv("PODCAST_EMAIL", "")
 PODCAST_WEBSITE = os.getenv("PODCAST_WEBSITE", "")
 
 # Per-episode platform links (resolved by src/platform_links.py and written into
-# docs/episodes.json for fg-zettelkasten to consume). Apple is resolved from the
-# free iTunes Lookup API by show id; Spotify needs an app token and is skipped
-# unless SPOTIFY_CLIENT_ID / SPOTIFY_CLIENT_SECRET are set.
+# docs/episodes.json for fg-zettelkasten to consume). Apple resolves per-episode
+# URLs from the free iTunes Lookup API by show id. Spotify links point at the
+# show page — its episode endpoint needs a user token, so per-episode deep links
+# aren't reachable from CI.
 APPLE_PODCAST_ID = os.getenv("APPLE_PODCAST_ID", "1866587707")
 APPLE_PODCAST_COUNTRY = os.getenv("APPLE_PODCAST_COUNTRY", "us")
 SPOTIFY_SHOW_ID = os.getenv("SPOTIFY_SHOW_ID", "5V99ieB2ljNvcwPZ53EoPX")
-SPOTIFY_CLIENT_ID = os.getenv("SPOTIFY_CLIENT_ID")
-SPOTIFY_CLIENT_SECRET = os.getenv("SPOTIFY_CLIENT_SECRET")
 
 # Paths
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))

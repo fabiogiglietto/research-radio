@@ -6,9 +6,9 @@ platform's catalogue and matched back to our episodes:
 
 - Apple: the free iTunes Lookup API returns every episode with its `episodeGuid`,
   which equals our `bibtex:` episode id — a deterministic, credential-free join.
-- Spotify: the Web API needs an app (client-credentials) token and exposes no RSS
-  guid, so episodes are matched by title. Skipped when SPOTIFY_CLIENT_ID /
-  SPOTIFY_CLIENT_SECRET are unset.
+- Spotify: per-episode deep links would need a *user*-authorized token — the
+  episode endpoint rejects app-only Client Credentials (403) — so we link to the
+  show page instead (open.spotify.com/show/<id>) for every public episode.
 
 Resolution is best-effort: a platform lookup that fails is logged and skipped so
 it never blocks podcast generation. The resolved URLs are written into
@@ -28,14 +28,10 @@ from config import (
     APPLE_PODCAST_ID,
     APPLE_PODCAST_COUNTRY,
     SPOTIFY_SHOW_ID,
-    SPOTIFY_CLIENT_ID,
-    SPOTIFY_CLIENT_SECRET,
 )
 
 _ITUNES_LOOKUP = "https://itunes.apple.com/lookup"
 _ITUNES_LIMIT = 200  # the lookup API's maximum
-_SPOTIFY_TOKEN_URL = "https://accounts.spotify.com/api/token"
-_SPOTIFY_API = "https://api.spotify.com/v1"
 
 
 def _apple_urls_by_guid(timeout: int = 30) -> dict[str, str]:
@@ -67,64 +63,29 @@ def _apple_urls_by_guid(timeout: int = 30) -> dict[str, str]:
     return out
 
 
-def _norm_title(title: str) -> str:
-    """Collapse whitespace and casefold a title for cross-platform matching."""
-    return " ".join((title or "").split()).casefold()
+def _spotify_show_url() -> str:
+    """The Spotify show page URL, or "" when no show id is configured.
 
-
-def _spotify_urls_by_title(timeout: int = 30) -> dict[str, str]:
-    """Map normalised episode title -> Spotify episode URL.
-
-    Empty when credentials are unset (the common case until a Spotify app is
-    provisioned). Spotify exposes no RSS guid, so the join is by title."""
-    if not (SPOTIFY_CLIENT_ID and SPOTIFY_CLIENT_SECRET and SPOTIFY_SHOW_ID):
-        return {}
-    token_resp = requests.post(
-        _SPOTIFY_TOKEN_URL,
-        data={"grant_type": "client_credentials"},
-        auth=(SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET),
-        timeout=timeout,
-    )
-    token_resp.raise_for_status()
-    headers = {"Authorization": f"Bearer {token_resp.json()['access_token']}"}
-
-    out: dict[str, str] = {}
-    url = f"{_SPOTIFY_API}/shows/{SPOTIFY_SHOW_ID}/episodes"
-    params: dict | None = {"market": "US", "limit": 50}
-    while url:
-        resp = requests.get(url, headers=headers, params=params, timeout=timeout)
-        resp.raise_for_status()
-        page = resp.json()
-        for item in page.get("items", []):
-            if not item:  # Spotify returns null items for unavailable episodes
-                continue
-            name = item.get("name")
-            ep_url = (item.get("external_urls") or {}).get("spotify")
-            if name and ep_url:
-                out.setdefault(_norm_title(name), ep_url)
-        url = page.get("next")  # a full URL, so the original params no longer apply
-        params = None
-    return out
+    Per-episode deep links aren't reachable: the episode endpoint requires a
+    user-authorized token (app-only Client Credentials get a 403), so every
+    public episode points at the show page instead."""
+    return f"https://open.spotify.com/show/{SPOTIFY_SHOW_ID}" if SPOTIFY_SHOW_ID else ""
 
 
 def enrich_episodes(episodes) -> int:
     """Fill apple_url / spotify_url on each Episode in place; return count changed.
 
     Own-publication episodes are excluded from the public feed and never reach
-    Spotify/Apple, so they are left untouched. Each platform is resolved
-    independently and a failure in one is non-fatal."""
+    Spotify/Apple, so they are left untouched. Apple resolution is best-effort:
+    a lookup failure is non-fatal."""
     try:
         apple = _apple_urls_by_guid()
     except requests.RequestException as exc:  # noqa: BLE001 - non-fatal
         print(f"  apple: lookup failed ({exc})")
         apple = {}
-    try:
-        spotify = _spotify_urls_by_title()
-    except requests.RequestException as exc:  # noqa: BLE001 - non-fatal
-        print(f"  spotify: lookup failed ({exc})")
-        spotify = {}
+    spotify_url = _spotify_show_url()
 
-    if not apple and not spotify:
+    if not apple and not spotify_url:
         return 0
 
     changed = 0
@@ -132,7 +93,7 @@ def enrich_episodes(episodes) -> int:
         if ep.own:
             continue
         new_apple = apple.get(ep.id, ep.apple_url)
-        new_spotify = spotify.get(_norm_title(ep.title), ep.spotify_url)
+        new_spotify = spotify_url or ep.spotify_url
         if new_apple != ep.apple_url or new_spotify != ep.spotify_url:
             ep.apple_url = new_apple
             ep.spotify_url = new_spotify
