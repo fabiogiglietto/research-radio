@@ -34,6 +34,8 @@ class Episode:
     pub_date: datetime
     authors: list[str]
     own: bool = False  # True when the episode is one of the author's own papers
+    spotify_url: str = ""  # per-episode Spotify URL (resolved in platform_links)
+    apple_url: str = ""    # per-episode Apple Podcasts URL (resolved in platform_links)
 
 
 EPISODES_FILE = os.path.join(DOCS_DIR, "episodes.json")
