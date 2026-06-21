@@ -2187,6 +2187,22 @@
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-robots-chatbots-and-critical/id1866587707?i=1000773438069",
       "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Giglietto2026-cae4a7c7",
+      "title": "FG's Research Radio: The Intensity Penalty: Why Extreme Content Doesn't Always Win",
+      "description": "AI-generated podcast discussion.\n\nReference:\nGiglietto, F. (2026). Amplifying extremes: the interplay of social media and traditional media in shaping political polarization. https://doi.org/10.4337/9781035325047.00023",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Giglietto2026-cae4a7c7.mp3",
+      "audio_size": 5093925,
+      "duration": 504,
+      "pub_date": "2026-06-26T13:11:17.175711+00:00",
+      "authors": [
+        "Fabio Giglietto"
+      ],
+      "own": true,
+      "spotify_url": "",
+      "apple_url": "",
+      "audio_mismatch": false
     }
   ]
 }
