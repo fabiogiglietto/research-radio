@@ -4,6 +4,7 @@ Feed Generator - Creates RSS 2.0 podcast feed with iTunes extensions.
 
 import os
 import json
+import html
 from datetime import datetime, timedelta, timezone
 from typing import Optional
 from dataclasses import dataclass, asdict
@@ -36,6 +37,8 @@ class Episode:
     own: bool = False  # True when the episode is one of the author's own papers
     spotify_url: str = ""  # per-episode Spotify URL (resolved in platform_links)
     apple_url: str = ""    # per-episode Apple Podcasts URL (resolved in platform_links)
+    audio_mismatch: bool = False  # audio is the wrong paper; withhold from feed
+                                  # until regenerated (see WRONG_AUDIO_REPORT.md)
 
 
 EPISODES_FILE = os.path.join(DOCS_DIR, "episodes.json")
@@ -127,9 +130,13 @@ def generate_podcast_feed(output_path: Optional[str] = None) -> str:
     # feed entirely: they are surfaced only as podcast links on the author's
     # site (fabiogiglietto.github.io), never as episodes of the public show.
     # episodes.json still records them — that is what the website reads.
+    # Episodes flagged `audio_mismatch` carry the wrong paper's audio (a
+    # wrong-PDF generation bug) and are withheld from the public feed until
+    # their audio is regenerated — see WRONG_AUDIO_REPORT.md.
     now = datetime.now(timezone.utc)
     episodes = [
-        ep for ep in load_episodes() if ep.pub_date <= now and not ep.own
+        ep for ep in load_episodes()
+        if ep.pub_date <= now and not ep.own and not ep.audio_mismatch
     ]
 
     # Sort episodes by date (newest first)
@@ -240,6 +247,10 @@ def create_episode_from_paper(
     if paper_year is None:
         paper_year = str(pub_date.year)
 
+    # Feed paper titles arrive HTML-escaped (e.g. &#x27; for an apostrophe);
+    # unescape so the citation and episode title read as plain text.
+    paper_title = html.unescape(paper_title)
+
     # Build APA7-style citation
     authors_apa = format_authors_apa7(paper_authors)
     citation = f"{authors_apa} ({paper_year}). {paper_title}."
@@ -249,7 +260,7 @@ def create_episode_from_paper(
     description = f"AI-generated podcast discussion.\n\nReference:\n{citation}"
 
     # Use provided episode title or fall back to paper title
-    title = episode_title if episode_title else paper_title
+    title = html.unescape(episode_title) if episode_title else paper_title
 
     return Episode(
         id=paper_id,

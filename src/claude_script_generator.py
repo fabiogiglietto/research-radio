@@ -188,8 +188,18 @@ Generate ONLY the episode title, nothing else. No quotes, no explanation, just t
                 max_tokens=100,
                 messages=[{"role": "user", "content": prompt}],
             ).strip()
-            # Remove any quotes that might have been added
-            return title.strip('"\'')
+            # Strip quotes and a redundant "FG's Research Radio:" prefix the
+            # model sometimes adds despite the instruction not to.
+            title = title.strip('"\'')
+            if title.lower().startswith("fg's research radio:"):
+                title = title.split(":", 1)[1].strip()
+            # Reject obviously broken titles (empty, truncated, or a dangling
+            # subtitle colon) so the caller falls back to the paper title — a
+            # correct full title beats a mangled catchy one.
+            if not title or title.endswith(":") or len(title.split()) < 3:
+                print(f"  Discarding malformed episode title: {title!r}")
+                return None
+            return title
         except Exception as e:
             print(f"Error generating episode title: {e}")
             return None
