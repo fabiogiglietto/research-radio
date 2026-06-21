@@ -141,7 +141,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-persistence-of/id1866587707?i=1000743818387"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-persistence-of/id1866587707?i=1000743818387",
+      "audio_mismatch": true
     },
     {
       "id": "bibtex:Rodriguez_Farres2025-sg",
@@ -189,7 +190,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-tiktok-dogshows-and-the/id1866587707?i=1000743818637"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-tiktok-dogshows-and-the/id1866587707?i=1000743818637",
+      "audio_mismatch": true
     },
     {
       "id": "bibtex:Costello2024-kp",
@@ -206,12 +208,13 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-durably-reducing-conspiracy-beliefs/id1866587707?i=1000743818554"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-durably-reducing-conspiracy-beliefs/id1866587707?i=1000743818554",
+      "audio_mismatch": true
     },
     {
       "id": "bibtex:Efstratiou2025-gs",
       "title": "FG's Research Radio: Rabble-rousers in the new king&#x27;s court: Algorithmic effects on account visibility in pre-X twitter",
-      "description": "AI-generated podcast discussion.\n\nReference:\nEfstratiou, A., Duskin, K., Starbird, K., & Spiro, E. S. (2025). Rabble-rousers in the new king&#x27;s court: Algorithmic effects on account visibility in pre-X twitter. https://arxiv.org/abs/2512.06129",
+      "description": "AI-generated podcast discussion.\n\nReference:\nEfstratiou, A., Duskin, K., Starbird, K., & Spiro, E. S. (2025). Rabble-rousers in the new king's court: Algorithmic effects on account visibility in pre-X twitter. https://arxiv.org/abs/2512.06129",
       "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Efstratiou2025-gs.mp3",
       "audio_size": 3098637,
       "duration": 304,
@@ -247,7 +250,7 @@
     {
       "id": "bibtex:Pierri2025-hm",
       "title": "FG's Research Radio: Decoding the DSA: Can Research Tame Big Tech?",
-      "description": "AI-generated podcast discussion.\n\nReference:\nPierri, F., Araujo, T., Kruikemeier, S., Lorenz-Spreen, P., Abeele, M. M. P. V., Vandenbosch, L., Gon\u00e7alves-Sa, J., & Grabowicz, P. A. (2025). Research opportunities and challenges of the EU&#x27;s Digital Services Act. http://arxiv.org/abs/2512.14223v1",
+      "description": "AI-generated podcast discussion.\n\nReference:\nPierri, F., Araujo, T., Kruikemeier, S., Lorenz-Spreen, P., Abeele, M. M. P. V., Vandenbosch, L., Gon\u00e7alves-Sa, J., & Grabowicz, P. A. (2025). Research opportunities and challenges of the EU's Digital Services Act. http://arxiv.org/abs/2512.14223v1",
       "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Pierri2025-hm.mp3",
       "audio_size": 4265949,
       "duration": 424,
@@ -492,7 +495,7 @@
     {
       "id": "bibtex:Di-Domenico2026-zq",
       "title": "FG's Research Radio: Influencer Toxicity: When Misinformation Sparks Online Firestorms",
-      "description": "AI-generated podcast discussion.\n\nReference:\nDomenico, G. D., Mangi\u00f3, F., & Dineva, D. (2026). don&#x27;t you know that you&#x27;re toxic? how influencer\u2010driven misinformation fuels online toxicity. https://doi.org/10.1002/mar.70106",
+      "description": "AI-generated podcast discussion.\n\nReference:\nDomenico, G. D., Mangi\u00f3, F., & Dineva, D. (2026). don't you know that you're toxic? how influencer\u2010driven misinformation fuels online toxicity. https://doi.org/10.1002/mar.70106",
       "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Di-Domenico2026-zq.mp3",
       "audio_size": 3842325,
       "duration": 370,
@@ -983,7 +986,7 @@
     {
       "id": "bibtex:Farkas2026-lr",
       "title": "FG's Research Radio: Fact-Checkers vs. Platforms: A Necessary Evil?",
-      "description": "AI-generated podcast discussion.\n\nReference:\nFarkas, J. & Bengtsson, M. (2026). Defending fact-checking partnerships with platform companies: \u2018We can&#x27;t fight alone against disinformation\u2019. https://doi.org/10.1177/02673231261422085",
+      "description": "AI-generated podcast discussion.\n\nReference:\nFarkas, J. & Bengtsson, M. (2026). Defending fact-checking partnerships with platform companies: \u2018We can't fight alone against disinformation\u2019. https://doi.org/10.1177/02673231261422085",
       "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Farkas2026-lr.mp3",
       "audio_size": 3095973,
       "duration": 291,
@@ -1016,7 +1019,7 @@
     },
     {
       "id": "bibtex:Shi2026-ko",
-      "title": "FG's Research Radio: Fact-Checkers vs. Platforms: A Necessary Evil?",
+      "title": "FG's Research Radio: Does AI Disclosure Make Fact-Checks More Believable?",
       "description": "AI-generated podcast discussion.\n\nReference:\nShi, Y. (2026). The Governance-Embedded Interactive Media Effect: the role of AI-generated disclosure in user credibility and engagement based on fact-checking videos on Chinese TikTok (Douyin). https://doi.org/10.1080/17544750.2026.2623075",
       "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Shi2026-ko.mp3",
       "audio_size": 3808581,
@@ -1027,7 +1030,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-fact-checkers-vs-platforms-a/id1866587707?i=1000754609252"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-fact-checkers-vs-platforms-a/id1866587707?i=1000754609252",
+      "audio_mismatch": true
     },
     {
       "id": "bibtex:Hackenburg2025-dj",
@@ -1202,7 +1206,7 @@
     },
     {
       "id": "bibtex:Efstratiou2026-ij",
-      "title": "FG's Research Radio: COVID Conspiracies: How Social Media Feeds the News",
+      "title": "FG's Research Radio: Who Really Drives Science Talk Online?",
       "description": "AI-generated podcast discussion.\n\nReference:\nEfstratiou, A., Russo, G., & Luceri, L. (2026). Information pathways in online science communication: The role of platform actors and news media. http://arxiv.org/abs/2603.17249v1",
       "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Efstratiou2026-ij.mp3",
       "audio_size": 3590613,
@@ -1292,7 +1296,7 @@
     },
     {
       "id": "bibtex:Li2026-wq",
-      "title": "FG's Research Radio: US Election Deception: How Misinformation Reached Millions",
+      "title": "FG's Research Radio: YouTube, Echo Chambers, and the Conspiracy Mindset",
       "description": "AI-generated podcast discussion.\n\nReference:\nLi, X., Lee, Y., & Kim, B. (2026). Does YouTube shape conspiracy mentality? A three-way interaction effect of partisan YouTube channel use, like-Minded discussion, and interest in politics. https://doi.org/10.1080/1369118x.2026.2653097",
       "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Li2026-wq.mp3",
       "audio_size": 3668709,
@@ -1305,7 +1309,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-us-election-deception-how-misinformation/id1866587707?i=1000760800648"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-us-election-deception-how-misinformation/id1866587707?i=1000760800648",
+      "audio_mismatch": true
     },
     {
       "id": "bibtex:Appel2026-qr",
@@ -1370,7 +1375,7 @@
     },
     {
       "id": "bibtex:Boyd2026-op",
-      "title": "FG's Research Radio: Social Media",
+      "title": "FG's Research Radio: From Social to Parasocial: The Death of Posting",
       "description": "AI-generated podcast discussion.\n\nReference:\nboyd, D. (2026). Social media is now parasocial media. https://doi.org/10.1177/20563051261437487",
       "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Boyd2026-op.mp3",
       "audio_size": 4795869,
@@ -1385,7 +1390,7 @@
     },
     {
       "id": "bibtex:Swartz2026-zb",
-      "title": "FG's Research Radio: The Scam Age:",
+      "title": "FG's Research Radio: Welcome to the Scam Age of Social Media",
       "description": "AI-generated podcast discussion.\n\nReference:\nSwartz, L. (2026). Social media in the scam age. https://doi.org/10.1177/20563051261437922",
       "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Swartz2026-zb.mp3",
       "audio_size": 5553021,
@@ -1400,7 +1405,7 @@
     },
     {
       "id": "bibtex:Marwick2026-qd",
-      "title": "FG's Research Radio: What We Lost:",
+      "title": "FG's Research Radio: Disinformation as Storytelling: Myths That Bind Us",
       "description": "AI-generated podcast discussion.\n\nReference:\nMarwick, A. E., Schnabel, E., McGregor, S., & Schmitt, C. (2026). Disinformation as cultural narrative: Conceptualizing disinformation as cross-platform, identity-affirming, cathartic stories. https://doi.org/10.1080/10584609.2026.2644198",
       "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Marwick2026-qd.mp3",
       "audio_size": 4993773,
@@ -1414,11 +1419,12 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-what-we-lost/id1866587707?i=1000762464081"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-what-we-lost/id1866587707?i=1000762464081",
+      "audio_mismatch": true
     },
     {
       "id": "bibtex:Rothut2026-wt",
-      "title": "FG's Research Radio: Radicalization",
+      "title": "FG's Research Radio: 25 Years of Online Radicalization Research",
       "description": "AI-generated podcast discussion.\n\nReference:\nRothut, S., Schulze, H., Hohner, J., Greipl, S., & Rieger, D. (2026). Radicalization and the internet: 25 years of (online) radicalization research. https://doi.org/10.1080/10714421.2026.2658935",
       "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Rothut2026-wt.mp3",
       "audio_size": 6775389,
@@ -1437,7 +1443,7 @@
     },
     {
       "id": "bibtex:Achmann-Denkler2026-lx",
-      "title": "FG's Research Radio: AI Sees",
+      "title": "FG's Research Radio: Can GPT-4o See Politicians Like We Do?",
       "description": "AI-generated podcast discussion.\n\nReference:\nAchmann-Denkler, M., Haim, M., & Wolff, C. (2026). Seeing candidates at scale: Multimodal LLMs for Visual Political Communication on Instagram. http://arxiv.org/abs/2604.19489v1",
       "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Achmann-Denkler2026-lx.mp3",
       "audio_size": 5930253,
@@ -1454,7 +1460,7 @@
     },
     {
       "id": "bibtex:Rothut2026-or",
-      "title": "FG's Research Radio: Protests:",
+      "title": "FG's Research Radio: How COVID Protests Mainstreamed Extremist Ideas",
       "description": "AI-generated podcast discussion.\n\nReference:\nRothut, S., Schulze, H., Rieger, D., Lechner, M., & Naderer, B. (2026). Protest movements and the mainstreaming of radical and extremist ideologies: the case of COVID-19 protests. https://doi.org/10.1080/1369118x.2026.2654668",
       "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Rothut2026-or.mp3",
       "audio_size": 6456789,
@@ -1473,7 +1479,7 @@
     },
     {
       "id": "bibtex:Volpe2026-um",
-      "title": "FG's Research Radio: Niche Know",
+      "title": "FG's Research Radio: Micro-Influencers and the Hustle of Niche Fame",
       "description": "AI-generated podcast discussion.\n\nReference:\nCamilla, V. (2026). Posting what you know and caring for the niche: How micro-influencers survive platform culture demands. https://scholar.google.com/scholar?q=Posting%20what%20you%20know%20and%20caring%20for%20the%20niche%3A%20How%20micro-influencers%20survive%20platform%20culture%20demands",
       "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Volpe2026-um.mp3",
       "audio_size": 6315429,
@@ -1488,7 +1494,7 @@
     },
     {
       "id": "bibtex:Waight2026-ts",
-      "title": "FG's Research Radio: AI's",
+      "title": "FG's Research Radio: When State Media Shapes What AI Tells You",
       "description": "AI-generated podcast discussion.\n\nReference:\nWaight, H., Yang, E., Yuan, Y., Messing, S., Roberts, M. E., Stewart, B. M., & Tucker, J. A. (2026). State media control influences large language models. https://doi.org/10.1038/s41586-026-10506-7",
       "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Waight2026-ts.mp3",
       "audio_size": 6229821,
@@ -1509,7 +1515,7 @@
     },
     {
       "id": "bibtex:Spampatti2026-kx",
-      "title": "FG's Research Radio: Climate Psychology's",
+      "title": "FG's Research Radio: What Climate Denial Teaches Us About Misinformation",
       "description": "AI-generated podcast discussion.\n\nReference:\nSpampatti, T., Ve\u0107kalov, B., Geiger, S. J., Linden, S. V. D., Lewandowsky, S., & Hornsey, M. (2026). Six insights from climate psychology for the study of misinformation. https://doi.org/10.31234/osf.io/swdrq_v1",
       "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Spampatti2026-kx.mp3",
       "audio_size": 5947317,
@@ -1529,7 +1535,7 @@
     },
     {
       "id": "bibtex:Mahl2026-hc",
-      "title": "FG's Research Radio: No Silver",
+      "title": "FG's Research Radio: Experts Forecast the Future of Conspiracy Theories",
       "description": "AI-generated podcast discussion.\n\nReference:\nMahl, D., Kessler, S. H., Sch\u00e4fer, M. S., Jobin, A., Zeng, J., & Georgi, F. (2026). Conspiracy theories and misinformation in digital media: An international expert assessment of challenges, trends, and interventions. https://doi.org/10.1515/commun-2024-0123",
       "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Mahl2026-hc.mp3",
       "audio_size": 5627949,
@@ -1757,7 +1763,7 @@
     },
     {
       "id": "bibtex:Tornberg2025-ir",
-      "title": "FG's Research Radio: The End of Social Media as We Know It",
+      "title": "FG's Research Radio: When Do Political Parties Lie? A Global Look",
       "description": "AI-generated podcast discussion.\n\nReference:\nT\u00f6rnberg, P. & Chueri, J. (2026). When do parties lie? Misinformation and radical-right populism across 26 countries. https://doi.org/10.1177/19401612241311886",
       "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Tornberg2025-ir.mp3",
       "audio_size": 5636781,
@@ -1769,7 +1775,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-end-of-social-media-as-we-know-it/id1866587707?i=1000770162794"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-end-of-social-media-as-we-know-it/id1866587707?i=1000770162794",
+      "audio_mismatch": true
     },
     {
       "id": "bibtex:Askanius2026-de",
@@ -1911,7 +1918,7 @@
     },
     {
       "id": "bibtex:Hepp2026-oi",
-      "title": "FG's Research Radio: The APIcalypse: Why Election Research Is Broken",
+      "title": "FG's Research Radio: Silicon Valley's Quiet Futures of AI",
       "description": "AI-generated podcast discussion.\n\nReference:\nHepp, A. (2026). The imaginative landscape of AI: Locating Silicon Valley\u2019s \u201cquiet futuring\u201d. https://doi.org/10.1177/01634437261454515",
       "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Hepp2026-oi.mp3",
       "audio_size": 4773141,
@@ -1922,7 +1929,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-apicalypse-why-election/id1866587707?i=1000771678148"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-apicalypse-why-election/id1866587707?i=1000771678148",
+      "audio_mismatch": true
     },
     {
       "id": "bibtex:Vertesi2026-lv",

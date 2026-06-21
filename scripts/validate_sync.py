@@ -212,10 +212,12 @@ def validate() -> ValidationResult:
     # so feed_count is compared against the published subset, not every episode.
     # Own-publication episodes (own=True) are also excluded from the public RSS
     # feed by generate_podcast_feed(), so they must not be counted here either.
+    # Episodes flagged audio_mismatch=True (wrong-paper audio, withheld pending
+    # regeneration — see WRONG_AUDIO_REPORT.md) are likewise excluded.
     now = datetime.now(timezone.utc)
     published = 0
     for ep in episodes.values():
-        if ep.get('own'):
+        if ep.get('own') or ep.get('audio_mismatch'):
             continue
         try:
             pub_date = datetime.fromisoformat(ep.get('pub_date', ''))

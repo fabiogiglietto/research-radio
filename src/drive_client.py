@@ -83,6 +83,21 @@ class DriveClient:
         text = re.sub(r'\s+', ' ', text).strip()
         return text
 
+    # Words too generic to carry identifying signal in a title-token match.
+    _STOPWORDS = frozenset(
+        "the a an of and or to in for on with as is are be how does do what when "
+        "why who from by into across our we their its more than not at it this that "
+        "can could should about over under between among new using toward towards".split()
+    )
+
+    def _title_tokens(self, text: str) -> set[str]:
+        """Significant lowercase word tokens of a title/filename (>2 chars,
+        non-stopword), used for overlap-based matching."""
+        return {
+            w for w in self._normalize_for_search(text).split()
+            if len(w) > 2 and w not in self._STOPWORDS
+        }
+
     def _list_folder_files(self) -> list[dict]:
         """List all PDF files in the PaperPile folder."""
         if self._file_cache:
@@ -117,7 +132,6 @@ class DriveClient:
         Returns file metadata dict with 'id', 'name', 'size' or None if not found.
         """
         expected_name = self._build_search_name(paper)
-        expected_normalized = self._normalize_for_search(expected_name)
 
         files = self._list_folder_files()
 
@@ -126,42 +140,55 @@ class DriveClient:
             if file['name'].lower() == f"{expected_name.lower()}.pdf":
                 return file
 
-        # Try fuzzy matching on normalized strings
+        # Title-gated token matching. The title is the only reliably
+        # disambiguating signal: a raw author-surname substring match (the old
+        # behaviour) silently picks a same-author sibling, or — for short
+        # surnames like "Li"/"Shi" — an unrelated file, and the gate used to
+        # pass on author+year alone with NO title match. We instead require a
+        # genuine overlap of the paper's title words with the filename, and use
+        # author/year only as tie-breakers. If nothing clears the title gate we
+        # return None (skip the paper) rather than a wrong PDF.
+        title_tokens = self._title_tokens(paper.title)
+        if not title_tokens:
+            return None
+
+        author_last = ""
+        if paper.authors:
+            parts = paper.authors[0].split()
+            if parts:
+                author_last = self._normalize_for_search(parts[-1])
+
+        year = ""
+        if paper.date_published:
+            m = re.search(r'(\d{4})', paper.date_published)
+            if m:
+                year = m.group(1)
+
+        TITLE_THRESHOLD = 0.6  # fraction of title words that must appear
+
         best_match = None
-        best_score = 0
-
+        best_key = (0.0, False, False)
         for file in files:
-            file_normalized = self._normalize_for_search(file['name'].replace('.pdf', ''))
+            stem = file['name'].rsplit('.pdf', 1)[0]
+            file_tokens = self._title_tokens(stem)
+            if not file_tokens:
+                continue
 
-            # Check if key parts match
-            score = 0
+            overlap = len(title_tokens & file_tokens) / len(title_tokens)
+            if overlap < TITLE_THRESHOLD:
+                continue
 
-            # Title match (most important)
-            title_normalized = self._normalize_for_search(paper.title)
-            if title_normalized in file_normalized:
-                score += 50
+            # Tie-breakers: whole-token surname match (>=3 chars to avoid "li"
+            # matching mid-word) and the publication year in the filename.
+            author_hit = len(author_last) >= 3 and author_last in file_tokens
+            year_hit = bool(year) and year in file['name']
 
-            # Author match
-            if paper.authors:
-                author_last = paper.authors[0].split()[-1].lower()
-                if author_last in file_normalized:
-                    score += 30
-
-            # Year match
-            if paper.date_published:
-                year_match = re.search(r'(\d{4})', paper.date_published)
-                if year_match and year_match.group(1) in file['name']:
-                    score += 20
-
-            if score > best_score:
-                best_score = score
+            key = (overlap, author_hit, year_hit)
+            if key > best_key:
+                best_key = key
                 best_match = file
 
-        # Require at least title match (score >= 50)
-        if best_score >= 50:
-            return best_match
-
-        return None
+        return best_match
 
     def download_pdf(self, file_id: str) -> Optional[bytes]:
         """Download a PDF file from Drive by its ID."""
