@@ -14,7 +14,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-more-than-a-feeling-facebook/id1866587707?i=1000743818661"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-more-than-a-feeling-facebook/id1866587707?i=1000743818661",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Iannucci2025-eg",
@@ -32,7 +33,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-detecting-coordinated-activities/id1866587707?i=1000743818634"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-detecting-coordinated-activities/id1866587707?i=1000743818634",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Allen2025-ot",
@@ -48,7 +50,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-platform-independent-experiments/id1866587707?i=1000743818611"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-platform-independent-experiments/id1866587707?i=1000743818611",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Lin2025-xp",
@@ -70,7 +73,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-persuading-voters-using-human-artificial/id1866587707?i=1000743818522"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-persuading-voters-using-human-artificial/id1866587707?i=1000743818522",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Thiele2025-ol",
@@ -89,7 +93,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-attributing-coordinated-social-media/id1866587707?i=1000743818388"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-attributing-coordinated-social-media/id1866587707?i=1000743818388",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Marwick2025-vx",
@@ -105,7 +110,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-true-costs-of-misinformation/id1866587707?i=1000743818587"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-true-costs-of-misinformation/id1866587707?i=1000743818587",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Freelon2024-sc",
@@ -124,16 +130,17 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-post-api-age-of-social-media/id1866587707?i=1000743818612"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-post-api-age-of-social-media/id1866587707?i=1000743818612",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:FitzGerald2025-nv",
-      "title": "FG's Research Radio: The persistence of informational manipulation and the appropriation of emerging events",
+      "title": "FG's Research Radio: The Low-Level Simmer: How Conspiracy Theories Never Die",
       "description": "AI-generated podcast discussion.\n\nReference:\nFitzGerald, K. M., Whelan-Shamy, D., & Graham, T. (2025). The persistence of informational manipulation and the appropriation of emerging events. https://doi.org/10.4324/9781003628088-6",
       "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/FitzGerald2025-nv.mp3",
-      "audio_size": 1260837,
-      "duration": 123,
-      "pub_date": "2025-11-15T00:00:00+00:00",
+      "audio_size": 5598621,
+      "duration": 550,
+      "pub_date": "2026-06-23T13:11:17.175711+00:00",
       "authors": [
         "Katherine M. FitzGerald",
         "Daniel Whelan-Shamy",
@@ -142,7 +149,7 @@
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-persistence-of/id1866587707?i=1000743818387",
-      "audio_mismatch": true
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Rodriguez_Farres2025-sg",
@@ -159,7 +166,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-real-time-detection-of/id1866587707?i=1000743818662"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-real-time-detection-of/id1866587707?i=1000743818662",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Bastos2025-ya",
@@ -174,16 +182,17 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-so-long-twitter-and-thanks-for-all/id1866587707?i=1000743818635"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-so-long-twitter-and-thanks-for-all/id1866587707?i=1000743818635",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Cabbuag2024-me",
-      "title": "FG's Research Radio: TikTok \u2018dogshows\u2019 and the amplification of online incivility among Gen Z influencers in the Philippines",
-      "description": "AI-generated podcast discussion.\n\nReference:\nCabbuag, S. I. & Abidin, C. (2024). TikTok \u2018dogshows\u2019 and the amplification of online incivility among Gen Z influencers in the Philippines. https://doi.org/10.5210/spir.v2024i0.13913",
+      "title": "FG's Research Radio: Inside TikTok's \"Dogshows\": Filipino Humor, Harm, and Gen Z",
+      "description": "AI-generated podcast discussion.\n\nReference:\nCabbuag, S. I. & Abidin, C. (2025). TikTok \u2018dogshows\u2019 and the amplification of online incivility among Gen Z influencers in the Philippines. https://doi.org/10.5210/spir.v2024i0.13913",
       "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Cabbuag2024-me.mp3",
-      "audio_size": 3698709,
-      "duration": 350,
-      "pub_date": "2024-12-15T00:00:00+00:00",
+      "audio_size": 5163309,
+      "duration": 517,
+      "pub_date": "2026-06-25T13:11:17.175711+00:00",
       "authors": [
         "Samuel Idris Cabbuag",
         "Crystal Abidin"
@@ -191,7 +200,7 @@
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-tiktok-dogshows-and-the/id1866587707?i=1000743818637",
-      "audio_mismatch": true
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Efstratiou2025-gs",
@@ -209,7 +218,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-rabble-rousers-in-the-new-kings/id1866587707?i=1000743818386"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-rabble-rousers-in-the-new-kings/id1866587707?i=1000743818386",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Gerard2025-br",
@@ -227,7 +237,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-bridging-the-narrative-divide/id1866587707?i=1000743818440"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-bridging-the-narrative-divide/id1866587707?i=1000743818440",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Pierri2025-hm",
@@ -249,7 +260,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-decoding-the-dsa-can-research-tame/id1866587707?i=1000743818439"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-decoding-the-dsa-can-research-tame/id1866587707?i=1000743818439",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Emilio2026-ik",
@@ -264,7 +276,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-ais-synthetic-reality-can-we-still/id1866587707?i=1000743818610"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-ais-synthetic-reality-can-we-still/id1866587707?i=1000743818610",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Copland2025-em",
@@ -281,7 +294,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-sky-news-australia-from-niche-cable/id1866587707?i=1000743818633"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-sky-news-australia-from-niche-cable/id1866587707?i=1000743818633",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Bak-Coleman2026-mk",
@@ -299,7 +313,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-social-media-research-how-biased/id1866587707?i=1000746176106"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-social-media-research-how-biased/id1866587707?i=1000746176106",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Arceneaux2026-xk",
@@ -318,7 +333,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-social-bots-as-agenda-builders-evaluating/id1866587707?i=1000744255629"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-social-bots-as-agenda-builders-evaluating/id1866587707?i=1000744255629",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Bouchafra2026-ts",
@@ -334,7 +350,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-my-europe-builds-walls-a-cross/id1866587707?i=1000745395155"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-my-europe-builds-walls-a-cross/id1866587707?i=1000745395155",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:De2026-ld",
@@ -350,7 +367,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-discursive-flexibility/id1866587707?i=1000745618932"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-discursive-flexibility/id1866587707?i=1000745618932",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Dubey2026-bl",
@@ -369,7 +387,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-investigating-perceived-trust-and/id1866587707?i=1000745538358"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-investigating-perceived-trust-and/id1866587707?i=1000745538358",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Iris2026-pg",
@@ -389,7 +408,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-cross-national-evidence-of/id1866587707?i=1000744834590"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-cross-national-evidence-of/id1866587707?i=1000744834590",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Knupfer2025-vt",
@@ -406,7 +426,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-logic-of-connective-faction/id1866587707?i=1000743873334"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-logic-of-connective-faction/id1866587707?i=1000743873334",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Larsson2026-ro",
@@ -421,7 +442,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-meet-the-new-boss-same-as-the-old/id1866587707?i=1000744605209"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-meet-the-new-boss-same-as-the-old/id1866587707?i=1000744605209",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Poliakoff2026-fa",
@@ -437,7 +459,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-prigozhins-propaganda-team-the-st/id1866587707?i=1000744665554"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-prigozhins-propaganda-team-the-st/id1866587707?i=1000744665554",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Rieder2026-pp",
@@ -454,7 +477,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-tate-space-on-youtube-ambient/id1866587707?i=1000744953094"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-tate-space-on-youtube-ambient/id1866587707?i=1000744953094",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Voelkel2026-lc",
@@ -472,7 +496,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-a-registered-report-megastudy-on/id1866587707?i=1000745538253"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-a-registered-report-megastudy-on/id1866587707?i=1000745538253",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Di-Domenico2026-zq",
@@ -489,7 +514,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-influencer-toxicity-when-misinformation/id1866587707?i=1000746547580"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-influencer-toxicity-when-misinformation/id1866587707?i=1000746547580",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Hameleers2026-mc",
@@ -505,7 +531,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-visual-lies-when-videos-and-ai/id1866587707?i=1000746813238"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-visual-lies-when-videos-and-ai/id1866587707?i=1000746813238",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Balluff2026-bv",
@@ -526,7 +553,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-journalism-for-sale-unpacking-an/id1866587707?i=1000746979127"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-journalism-for-sale-unpacking-an/id1866587707?i=1000746979127",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Kim2026-wg",
@@ -544,7 +572,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-digital-voter-suppression-how-microtargeting/id1866587707?i=1000747664390"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-digital-voter-suppression-how-microtargeting/id1866587707?i=1000747664390",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Hollingshead2026-vx",
@@ -561,7 +590,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-tiktoks-immigration-battle-positive/id1866587707?i=1000747874861"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-tiktoks-immigration-battle-positive/id1866587707?i=1000747874861",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Elfes2026-jb",
@@ -578,7 +608,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-narrative-warfare-how-stories-fuel/id1866587707?i=1000748224708"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-narrative-warfare-how-stories-fuel/id1866587707?i=1000748224708",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Bollenbacher2026-vz",
@@ -595,7 +626,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-antivax-tweets-how-misinformation/id1866587707?i=1000748625004"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-antivax-tweets-how-misinformation/id1866587707?i=1000748625004",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Szabo2026-rd",
@@ -616,7 +648,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-chatbots-vs-fake-news-inoculating/id1866587707?i=1000748800904"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-chatbots-vs-fake-news-inoculating/id1866587707?i=1000748800904",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:van-der-Linden2026-jt",
@@ -635,7 +668,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-prebunking-can-short-videos-fight/id1866587707?i=1000748973761"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-prebunking-can-short-videos-fight/id1866587707?i=1000748973761",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Lyons2026-ca",
@@ -653,7 +687,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-aging-online-health-misinformations/id1866587707?i=1000749136914"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-aging-online-health-misinformations/id1866587707?i=1000749136914",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Graham2026-fb",
@@ -669,7 +704,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-reddits-mushroom-bots-humans-memes/id1866587707?i=1000749323849"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-reddits-mushroom-bots-humans-memes/id1866587707?i=1000749323849",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Cazzamatta2026-lo",
@@ -684,7 +720,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-metas-fact-checking-fiasco-truth/id1866587707?i=1000749503955"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-metas-fact-checking-fiasco-truth/id1866587707?i=1000749503955",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Gillespie2026-aa",
@@ -702,7 +739,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-ai-red-teaming-whose-values-whose/id1866587707?i=1000749678491"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-ai-red-teaming-whose-values-whose/id1866587707?i=1000749678491",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Schroeder2026-im",
@@ -737,7 +775,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-ai-swarms-democracys-new-digital-threat/id1866587707?i=1000749786663"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-ai-swarms-democracys-new-digital-threat/id1866587707?i=1000749786663",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Heiss2026-qv",
@@ -753,7 +792,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-social-media-research-are-platforms/id1866587707?i=1000749917755"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-social-media-research-are-platforms/id1866587707?i=1000749917755",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Inacio-da-Silva2026-zf",
@@ -772,7 +812,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-facebook-ads-spotting-election-interference/id1866587707?i=1000750088383"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-facebook-ads-spotting-election-interference/id1866587707?i=1000750088383",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Lieu2025-nl",
@@ -789,7 +830,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-climate-misinformation-why-some/id1866587707?i=1000750270010"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-climate-misinformation-why-some/id1866587707?i=1000750270010",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Gauthier2026-iq",
@@ -807,7 +849,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-x-algorithm-how-feeds-shift-political/id1866587707?i=1000750452305"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-x-algorithm-how-feeds-shift-political/id1866587707?i=1000750452305",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Stanusch2026-ec",
@@ -823,7 +866,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-ai-industrys-imagined-futures-whose/id1866587707?i=1000750633958"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-ai-industrys-imagined-futures-whose/id1866587707?i=1000750633958",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Balluff2026-if",
@@ -845,7 +889,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-llms-are-we-sacrificing-rigor-for/id1866587707?i=1000750775663"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-llms-are-we-sacrificing-rigor-for/id1866587707?i=1000750775663",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Scalco2026-bd",
@@ -863,7 +908,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-information-voids-where-misinformation/id1866587707?i=1000750869311"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-information-voids-where-misinformation/id1866587707?i=1000750869311",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:DeVerna2025-dl",
@@ -881,7 +927,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-ai-fact-check-fail-the-bias/id1866587707?i=1000751701628"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-ai-fact-check-fail-the-bias/id1866587707?i=1000751701628",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Ober2026-vd",
@@ -898,7 +945,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-ai-human-insight-analyzing-interviews/id1866587707?i=1000751869925"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-ai-human-insight-analyzing-interviews/id1866587707?i=1000751869925",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Ferrara2026-io",
@@ -913,7 +961,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-echo-breaking-down-walls-to-find/id1866587707?i=1000752849472"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-echo-breaking-down-walls-to-find/id1866587707?i=1000752849472",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:DiGiuseppe2026-pu",
@@ -929,7 +978,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-llms-can-political-bias-kill-persuasion/id1866587707?i=1000753721566"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-llms-can-political-bias-kill-persuasion/id1866587707?i=1000753721566",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Baym2026-tr",
@@ -944,7 +994,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-social-media-its-bad-now-what/id1866587707?i=1000753721567"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-social-media-its-bad-now-what/id1866587707?i=1000753721567",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Hourigan2026-oc",
@@ -963,7 +1014,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-misinformation-in-the-wild-beyond/id1866587707?i=1000753836375"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-misinformation-in-the-wild-beyond/id1866587707?i=1000753836375",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Farkas2026-lr",
@@ -979,7 +1031,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-fact-checkers-vs-platforms-a/id1866587707?i=1000753954953"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-fact-checkers-vs-platforms-a/id1866587707?i=1000753954953",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Dierickx2026-tw",
@@ -997,7 +1050,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-ai-generated-facts-truth-or-illusion/id1866587707?i=1000754408314"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-ai-generated-facts-truth-or-illusion/id1866587707?i=1000754408314",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Hackenburg2025-dj",
@@ -1021,7 +1075,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-ai-persuasion-facts-lies-and/id1866587707?i=1000754805732"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-ai-persuasion-facts-lies-and/id1866587707?i=1000754805732",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Schiffrin_undated-gi",
@@ -1042,7 +1097,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-deepfake-fraud-when-ai-scams-go-global/id1866587707?i=1000755058728"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-deepfake-fraud-when-ai-scams-go-global/id1866587707?i=1000755058728",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Rossini2026-jn",
@@ -1059,7 +1115,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-misinformation-fueling-intolerance/id1866587707?i=1000755253413"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-misinformation-fueling-intolerance/id1866587707?i=1000755253413",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Lee2026-je",
@@ -1079,7 +1136,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-ai-knows-your-politics-are-online/id1866587707?i=1000755386486"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-ai-knows-your-politics-are-online/id1866587707?i=1000755386486",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Dehghan2026-sy",
@@ -1098,7 +1156,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-reddits-echo-chambers-platform-design/id1866587707?i=1000755557318"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-reddits-echo-chambers-platform-design/id1866587707?i=1000755557318",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Yoo2026-ev",
@@ -1115,7 +1174,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-weaponizing-fake-news-truth-lost/id1866587707?i=1000755756081"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-weaponizing-fake-news-truth-lost/id1866587707?i=1000755756081",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Bouchaud2026-lr",
@@ -1131,7 +1191,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-xs-political-algorithm-profiling/id1866587707?i=1000755979538"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-xs-political-algorithm-profiling/id1866587707?i=1000755979538",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Stagnaro2025-pz",
@@ -1151,7 +1212,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-online-samples-are-your-participants/id1866587707?i=1000756199554"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-online-samples-are-your-participants/id1866587707?i=1000756199554",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Wang2026-ub",
@@ -1168,7 +1230,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-academic-twitters-exodus-why-the/id1866587707?i=1000756565108"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-academic-twitters-exodus-why-the/id1866587707?i=1000756565108",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Efstratiou2026-ij",
@@ -1185,7 +1248,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-covid-conspiracies-how-social-media/id1866587707?i=1000756731148"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-covid-conspiracies-how-social-media/id1866587707?i=1000756731148",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Ahuja2025-ku",
@@ -1203,7 +1267,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-dark-patterns-how-tech-tricks-violate/id1866587707?i=1000756981497"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-dark-patterns-how-tech-tricks-violate/id1866587707?i=1000756981497",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Ventura2026-yc",
@@ -1222,7 +1287,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-banned-no-more-how-platform-bans/id1866587707?i=1000757761797"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-banned-no-more-how-platform-bans/id1866587707?i=1000757761797",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Dodds2026-df",
@@ -1241,7 +1307,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-ai-hype-how-journalism-fuels-the-machine/id1866587707?i=1000757935774"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-ai-hype-how-journalism-fuels-the-machine/id1866587707?i=1000757935774",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Karo2026-dn",
@@ -1258,7 +1325,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-tiktok-caliphate-hiding-jihad-in/id1866587707?i=1000758177776"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-tiktok-caliphate-hiding-jihad-in/id1866587707?i=1000758177776",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Appel2026-qr",
@@ -1304,7 +1372,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-deceptive-networks-millions-reached/id1866587707?i=1000760921720"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-deceptive-networks-millions-reached/id1866587707?i=1000760921720",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Marwick2026-ss",
@@ -1319,7 +1388,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-longing-for-the-old-internet/id1866587707?i=1000762039240"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-longing-for-the-old-internet/id1866587707?i=1000762039240",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Boyd2026-op",
@@ -1334,7 +1404,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-social-media/id1866587707?i=1000762163630"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-social-media/id1866587707?i=1000762163630",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Swartz2026-zb",
@@ -1349,16 +1420,17 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-scam-age/id1866587707?i=1000762289647"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-scam-age/id1866587707?i=1000762289647",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Marwick2026-qd",
-      "title": "FG's Research Radio: Disinformation as Storytelling: Myths That Bind Us",
+      "title": "FG's Research Radio: Beyond Fact-Checking: Why Disinformation Works as Story",
       "description": "AI-generated podcast discussion.\n\nReference:\nMarwick, A. E., Schnabel, E., McGregor, S., & Schmitt, C. (2026). Disinformation as cultural narrative: Conceptualizing disinformation as cross-platform, identity-affirming, cathartic stories. https://doi.org/10.1080/10584609.2026.2644198",
       "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Marwick2026-qd.mp3",
-      "audio_size": 4993773,
+      "audio_size": 4894413,
       "duration": 485,
-      "pub_date": "2026-04-20T20:59:36.185263+00:00",
+      "pub_date": "2026-06-22T13:11:17.175711+00:00",
       "authors": [
         "Alice E. Marwick",
         "Elaine Schnabel",
@@ -1368,7 +1440,7 @@
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-what-we-lost/id1866587707?i=1000762464081",
-      "audio_mismatch": true
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Rothut2026-wt",
@@ -1387,7 +1459,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-radicalization/id1866587707?i=1000763271131"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-radicalization/id1866587707?i=1000763271131",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Achmann-Denkler2026-lx",
@@ -1404,7 +1477,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-ai-sees/id1866587707?i=1000764671260"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-ai-sees/id1866587707?i=1000764671260",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Rothut2026-or",
@@ -1423,7 +1497,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-protests/id1866587707?i=1000766296115"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-protests/id1866587707?i=1000766296115",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Volpe2026-um",
@@ -1438,7 +1513,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-niche-know/id1866587707?i=1000767535832"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-niche-know/id1866587707?i=1000767535832",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Waight2026-ts",
@@ -1459,7 +1535,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-ais/id1866587707?i=1000767719309"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-ais/id1866587707?i=1000767719309",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Spampatti2026-kx",
@@ -1479,7 +1556,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-climate-psychologys/id1866587707?i=1000768096465"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-climate-psychologys/id1866587707?i=1000768096465",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Mahl2026-hc",
@@ -1499,7 +1577,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-no-silver/id1866587707?i=1000768096466"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-no-silver/id1866587707?i=1000768096466",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Rodarte2026-dk",
@@ -1516,7 +1595,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-who-controls-truth/id1866587707?i=1000768239015"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-who-controls-truth/id1866587707?i=1000768239015",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Ng2026-og",
@@ -1534,7 +1614,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-why-aligned-ai-agents-still-misbehave/id1866587707?i=1000768382635"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-why-aligned-ai-agents-still-misbehave/id1866587707?i=1000768382635",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Bruns2026-yv",
@@ -1549,7 +1630,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-twitters-obituary-why-we-keep-building/id1866587707?i=1000768545977"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-twitters-obituary-why-we-keep-building/id1866587707?i=1000768545977",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Bailard2024-pj",
@@ -1569,7 +1651,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-hidden-speech-that-predicts/id1866587707?i=1000768724100"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-hidden-speech-that-predicts/id1866587707?i=1000768724100",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Adam2026-tz",
@@ -1591,7 +1674,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-when-debunking-backfires-how-covid/id1866587707?i=1000768904634"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-when-debunking-backfires-how-covid/id1866587707?i=1000768904634",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Nguyen2026-vm",
@@ -1607,7 +1691,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-does-chatgpt-really-think-how-news/id1866587707?i=1000769065452"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-does-chatgpt-really-think-how-news/id1866587707?i=1000769065452",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Yang2026-tq",
@@ -1628,7 +1713,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-post-api-age-what-we-lose-when/id1866587707?i=1000769319467"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-post-api-age-what-we-lose-when/id1866587707?i=1000769319467",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Gerbaudo2026-fo",
@@ -1643,7 +1729,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-from-friends-to-algorithms-how-tiktok/id1866587707?i=1000769474750"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-from-friends-to-algorithms-how-tiktok/id1866587707?i=1000769474750",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Tornberg2026-lc",
@@ -1659,7 +1746,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-end-of-social-media-as-we-know-it/id1866587707?i=1000769474609"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-end-of-social-media-as-we-know-it/id1866587707?i=1000769474609",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Helmond2026-ll",
@@ -1674,7 +1762,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-from-like-buttons-to-satellites/id1866587707?i=1000769683573"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-from-like-buttons-to-satellites/id1866587707?i=1000769683573",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:van-Eck2026-xg",
@@ -1691,7 +1780,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-polarization-paradox-when/id1866587707?i=1000769812226"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-polarization-paradox-when/id1866587707?i=1000769812226",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Peters2026-mo",
@@ -1707,16 +1797,17 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-who-decides-what-counts-as-good/id1866587707?i=1000769989748"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-who-decides-what-counts-as-good/id1866587707?i=1000769989748",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Tornberg2025-ir",
-      "title": "FG's Research Radio: When Do Political Parties Lie? A Global Look",
+      "title": "FG's Research Radio: Who's Really Spreading Misinformation? It's Not Who You Think",
       "description": "AI-generated podcast discussion.\n\nReference:\nT\u00f6rnberg, P. & Chueri, J. (2026). When do parties lie? Misinformation and radical-right populism across 26 countries. https://doi.org/10.1177/19401612241311886",
       "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Tornberg2025-ir.mp3",
-      "audio_size": 5636781,
-      "duration": 558,
-      "pub_date": "2026-05-29T09:57:17.855433+00:00",
+      "audio_size": 5407485,
+      "duration": 533,
+      "pub_date": "2026-06-24T13:11:17.175711+00:00",
       "authors": [
         "Petter T\u00f6rnberg",
         "Juliana Chueri"
@@ -1724,7 +1815,7 @@
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-end-of-social-media-as-we-know-it/id1866587707?i=1000770162794",
-      "audio_mismatch": true
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Askanius2026-de",
@@ -1741,7 +1832,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-when-neo-nazis-meet-wellness-influencers/id1866587707?i=1000770415150"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-when-neo-nazis-meet-wellness-influencers/id1866587707?i=1000770415150",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Giglietto2026-855a54cb",
@@ -1757,7 +1849,8 @@
       ],
       "own": true,
       "spotify_url": "",
-      "apple_url": ""
+      "apple_url": "",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Giglietto2026-9b6a992d",
@@ -1775,7 +1868,8 @@
       ],
       "own": true,
       "spotify_url": "",
-      "apple_url": ""
+      "apple_url": "",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Weinbrand2026-sf",
@@ -1792,7 +1886,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-who-decides-what-google-knows-the/id1866587707?i=1000771034030"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-who-decides-what-google-knows-the/id1866587707?i=1000771034030",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:UnknownUnknown-db",
@@ -1805,7 +1900,8 @@
       "authors": [],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-ai-paradox-why-the-most/id1866587707?i=1000771034029"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-ai-paradox-why-the-most/id1866587707?i=1000771034029",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Van_Erkel2026-mk",
@@ -1826,7 +1922,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-why-both-sides-think-misinformation/id1866587707?i=1000771145023"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-why-both-sides-think-misinformation/id1866587707?i=1000771145023",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Grusauskaite2026-po",
@@ -1844,7 +1941,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-why-fact-checking-conspiracy-theorists/id1866587707?i=1000771307657"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-why-fact-checking-conspiracy-theorists/id1866587707?i=1000771307657",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Schulte2026-df",
@@ -1862,23 +1960,24 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-why-one-platform-isnt-enough-to/id1866587707?i=1000771443693"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-why-one-platform-isnt-enough-to/id1866587707?i=1000771443693",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Hepp2026-oi",
-      "title": "FG's Research Radio: Silicon Valley's Quiet Futures of AI",
+      "title": "FG's Research Radio: Beyond the Loud CEOs: Inside Silicon Valley's Quiet AI Futures",
       "description": "AI-generated podcast discussion.\n\nReference:\nHepp, A. (2026). The imaginative landscape of AI: Locating Silicon Valley\u2019s \u201cquiet futuring\u201d. https://doi.org/10.1177/01634437261454515",
       "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Hepp2026-oi.mp3",
-      "audio_size": 4773141,
-      "duration": 464,
-      "pub_date": "2026-06-07T09:57:17.855433+00:00",
+      "audio_size": 5617773,
+      "duration": 550,
+      "pub_date": "2026-06-21T13:11:17.175711+00:00",
       "authors": [
         "Andreas Hepp"
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-apicalypse-why-election/id1866587707?i=1000771678148",
-      "audio_mismatch": true
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Vertesi2026-lv",
@@ -1896,7 +1995,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-five-decoys-hiding-ais-real/id1866587707?i=1000771678029"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-five-decoys-hiding-ais-real/id1866587707?i=1000771678029",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Giglietto2026-632ef967",
@@ -1912,7 +2012,8 @@
       ],
       "own": true,
       "spotify_url": "",
-      "apple_url": ""
+      "apple_url": "",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Brady2026-ln",
@@ -1937,7 +2038,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-rewiring-the-feed-can-algorithms/id1866587707?i=1000772017059"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-rewiring-the-feed-can-algorithms/id1866587707?i=1000772017059",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Lukito2026-nb",
@@ -1953,7 +2055,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-who-gets-to-study-elections-the/id1866587707?i=1000772201578"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-who-gets-to-study-elections-the/id1866587707?i=1000772201578",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:de-Vreese2026-zx",
@@ -1969,7 +2072,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-when-platforms-push-back-why-data/id1866587707?i=1000772352009"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-when-platforms-push-back-why-data/id1866587707?i=1000772352009",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Fan2026-af",
@@ -1986,7 +2090,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-every-tap-swipe-and-scroll-mining/id1866587707?i=1000772571651"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-every-tap-swipe-and-scroll-mining/id1866587707?i=1000772571651",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Brown2026-br",
@@ -2006,7 +2111,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-whos-really-driving-youtubes-rabbit/id1866587707?i=1000772632531"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-whos-really-driving-youtubes-rabbit/id1866587707?i=1000772632531",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Alizadeh2026-es",
@@ -2025,7 +2131,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-when-ai-agents-replicate-science/id1866587707?i=1000772806829"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-when-ai-agents-replicate-science/id1866587707?i=1000772806829",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Wedel2026-ix",
@@ -2040,7 +2147,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-beyond-news-how-young-adults-actually/id1866587707?i=1000772951111"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-beyond-news-how-young-adults-actually/id1866587707?i=1000772951111",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Richter2026-bt",
@@ -2058,7 +2166,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-who-really-drove-the-ai-hype-tech/id1866587707?i=1000773111056"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-who-really-drove-the-ai-hype-tech/id1866587707?i=1000773111056",
+      "audio_mismatch": false
     },
     {
       "id": "bibtex:Fattorini2026-bo",
@@ -2076,7 +2185,8 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-robots-chatbots-and-critical/id1866587707?i=1000773438069"
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-robots-chatbots-and-critical/id1866587707?i=1000773438069",
+      "audio_mismatch": false
     }
   ]
 }
