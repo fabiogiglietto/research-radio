@@ -579,18 +579,46 @@
                             <div class="ep-foot">
                                 <span class="ep-listen">▶ Listen</span>
                                 <span class="ep-links">
-                                    <a class="ep-link" href="${escapeAttr(note)}" target="_blank" rel="noopener">Note ↗</a>
+                                    <a class="ep-link ep-note" href="${escapeAttr(note)}" target="_blank" rel="noopener">Note ↗</a>
                                     ${paperUrl ? `<a class="ep-link" href="${escapeAttr(paperUrl)}" target="_blank" rel="noopener">Paper ↗</a>` : ''}
                                 </span>
                             </div>
                         </div>
                     `;
                 }).join('');
+
+                verifyNoteLinks(container);
             } catch (error) {
                 console.error('Error loading episodes:', error);
                 container.innerHTML =
                     '<p class="ep-loading" style="grid-column:1/-1;">Error loading episodes. Please try refreshing the page.</p>';
             }
+        }
+
+        // A paper's vault note may not be published yet (the fg-zettelkasten
+        // vault can lag a freshly added paper). Drop any Note link that 404s so
+        // it never points at a missing page; links are checked lazily, only as
+        // a card scrolls near view, and the check is same-origin (no CORS).
+        function verifyNoteLinks(root) {
+            const seen = new Set();
+            const check = (a) => {
+                if (seen.has(a.href)) return;
+                seen.add(a.href);
+                fetch(a.href, { method: 'HEAD' })
+                    .then(r => { if (r.status === 404) a.remove(); })
+                    .catch(() => {});  // network blip: keep the link
+            };
+            const links = root.querySelectorAll('a.ep-note');
+            if (!('IntersectionObserver' in window)) {
+                links.forEach(check);
+                return;
+            }
+            const io = new IntersectionObserver((entries, obs) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) { check(e.target); obs.unobserve(e.target); }
+                });
+            }, { rootMargin: '200px' });
+            links.forEach(a => io.observe(a));
         }
 
         loadEpisodes();
