@@ -221,8 +221,8 @@ def format_authors_apa7(authors: list[str]) -> str:
 
     if len(formatted) == 1:
         return formatted[0]
-    elif len(formatted) == 2:
-        return f"{formatted[0]} & {formatted[1]}"
+    # APA 7 uses a comma before the ampersand for all multi-author references,
+    # including exactly two authors ("Last, A., & Last, B.").
     else:
         return ', '.join(formatted[:-1]) + ', & ' + formatted[-1]
 

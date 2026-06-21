@@ -215,12 +215,12 @@
             border: 1px solid var(--rule);
         }
         .ep-card {
+            position: relative;
             background: var(--panel);
             padding: 30px 32px 26px;
             display: flex;
             flex-direction: column;
             gap: 16px;
-            text-decoration: none;
             color: inherit;
             min-height: 236px;
             transition: background .15s, box-shadow .15s;
@@ -228,6 +228,14 @@
         .ep-card:hover {
             background: var(--hover);
             box-shadow: inset 0 0 0 2px var(--ink);
+        }
+        /* whole-card click target (stretched link to the audio) */
+        .ep-stretch {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            text-indent: -9999px;
+            overflow: hidden;
         }
         .ep-top {
             display: flex;
@@ -261,16 +269,16 @@
             line-height: 1.18;
             margin-bottom: 10px;
         }
-        .ep-desc {
-            font-size: 15px;
-            line-height: 1.55;
+        /* APA reference for the source paper */
+        .ep-ref {
+            font-size: 14.5px;
+            line-height: 1.5;
             color: var(--body);
             margin: 0;
             max-width: 420px;
             text-wrap: pretty;
-            white-space: pre-line;
             display: -webkit-box;
-            -webkit-line-clamp: 4;
+            -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
@@ -278,6 +286,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 14px;
             border-top: 1px solid var(--rule-soft);
             padding-top: 13px;
         }
@@ -288,13 +297,25 @@
             color: var(--muted);
             text-transform: uppercase;
         }
-        .ep-arrow { font-size: 17px; color: var(--ink); }
+        /* footer links sit above the stretched click target */
+        .ep-links { display: flex; gap: 16px; align-items: center; }
+        .ep-link {
+            position: relative;
+            z-index: 2;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11.5px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--ink);
+            white-space: nowrap;
+        }
+        .ep-link:hover { color: var(--accent); }
         .ep-loading {
             font-family: 'IBM Plex Mono', monospace;
             font-size: 13px;
             color: var(--muted);
         }
-        .paper-link { color: var(--accent); word-break: break-all; }
 
         /* ---- colophon ---- */
         .colophon {
@@ -456,19 +477,45 @@
             return `${mins}:${secs.toString().padStart(2, '0')}`;
         }
 
-        function formatAuthors(authors) {
-            if (!authors || authors.length === 0) return '';
-            const last = (name) => name.includes(',') ? name.split(',')[0] : name.split(' ').pop();
-            if (authors.length === 1) return last(authors[0]);
-            if (authors.length === 2) return `${last(authors[0])} & ${last(authors[1])}`;
-            return `${last(authors[0])} et al.`;
-        }
-
         function getYear(pubDate) { return new Date(pubDate).getFullYear(); }
 
-        function linkifyUrls(text) {
-            const urlRegex = /(https?:\/\/[^\s]+)/g;
-            return text.replace(urlRegex, '<a href="$1" target="_blank" rel="noopener" class="paper-link">$1</a>');
+        // "Bente Kalsnes" -> "Kalsnes, B." (APA reference form, best-effort).
+        function apaName(name) {
+            const n = name.trim();
+            if (n.includes(',')) return n;            // already "Last, First"
+            const parts = n.split(/\s+/);
+            if (parts.length === 1) return parts[0];
+            const last = parts.pop();
+            const initials = parts.map(p => p[0].toUpperCase() + '.').join(' ');
+            return `${last}, ${initials}`;
+        }
+
+        // APA 7 author list: comma before the ampersand, even for two authors.
+        // 21+ authors are truncated to the first 19 … last.
+        function formatAuthorsApa(authors) {
+            if (!authors || authors.length === 0) return '';
+            let names = authors.map(apaName);
+            if (names.length > 20) names = [...names.slice(0, 19), '…', names[names.length - 1]];
+            if (names.length === 1) return names[0];
+            return names.slice(0, -1).join(', ') + ', & ' + names[names.length - 1];
+        }
+
+        // Pull the source-paper title out of the stored "Reference:" citation.
+        function parsePaperTitle(description) {
+            const ref = (description.split(/Reference:\s*/)[1] || '').trim();
+            const noUrl = ref.replace(/\s*https?:\/\/\S+\s*$/, '').trim();
+            const m = noUrl.match(/\(\d{4}[a-z]?\)\.\s*([\s\S]*?)\.?\s*$/);
+            return m ? m[1].trim() : '';
+        }
+
+        function parsePaperUrl(description) {
+            const m = description.match(/(https?:\/\/\S+)/);
+            return m ? m[1] : null;
+        }
+
+        // fg-zettelkasten note for a paper: Quartz slug = bibtex key.
+        function noteUrl(id) {
+            return `https://fabiogiglietto.github.io/fg-zettelkasten/Papers/${id.replace(/^bibtex:/, '')}`;
         }
 
         function escapeHtml(text) {
@@ -476,6 +523,7 @@
             div.textContent = text;
             return div.innerHTML;
         }
+        function escapeAttr(text) { return escapeHtml(text).replace(/"/g, '&quot;'); }
 
         // geometric property glyphs (brand): diamond = own paper, circle = regular
         function glyph(isOwn) {
@@ -504,16 +552,21 @@
 
                 container.innerHTML = episodes.map((episode, i) => {
                     const title = episode.title.replace("FG's Research Radio: ", '');
-                    const authorStr = formatAuthors(episode.authors);
                     const year = getYear(episode.pub_date);
                     const duration = formatDuration(episode.duration);
                     const num = String(total - i).padStart(2, '0');
-                    const descriptionHtml = linkifyUrls(escapeHtml(episode.description));
-                    const meta = [num, authorStr ? `${authorStr} (${year})` : year, duration]
-                        .filter(Boolean).join(' · ');
+
+                    // APA reference for the source paper (authors / year / title —
+                    // journal & volume aren't carried upstream, so they're omitted).
+                    const paperTitle = parsePaperTitle(episode.description) || title;
+                    const reference = `${formatAuthorsApa(episode.authors)} (${year}). ${paperTitle}.`;
+                    const paperUrl = parsePaperUrl(episode.description);
+                    const note = noteUrl(episode.id);
+                    const meta = `${num} · ${duration}`;
 
                     return `
-                        <a class="ep-card" href="${episode.audio_url}" target="_blank" rel="noopener">
+                        <div class="ep-card">
+                            <a class="ep-stretch" href="${escapeAttr(episode.audio_url)}" target="_blank" rel="noopener" aria-label="Listen to ${escapeAttr(title)}">▶ Listen</a>
                             <div class="ep-top">
                                 ${glyph(episode.own)}
                                 <span class="ep-tag">${episode.own ? 'own paper' : 'auto-generated'}</span>
@@ -521,13 +574,16 @@
                             <div class="ep-body">
                                 <div class="ep-meta">${escapeHtml(meta)}</div>
                                 <div class="ep-name">${escapeHtml(title)}</div>
-                                <p class="ep-desc">${descriptionHtml}</p>
+                                <p class="ep-ref">${escapeHtml(reference)}</p>
                             </div>
                             <div class="ep-foot">
                                 <span class="ep-listen">▶ Listen</span>
-                                <span class="ep-arrow">↗</span>
+                                <span class="ep-links">
+                                    <a class="ep-link" href="${escapeAttr(note)}" target="_blank" rel="noopener">Note ↗</a>
+                                    ${paperUrl ? `<a class="ep-link" href="${escapeAttr(paperUrl)}" target="_blank" rel="noopener">Paper ↗</a>` : ''}
+                                </span>
                             </div>
-                        </a>
+                        </div>
                     `;
                 }).join('');
             } catch (error) {
