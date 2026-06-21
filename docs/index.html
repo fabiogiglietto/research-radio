@@ -6,282 +6,538 @@
     <title>FG's Research Radio</title>
     <meta name="description" content="AI-generated deep dives into computational social science research. Papers curated by Fabio Giglietto, discussions produced by Google Gemini.">
     <link rel="alternate" type="application/rss+xml" title="FG's Research Radio" href="feed.xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* ============ FG brand tokens ============ */
+        :root {
+            --ink: #232A5C;        /* primary / headings / mark      */
+            --ink-deep: #16182B;   /* darkest text                   */
+            --accent: #A9772B;     /* signal / live / eyebrows       */
+            --body: #43455E;       /* paragraph text                 */
+            --body-alt: #3A3C52;   /* manifesto                      */
+            --muted: #6D6A5E;      /* captions / machine voice       */
+            --cream: #F1EBDE;      /* page background                */
+            --panel: #F8F3EA;      /* cards / cells                  */
+            --hover: #FCFAF3;      /* card hover bg                  */
+            --rule: #C9C0AD;       /* strong 1px dividers            */
+            --rule-soft: #DDD5C6;  /* inner dividers                 */
         }
+
+        * { box-sizing: border-box; }
+        body { margin: 0; }
+        ::selection { background: var(--ink); color: var(--cream); }
+        @keyframes fgpulse { 0%, 100% { opacity: 1; } 50% { opacity: .2; } }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f8f9fa;
+            background: var(--cream);
+            color: var(--ink-deep);
+            font-family: Saira, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
         }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem;
+
+        .mono {
+            font-family: 'IBM Plex Mono', monospace;
+            text-transform: uppercase;
         }
-        header {
-            text-align: center;
-            padding: 3rem 0;
-        }
-        .cover {
-            width: 200px;
-            height: 200px;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-            margin-bottom: 1.5rem;
-        }
-        h1 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-            color: #1a1a1a;
-        }
-        .tagline {
-            color: #666;
-            font-size: 1.1rem;
-            max-width: 500px;
-            margin: 0 auto 2rem;
-        }
-        .subscribe-buttons {
+
+        /* ---- top meta bar (full bleed) ---- */
+        .metabar {
+            border-bottom: 1px solid var(--rule);
+            padding: 11px 70px;
             display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            letter-spacing: .14em;
+            color: var(--muted);
+            text-transform: uppercase;
         }
+        .metabar .lead { color: var(--ink); font-weight: 500; }
+
+        /* ---- content column ---- */
+        .wrap { max-width: 1240px; margin: 0 auto; padding: 0 70px; }
+
+        .hairline { height: 1px; background: var(--rule); }
+
+        /* ---- masthead ---- */
+        .masthead {
+            padding: 96px 0 64px;
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+        .seal { color: var(--ink); display: block; }
+        .eyebrow {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            letter-spacing: .22em;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        h1.title {
+            font-weight: 600;
+            font-size: clamp(40px, 8vw, 62px);
+            line-height: 1.02;
+            letter-spacing: -1.5px;
+            margin: 0 0 8px;
+            color: var(--ink);
+        }
+        .subhead {
+            font-weight: 300;
+            font-size: 27px;
+            letter-spacing: .01em;
+            color: var(--body);
+            margin-bottom: 30px;
+        }
+        .manifesto {
+            max-width: 620px;
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--body-alt);
+            font-weight: 400;
+            margin: 0 0 30px;
+            text-wrap: pretty;
+        }
+
+        /* ---- subscribe buttons (brand chips) ---- */
+        .subscribe { display: flex; gap: 12px; flex-wrap: wrap; }
         .btn {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
+            gap: 9px;
+            padding: 11px 18px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
             text-decoration: none;
-            font-weight: 500;
-            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid var(--ink);
+            color: var(--ink);
+            background: transparent;
+            transition: background .15s, color .15s, box-shadow .15s;
         }
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        .btn svg { fill: currentColor; }
+        .btn:hover { background: var(--ink); color: var(--cream); }
+        .btn-primary { background: var(--ink); color: var(--cream); }
+        .btn-primary:hover { background: var(--accent); border-color: var(--accent); color: var(--cream); }
+
+        /* ---- caption strip ---- */
+        .captions {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--rule);
+            border-bottom: 1px solid var(--rule);
         }
-        .btn-spotify {
-            background: #1DB954;
-            color: white;
+        .captions > div { background: var(--cream); padding: 18px 0; }
+        .captions > div + div { padding-left: 28px; }
+        .caption-k {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10.5px;
+            letter-spacing: .16em;
+            color: var(--muted);
+            text-transform: uppercase;
+            margin-bottom: 5px;
         }
-        .btn-rss {
-            background: #f26522;
-            color: white;
-        }
-        .btn-apple {
-            background: #9933FF;
-            color: white;
-        }
-        .about {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            margin: 2rem 0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        .about h2 {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            color: #1a1a1a;
+        .caption-v { font-size: 18px; font-weight: 500; color: var(--ink); }
+
+        /* ---- about divider ---- */
+        .about { padding: 80px 0 0; }
+        .about .kicker {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            letter-spacing: .22em;
+            color: var(--muted);
+            text-transform: uppercase;
+            margin-bottom: 6px;
         }
         .about p {
-            color: #555;
+            max-width: 640px;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--body);
+            margin: 0;
+            text-wrap: pretty;
         }
-        .episodes {
-            margin-top: 2rem;
+
+        /* ---- section header pattern ---- */
+        .section { padding: 80px 0 0; }
+        .sec-head {
+            display: flex;
+            align-items: baseline;
+            gap: 20px;
+            margin-bottom: 36px;
         }
-        .episodes h2 {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            color: #1a1a1a;
+        .sec-idx {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 13px;
+            letter-spacing: .18em;
+            color: var(--accent);
         }
-        .episode {
-            background: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        .sec-head h2 {
+            font-weight: 600;
+            font-size: 32px;
+            letter-spacing: -.4px;
+            margin: 0;
+            color: var(--ink);
         }
-        .episode h3 {
-            font-size: 1rem;
-            color: #1a1a1a;
-            margin-bottom: 0.5rem;
-            line-height: 1.4;
+        .sec-rule { flex: 1; height: 1px; background: var(--rule); }
+        .sec-cap {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            letter-spacing: .12em;
+            color: var(--muted);
+            text-transform: uppercase;
         }
-        .episode-meta {
-            font-size: 0.875rem;
-            color: #888;
+        .pulse {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            animation: fgpulse 2.4s ease-in-out infinite;
+            flex: none;
         }
-        .episode-description {
-            font-size: 0.9rem;
-            color: #555;
-            margin-top: 0.75rem;
-            line-height: 1.5;
-            white-space: pre-line;
+
+        /* ---- episode grid ---- */
+        .ep-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+            background: var(--rule);
+            border: 1px solid var(--rule);
         }
-        .episode-link {
-            display: inline-block;
-            margin-top: 0.75rem;
-            color: #1DB954;
+        .ep-card {
+            background: var(--panel);
+            padding: 30px 32px 26px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
             text-decoration: none;
-            font-size: 0.875rem;
-            font-weight: 500;
+            color: inherit;
+            min-height: 236px;
+            transition: background .15s, box-shadow .15s;
         }
-        .episode-link:hover {
-            text-decoration: underline;
+        .ep-card:hover {
+            background: var(--hover);
+            box-shadow: inset 0 0 0 2px var(--ink);
         }
-        .paper-link {
-            color: #0066cc;
-            word-break: break-all;
+        .ep-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
         }
-        .paper-link:hover {
-            text-decoration: underline;
+        .ep-glyph { color: var(--ink); display: block; }
+        .ep-tag {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10px;
+            letter-spacing: .14em;
+            color: var(--muted);
+            text-transform: lowercase;
+            border: 1px solid var(--rule);
+            padding: 5px 9px;
         }
-        footer {
-            text-align: center;
-            padding: 2rem 0;
-            color: #888;
-            font-size: 0.875rem;
+        .ep-body { margin-top: auto; }
+        .ep-meta {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            letter-spacing: .14em;
+            color: var(--muted);
+            text-transform: uppercase;
+            margin-bottom: 8px;
         }
-        footer a {
-            color: #666;
+        .ep-name {
+            font-weight: 600;
+            font-size: 22px;
+            letter-spacing: -.3px;
+            color: var(--ink);
+            line-height: 1.18;
+            margin-bottom: 10px;
         }
-        @media (max-width: 600px) {
-            header {
-                padding: 2rem 0;
+        .ep-desc {
+            font-size: 15px;
+            line-height: 1.55;
+            color: var(--body);
+            margin: 0;
+            max-width: 420px;
+            text-wrap: pretty;
+            white-space: pre-line;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .ep-foot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--rule-soft);
+            padding-top: 13px;
+        }
+        .ep-listen {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11.5px;
+            letter-spacing: .08em;
+            color: var(--muted);
+            text-transform: uppercase;
+        }
+        .ep-arrow { font-size: 17px; color: var(--ink); }
+        .ep-loading {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 13px;
+            color: var(--muted);
+        }
+        .paper-link { color: var(--accent); word-break: break-all; }
+
+        /* ---- colophon ---- */
+        .colophon {
+            padding: 72px 0 90px;
+            margin-top: 80px;
+            border-top: 1px solid var(--rule);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .colophon .fg {
+            font-weight: 600;
+            font-size: 34px;
+            letter-spacing: -1px;
+            color: var(--ink);
+            line-height: 1;
+        }
+        .colophon .note {
+            max-width: 440px;
+            font-size: 14.5px;
+            line-height: 1.6;
+            color: var(--muted);
+            margin: 14px 0 0;
+            text-wrap: pretty;
+        }
+        .colophon .note a { color: var(--ink); }
+        .colophon .meta {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            letter-spacing: .14em;
+            color: var(--muted);
+            text-transform: uppercase;
+            text-align: right;
+            line-height: 2;
+        }
+        .colophon .meta .accent { color: var(--accent); }
+
+        /* ---- responsive ---- */
+        @media (max-width: 860px) {
+            .metabar { padding: 11px 22px; font-size: 10px; }
+            .wrap { padding: 0 22px; }
+            .masthead {
+                grid-template-columns: 1fr;
+                gap: 32px;
+                padding: 56px 0 48px;
             }
-            .cover {
-                width: 150px;
-                height: 150px;
-            }
-            h1 {
-                font-size: 1.5rem;
-            }
+            .seal { width: 132px; height: 132px; }
+            .captions { grid-template-columns: 1fr; }
+            .captions > div + div { padding-left: 0; border-top: 1px solid var(--rule); }
+            .ep-grid { grid-template-columns: 1fr; }
+            .sec-cap { display: none; }
+        }
+        @media (max-width: 520px) {
+            .subhead { font-size: 21px; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <img src="cover.png" alt="FG's Research Radio cover art" class="cover">
-            <h1>FG's Research Radio</h1>
-            <p class="tagline">AI-generated deep dives into computational social science research. Papers curated by Fabio Giglietto, discussions produced by Google Gemini.</p>
-            <div class="subscribe-buttons">
-                <a href="https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX" class="btn btn-spotify">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
-                    Spotify
-                </a>
-                <a href="feed.xml" class="btn btn-rss">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1Z"/></svg>
-                    RSS Feed
-                </a>
-                <a href="https://podcasts.apple.com/us/podcast/research-radio/id1866587707" class="btn btn-apple">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c2.07 0 3.75 1.68 3.75 3.75 0 2.07-1.68 3.75-3.75 3.75S8.25 10.82 8.25 8.75C8.25 6.68 9.93 5 12 5zm0 14c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
-                    Apple Podcasts
-                </a>
-            </div>
-        </header>
-
-        <section class="about">
-            <h2>About</h2>
-            <p>FG's Research Radio transforms academic papers into engaging podcast discussions. Each episode features an AI-generated conversation exploring recent research in computational social science, platform studies, and misinformation research. New episodes are automatically generated when papers are added to the reading list.</p>
-        </section>
-
-        <section class="episodes">
-            <h2>Episodes</h2>
-            <div id="episodes-container">
-                <p>Loading episodes...</p>
-            </div>
-        </section>
-
-        <script>
-            function formatDuration(seconds) {
-                const mins = Math.floor(seconds / 60);
-                const secs = seconds % 60;
-                return `${mins}:${secs.toString().padStart(2, '0')}`;
-            }
-
-            function formatAuthors(authors) {
-                if (!authors || authors.length === 0) return '';
-                if (authors.length === 1) {
-                    const name = authors[0];
-                    const lastName = name.includes(',') ? name.split(',')[0] : name.split(' ').pop();
-                    return lastName;
-                }
-                if (authors.length === 2) {
-                    const name1 = authors[0];
-                    const name2 = authors[1];
-                    const last1 = name1.includes(',') ? name1.split(',')[0] : name1.split(' ').pop();
-                    const last2 = name2.includes(',') ? name2.split(',')[0] : name2.split(' ').pop();
-                    return `${last1} & ${last2}`;
-                }
-                const name = authors[0];
-                const lastName = name.includes(',') ? name.split(',')[0] : name.split(' ').pop();
-                return `${lastName} et al.`;
-            }
-
-            function getYear(pubDate) {
-                return new Date(pubDate).getFullYear();
-            }
-
-            function linkifyUrls(text) {
-                // Convert URLs to clickable links
-                const urlRegex = /(https?:\/\/[^\s]+)/g;
-                return text.replace(urlRegex, '<a href="$1" target="_blank" rel="noopener" class="paper-link">$1</a>');
-            }
-
-            function escapeHtml(text) {
-                const div = document.createElement('div');
-                div.textContent = text;
-                return div.innerHTML;
-            }
-
-            async function loadEpisodes() {
-                try {
-                    const response = await fetch('episodes.json');
-                    const data = await response.json();
-                    const container = document.getElementById('episodes-container');
-
-                    // Sort episodes by publication date (newest first)
-                    const episodes = data.episodes.sort((a, b) =>
-                        new Date(b.pub_date) - new Date(a.pub_date)
-                    );
-
-                    container.innerHTML = episodes.map(episode => {
-                        const title = episode.title.replace("FG's Research Radio: ", '');
-                        const authorStr = formatAuthors(episode.authors);
-                        const year = getYear(episode.pub_date);
-                        const duration = formatDuration(episode.duration);
-                        // Escape HTML first, then linkify URLs
-                        const descriptionHtml = linkifyUrls(escapeHtml(episode.description));
-
-                        return `
-                            <div class="episode">
-                                <h3>${escapeHtml(title)}</h3>
-                                <p class="episode-meta">${escapeHtml(authorStr)} (${year}) &bull; ${duration}</p>
-                                <p class="episode-description">${descriptionHtml}</p>
-                                <a href="${episode.audio_url}" class="episode-link">▶ Listen to episode</a>
-                            </div>
-                        `;
-                    }).join('');
-                } catch (error) {
-                    console.error('Error loading episodes:', error);
-                    document.getElementById('episodes-container').innerHTML =
-                        '<p>Error loading episodes. Please try refreshing the page.</p>';
-                }
-            }
-
-            loadEpisodes();
-        </script>
-
-        <footer>
-            <p>Created by <a href="https://github.com/fabiogiglietto">Fabio Giglietto</a> &bull; <a href="https://github.com/fabiogiglietto/research-radio">Source Code</a></p>
-        </footer>
+    <!-- ===================== TOP META BAR ===================== -->
+    <div class="metabar">
+        <span class="lead">FG — Research Radio</span>
+        <span>v1.0 · 2026 · self-documenting</span>
     </div>
+
+    <div class="wrap">
+
+        <!-- ===================== MASTHEAD (§02) ===================== -->
+        <section class="masthead">
+            <div>
+                <svg class="seal" width="180" height="180" viewBox="0 0 200 200" aria-label="FG seal">
+                    <circle cx="100" cy="100" r="97" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
+                    <circle cx="100" cy="100" r="84" fill="none" stroke="currentColor" stroke-width="0.75"></circle>
+                    <defs><path id="fgseal" d="M100,100 m-66,0 a66,66 0 1,1 132,0 a66,66 0 1,1 -132,0"></path></defs>
+                    <text font-family="'IBM Plex Mono',monospace" font-size="9.3" letter-spacing="3" fill="currentColor"><textPath href="#fgseal" startOffset="0">AUTOMATED RESEARCH PRACTICE · SELF-DOCUMENTING · </textPath></text>
+                    <text x="100" y="124" text-anchor="middle" font-family="Saira,sans-serif" font-weight="600" font-size="64" letter-spacing="-2" fill="currentColor">FG</text>
+                </svg>
+            </div>
+
+            <div style="padding-top:6px;">
+                <div class="eyebrow">§02 — Research Radio</div>
+                <h1 class="title">FG's Research&nbsp;Radio</h1>
+                <div class="subhead">AI-generated deep dives into computational social science</div>
+                <p class="manifesto">Auto-generated podcast episodes that discuss and connect newly published papers. Each episode is an AI conversation, paced one per paper — papers curated by Fabio Giglietto, discussions narrated by Google Gemini. It runs on its own.</p>
+                <div class="subscribe">
+                    <a href="https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX" class="btn btn-primary" target="_blank" rel="noopener">
+                        <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"></path></svg>
+                        Spotify
+                    </a>
+                    <a href="feed.xml" class="btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1Z"></path></svg>
+                        RSS Feed
+                    </a>
+                    <a href="https://podcasts.apple.com/us/podcast/research-radio/id1866587707" class="btn" target="_blank" rel="noopener">
+                        <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c2.07 0 3.75 1.68 3.75 3.75 0 2.07-1.68 3.75-3.75 3.75S8.25 10.82 8.25 8.75C8.25 6.68 9.93 5 12 5zm0 14c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"></path></svg>
+                        Apple
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <div class="hairline"></div>
+
+        <!-- ===================== CAPTION STRIP ===================== -->
+        <div class="captions">
+            <div>
+                <div class="caption-k">Episodes</div>
+                <div class="caption-v" id="cap-count">—</div>
+            </div>
+            <div>
+                <div class="caption-k">Cadence</div>
+                <div class="caption-v">One per paper</div>
+            </div>
+            <div>
+                <div class="caption-k">Voice</div>
+                <div class="caption-v">Google Gemini</div>
+            </div>
+        </div>
+
+        <!-- ===================== ABOUT ===================== -->
+        <section class="about">
+            <div class="kicker">— About the signal</div>
+            <p>FG's Research Radio transforms academic papers into engaging podcast discussions. Each episode features an AI-generated conversation exploring recent research in computational social science, platform studies, and misinformation research. New episodes are generated automatically as papers are added to the reading list.</p>
+        </section>
+
+        <!-- ===================== EPISODES ===================== -->
+        <section class="section">
+            <div class="sec-head">
+                <div class="sec-idx">EP</div>
+                <h2>Episodes</h2>
+                <div class="sec-rule"></div>
+                <div class="sec-cap"><span class="pulse"></span> auto-generated · live</div>
+            </div>
+            <div class="ep-grid" id="episodes-container">
+                <p class="ep-loading" style="grid-column:1/-1;">Loading episodes…</p>
+            </div>
+        </section>
+
+        <!-- ===================== COLOPHON ===================== -->
+        <footer class="colophon">
+            <div>
+                <div class="fg">FG</div>
+                <p class="note">Part of the system it describes — a self-maintaining research practice by <a href="https://github.com/fabiogiglietto">Fabio Giglietto</a>. <a href="https://github.com/fabiogiglietto/research-radio">Source code</a>.</p>
+            </div>
+            <div class="meta">
+                <div>Research Radio · §02</div>
+                <div>Saira / IBM Plex Mono</div>
+                <div class="accent" id="colophon-stamp">2026 · self-documenting</div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        function formatDuration(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = seconds % 60;
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function formatAuthors(authors) {
+            if (!authors || authors.length === 0) return '';
+            const last = (name) => name.includes(',') ? name.split(',')[0] : name.split(' ').pop();
+            if (authors.length === 1) return last(authors[0]);
+            if (authors.length === 2) return `${last(authors[0])} & ${last(authors[1])}`;
+            return `${last(authors[0])} et al.`;
+        }
+
+        function getYear(pubDate) { return new Date(pubDate).getFullYear(); }
+
+        function linkifyUrls(text) {
+            const urlRegex = /(https?:\/\/[^\s]+)/g;
+            return text.replace(urlRegex, '<a href="$1" target="_blank" rel="noopener" class="paper-link">$1</a>');
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // geometric property glyphs (brand): diamond = own paper, circle = regular
+        function glyph(isOwn) {
+            return isOwn
+                ? '<svg class="ep-glyph" width="22" height="22" viewBox="0 0 26 26"><rect x="6" y="6" width="14" height="14" fill="currentColor" transform="rotate(45 13 13)"></rect></svg>'
+                : '<svg class="ep-glyph" width="22" height="22" viewBox="0 0 26 26"><circle cx="13" cy="13" r="10" fill="currentColor"></circle></svg>';
+        }
+
+        async function loadEpisodes() {
+            const container = document.getElementById('episodes-container');
+            try {
+                const response = await fetch('episodes.json');
+                const data = await response.json();
+
+                const episodes = data.episodes
+                    // Withhold episodes whose audio is the wrong paper (a
+                    // wrong-PDF generation bug) until it is regenerated — see
+                    // WRONG_AUDIO_REPORT.md.
+                    .filter(e => !e.audio_mismatch)
+                    .sort((a, b) => new Date(b.pub_date) - new Date(a.pub_date));
+
+                const total = episodes.length;
+                document.getElementById('cap-count').textContent = total;
+                document.getElementById('colophon-stamp').textContent =
+                    `${total} episodes · auto-generated`;
+
+                container.innerHTML = episodes.map((episode, i) => {
+                    const title = episode.title.replace("FG's Research Radio: ", '');
+                    const authorStr = formatAuthors(episode.authors);
+                    const year = getYear(episode.pub_date);
+                    const duration = formatDuration(episode.duration);
+                    const num = String(total - i).padStart(2, '0');
+                    const descriptionHtml = linkifyUrls(escapeHtml(episode.description));
+                    const meta = [num, authorStr ? `${authorStr} (${year})` : year, duration]
+                        .filter(Boolean).join(' · ');
+
+                    return `
+                        <a class="ep-card" href="${episode.audio_url}" target="_blank" rel="noopener">
+                            <div class="ep-top">
+                                ${glyph(episode.own)}
+                                <span class="ep-tag">${episode.own ? 'own paper' : 'auto-generated'}</span>
+                            </div>
+                            <div class="ep-body">
+                                <div class="ep-meta">${escapeHtml(meta)}</div>
+                                <div class="ep-name">${escapeHtml(title)}</div>
+                                <p class="ep-desc">${descriptionHtml}</p>
+                            </div>
+                            <div class="ep-foot">
+                                <span class="ep-listen">▶ Listen</span>
+                                <span class="ep-arrow">↗</span>
+                            </div>
+                        </a>
+                    `;
+                }).join('');
+            } catch (error) {
+                console.error('Error loading episodes:', error);
+                container.innerHTML =
+                    '<p class="ep-loading" style="grid-column:1/-1;">Error loading episodes. Please try refreshing the page.</p>';
+            }
+        }
+
+        loadEpisodes();
+    </script>
 </body>
 </html>
