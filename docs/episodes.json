@@ -194,24 +194,6 @@
       "audio_mismatch": true
     },
     {
-      "id": "bibtex:Costello2024-kp",
-      "title": "FG's Research Radio: Durably reducing conspiracy beliefs through dialogues with AI",
-      "description": "AI-generated podcast discussion.\n\nReference:\nCostello, T. H., Pennycook, G., & Rand, D. G. (2024). Durably reducing conspiracy beliefs through dialogues with AI. https://doi.org/10.1126/science.adq1814",
-      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Costello2024-kp.mp3",
-      "audio_size": 4427133,
-      "duration": 425,
-      "pub_date": "2024-09-15T00:00:00+00:00",
-      "authors": [
-        "Thomas H. Costello",
-        "Gordon Pennycook",
-        "David G. Rand"
-      ],
-      "own": false,
-      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-durably-reducing-conspiracy-beliefs/id1866587707?i=1000743818554",
-      "audio_mismatch": true
-    },
-    {
       "id": "bibtex:Efstratiou2025-gs",
       "title": "FG's Research Radio: Rabble-rousers in the new king&#x27;s court: Algorithmic effects on account visibility in pre-X twitter",
       "description": "AI-generated podcast discussion.\n\nReference:\nEfstratiou, A., Duskin, K., Starbird, K., & Spiro, E. S. (2025). Rabble-rousers in the new king's court: Algorithmic effects on account visibility in pre-X twitter. https://arxiv.org/abs/2512.06129",
@@ -1018,22 +1000,6 @@
       "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-ai-generated-facts-truth-or-illusion/id1866587707?i=1000754408314"
     },
     {
-      "id": "bibtex:Shi2026-ko",
-      "title": "FG's Research Radio: Does AI Disclosure Make Fact-Checks More Believable?",
-      "description": "AI-generated podcast discussion.\n\nReference:\nShi, Y. (2026). The Governance-Embedded Interactive Media Effect: the role of AI-generated disclosure in user credibility and engagement based on fact-checking videos on Chinese TikTok (Douyin). https://doi.org/10.1080/17544750.2026.2623075",
-      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Shi2026-ko.mp3",
-      "audio_size": 3808581,
-      "duration": 376,
-      "pub_date": "2026-03-11T05:57:55.249276+00:00",
-      "authors": [
-        "Yiru Shi"
-      ],
-      "own": false,
-      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-fact-checkers-vs-platforms-a/id1866587707?i=1000754609252",
-      "audio_mismatch": true
-    },
-    {
       "id": "bibtex:Hackenburg2025-dj",
       "title": "FG's Research Radio: AI Persuasion: Facts, Lies, and Political Influence",
       "description": "AI-generated podcast discussion.\n\nReference:\nHackenburg, K., Tappin, B. M., Hewitt, L., Saunders, E., Black, S., Lin, H., Fist, C., Margetts, H., Rand, D. G., & Summerfield, C. (2025). The levers of political persuasion with conversational artificial intelligence. https://doi.org/10.1126/science.aea3884",
@@ -1293,24 +1259,6 @@
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-tiktok-caliphate-hiding-jihad-in/id1866587707?i=1000758177776"
-    },
-    {
-      "id": "bibtex:Li2026-wq",
-      "title": "FG's Research Radio: YouTube, Echo Chambers, and the Conspiracy Mindset",
-      "description": "AI-generated podcast discussion.\n\nReference:\nLi, X., Lee, Y., & Kim, B. (2026). Does YouTube shape conspiracy mentality? A three-way interaction effect of partisan YouTube channel use, like-Minded discussion, and interest in politics. https://doi.org/10.1080/1369118x.2026.2653097",
-      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Li2026-wq.mp3",
-      "audio_size": 3668709,
-      "duration": 356,
-      "pub_date": "2026-04-11T08:57:04.087129+00:00",
-      "authors": [
-        "Xiyue Li",
-        "Yunseung Lee",
-        "Bumsoo Kim"
-      ],
-      "own": false,
-      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-us-election-deception-how-misinformation/id1866587707?i=1000760800648",
-      "audio_mismatch": true
     },
     {
       "id": "bibtex:Appel2026-qr",
