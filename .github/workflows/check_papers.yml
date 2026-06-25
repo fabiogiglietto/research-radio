@@ -78,8 +78,10 @@ jobs:
           GITHUB_REPO: ${{ github.repository }}
         run: |
           echo "Validating consistency between MP3 files and episodes..."
-          python scripts/validate_sync.py
-          if [ $? -ne 0 ]; then
+          # Validation is advisory only: a non-zero exit (e.g. papers kept in
+          # processed.json on purpose with no episode) must not fail the run.
+          # GitHub runs this block with `bash -e`, so guard the call inline.
+          if ! python scripts/validate_sync.py; then
             echo "::warning::Sync validation found issues. Check the logs above."
           fi
 
