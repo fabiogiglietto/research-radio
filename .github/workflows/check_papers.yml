@@ -20,7 +20,6 @@ on:
       - 'src/**'
       - 'config.py'
       - 'requirements.txt'
-      - '.github/workflows/**'
 
 # Prevent concurrent runs to avoid race conditions with data files
 concurrency:
@@ -37,6 +36,13 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
+        with:
+          # Check out the live branch tip, not the (possibly stale) SHA that
+          # triggered this run. A queued run pinned to an older SHA would
+          # regenerate data/feed from stale inputs — reprocessing already-done
+          # papers (duplicate episodes, wasted TTS) and producing an
+          # unmergeable rebase conflict on the regenerated files at push time.
+          ref: main
 
       - name: Set up Python
         uses: actions/setup-python@v6
