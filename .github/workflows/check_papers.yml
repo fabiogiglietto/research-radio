@@ -90,12 +90,27 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
 
-          # Pull latest changes to avoid conflicts
-          git pull --rebase origin main || true
-
           git add data/processed.json docs/episodes.json docs/feed.xml
-          git diff --staged --quiet || git commit -m "Update podcast data [skip ci]"
-          git push
+          if git diff --staged --quiet; then
+            echo "No data changes to commit."
+            exit 0
+          fi
+          git commit -m "Update podcast data [skip ci]"
+
+          # Commit first (above) so the working tree is clean, THEN rebase onto
+          # the latest remote and push. Retry to survive a concurrent push from
+          # the pipeline-tick run racing on the same ref.
+          for attempt in 1 2 3 4 5; do
+            git pull --rebase origin main
+            if git push; then
+              echo "Pushed on attempt $attempt."
+              exit 0
+            fi
+            echo "Push attempt $attempt rejected (remote moved); retrying..."
+            sleep 5
+          done
+          echo "::error::Failed to push after 5 attempts."
+          exit 1
 
       # Propagate the tick downstream even if no episode was produced this run,
       # so github.io still picks up the new toread feed.
