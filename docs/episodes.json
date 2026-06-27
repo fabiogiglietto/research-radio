@@ -148,7 +148,7 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-persistence-of/id1866587707?i=1000743818387",
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-low-level-simmer-how/id1866587707?i=1000743818387",
       "audio_mismatch": false
     },
     {
@@ -199,7 +199,7 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-tiktok-dogshows-and-the/id1866587707?i=1000743818637",
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-inside-tiktoks-dogshows-filipino/id1866587707?i=1000743818637",
       "audio_mismatch": false
     },
     {
@@ -1439,7 +1439,7 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-what-we-lost/id1866587707?i=1000762464081",
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-beyond-fact-checking-why-disinformation/id1866587707?i=1000762464081",
       "audio_mismatch": false
     },
     {
@@ -1814,7 +1814,7 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-end-of-social-media-as-we-know-it/id1866587707?i=1000770162794",
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-whos-really-spreading-misinformation/id1866587707?i=1000770162794",
       "audio_mismatch": false
     },
     {
@@ -2201,6 +2201,29 @@
       ],
       "own": true,
       "spotify_url": "",
+      "apple_url": "",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Hackenburg2026-ud",
+      "title": "FG's Research Radio: When AI Out-Talks World Champion Debaters",
+      "description": "AI-generated podcast discussion.\n\nReference:\nHackenburg, K., Wagner, C., Hewitt, L., Tappin, B. M., Saunders, E., Kirk, H. R., Margetts, H., & Summerfield, C. (2026). AI systems out-persuade expert humans. http://arxiv.org/abs/2606.16475v1",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Hackenburg2026-ud.mp3",
+      "audio_size": 5427549,
+      "duration": 527,
+      "pub_date": "2026-06-27T13:11:17.175711+00:00",
+      "authors": [
+        "Kobi Hackenburg",
+        "Caroline Wagner",
+        "Luke Hewitt",
+        "Ben M. Tappin",
+        "Ed Saunders",
+        "Hannah Rose Kirk",
+        "Helen Margetts",
+        "Christopher Summerfield"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "",
       "audio_mismatch": false
     }
