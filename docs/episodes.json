@@ -2226,6 +2226,40 @@
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "",
       "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Manovich2026-ih",
+      "title": "FG's Research Radio: Inside WHO's Million-Dollar Bet on AI and Health Misinformation",
+      "description": "AI-generated podcast discussion.\n\nReference:\nManovich, L. (2026). A medium that thinks: Generative AI and media cognition. https://doi.org/10.1177/27523543261454458",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Manovich2026-ih.mp3",
+      "audio_size": 4795125,
+      "duration": 480,
+      "pub_date": "2026-06-28T13:11:17.175711+00:00",
+      "authors": [
+        "Lev Manovich"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Crosset2026-mq",
+      "title": "FG's Research Radio: How States Govern the Flow of Online Speech",
+      "description": "AI-generated podcast discussion.\n\nReference:\nCrosset, V., Venturini, T., & Dupont, B. (2026). Content moderation as traffic control: an analysis of EU and US legislation on platform regulation. https://doi.org/10.1080/21624887.2026.2692735",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Crosset2026-mq.mp3",
+      "audio_size": 5368557,
+      "duration": 525,
+      "pub_date": "2026-06-29T13:11:17.175711+00:00",
+      "authors": [
+        "Valentine Crosset",
+        "Tommaso Venturini",
+        "Beno\u00eet Dupont"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
     }
   ]
 }
