@@ -2278,6 +2278,28 @@
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "",
       "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Kim2026-br",
+      "title": "FG's Research Radio: Why Trolls Attack Their Targets Instead of Praising Their Patrons",
+      "description": "AI-generated podcast discussion.\n\nReference:\nKim, J., Kim, H., Kim, J., Oh, A., Holz, T., Lee, W., & Cha, M. (2026). Cross-national information attacks: A two-decade analysis of troll behavior in Korea. http://arxiv.org/abs/2606.22785v1",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Kim2026-br.mp3",
+      "audio_size": 5368701,
+      "duration": 549,
+      "pub_date": "2026-07-02T13:11:17.175711+00:00",
+      "authors": [
+        "Jaehong Kim",
+        "Hyeonseung Kim",
+        "Jiseon Kim",
+        "Alice Oh",
+        "Thorsten Holz",
+        "Wonjae Lee",
+        "Meeyoung Cha"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
     }
   ]
 }
