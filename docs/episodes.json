@@ -2300,6 +2300,27 @@
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "",
       "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Gottfried2026-ww",
+      "title": "FG's Research Radio: Half of America Uses AI \u2014 And Half of America Is Worried",
+      "description": "AI-generated podcast discussion.\n\nReference:\nJeffrey, G., William, B., Monica, A., Michelle, F., Eugenie, P., & Colleen, M. (2026). Americans and AI 2026: Chatbots, Smart Devices and Views on Impact. https://scholar.google.com/scholar?q=Americans%20and%20AI%202026%3A%20Chatbots%2C%20Smart%20Devices%20and%20Views%20on%20Impact",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Gottfried2026-ww.mp3",
+      "audio_size": 5014365,
+      "duration": 514,
+      "pub_date": "2026-07-03T13:11:17.175711+00:00",
+      "authors": [
+        "Gottfried, Jeffrey",
+        "Bishop, William",
+        "Anderson, Monica",
+        "Faverio, Michelle",
+        "Park, Eugenie",
+        "McClain, Colleen"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
     }
   ]
 }
