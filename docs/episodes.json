@@ -2321,6 +2321,28 @@
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "",
       "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Gilardi2026-hw",
+      "title": "FG's Research Radio: Can Readers Tell When AI Writes the News?",
+      "description": "AI-generated podcast discussion.\n\nReference:\nGilardi, F., Lorenzo, S. D., Ezzaini, J., Santa, B., Streiff, B., Zurfluh, E., & Hoes, E. (2026). Quality perceptions and intended engagement in response to AI-generated and AI-assisted news. https://doi.org/10.1038/s41598-026-58743-0",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Gilardi2026-hw.mp3",
+      "audio_size": 5292813,
+      "duration": 539,
+      "pub_date": "2026-07-04T13:11:17.175711+00:00",
+      "authors": [
+        "Fabrizio Gilardi",
+        "Sabrina Di Lorenzo",
+        "Juri Ezzaini",
+        "Beryl Santa",
+        "Benjamin Streiff",
+        "Eric Zurfluh",
+        "Emma Hoes"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
     }
   ]
 }
