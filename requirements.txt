@@ -10,7 +10,7 @@ anthropic>=0.40
 pypdf>=3.17.0
 
 # Web and RSS
-requests>=2.31.0
+requests>=2.34.2
 feedgen>=1.0.0
 
 # Environment
