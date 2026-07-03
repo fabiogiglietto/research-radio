@@ -14,7 +14,7 @@ requests>=2.31.0
 feedgen>=1.0.0
 
 # Environment
-python-dotenv>=1.0.0
+python-dotenv>=1.2.2
 
 # GitHub
 PyGithub>=2.1.0
