@@ -20,4 +20,4 @@ python-dotenv>=1.0.0
 PyGithub>=2.1.0
 
 # Feed contract validation (schema/feed.schema.json)
-jsonschema>=4.21
+jsonschema>=4.26.0
