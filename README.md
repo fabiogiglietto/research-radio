@@ -1,6 +1,6 @@
 # Paper-to-Podcast Generator
 
-An automated pipeline that converts academic papers into podcast episodes using AI. It fetches papers from a reading list, retrieves PDFs from Google Drive, generates conversational scripts with Google Gemini, and produces multi-speaker audio using text-to-speech.
+An automated pipeline that converts academic papers into podcast episodes using AI. It fetches papers from a reading list, retrieves PDFs from Google Drive, generates conversational scripts with Anthropic Claude, and produces multi-speaker audio using Google Gemini text-to-speech.
 
 ## About This Project
 
@@ -29,7 +29,7 @@ You can use research-radio with any JSON feed of papers, but it's optimized for 
 
 - Fetches papers from a JSON feed (compatible with [ToRead](https://github.com/fabiogiglietto/toread))
 - Retrieves PDFs from Google Drive (Paperpile integration)
-- Generates natural two-host conversation scripts using Gemini AI
+- Generates natural two-host conversation scripts using Anthropic Claude
 - Produces multi-speaker audio with configurable voices
 - Publishes as an RSS podcast feed
 - Automated via GitHub Actions (hourly checks for new papers)
@@ -38,7 +38,8 @@ You can use research-radio with any JSON feed of papers, but it's optimized for 
 
 - Python 3.11+
 - Google Cloud service account with Drive API access
-- Gemini API key
+- Anthropic API key (dialogue script generation)
+- Gemini API key (text-to-speech)
 - ffmpeg (for audio conversion)
 - GitHub account (for releases and Actions)
 
@@ -66,6 +67,7 @@ You can use research-radio with any JSON feed of papers, but it's optimized for 
 
 4. **Configure GitHub Secrets** (for Actions):
    - `GCP_SA_KEY`: Contents of your service account JSON
+   - `ANTHROPIC_API_KEY`: Your Anthropic API key
    - `GEMINI_API_KEY`: Your Gemini API key
 
 5. **Customize your podcast:**
@@ -92,7 +94,7 @@ The workflow runs hourly, checking for new papers and generating episodes automa
 
 1. **Feed Parser** - Fetches papers from a JSON feed
 2. **Drive Client** - Finds and downloads matching PDFs from Google Drive
-3. **Gemini Audio** - Generates a two-host conversation script, then converts to audio
+3. **Audio Generation** - Claude writes a two-host conversation script, then Gemini TTS converts it to audio
 4. **GitHub Uploader** - Uploads audio files to GitHub Releases
 5. **Feed Generator** - Creates/updates the RSS podcast feed
 
@@ -109,6 +111,7 @@ You are free to use, modify, and distribute this code to create your own paper-t
 ## Acknowledgments
 
 Built with:
-- [Google Gemini](https://ai.google.dev/) for script generation and TTS
+- [Anthropic Claude](https://www.anthropic.com/) for dialogue script generation
+- [Google Gemini](https://ai.google.dev/) for text-to-speech
 - [Google Drive API](https://developers.google.com/drive) for PDF access
 - [feedgen](https://github.com/lkiesow/python-feedgen) for RSS feed generation
