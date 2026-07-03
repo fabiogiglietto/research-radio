@@ -39,6 +39,7 @@ from src.feed_parser import (
     fetch_feed,
     load_processed_ids,
 )
+from src.feed_contract import validate_toread_feed
 from src.drive_client import DriveClient
 from src.gemini_audio import GeminiAudioGenerator
 from src.pdf_extractor import get_paper_text, truncate_text
@@ -161,6 +162,7 @@ def get_papers_from_drive(drive_client: DriveClient, processed_file: str, max_ag
     that was modified within the last max_age_days.
     """
     feed_data = fetch_feed(FEED_URL)
+    validate_toread_feed(feed_data)
     all_papers = parse_papers(feed_data)
     processed_ids = load_processed_ids(processed_file)
 

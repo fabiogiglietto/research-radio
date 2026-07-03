@@ -56,7 +56,9 @@ jobs:
           sudo apt-get install -y ffmpeg
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        # requirements.lock is compiled from requirements.txt (uv pip compile);
+        # regenerate it when requirements.txt changes.
+        run: pip install -r requirements.lock
 
       - name: Set up Google credentials
         env:
