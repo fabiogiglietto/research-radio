@@ -2396,7 +2396,7 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "",
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-beyond-the-black-box-platforms/id1866587707?i=1000775922776",
       "audio_mismatch": false
     },
     {
@@ -2413,7 +2413,7 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "",
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-do-you-really-trust-ai-five-answers/id1866587707?i=1000775965013",
       "audio_mismatch": false
     },
     {
@@ -2447,6 +2447,43 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Mosca2026-yh",
+      "title": "FG's Research Radio: Fake News as a Political Weapon: Who Accuses, Who Gets Accused",
+      "description": "AI-generated podcast discussion.\n\nReference:\nMosca, L., & Paxton, F. (2026). Fake news as a rhetorical weapon: Strategic delegitimization and selective amplification in Italian newspapers. https://doi.org/10.1177/02673231261458935",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Mosca2026-yh.mp3",
+      "audio_size": 5500293,
+      "duration": 677,
+      "pub_date": "2026-07-11T13:11:17.175711+00:00",
+      "authors": [
+        "Lorenzo Mosca",
+        "Fred Paxton"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Giada2026-fc9a3833",
+      "title": "FG's Research Radio: When Lies Aren't the Real Problem: Inside Deceptive Information Operations",
+      "description": "AI-generated podcast discussion.\n\nReference:\nGiada, M., Fabio, G., Anwesha, C., Massimo, T., & Samuel, O. (2026). Exploring the Zombie Internet: Anatomy of Three Deceptive Information Operations on Facebook. https://ora.uniurb.it/handle/11576/2779031",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Giada2026-fc9a3833.mp3",
+      "audio_size": 6222357,
+      "duration": 669,
+      "pub_date": "2026-07-12T13:11:17.175711+00:00",
+      "authors": [
+        "Marino Giada",
+        "Giglietto Fabio",
+        "Chakraborty Anwesha",
+        "Terenzi Massimo",
+        "Olaniran Samuel"
+      ],
+      "own": true,
+      "spotify_url": "",
       "apple_url": "",
       "audio_mismatch": false
     }
