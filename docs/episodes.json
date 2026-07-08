@@ -2415,6 +2415,40 @@
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "",
       "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Karlsson2026-hd",
+      "title": "FG's Research Radio: When Coverage Completes the Mission: The Hidden Cost of Interference Narratives",
+      "description": "AI-generated podcast discussion.\n\nReference:\nKarlsson, E. (2026). Divide and conquer? The impact of media narratives on digital election interference on political and perceived polarisation. https://doi.org/10.1177/14614448251410509",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Karlsson2026-hd.mp3",
+      "audio_size": 4568421,
+      "duration": 460,
+      "pub_date": "2026-07-09T13:11:17.175711+00:00",
+      "authors": [
+        "Emelie Karlsson"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Makeev2026-ma",
+      "title": "FG's Research Radio: Two Chessboards, One War: Inside Russia's Dual Propaganda Machine",
+      "description": "AI-generated podcast discussion.\n\nReference:\nM, M., J, A., & M, B. (2026). Selling war at home and abroad: The dual objective of state media propaganda in the Russo-Ukrainian war. https://scholar.google.com/scholar?q=Selling%20war%20at%20home%20and%20abroad%3A%20The%20dual%20objective%20of%20state%20media%20propaganda%20in%20the%20Russo-Ukrainian%20war",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Makeev2026-ma.mp3",
+      "audio_size": 5056797,
+      "duration": 505,
+      "pub_date": "2026-07-10T13:11:17.175711+00:00",
+      "authors": [
+        "Makeev, M",
+        "Alley, J",
+        "Bastos, M"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
     }
   ]
 }
