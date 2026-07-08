@@ -13,7 +13,12 @@ from dataclasses import dataclass
 from google import genai
 from google.genai import types
 
-from config import GEMINI_TTS_MODEL, ANTHROPIC_API_KEY, CLAUDE_SCRIPT_MODEL
+from config import (
+    GEMINI_TTS_MODEL,
+    ANTHROPIC_API_KEY,
+    CLAUDE_SCRIPT_MODEL,
+    CLAUDE_TITLE_MODEL,
+)
 from claude_script_generator import ClaudeScriptGenerator
 
 
@@ -48,7 +53,7 @@ class GeminiAudioGenerator:
         """
         self.client = genai.Client(api_key=api_key)
         self.script_generator = ClaudeScriptGenerator(
-            ANTHROPIC_API_KEY, CLAUDE_SCRIPT_MODEL
+            ANTHROPIC_API_KEY, CLAUDE_SCRIPT_MODEL, title_model=CLAUDE_TITLE_MODEL
         )
 
     def _generate_with_retry(self, **kwargs):

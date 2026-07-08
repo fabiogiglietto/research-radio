@@ -27,6 +27,7 @@ from config import (
     GEMINI_API_KEY,
     ANTHROPIC_API_KEY,
     CLAUDE_SCRIPT_MODEL,
+    CLAUDE_TITLE_MODEL,
     GOOGLE_APPLICATION_CREDENTIALS,
     GOOGLE_DRIVE_FOLDER_ID,
     TTS_HOST_VOICE,
@@ -102,7 +103,9 @@ def main() -> None:
     # Step 1: Claude writes the dialogue script.
     from src.claude_script_generator import ClaudeScriptGenerator
 
-    script_gen = ClaudeScriptGenerator(ANTHROPIC_API_KEY, CLAUDE_SCRIPT_MODEL)
+    script_gen = ClaudeScriptGenerator(
+        ANTHROPIC_API_KEY, CLAUDE_SCRIPT_MODEL, title_model=CLAUDE_TITLE_MODEL
+    )
     print(f"[1] Generating script with Claude ({CLAUDE_SCRIPT_MODEL})...")
     script = script_gen.generate_script(
         text, title, TTS_HOST_VOICE, TTS_COHOST_VOICE, summary=summary

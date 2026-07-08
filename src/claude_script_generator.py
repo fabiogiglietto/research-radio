@@ -39,10 +39,14 @@ class ClaudeScriptGenerator:
     MAX_RETRIES = 3
     RETRY_BASE_DELAY = 2  # seconds
 
-    def __init__(self, api_key: str, model: str):
-        """Initialize with an Anthropic API key and the script model id."""
+    def __init__(self, api_key: str, model: str, title_model: Optional[str] = None):
+        """Initialize with an Anthropic API key and the script model id.
+
+        `title_model` (default: same as `model`) handles only the short
+        episode-title call — a cheap model is fine there."""
         self.client = anthropic.Anthropic(api_key=api_key)
         self.model = model
+        self.title_model = title_model or model
 
     def _complete_with_retry(self, **kwargs) -> str:
         """Call messages.create with retry on transient API errors.
@@ -184,7 +188,7 @@ Generate ONLY the episode title, nothing else. No quotes, no explanation, just t
 
         try:
             title = self._complete_with_retry(
-                model=self.model,
+                model=self.title_model,
                 max_tokens=100,
                 messages=[{"role": "user", "content": prompt}],
             ).strip()

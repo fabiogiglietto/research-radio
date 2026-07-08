@@ -10,14 +10,15 @@ GOOGLE_DRIVE_FOLDER_ID = os.getenv(
     "1gluNDqRQkyqxa_WIASaaoNEItrDlETkn"  # PaperPile PDFs folder
 )
 
-# Gemini API
+# Gemini API (multi-speaker TTS only; the script is written by Claude)
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-GEMINI_SCRIPT_MODEL = os.getenv("GEMINI_SCRIPT_MODEL", "gemini-2.5-flash")
-GEMINI_TTS_MODEL = os.getenv("GEMINI_TTS_MODEL", "gemini-2.5-flash-preview-tts")
+GEMINI_TTS_MODEL = os.getenv("GEMINI_TTS_MODEL", "gemini-3.1-flash-tts-preview")
 
 # Anthropic / Claude API (writes the podcast dialogue script)
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
-CLAUDE_SCRIPT_MODEL = os.getenv("CLAUDE_SCRIPT_MODEL", "claude-opus-4-7")
+CLAUDE_SCRIPT_MODEL = os.getenv("CLAUDE_SCRIPT_MODEL", "claude-opus-4-8")
+# Episode titles are classification-grade work — a cheap model suffices.
+CLAUDE_TITLE_MODEL = os.getenv("CLAUDE_TITLE_MODEL", "claude-haiku-4-5")
 
 # fg-zettelkasten structured summaries — optional podcast-script scaffold.
 # GitHub Contents API directory (served fresh, unlike the ~5-min-cached
