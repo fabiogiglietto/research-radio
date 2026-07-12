@@ -2505,6 +2505,27 @@
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "",
       "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Kotz2026-lk",
+      "title": "FG's Research Radio: Can AI Really Change Skeptics' Minds? The Surprising Answer",
+      "description": "AI-generated podcast discussion.\n\nReference:\nKotz, J., Tiede, K. E., Meyer, J., Sterba, M., Breunig, C., & Gaissmaier, W. (2026). Conversational AI shifts beliefs and policy support among skeptics across contested societal issues. https://doi.org/10.31234/osf.io/7szrn_v1",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Kotz2026-lk.mp3",
+      "audio_size": 5382645,
+      "duration": 619,
+      "pub_date": "2026-07-14T13:11:17.175711+00:00",
+      "authors": [
+        "Johannes Kotz",
+        "Kevin E. Tiede",
+        "Jelena Meyer",
+        "Maj-Britt Sterba",
+        "Christian Breunig",
+        "Wolfgang Gaissmaier"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
     }
   ]
 }
