@@ -2464,7 +2464,7 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "",
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-fake-news-as-a-political-weapon/id1866587707?i=1000776375808",
       "audio_mismatch": false
     },
     {
@@ -2521,6 +2521,25 @@
         "Maj-Britt Sterba",
         "Christian Breunig",
         "Wolfgang Gaissmaier"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Schemer2026-mh",
+      "title": "FG's Research Radio: The Measurement Problem: Why Studies Disagree on Media Polarization",
+      "description": "AI-generated podcast discussion.\n\nReference:\nSchemer, C., Langmann, K., Hasell, A., & Weeks, B. (2026). Does the method affect the outcome? How measures of partisan slant of media outlets and affective polarization drive results about polarization in the United States. https://doi.org/10.1080/10584609.2026.2699105",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Schemer2026-mh.mp3",
+      "audio_size": 5119029,
+      "duration": 658,
+      "pub_date": "2026-07-15T13:11:17.175711+00:00",
+      "authors": [
+        "Christian Schemer",
+        "Klara Langmann",
+        "Ariel Hasell",
+        "Brian Weeks"
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
