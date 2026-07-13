@@ -1,7 +1,7 @@
 # Google APIs
 google-genai>=2.10.0          # Gemini API (new SDK for 2.0+)
 google-api-python-client>=2.100.0  # Google Drive API
-google-auth>=2.23.0          # Authentication
+google-auth>=2.55.2          # Authentication
 
 # Anthropic / Claude API (podcast script generation)
 anthropic>=0.40
