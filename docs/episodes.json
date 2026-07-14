@@ -2545,6 +2545,68 @@
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "",
       "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Zheng2026-bi",
+      "title": "FG's Research Radio: How to Actually Sample YouTube and TikTok Without Permission",
+      "description": "AI-generated podcast discussion.\n\nReference:\nZheng, K., Keeney, R., McGrady, R., Jaisingh, V., & Zuckerman, E. (2026). TubeStats and TokStats: Research tools for random samples of YouTube and TikTok. https://doi.org/10.17645/mac.12085",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Zheng2026-bi.mp3",
+      "audio_size": 5938917,
+      "duration": 724,
+      "pub_date": "2026-07-16T13:11:17.175711+00:00",
+      "authors": [
+        "Kevin Zheng",
+        "Reagan Keeney",
+        "Ryan McGrady",
+        "Vikramaditya Jaisingh",
+        "Ethan Zuckerman"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Goldberg2026-eb",
+      "title": "FG's Research Radio: Can AI Fix Our Broken Online Public Squares?",
+      "description": "AI-generated podcast discussion.\n\nReference:\nGoldberg, B., Acosta-Navas, D., Bakker, M., Beacock, I., Botvinick, M., Buch, P., DiResta, R., Donthi, N., Fast, N., Iyer, R., Jalan, Z., Konya, A., Danciu, G. K., Landemore, H., Marwick, A., Miller, C., Ovadya, A., Saltz, E., Schirch, L., Shalom, D., Siddarth, D., Sieker, F., Small, C., Stray, J., Tang, A., Tessler, M. H., & Zhang, A. (2026). AI and the future of digital public squares. https://doi.org/10.1177/26339137261459441",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Goldberg2026-eb.mp3",
+      "audio_size": 5058789,
+      "duration": 704,
+      "pub_date": "2026-07-17T13:11:17.175711+00:00",
+      "authors": [
+        "Beth Goldberg",
+        "Diana Acosta-Navas",
+        "Michiel Bakker",
+        "Ian Beacock",
+        "Matt Botvinick",
+        "Prateek Buch",
+        "Ren\u00e9e DiResta",
+        "Nandika Donthi",
+        "Nathanael Fast",
+        "Ravi Iyer",
+        "Zaria Jalan",
+        "Andrew Konya",
+        "Grace Kwak Danciu",
+        "H\u00e9l\u00e8ne Landemore",
+        "Alice Marwick",
+        "Carl Miller",
+        "Aviv Ovadya",
+        "Emily Saltz",
+        "Lisa Schirch",
+        "Dalit Shalom",
+        "Divya Siddarth",
+        "Felix Sieker",
+        "Christopher Small",
+        "Jonathan Stray",
+        "Audrey Tang",
+        "Michael Henry Tessler",
+        "Amy Zhang"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
     }
   ]
 }
