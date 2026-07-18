@@ -2642,6 +2642,24 @@
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "",
       "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Rossini2026-mj",
+      "title": "FG's Research Radio: How Disinformation Erodes Democracy: Inside Brazil's Election Crisis",
+      "description": "AI-generated podcast discussion.\n\nReference:\nRossini, P., Mont'Alverne, C., & Kalogeropoulos, A. (2026). Disrupting democracy: how informational pathways and misinformation shape trust in election results. https://doi.org/10.1080/17457289.2026.2701896",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Rossini2026-mj.mp3",
+      "audio_size": 5033301,
+      "duration": 700,
+      "pub_date": "2026-07-20T13:11:17.175711+00:00",
+      "authors": [
+        "Patr\u00edcia Rossini",
+        "Camila Mont'Alverne",
+        "Antonis Kalogeropoulos"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
     }
   ]
 }
