@@ -2696,6 +2696,42 @@
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "",
       "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Marino2026-he",
+      "title": "FG's Research Radio: Echo Chambers Under Siege: When Partisan Communities Crack",
+      "description": "AI-generated podcast discussion.\n\nReference:\nMarino, G., Paroni, B., & Giglietto, F. (2026). Measuring partisan community dynamics: a longitudinal analysis of affective engagement in pro-Bolsonaro Facebook networks. https://doi.org/10.1080/1369118x.2026.2696929",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Marino2026-he.mp3",
+      "audio_size": 5705445,
+      "duration": 587,
+      "pub_date": "2026-07-23T13:11:17.175711+00:00",
+      "authors": [
+        "Giada Marino",
+        "Bruna Paroni",
+        "Fabio Giglietto"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Marino2026-14665e93",
+      "title": "FG's Research Radio: Echo Chambers Aren't Forever: What Happened to Brazil's Political Communities",
+      "description": "AI-generated podcast discussion.\n\nReference:\nMarino, G., Paroni, B., & Giglietto, F. (2026). Measuring partisan community dynamics: a longitudinal analysis of affective engagement in pro-Bolsonaro Facebook networks. https://doi.org/10.1080/1369118X.2026.2696929",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Marino2026-14665e93.mp3",
+      "audio_size": 6283005,
+      "duration": 675,
+      "pub_date": "2026-07-24T13:11:17.175711+00:00",
+      "authors": [
+        "Giada Marino",
+        "Bruna Paroni",
+        "Fabio Giglietto"
+      ],
+      "own": true,
+      "spotify_url": "",
+      "apple_url": "",
+      "audio_mismatch": false
     }
   ]
 }
