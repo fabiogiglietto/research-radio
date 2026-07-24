@@ -2732,6 +2732,23 @@
       "spotify_url": "",
       "apple_url": "",
       "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Wack2026-bt",
+      "title": "FG's Research Radio: When Comments Matter More Than the Deepfake Itself",
+      "description": "AI-generated podcast discussion.\n\nReference:\nWack, M., & Prochaska, S. (2026). Making sense of AI-generated disinformation: How audience interpretations influence the impact of deepfakes in Kenya. https://doi.org/10.1177/20563051261462092",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Wack2026-bt.mp3",
+      "audio_size": 5345229,
+      "duration": 643,
+      "pub_date": "2026-07-25T13:11:17.175711+00:00",
+      "authors": [
+        "Morgan Wack",
+        "Stephen Prochaska"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
     }
   ]
 }
