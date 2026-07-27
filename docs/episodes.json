@@ -2749,6 +2749,24 @@
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-when-comments-matter-more-than-the/id1866587707?i=1000778395772",
       "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Mattis2026-gu",
+      "title": "FG's Research Radio: When AI Fact-Checks, Trust Falls: The Disclosure Dilemma",
+      "description": "AI-generated podcast discussion.\n\nReference:\nMattis, N., Kieslich, K., & Vreese, C. H. D. (2026). Feeling iffy about generative AI: Investigating audiences\u2019 trustworthiness perceptions of task-specific AI disclosures. https://doi.org/10.1080/21670811.2026.2703599",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Mattis2026-gu.mp3",
+      "audio_size": 7049517,
+      "duration": 822,
+      "pub_date": "2026-07-27T15:28:47.771873+00:00",
+      "authors": [
+        "Nicolas Mattis",
+        "Kimon Kieslich",
+        "Claes Holger de Vreese"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
     }
   ]
 }
