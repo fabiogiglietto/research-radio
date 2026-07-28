@@ -2765,6 +2765,24 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-when-ai-fact-checks-trust-falls/id1866587707?i=1000778564036",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Balluff2026-ev",
+      "title": "FG's Research Radio: How Alternative Media Actually Depend on the Mainstream",
+      "description": "AI-generated podcast discussion.\n\nReference:\nBalluff, P., Boomgaarden, H. G., & Waldherr, A. (2026). Relying on the mainstream? Entity networks in alternative media. https://doi.org/10.31235/osf.io/43nvp_v1",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Balluff2026-ev.mp3",
+      "audio_size": 5043573,
+      "duration": 728,
+      "pub_date": "2026-07-28T15:28:47.771873+00:00",
+      "authors": [
+        "Paul Balluff",
+        "Hajo G. Boomgaarden",
+        "Annie Waldherr"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "",
       "audio_mismatch": false
     }
