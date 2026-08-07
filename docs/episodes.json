@@ -2785,6 +2785,23 @@
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-how-alternative-media-actually-depend/id1866587707?i=1000778850854",
       "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Galip2026-ix",
+      "title": "FG's Research Radio: When AI Eats Itself: The Gimmick of Generative Slop",
+      "description": "AI-generated podcast discussion.\n\nReference:\nGalip, I., & Lupinacci, L. (2026). Degenerative AI: AI slop, brainrot, and the gimmick of generative culture. https://doi.org/10.1177/13675494261468638",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Galip2026-ix.mp3",
+      "audio_size": 5310909,
+      "duration": 665,
+      "pub_date": "2026-08-07T09:40:20.097142+00:00",
+      "authors": [
+        "Idil Galip",
+        "Ludmila Lupinacci"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
     }
   ]
 }
