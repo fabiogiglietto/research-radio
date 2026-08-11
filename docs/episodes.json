@@ -2802,6 +2802,24 @@
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-when-ai-eats-itself-the-gimmick/id1866587707?i=1000780431410",
       "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Kakavand2026-kt",
+      "title": "FG's Research Radio: The Far Right Looks Different on Every Platform",
+      "description": "AI-generated podcast discussion.\n\nReference:\nKakavand, A. E., Righetti, N., & Waldherr, A. (2026). Multi-platform research in the light of technology affordances: networks of the far right in Germany. https://doi.org/10.1080/19331681.2026.2697186",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Kakavand2026-kt.mp3",
+      "audio_size": 5782869,
+      "duration": 674,
+      "pub_date": "2026-08-11T08:08:04.463741+00:00",
+      "authors": [
+        "Azade E. Kakavand",
+        "Nicola Righetti",
+        "Annie Waldherr"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
     }
   ]
 }
