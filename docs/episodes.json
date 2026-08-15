@@ -2863,7 +2863,7 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "",
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-misinformation-paradox-rare/id1866587707?i=1000783271147",
       "audio_mismatch": false
     },
     {
@@ -2897,6 +2897,23 @@
         "Xiaoting Yu",
         "Patrik Wikstr\u00f6m",
         "Kylie Pappalardo"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Rauchfleisch2026-fa",
+      "title": "FG's Research Radio: When AI Says What It's Doing, Persuasion Drops in Half",
+      "description": "AI-generated podcast discussion.\n\nReference:\nRauchfleisch, A., & Jungherr, A. (2026). Toward meaningful transparency for AI chatbots: Disclosing persuasive intent reduces persuasion. http://arxiv.org/abs/2608.11794v1",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Rauchfleisch2026-fa.mp3",
+      "audio_size": 6626709,
+      "duration": 702,
+      "pub_date": "2026-08-17T08:19:36.156752+00:00",
+      "authors": [
+        "Adrian Rauchfleisch",
+        "Andreas Jungherr"
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
