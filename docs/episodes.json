@@ -2883,6 +2883,25 @@
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "",
       "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Tang2026-gu",
+      "title": "FG's Research Radio: The Post-Creator: Inside AI's Viral Content Factories",
+      "description": "AI-generated podcast discussion.\n\nReference:\nTang, J., Yu, X., Wikstr\u00f6m, P., & Pappalardo, K. (2026). Behind the \u201cAI slop\u201d: exploring the AI-generated viral short video production in China. https://doi.org/10.1007/s00146-026-03254-9",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Tang2026-gu.mp3",
+      "audio_size": 5400573,
+      "duration": 720,
+      "pub_date": "2026-08-16T08:19:36.156752+00:00",
+      "authors": [
+        "Jiaru Tang",
+        "Xiaoting Yu",
+        "Patrik Wikstr\u00f6m",
+        "Kylie Pappalardo"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
     }
   ]
 }
