@@ -2919,6 +2919,22 @@
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "",
       "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Groebner2026-pc",
+      "title": "FG's Research Radio: The Transnational Far-Right Audience YouTube Won't Talk About",
+      "description": "AI-generated podcast discussion.\n\nReference:\nGroebner, K. (2026). From national outlets to transnational audiences: far-right hyperpartisan news sources on YouTube. https://doi.org/10.1177/1329878x261474201",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Groebner2026-pc.mp3",
+      "audio_size": 6969045,
+      "duration": 798,
+      "pub_date": "2026-08-18T08:19:36.156752+00:00",
+      "authors": [
+        "Klaus Groebner"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
     }
   ]
 }
