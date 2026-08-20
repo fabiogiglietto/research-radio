@@ -90,7 +90,11 @@ jobs:
               && mv "$ANTHROPIC_IDENTITY_TOKEN_FILE.tmp" "$ANTHROPIC_IDENTITY_TOKEN_FILE"
           }
           fetch
-          ( while true; do sleep 120; fetch || true; done ) &
+          # Output redirected and the loop detached: a background process that
+          # keeps the step's stdout pipe open can stall the runner's step
+          # teardown. `|| true` keeps a transient fetch failure from killing
+          # the loop under `set -e`.
+          ( while true; do sleep 120; fetch || true; done ) >/dev/null 2>&1 &
 
       - name: Run podcast generator
         env:
