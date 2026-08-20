@@ -32,6 +32,11 @@ jobs:
 
     permissions:
       contents: write  # For GitHub Releases
+      # Lets the job mint the GitHub OIDC token that the Anthropic SDK
+      # exchanges for a short-lived access token (Workload Identity
+      # Federation). A permissions block drops every scope not listed, so
+      # this must be enumerated or GitHub refuses to issue the token at all.
+      id-token: write
 
     steps:
       - name: Checkout repository
@@ -67,10 +72,38 @@ jobs:
           mkdir -p credentials
           printf '%s' "$GCP_SA_KEY" > credentials/service-account.json
 
+      # Workload Identity Federation. The minted Anthropic token lives at most
+      # twice the remaining life of the GitHub JWT, and that JWT expires ~5 min
+      # after issuance — so the effective ceiling is ~10 minutes regardless of
+      # the rule's token_lifetime_seconds. This job has run for hours, so a
+      # single fetch is not enough: refresh the file in the background and let
+      # the SDK re-read it on each exchange. Write-then-mv keeps the SDK from
+      # ever reading a half-written JWT.
+      - name: Fetch OIDC token and keep it fresh
+        env:
+          ANTHROPIC_IDENTITY_TOKEN_FILE: ${{ runner.temp }}/anthropic-oidc-jwt
+        run: |
+          fetch() {
+            curl -sS -H "Authorization: Bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+              "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=https://api.anthropic.com" \
+              | jq -r .value > "$ANTHROPIC_IDENTITY_TOKEN_FILE.tmp" \
+              && mv "$ANTHROPIC_IDENTITY_TOKEN_FILE.tmp" "$ANTHROPIC_IDENTITY_TOKEN_FILE"
+          }
+          fetch
+          ( while true; do sleep 120; fetch || true; done ) &
+
       - name: Run podcast generator
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          # ANTHROPIC_API_KEY stays until cutover: it outranks federation in
+          # the SDK's credential precedence, so this is a parallel
+          # configuration that changes nothing yet. Remove the secret and this
+          # line together — see ANTHROPIC_AUTH_MIGRATION.md section 7.
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ANTHROPIC_FEDERATION_RULE_ID: ${{ vars.ANTHROPIC_FEDERATION_RULE_ID }}
+          ANTHROPIC_ORGANIZATION_ID: ${{ vars.ANTHROPIC_ORGANIZATION_ID }}
+          ANTHROPIC_SERVICE_ACCOUNT_ID: ${{ vars.ANTHROPIC_SERVICE_ACCOUNT_ID }}
+          ANTHROPIC_IDENTITY_TOKEN_FILE: ${{ runner.temp }}/anthropic-oidc-jwt
           GOOGLE_APPLICATION_CREDENTIALS: credentials/service-account.json
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPO: ${{ github.repository }}
