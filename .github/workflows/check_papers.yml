@@ -99,11 +99,10 @@ jobs:
       - name: Run podcast generator
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          # ANTHROPIC_API_KEY stays until cutover: it outranks federation in
-          # the SDK's credential precedence, so this is a parallel
-          # configuration that changes nothing yet. Remove the secret and this
-          # line together — see ANTHROPIC_AUTH_MIGRATION.md section 7.
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          # Workload Identity Federation — no API key. The SDK exchanges the
+          # OIDC token (refreshed above) for a short-lived access token. Do not
+          # reintroduce ANTHROPIC_API_KEY here: it outranks federation in the
+          # credential chain and would silently shadow it.
           ANTHROPIC_FEDERATION_RULE_ID: ${{ vars.ANTHROPIC_FEDERATION_RULE_ID }}
           ANTHROPIC_ORGANIZATION_ID: ${{ vars.ANTHROPIC_ORGANIZATION_ID }}
           ANTHROPIC_SERVICE_ACCOUNT_ID: ${{ vars.ANTHROPIC_SERVICE_ACCOUNT_ID }}
