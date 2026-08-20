@@ -30,6 +30,15 @@ jobs:
   generate-podcasts:
     runs-on: ubuntu-latest
 
+    # Without this the only ceiling is GitHub's 6h job limit, and hitting it
+    # registers as `cancelled` — which `if: failure()` does not match, so the
+    # notify step below stays silent. Three runs died that way (2026-08-18 to
+    # -20) with nothing reported. A timeout-minutes expiry is a *failure*, so
+    # it both ends the burn early and actually pages someone.
+    # Calibrated over the last 100 successful runs (measured 2026-08-20):
+    # median 1.1min, p95 12.7min, slowest 17.4min end to end.
+    timeout-minutes: 45
+
     permissions:
       contents: write  # For GitHub Releases
       # Lets the job mint the GitHub OIDC token that the Anthropic SDK
@@ -97,6 +106,9 @@ jobs:
           ( while true; do sleep 120; fetch || true; done ) >/dev/null 2>&1 &
 
       - name: Run podcast generator
+        # The step that has hung every time: TTS, the Drive download loop and
+        # ffmpeg all live under it. ~1.7x the slowest generator run observed.
+        timeout-minutes: 30
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           # Workload Identity Federation — no API key. The SDK exchanges the
