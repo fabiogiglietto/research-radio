@@ -3,8 +3,11 @@ Pick papers the show has already covered that genuinely speak to a new paper.
 
 Three stages, cheapest first:
 
-1. Pool + prefilter (no LLM). Candidates are our own published episodes, ranked
-   against the new paper with BM25 over the fg-zettelkasten summaries.
+1. Pool + prefilter (no LLM). Candidates are our own published episodes. Where
+   the vault already has a note for the new paper, its `## Connections` section
+   seeds the shortlist — fg-zettelkasten wrote that with the whole vault in
+   view, so it beats anything we can compute. BM25 over the summaries fills the
+   remaining slots, and covers the case where no note exists yet.
 2. One Claude call turns the top candidates into a small, anchored brief.
 3. `claude_script_generator` weaves the brief into the dialogue.
 
@@ -71,11 +74,16 @@ def _candidate_text(entry: dict) -> str:
     )
 
 
-def _bm25_rank(query: str, candidates: dict, limit: int) -> list[str]:
+def _bm25_rank(query: str, candidates: dict, limit: int,
+               own_topics: Optional[list] = None) -> list[str]:
     """Return candidate keys ranked by BM25 against `query`, best first.
 
     Okapi BM25 with the usual k1/b. The corpus is a few hundred short academic
     summaries, so this runs in milliseconds and needs no dependency.
+
+    `own_topics` are the new paper's topic slugs when the vault has already
+    assigned them. Sharing a register is weak evidence on its own — the
+    registers are broad — so it nudges the lexical score rather than gating it.
     """
     k1, b = 1.5, 0.75
     docs = {key: _tokens(_candidate_text(entry)) for key, entry in candidates.items()}
@@ -106,6 +114,9 @@ def _bm25_rank(query: str, candidates: dict, limit: int) -> list[str]:
             # does not dominate the whole ranking.
             score += idf * norm * (1 + math.log(q_count))
         if score > 0:
+            if own_topics:
+                shared = len(set(own_topics) & set(candidates[key].get("topics") or []))
+                score *= 1 + 0.15 * shared
             scores[key] = score
     return sorted(scores, key=scores.get, reverse=True)[:limit]
 
@@ -163,10 +174,13 @@ def _as_list(value) -> list:
     return [str(item) for item in value]
 
 
-def _render_candidates(keys: list[str], bundle: dict, episodes: dict) -> str:
+def _render_candidates(keys: list[str], bundle: dict, episodes: dict,
+                       curated: frozenset = frozenset()) -> str:
     blocks = []
     for key in keys:
         entry = bundle[key]
+        flag = ("\n  NOTE: the vault already links this paper to the one under "
+                "discussion." if key in curated else "")
         claims = (entry.get("key_claims") or [])[:_CLAIMS_PER_CANDIDATE]
         claim_lines = "\n".join(f"  - {c}" for c in claims)
         episode = episodes[key]
@@ -177,6 +191,7 @@ def _render_candidates(keys: list[str], bundle: dict, episodes: dict) -> str:
             f"  Our episode: \"{_episode_name(episode.title)}\" "
             f"({episode.pub_date.strftime('%B %Y')})\n"
             f"  Key claims (this is ALL you know about this paper):\n{claim_lines}"
+            + flag
         )
     return "\n\n".join(blocks)
 
@@ -213,6 +228,7 @@ and vague pairings ("both are about social media") are forced connections.
 - You know nothing about a back-catalogue paper beyond the key claims listed above. \
 Do not use outside knowledge of it, and do not infer findings it might have.
 - Every connection must be anchored in one specific claim on each side.
+- A candidate marked NOTE is one the research vault has already linked to this paper. Treat that as a strong hint, not an instruction: it means someone judged the two related, but you still have to find the specific claims that carry the link, and you should drop it if you cannot.
 
 Respond with JSON only, no prose, no code fence:
 
@@ -296,14 +312,26 @@ def select_related(
         print("  Related work: too little text to match on, skipping")
         return []
 
-    shortlist = _bm25_rank(query, candidates, SHORTLIST_SIZE)
+    # The vault usually has a note for this paper by the time we podcast it —
+    # the podcast queue runs many papers deep while fg-zettelkasten's cron
+    # sweeps the whole feed — so its `## Connections` section is normally
+    # available, and it is a curated judgement made with the whole vault in
+    # view. Seed the shortlist with it, keep BM25 for the rest, and fall back
+    # to BM25 alone when no note exists yet.
+    own_note = bundle.get(own_key) or {}
+    curated = [k for k in own_note.get("connections", []) if k in candidates]
+    ranked = _bm25_rank(query, candidates, SHORTLIST_SIZE, own_note.get("topics"))
+    shortlist = curated + [k for k in ranked if k not in curated]
+    shortlist = shortlist[:SHORTLIST_SIZE]
     if len(shortlist) < MIN_POOL:
         print("  Related work: prefilter found no comparable papers, skipping")
         return []
+    print(f"  Related work: {len(shortlist)} candidates "
+          f"({len(curated)} linked by the vault, {len(shortlist) - len(curated)} by relevance)")
 
     prompt = _build_prompt(
         paper_title, query[:6000],
-        _render_candidates(shortlist, bundle, episodes), max_n,
+        _render_candidates(shortlist, bundle, episodes, frozenset(curated)), max_n,
     )
     try:
         raw = script_generator.complete(

@@ -18,8 +18,10 @@ Every failure path returns None. The caller then generates the episode with no
 connections, exactly as it did before this module existed.
 """
 
+import html
 import io
 import json
+import re
 import tarfile
 from typing import Optional
 
@@ -29,6 +31,9 @@ import requests
 # "<owner>-<repo>-<sha>/" directory.
 _NOTE_PREFIX = "vault/Papers/"
 _SUMMARY_PREFIX = "data/summaries/"
+
+# Wikilink targets in a note body, e.g. "[[Thiele2025-ol]]" or "[[key|label]]".
+_WIKILINK = re.compile(r"\[\[([^\]|#]+)")
 
 # Frontmatter keys lifted from a paper note. `topics` and `authors` are lists.
 _SCALAR_KEYS = ("title", "year", "doi", "bibtex_key", "kind", "superseded_by")
@@ -59,28 +64,40 @@ def _parse_frontmatter(text: str) -> dict:
                     item.strip().strip('"\'')
                     for item in raw[1:-1].split(",")
                 ]
-                meta[key] = [item for item in items if item]
+                meta[key] = [html.unescape(item) for item in items if item]
         elif key in _SCALAR_KEYS:
-            value = raw.strip('"\'')
+            # Titles reach the vault HTML-escaped from some sources, and an
+            # entity like "EU&#x27;s" gets read out literally by the TTS.
+            value = html.unescape(raw.strip('"\''))
             if value and value.lower() not in ("null", "none"):
                 meta[key] = value
     return meta
 
 
-def _body(text: str) -> str:
-    """Return the note body with the frontmatter block removed."""
-    if text.startswith("---"):
-        end = text.find("\n---", 3)
-        if end != -1:
-            return text[end + 4:]
-    return text
+def _connections(text: str) -> list:
+    """Keys wikilinked from a note's `## Connections` section.
+
+    fg-zettelkasten writes this section with the whole vault in view, so where
+    it exists it is a curated judgement of what a paper relates to — a better
+    prior than any lexical match we can compute here.
+    """
+    if "## Connections" not in text:
+        return []
+    section = text.split("## Connections", 1)[1].split("\n## ", 1)[0]
+    seen = []
+    for key in _WIKILINK.findall(section):
+        key = key.strip()
+        if key and key not in seen:
+            seen.append(key)
+    return seen
 
 
 def fetch_vault_bundle(tarball_url: str, timeout: int = 120) -> Optional[dict]:
     """Return `{bibtex_key: {...}}` for every paper in the vault, or None.
 
     Each entry carries what the related-work ranker and brief need:
-    `title`, `authors`, `year`, `doi`, `topics`, `abstract`, `key_claims`.
+    `title`, `authors`, `year`, `doi`, `topics`, `abstract`, `key_claims`,
+    and `connections` (the keys its `## Connections` section wikilinks to).
     Notes and summaries are joined on the bibtex key (the filename stem, which
     is also the `bibtex_key` frontmatter field).
 
@@ -146,6 +163,7 @@ def fetch_vault_bundle(tarball_url: str, timeout: int = 120) -> Optional[dict]:
             "topics": meta.get("topics", []),
             "abstract": summary.get("abstract", ""),
             "key_claims": _as_list(summary.get("key_claims")),
+            "connections": _connections(text),
             "has_summary": bool(summary),
         }
 
