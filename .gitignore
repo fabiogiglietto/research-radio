@@ -46,3 +46,7 @@ Thumbs.db
 !data/processed.json
 !data/episodes.json
 !docs/episodes.json
+
+# Marker written by src/main.py when a run produces no episodes despite real
+# errors; the workflow reads it to fail the job after commit and dispatch.
+.generator-total-failure

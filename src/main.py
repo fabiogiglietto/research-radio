@@ -54,6 +54,11 @@ from src.platform_links import enrich_and_save
 
 # Rate limiting: minimum hours between episode publications
 MIN_HOURS_BETWEEN_EPISODES = 24
+
+# Written when a run produces no episodes *and* hit real errors, so the
+# workflow can fail the job from a step that runs after the commit and the
+# downstream dispatch. Never committed — the commit step adds explicit paths.
+TOTAL_FAILURE_MARKER = ".generator-total-failure"
 from src.github_uploader import upload_audio_to_release
 
 
@@ -244,6 +249,11 @@ def main():
     print("Research Radio - Paper to Podcast Generator")
     print("="*60)
 
+    # CI checks out fresh, but a local re-run would otherwise inherit the
+    # previous run's marker and report a failure that did not happen.
+    if os.path.exists(TOTAL_FAILURE_MARKER):
+        os.remove(TOTAL_FAILURE_MARKER)
+
     # Validate configuration
     if not GEMINI_API_KEY:
         print("Error: GEMINI_API_KEY not set")
@@ -307,6 +317,12 @@ def main():
 
     successful = 0
     failed = 0
+    # A paper with no PDF is an expected outcome, not a fault: own papers are
+    # skipped by design when no open-access PDF exists, and some toread entries
+    # have no Paperpile PDF yet (see MISSING_PDFS.md). Counting those as
+    # failures is what made "Generated: 0, Failed: 5" indistinguishable from a
+    # total outage, so they are tracked separately and never alert.
+    skipped = 0
 
     # toread papers — text comes from the matched Paperpile Drive PDF.
     for paper in toread_papers:
@@ -314,7 +330,7 @@ def main():
             paper_text = drive_client.get_pdf_text(paper)
             if not paper_text:
                 print(f"\nNo PDF text for {paper.id}; skipping.")
-                failed += 1
+                skipped += 1
                 continue
             print(f"  Extracted {len(paper_text)} characters from Drive PDF")
             if process_paper(paper, paper_text, audio_generator):
@@ -334,7 +350,7 @@ def main():
             paper_text = resolve_own_paper_text(paper, drive_client)
             if not paper_text:
                 print(f"No PDF for own paper {paper.id}; skipping.")
-                failed += 1
+                skipped += 1
                 continue
             if process_paper(paper, paper_text, audio_generator):
                 successful += 1
@@ -360,7 +376,37 @@ def main():
     print("Summary:")
     print(f"  Generated: {successful}")
     print(f"  Failed: {failed}")
+    print(f"  Skipped (no PDF): {skipped}")
     print("="*60)
+
+    # The workflow's `if: failure()` alert can only see the job's status, and
+    # exiting 0 unconditionally is why the 2026-08-20 run — every TTS call
+    # dead, "Generated: 0, Failed: 5" — was still reported as a green build and
+    # nobody was paged for three days.
+    #
+    # But this process must NOT exit non-zero to report that. A failed step
+    # skips every later step, including the repository_dispatch that ticks
+    # fabiogiglietto.github.io and fg-zettelkasten, and the commit that carries
+    # the regenerated feed.xml — which is what publishes an episode generated
+    # on an earlier run whose pub_date has now arrived. Failing here would turn
+    # a one-stage outage into a stalled four-repo pipeline and withhold an
+    # already-rendered episode.
+    #
+    # So leave a marker instead and let the workflow fail the job in a step
+    # placed after the commit and dispatch steps. See TOTAL_FAILURE_MARKER.
+    if failed:
+        if successful == 0:
+            print(
+                f"::error::Generated no episodes; {failed} paper(s) failed with "
+                f"real errors. See the log above for the failing stage."
+            )
+            with open(TOTAL_FAILURE_MARKER, "w") as fh:
+                fh.write(f"{failed}\n")
+        else:
+            print(
+                f"::warning::{failed} paper(s) failed, {successful} succeeded. "
+                f"Committing the successful episodes."
+            )
 
 
 if __name__ == "__main__":

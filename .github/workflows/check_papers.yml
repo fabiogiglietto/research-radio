@@ -191,6 +191,24 @@ jobs:
           repository: fabiogiglietto/fabiogiglietto.github.io
           event-type: pipeline-tick
 
+      # The generator deliberately exits 0 even when every paper failed, so
+      # that the commit and the downstream dispatch above still run — a TTS
+      # outage must not stall github.io and fg-zettelkasten, and feed.xml still
+      # needs to publish any earlier episode whose pub_date has now arrived.
+      # It leaves a marker instead, and the job is failed here, once the work
+      # that had to happen has happened. Before this existed, the 2026-08-20
+      # run reported "Generated: 0, Failed: 5" as a green build and went
+      # unnoticed for three days.
+      # `if: always()` so this still runs when an earlier step failed; the
+      # Slack step below matches on failure() either way.
+      - name: Fail the run if no episodes were produced
+        if: always()
+        run: |
+          if [ -f .generator-total-failure ]; then
+            echo "::error::Generator produced no episodes and hit real errors."
+            exit 1
+          fi
+
       # Pipeline observability — alert on any failed run. No-ops until a
       # SLACK_WEBHOOK_URL (or SLACK_BOT_TOKEN + vars.OPS_SLACK_CHANNEL)
       # is configured in this repo's settings.
