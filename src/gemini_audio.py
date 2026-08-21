@@ -106,10 +106,12 @@ class GeminiAudioGenerator:
                 # Timeouts carry no HTTP status, so match the type rather than
                 # the string — str(httpx.ReadTimeout) is often just ''.
                 # google-genai can also be backed by httpx2, a drop-in fork
-                # whose exceptions are not httpx subclasses, so fall back to
-                # the class name rather than silently missing those timeouts.
-                is_timeout = isinstance(e, httpx.TimeoutException) or (
-                    "Timeout" in type(e).__name__
+                # whose exceptions are not httpx subclasses; match those by
+                # module so the branch cannot be silently unreachable, without
+                # catching every unrelated class that happens to say "Timeout".
+                is_timeout = isinstance(e, (httpx.TimeoutException, TimeoutError)) or (
+                    type(e).__module__.split(".")[0] == "httpx2"
+                    and "Timeout" in type(e).__name__
                 )
                 error_str = str(e)
                 is_transient = is_timeout or any(
