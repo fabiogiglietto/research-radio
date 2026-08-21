@@ -59,10 +59,18 @@ class GeminiAudioGenerator:
     # requirements.lock installs in CI.
     TTS_TIMEOUT_MS = 8 * 60 * 1000
 
-    # Ceiling on all attempts for one episode. Retrying a timeout is worth it
-    # (the 502 seen on 2026-08-21 cleared on the first retry), but 3 unbounded
-    # attempts at 8 min each would exceed the generator's own 25m budget and
-    # starve every remaining paper. Once this is spent, stop retrying.
+    # Ceiling on all attempts for one episode, so a wedged endpoint costs one
+    # paper rather than starving every paper behind it in the 25m the workflow
+    # allows the whole generator.
+    #
+    # A new attempt only starts if the budget can still absorb it in full
+    # (delay + another TTS_TIMEOUT_MS), which makes the worst case per episode
+    # ~8 min rather than the ~16 min it would be if the check only looked at
+    # time already spent. The practical effect: a fast transient error still
+    # retries — the 502 observed on 2026-08-21 came back in 13s and cleared on
+    # the first retry — while a full 8-minute timeout does not, because a
+    # second 8-minute wait cannot fit. That is the intended trade: one slow
+    # episode must not consume the run.
     TTS_TOTAL_BUDGET_SECONDS = 15 * 60
 
     def __init__(self, api_key: str):
@@ -97,7 +105,12 @@ class GeminiAudioGenerator:
             except Exception as e:
                 # Timeouts carry no HTTP status, so match the type rather than
                 # the string — str(httpx.ReadTimeout) is often just ''.
-                is_timeout = isinstance(e, httpx.TimeoutException)
+                # google-genai can also be backed by httpx2, a drop-in fork
+                # whose exceptions are not httpx subclasses, so fall back to
+                # the class name rather than silently missing those timeouts.
+                is_timeout = isinstance(e, httpx.TimeoutException) or (
+                    "Timeout" in type(e).__name__
+                )
                 error_str = str(e)
                 is_transient = is_timeout or any(
                     code in error_str
@@ -112,10 +125,14 @@ class GeminiAudioGenerator:
                     raise
 
                 delay = self.RETRY_BASE_DELAY * (2 ** attempt)
-                if time.monotonic() + delay >= deadline:
+                # Reserve room for the retry to run to its own full timeout,
+                # otherwise the budget is only enforced after it has already
+                # been overspent.
+                next_attempt_worst_case = delay + self.TTS_TIMEOUT_MS / 1000
+                if time.monotonic() + next_attempt_worst_case > deadline:
                     print(
                         f"  TTS retry budget ({self.TTS_TOTAL_BUDGET_SECONDS}s) "
-                        f"exhausted; giving up on this episode."
+                        f"cannot absorb another attempt; giving up on this episode."
                     )
                     raise
                 print(f"  Retrying in {delay}s (attempt {attempt + 1}/{self.MAX_RETRIES}): {e}")

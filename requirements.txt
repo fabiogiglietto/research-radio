@@ -11,6 +11,10 @@ pypdf>=6.14.2
 
 # Web and RSS
 requests>=2.34.2
+# Imported directly by gemini_audio to detect TTS request timeouts by type.
+# Already a google-genai dependency; pinned here so an SDK that swaps HTTP
+# clients cannot silently remove it.
+httpx>=0.28.1
 feedgen>=1.0.0
 
 # Environment

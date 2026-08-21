@@ -54,6 +54,11 @@ from src.platform_links import enrich_and_save
 
 # Rate limiting: minimum hours between episode publications
 MIN_HOURS_BETWEEN_EPISODES = 24
+
+# Written when a run produces no episodes *and* hit real errors, so the
+# workflow can fail the job from a step that runs after the commit and the
+# downstream dispatch. Never committed — the commit step adds explicit paths.
+TOTAL_FAILURE_MARKER = ".generator-total-failure"
 from src.github_uploader import upload_audio_to_release
 
 
@@ -244,6 +249,11 @@ def main():
     print("Research Radio - Paper to Podcast Generator")
     print("="*60)
 
+    # CI checks out fresh, but a local re-run would otherwise inherit the
+    # previous run's marker and report a failure that did not happen.
+    if os.path.exists(TOTAL_FAILURE_MARKER):
+        os.remove(TOTAL_FAILURE_MARKER)
+
     # Validate configuration
     if not GEMINI_API_KEY:
         print("Error: GEMINI_API_KEY not set")
@@ -369,28 +379,34 @@ def main():
     print(f"  Skipped (no PDF): {skipped}")
     print("="*60)
 
-    # Exit status is the only thing the workflow's `if: failure()` alert can
-    # see. Exiting 0 unconditionally is why the 2026-08-20 run — every TTS call
+    # The workflow's `if: failure()` alert can only see the job's status, and
+    # exiting 0 unconditionally is why the 2026-08-20 run — every TTS call
     # dead, "Generated: 0, Failed: 5" — was still reported as a green build and
     # nobody was paged for three days.
     #
-    # Only a run that produced *nothing* while hitting real errors fails the
-    # job. That case has no new episodes to lose, so failing here costs no
-    # work. When some episodes did generate, a partial failure must not abort
-    # the run: the steps after this one commit episodes.json and push the audio
-    # URLs, and skipping them would strand the episodes already uploaded to
-    # Releases and regenerate them next run.
+    # But this process must NOT exit non-zero to report that. A failed step
+    # skips every later step, including the repository_dispatch that ticks
+    # fabiogiglietto.github.io and fg-zettelkasten, and the commit that carries
+    # the regenerated feed.xml — which is what publishes an episode generated
+    # on an earlier run whose pub_date has now arrived. Failing here would turn
+    # a one-stage outage into a stalled four-repo pipeline and withhold an
+    # already-rendered episode.
+    #
+    # So leave a marker instead and let the workflow fail the job in a step
+    # placed after the commit and dispatch steps. See TOTAL_FAILURE_MARKER.
     if failed:
         if successful == 0:
             print(
                 f"::error::Generated no episodes; {failed} paper(s) failed with "
                 f"real errors. See the log above for the failing stage."
             )
-            sys.exit(1)
-        print(
-            f"::warning::{failed} paper(s) failed, {successful} succeeded. "
-            f"Committing the successful episodes."
-        )
+            with open(TOTAL_FAILURE_MARKER, "w") as fh:
+                fh.write(f"{failed}\n")
+        else:
+            print(
+                f"::warning::{failed} paper(s) failed, {successful} succeeded. "
+                f"Committing the successful episodes."
+            )
 
 
 if __name__ == "__main__":

@@ -63,6 +63,7 @@ httplib2==0.32.0
     #   google-auth-httplib2
 httpx==0.28.1
     # via
+    #   -r requirements.txt
     #   anthropic
     #   google-genai
 idna==3.18
