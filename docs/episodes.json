@@ -2933,6 +2933,59 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-transnational-far-right/id1866587707?i=1000784638043",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Fletcher2026-lv",
+      "title": "FG's Research Radio: The Myth of the Golden Age: What Trust in News Really Looks Like",
+      "description": "AI-generated podcast discussion.\n\nReference:\nFletcher, R., & Nielsen, R. K. (2026). What has happened to trust in news in the long run globally?. https://doi.org/10.4324/9781003618041-6",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Fletcher2026-lv.mp3",
+      "audio_size": 6548493,
+      "duration": 715,
+      "pub_date": "2026-08-21T08:24:32.056393+00:00",
+      "authors": [
+        "Richard Fletcher",
+        "Rasmus Kleis Nielsen"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Holt2026-zq",
+      "title": "FG's Research Radio: What Users Actually Flag as Fake News: A Reality Check",
+      "description": "AI-generated podcast discussion.\n\nReference:\nHolt, A. E. (2026). What Facebook users flag as false news: A mixed-methods investigation of user-reported links. https://doi.org/10.1080/21670811.2026.2703607",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Holt2026-zq.mp3",
+      "audio_size": 5920941,
+      "duration": 748,
+      "pub_date": "2026-08-22T08:24:32.056393+00:00",
+      "authors": [
+        "Anton Elias Holt"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Mannocci2026-kc",
+      "title": "FG's Research Radio: Coordination Isn't Deception: Mapping the Messy Reality of Online Behavior",
+      "description": "AI-generated podcast discussion.\n\nReference:\nMannocci, L., Mazza, M., Monreale, A., Tesconi, M., & Cresci, S. (2026). Detection and characterization of coordinated online behavior: A survey. https://doi.org/10.1145/3839225",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Mannocci2026-kc.mp3",
+      "audio_size": 5994333,
+      "duration": 738,
+      "pub_date": "2026-08-23T08:24:32.056393+00:00",
+      "authors": [
+        "Lorenzo Mannocci",
+        "Michele Mazza",
+        "Anna Monreale",
+        "Maurizio Tesconi",
+        "Stefano Cresci"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "",
       "audio_mismatch": false
     }
