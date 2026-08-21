@@ -17,7 +17,7 @@ feedgen>=1.0.0
 python-dotenv>=1.2.2
 
 # GitHub
-PyGithub>=2.1.0
+PyGithub>=2.9.1
 
 # Feed contract validation (schema/feed.schema.json)
 jsonschema>=4.26.0
