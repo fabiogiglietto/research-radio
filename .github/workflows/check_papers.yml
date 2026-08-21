@@ -110,6 +110,14 @@ jobs:
         # ffmpeg all live under it. ~1.7x the slowest generator run observed.
         timeout-minutes: 30
         env:
+          # Python block-buffers stdout when it is a pipe, so a killed run
+          # loses everything it printed — a successful run flushes 82 lines
+          # under one timestamp, and the three 6h burns plus the 30min timeout
+          # kill all produced literally no generator output. `-u` below is
+          # what makes the log end on the last operation that completed.
+          # With faulthandler armed, the SIGABRT from `timeout` also dumps a
+          # traceback of every thread, naming the exact line it is stuck on.
+          PYTHONFAULTHANDLER: 1
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           # Workload Identity Federation — no API key. The SDK exchanges the
           # OIDC token (refreshed above) for a short-lived access token. Do not
@@ -131,7 +139,9 @@ jobs:
           PODCAST_AUTHOR: "Fabio Giglietto, Claude & Gemini"
           PODCAST_EMAIL: "fabio.giglietto+research-radio@gmail.com"
           PODCAST_WEBSITE: "https://fabiogiglietto.github.io/research-radio"
-        run: python src/main.py
+        # 25m sits under the 30m timeout-minutes ceiling on purpose: GitHub's
+        # own kill produces no traceback, so we have to get there first.
+        run: timeout --signal=SIGABRT --kill-after=1m 25m python -u src/main.py
 
       - name: Validate sync before commit
         env:
