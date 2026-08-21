@@ -12,8 +12,13 @@ Usage:
     python scripts/test_episode.py --script-only    # Claude script only, skip TTS
     python scripts/test_episode.py --text-file paper.txt --title "A title"
                                                     # bypass Drive, use a text file
+    python scripts/test_episode.py --connections-only
+                                                    # just the related-work brief
+    python scripts/test_episode.py --model claude-opus-5 --out TEST_opus
+                                                    # A/B a different script model
 """
 import argparse
+import json
 import os
 import sys
 
@@ -36,6 +41,10 @@ from config import (
     AUDIO_DIR,
     PROCESSED_FILE,
     ZETTELKASTEN_SUMMARY_BASE,
+    ZETTELKASTEN_TARBALL_URL,
+    RELATED_WORK_ENABLED,
+    RELATED_WORK_MAX,
+    CLAUDE_CONNECTIONS_MODEL,
 )
 
 
@@ -74,7 +83,18 @@ def main() -> None:
     parser.add_argument("--text-file", help="use this text file instead of Drive")
     parser.add_argument("--title", help="paper title (used with --text-file)")
     parser.add_argument("--script-only", action="store_true", help="skip Gemini TTS")
+    parser.add_argument("--connections-only", action="store_true",
+                        help="print the related-work brief and stop (no script)")
+    parser.add_argument("--no-connections", action="store_true",
+                        help="skip related work entirely")
+    parser.add_argument("--model", help="override CLAUDE_SCRIPT_MODEL for this run")
+    parser.add_argument("--brief-file",
+                        help="reuse (or write) the connections brief here, so an "
+                             "A/B of two script models runs on an identical brief")
+    parser.add_argument("--out", default="TEST_episode",
+                        help="output MP3 basename under audio/ (default: TEST_episode)")
     args = parser.parse_args()
+    script_model = args.model or CLAUDE_SCRIPT_MODEL
 
     # Accepts a federated credential too, so this smoke test works anywhere
     # the real pipeline does.
@@ -105,15 +125,47 @@ def main() -> None:
         + "\n"
     )
 
-    # Step 1: Claude writes the dialogue script.
     from src.claude_script_generator import ClaudeScriptGenerator
 
     script_gen = ClaudeScriptGenerator(
-        ANTHROPIC_API_KEY, CLAUDE_SCRIPT_MODEL, title_model=CLAUDE_TITLE_MODEL
+        ANTHROPIC_API_KEY, script_model, title_model=CLAUDE_TITLE_MODEL
     )
-    print(f"[1] Generating script with Claude ({CLAUDE_SCRIPT_MODEL})...")
+
+    # Related work: papers the show already covered that speak to this one.
+    related = []
+    if RELATED_WORK_ENABLED and not args.no_connections and paper_id:
+        cached = args.brief_file and os.path.exists(args.brief_file)
+        if cached:
+            with open(args.brief_file, encoding="utf-8") as fh:
+                related = json.load(fh)
+            print(f"[0] Reusing the connections brief from {args.brief_file}")
+        else:
+            from src.kasten_client import fetch_vault_bundle
+            from src.related_work import select_related
+
+            print("[0] Fetching the fg-zettelkasten vault...")
+            bundle = fetch_vault_bundle(ZETTELKASTEN_TARBALL_URL)
+            related = select_related(
+                paper_id, title, bundle, script_gen, CLAUDE_CONNECTIONS_MODEL,
+                summary=summary, paper_text=text, max_n=RELATED_WORK_MAX,
+            )
+            if args.brief_file:
+                with open(args.brief_file, "w", encoding="utf-8") as fh:
+                    json.dump(related, fh, indent=2, ensure_ascii=False)
+        print("\n===== CONNECTIONS BRIEF =====")
+        print(json.dumps(related, indent=2, ensure_ascii=False) if related
+              else "(none)")
+        print("===== END BRIEF =====\n")
+
+    if args.connections_only:
+        print("--connections-only: stopping before script generation.")
+        return
+
+    # Step 1: Claude writes the dialogue script.
+    print(f"[1] Generating script with Claude ({script_model})...")
     script = script_gen.generate_script(
-        text, title, TTS_HOST_VOICE, TTS_COHOST_VOICE, summary=summary
+        text, title, TTS_HOST_VOICE, TTS_COHOST_VOICE,
+        summary=summary, related=related,
     )
     if not script:
         print("Script generation failed.")
@@ -140,7 +192,7 @@ def main() -> None:
 
     print("[3] Generating audio with Gemini TTS...")
     os.makedirs(AUDIO_DIR, exist_ok=True)
-    out_path = os.path.join(AUDIO_DIR, "TEST_episode.mp3")
+    out_path = os.path.join(AUDIO_DIR, f"{args.out}.mp3")
     if not audio_gen.generate_audio(script, out_path):
         print("Audio generation failed.")
         sys.exit(1)

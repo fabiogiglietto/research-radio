@@ -41,10 +41,13 @@ def anthropic_credential_source():
     return "federation" if federated else None
 
 
-# Moved Opus -> Sonnet 5 as a cost measure (~40-55% cheaper). A/B against
-# claude-opus-4-8 before treating as settled; revert (or set CLAUDE_SCRIPT_MODEL
-# env) if script quality regresses.
-CLAUDE_SCRIPT_MODEL = os.getenv("CLAUDE_SCRIPT_MODEL", "claude-sonnet-5")
+# Opus, settled by an A/B on one paper and one fixed connections brief
+# (scripts/test_episode.py --brief-file, same brief for both runs). Sonnet 5
+# wrote a fine episode but clustered two of the three back-catalogue
+# connections together near the end, which is the announced-segment shape the
+# show deliberately avoids; Opus spread them across the episode and attached
+# each to the point it bears on. Costs ~$0.15/episode more — worth it.
+CLAUDE_SCRIPT_MODEL = os.getenv("CLAUDE_SCRIPT_MODEL", "claude-opus-5")
 # Episode titles are classification-grade work — a cheap model suffices.
 CLAUDE_TITLE_MODEL = os.getenv("CLAUDE_TITLE_MODEL", "claude-haiku-4-5")
 
@@ -56,6 +59,28 @@ ZETTELKASTEN_SUMMARY_BASE = os.getenv(
     "ZETTELKASTEN_SUMMARY_BASE",
     "https://api.github.com/repos/fabiogiglietto/fg-zettelkasten/contents/data/summaries",
 )
+
+# Related-work connections — weave links to papers the show already covered
+# into the dialogue. The candidate pool is our own docs/episodes.json; the
+# substance comes from the fg-zettelkasten vault, fetched once per run as a
+# tarball (public, no auth). Off switch is a plain env var so a bad run can be
+# neutralised without a deploy.
+RELATED_WORK_ENABLED = os.getenv("RELATED_WORK_ENABLED", "true").lower() not in (
+    "0", "false", "no", "off"
+)
+# Choosing and characterising a relationship between two papers is the part
+# that fails badly when it fails — a plausible-but-false link is worse than
+# silence. Kept as its own knob rather than reusing CLAUDE_SCRIPT_MODEL so the
+# script model can be traded down for cost without also weakening selection.
+# Input is ~8k tokens, so the cost of this call is noise either way.
+CLAUDE_CONNECTIONS_MODEL = os.getenv("CLAUDE_CONNECTIONS_MODEL", "claude-opus-5")
+ZETTELKASTEN_TARBALL_URL = os.getenv(
+    "ZETTELKASTEN_TARBALL_URL",
+    "https://api.github.com/repos/fabiogiglietto/fg-zettelkasten/tarball/main",
+)
+# Connections offered to the script writer. More than three cannot be woven
+# into a 1200-1800 word episode without crowding out the paper itself.
+RELATED_WORK_MAX = int(os.getenv("RELATED_WORK_MAX", "3"))
 
 # GitHub
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
