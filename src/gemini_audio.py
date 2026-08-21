@@ -49,7 +49,9 @@ class GeminiAudioGenerator:
         """Initialize with the Gemini API key.
 
         The Claude script generator is built from config (ANTHROPIC_API_KEY,
-        CLAUDE_SCRIPT_MODEL).
+        CLAUDE_SCRIPT_MODEL). ANTHROPIC_API_KEY is None under Workload Identity
+        Federation, which ClaudeScriptGenerator handles by constructing the SDK
+        client zero-arg so it federates instead.
         """
         self.client = genai.Client(api_key=api_key)
         self.script_generator = ClaudeScriptGenerator(

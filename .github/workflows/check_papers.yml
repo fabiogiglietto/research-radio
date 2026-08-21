@@ -30,8 +30,22 @@ jobs:
   generate-podcasts:
     runs-on: ubuntu-latest
 
+    # Without this the only ceiling is GitHub's 6h job limit, and hitting it
+    # registers as `cancelled` — which `if: failure()` does not match, so the
+    # notify step below stays silent. Three runs died that way (2026-08-18 to
+    # -20) with nothing reported. A timeout-minutes expiry is a *failure*, so
+    # it both ends the burn early and actually pages someone.
+    # Calibrated over the last 100 successful runs (measured 2026-08-20):
+    # median 1.1min, p95 12.7min, slowest 17.4min end to end.
+    timeout-minutes: 45
+
     permissions:
       contents: write  # For GitHub Releases
+      # Lets the job mint the GitHub OIDC token that the Anthropic SDK
+      # exchanges for a short-lived access token (Workload Identity
+      # Federation). A permissions block drops every scope not listed, so
+      # this must be enumerated or GitHub refuses to issue the token at all.
+      id-token: write
 
     steps:
       - name: Checkout repository
@@ -45,7 +59,7 @@ jobs:
           ref: main
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: '3.11'
           cache: 'pip'
@@ -67,10 +81,56 @@ jobs:
           mkdir -p credentials
           printf '%s' "$GCP_SA_KEY" > credentials/service-account.json
 
-      - name: Run podcast generator
+      # Workload Identity Federation. The minted Anthropic token lives at most
+      # twice the remaining life of the GitHub JWT, and that JWT expires ~5 min
+      # after issuance — so the effective ceiling is ~10 minutes regardless of
+      # the rule's token_lifetime_seconds. This job has run for hours, so a
+      # single fetch is not enough: refresh the file in the background and let
+      # the SDK re-read it on each exchange. Write-then-mv keeps the SDK from
+      # ever reading a half-written JWT.
+      - name: Fetch OIDC token and keep it fresh
         env:
+          ANTHROPIC_IDENTITY_TOKEN_FILE: ${{ runner.temp }}/anthropic-oidc-jwt
+        run: |
+          fetch() {
+            curl -sS -H "Authorization: Bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+              "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=https://api.anthropic.com" \
+              | jq -r .value > "$ANTHROPIC_IDENTITY_TOKEN_FILE.tmp" \
+              && mv "$ANTHROPIC_IDENTITY_TOKEN_FILE.tmp" "$ANTHROPIC_IDENTITY_TOKEN_FILE"
+          }
+          fetch
+          # Output redirected and the loop detached: a background process that
+          # keeps the step's stdout pipe open can stall the runner's step
+          # teardown. `|| true` keeps a transient fetch failure from killing
+          # the loop under `set -e`.
+          ( while true; do sleep 120; fetch || true; done ) >/dev/null 2>&1 &
+
+      - name: Run podcast generator
+        # The step that has hung every time: TTS, the Drive download loop and
+        # ffmpeg all live under it. ~1.7x the slowest generator run observed.
+        timeout-minutes: 30
+        env:
+          # Python block-buffers stdout when it is a pipe, so a killed run
+          # loses everything it printed — a successful run flushes 82 lines
+          # under one timestamp, and the three 6h burns plus the 30min timeout
+          # kill all produced literally no generator output. `-u` below is
+          # what makes the log end on the last operation that completed.
+          # With faulthandler armed, the SIGABRT from `timeout` also dumps a
+          # traceback of every thread, naming the exact line it is stuck on.
+          PYTHONFAULTHANDLER: 1
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          # Workload Identity Federation — no API key. The SDK exchanges the
+          # OIDC token (refreshed above) for a short-lived access token. Do not
+          # reintroduce ANTHROPIC_API_KEY here: it outranks federation in the
+          # credential chain and would silently shadow it.
+          ANTHROPIC_FEDERATION_RULE_ID: ${{ vars.ANTHROPIC_FEDERATION_RULE_ID }}
+          ANTHROPIC_ORGANIZATION_ID: ${{ vars.ANTHROPIC_ORGANIZATION_ID }}
+          ANTHROPIC_SERVICE_ACCOUNT_ID: ${{ vars.ANTHROPIC_SERVICE_ACCOUNT_ID }}
+          # Required when the federation rule is scoped to more than one
+          # workspace: without it the token exchange 401s. Harmless when the
+          # rule resolves to a single workspace, and empty if the var is unset.
+          ANTHROPIC_WORKSPACE_ID: ${{ vars.ANTHROPIC_WORKSPACE_ID }}
+          ANTHROPIC_IDENTITY_TOKEN_FILE: ${{ runner.temp }}/anthropic-oidc-jwt
           GOOGLE_APPLICATION_CREDENTIALS: credentials/service-account.json
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPO: ${{ github.repository }}
@@ -79,7 +139,9 @@ jobs:
           PODCAST_AUTHOR: "Fabio Giglietto, Claude & Gemini"
           PODCAST_EMAIL: "fabio.giglietto+research-radio@gmail.com"
           PODCAST_WEBSITE: "https://fabiogiglietto.github.io/research-radio"
-        run: python src/main.py
+        # 25m sits under the 30m timeout-minutes ceiling on purpose: GitHub's
+        # own kill produces no traceback, so we have to get there first.
+        run: timeout --signal=SIGABRT --kill-after=1m 25m python -u src/main.py
 
       - name: Validate sync before commit
         env:
@@ -140,13 +202,22 @@ jobs:
           SLACK_ALERT_CHANNEL: ${{ vars.OPS_SLACK_CHANNEL }}
           ALERT_TEXT: ":rotating_light: ${{ github.repository }} / ${{ github.workflow }} failed (${{ github.event_name }}): ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
         run: |
-          if [ -n "$SLACK_WEBHOOK_URL" ]; then
+          # Ops alerts belong in the channel OPS_SLACK_CHANNEL names, so the
+          # explicit channel wins over the webhook. The webhook is bound to
+          # #toread at creation and cannot be redirected from here; it stays
+          # only as a last resort for a repo with no bot token.
+          if [ -n "$SLACK_BOT_TOKEN" ] && [ -n "$SLACK_ALERT_CHANNEL" ]; then
+            resp=$(jq -n --arg ch "$SLACK_ALERT_CHANNEL" --arg text "$ALERT_TEXT" '{channel: $ch, text: $text}' \
+              | curl -s -X POST -H "Authorization: Bearer $SLACK_BOT_TOKEN" -H 'Content-Type: application/json' \
+                  -d @- https://slack.com/api/chat.postMessage)
+            # chat.postMessage answers HTTP 200 with {"ok":false} for a channel the
+            # bot is not in, so curl -f cannot see it and `|| true` would bury it.
+            [ "$(jq -r '.ok' <<<"$resp")" = "true" ] \
+              || echo "::error::Slack rejected the failure alert: $resp"
+          elif [ -n "$SLACK_WEBHOOK_URL" ]; then
             jq -n --arg text "$ALERT_TEXT" '{text: $text}' \
-              | curl -sf -X POST -H 'Content-Type: application/json' -d @- "$SLACK_WEBHOOK_URL" || true
-          elif [ -n "$SLACK_BOT_TOKEN" ] && [ -n "$SLACK_ALERT_CHANNEL" ]; then
-            jq -n --arg ch "$SLACK_ALERT_CHANNEL" --arg text "$ALERT_TEXT" '{channel: $ch, text: $text}' \
-              | curl -sf -X POST -H "Authorization: Bearer $SLACK_BOT_TOKEN" -H 'Content-Type: application/json' \
-                  -d @- https://slack.com/api/chat.postMessage || true
+              | curl -sf -X POST -H 'Content-Type: application/json' -d @- "$SLACK_WEBHOOK_URL" \
+              || echo "::error::Slack webhook rejected the failure alert"
           else
             echo "No Slack credentials configured — skipping failure alert"
           fi
