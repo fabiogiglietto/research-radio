@@ -33,6 +33,40 @@ def _format_summary(summary: dict) -> str:
     return "\n".join(lines)
 
 
+_RELATIONSHIP_GLOSS = {
+    "extends": "builds on / generalises",
+    "tension": "disagrees with / complicates",
+    "shared-method": "uses the same method, applied differently",
+    "shared-context": "same population, platform or event",
+    "precursor": "set up the problem this paper takes on",
+    "application": "puts that paper's idea to work",
+}
+
+
+def _format_connections(related: list) -> str:
+    """Render the connections brief as a prompt block.
+
+    Everything the hosts are permitted to say about an earlier paper is in
+    here — deliberately, so there is a fixed substrate to speak from rather
+    than a gist to embellish from.
+    """
+    blocks = []
+    for item in related:
+        gloss = _RELATIONSHIP_GLOSS.get(item.get("relationship"), item.get("relationship", ""))
+        lines = [
+            f"- {item['spoken_reference']} — say the name this way, out loud.",
+            f"  Their paper: {item['title']}",
+            f"  Our episode on it: \"{item['episode_title']}\" ({item['episode_pub_date']})",
+            f"  Relationship: {gloss}",
+            f"  What to say the link is: {item['claim']}",
+        ]
+        if item.get("anchor_new"):
+            lines.append(f"  Grounded in this paper's claim: {item['anchor_new']}")
+        lines.append(f"  Grounded in their claim: {item['anchor_related']}")
+        blocks.append("\n".join(lines))
+    return "\n".join(blocks)
+
+
 class ClaudeScriptGenerator:
     """Generates podcast scripts and episode titles with the Claude API."""
 
@@ -86,6 +120,14 @@ class ClaudeScriptGenerator:
                     continue
                 raise
 
+    def complete(self, **kwargs) -> str:
+        """Public entry to the retrying completion helper.
+
+        `related_work` reuses this rather than constructing a second Anthropic
+        client, so credential resolution and retry policy stay in one place.
+        """
+        return self._complete_with_retry(**kwargs)
+
     def generate_script(
         self,
         paper_text: str,
@@ -93,13 +135,21 @@ class ClaudeScriptGenerator:
         host_name: str = "Kore",
         cohost_name: str = "Charon",
         summary: Optional[dict] = None,
+        *,
+        related: Optional[list] = None,
     ) -> Optional[str]:
         """
         Generate a podcast conversation script from paper text.
 
         `summary`, when given, is the fg-zettelkasten structured summary; it
         scaffolds the discussion while the full paper text remains the source
-        of fidelity. Returns formatted dialogue like:
+        of fidelity.
+
+        `related` is the connections brief from `related_work.select_related` —
+        papers the show has already covered that speak to this one. It is
+        keyword-only on purpose: callers pass the voice names positionally, so
+        a new positional parameter here would silently shift them. Returns
+        formatted dialogue like:
         Host: Welcome to Research Radio...
         Cohost: Great to be here...
         """
@@ -122,6 +172,35 @@ class ClaudeScriptGenerator:
                     f"Structured summary:\n{digest}\n"
                 )
 
+        # Optional: papers the show has already covered that speak to this one.
+        connections = ""
+        connections_guidelines = ""
+        if related:
+            connections = (
+                "\nThe show has covered some of these papers before, and the brief "
+                "below is the ONLY thing you know about them. Weave these "
+                "connections into the conversation.\n\n"
+                f"Connections brief:\n{_format_connections(related)}\n"
+            )
+            connections_guidelines = (
+                "\n- Work the connections from the brief into the discussion where "
+                "each one naturally belongs — beside the method, the finding or the "
+                "implication it bears on. Do NOT announce them as a segment, do not "
+                "stack them together in one place, and do not save them all for the end"
+                "\n- When you raise one, mention that the show covered that paper in "
+                "an earlier episode, naming it only by the episode title and month "
+                "given in the brief. Never invent or guess an episode number"
+                "\n- Speak every reference the way the brief writes it (for example "
+                "\"Thiele and colleagues, 2025\"). Never read out a bracketed code, a "
+                "citation key or a DOI — this is audio, and the TTS will spell them out"
+                "\n- Say nothing about an earlier paper beyond what its brief entry "
+                "states. The grounded claims are the whole of what you may assert; if "
+                "you want to say more, say less instead"
+                "\n- Keep all of this connective material to roughly 180-250 words in "
+                "total, inside the same overall length target — it should displace "
+                "generic commentary, not extend the episode"
+            )
+
         prompt = f"""You are a podcast script writer. Create an engaging episode of "FG's Research Radio".
 This text feeds a text-to-speech engine, so whenever the hosts say the show's name aloud, spell the
 "FG's" prefix phonetically as "Eff-Gee's" — i.e. write the spoken name as "Eff-Gee's Research Radio"
@@ -143,13 +222,13 @@ Guidelines:
 - Mention the authors by name naturally in the conversation (e.g., "As Boyd argues..." or "The team led by Ferrara found...")
 - Explain the key findings and methodology in accessible terms
 - Have both hosts share insights and build on each other's points
-- Discuss implications and significance for the field
+- Discuss implications and significance for the field{connections_guidelines}
 - End with takeaways for the audience
 - At the very end, the host should remind listeners that if they want to read the full paper, they can find the complete reference in the episode description, and encourage them to subscribe on Spotify and Apple Podcasts
 - Use natural, conversational language{ai_humor_guideline}
 - Target length: 8-12 minutes of dialogue (roughly 1200-1800 words)
 - Format each line exactly as "Host: [dialogue]" or "Cohost: [dialogue]"
-{scaffold}
+{scaffold}{connections}
 Paper Title: {paper_title}
 
 Paper Content:
@@ -160,10 +239,10 @@ Generate the podcast script now:"""
         try:
             return self._complete_with_retry(
                 model=self.model,
-                # CLAUDE_SCRIPT_MODEL is Sonnet 5, which runs adaptive thinking
-                # by default (thinking counts against max_tokens); 12000 leaves
-                # headroom so the dialogue script is not truncated. Kept under
-                # ~16000 so the non-streaming call does not risk an HTTP timeout.
+                # CLAUDE_SCRIPT_MODEL runs adaptive thinking by default
+                # (thinking counts against max_tokens); 12000 leaves headroom so
+                # the dialogue script is not truncated. Kept under ~16000 so the
+                # non-streaming call does not risk an HTTP timeout.
                 max_tokens=12000,
                 messages=[{"role": "user", "content": prompt}],
             ).strip()

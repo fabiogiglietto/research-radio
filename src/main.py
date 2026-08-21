@@ -29,6 +29,10 @@ from config import (
     TTS_HOST_VOICE,
     TTS_COHOST_VOICE,
     ZETTELKASTEN_SUMMARY_BASE,
+    ZETTELKASTEN_TARBALL_URL,
+    RELATED_WORK_ENABLED,
+    RELATED_WORK_MAX,
+    CLAUDE_CONNECTIONS_MODEL,
 )
 from src.feed_parser import (
     get_new_papers,
@@ -43,6 +47,8 @@ from src.feed_contract import validate_toread_feed
 from src.drive_client import DriveClient
 from src.gemini_audio import GeminiAudioGenerator
 from src.pdf_extractor import get_paper_text, truncate_text
+from src.kasten_client import fetch_vault_bundle
+from src.related_work import select_related
 from src.summary_client import fetch_summary
 from src.feed_generator import (
     create_episode_from_paper,
@@ -73,6 +79,7 @@ def process_paper(
     paper: Paper,
     paper_text: str,
     audio_generator: GeminiAudioGenerator,
+    vault_bundle: Optional[dict] = None,
 ) -> bool:
     """
     Generate, upload and register a podcast episode for one paper.
@@ -80,6 +87,10 @@ def process_paper(
     `paper_text` is the already-resolved source text — a PDF extract for
     toread papers, an open-access PDF or abstract for the author's own papers.
     The caller decides where it comes from.
+
+    `vault_bundle` is the fg-zettelkasten vault, fetched once per run by the
+    caller (it is ~12 MB; fetching it per paper would re-download it for every
+    queued paper). None means no connections are drawn.
 
     Returns True if successful, False otherwise.
     """
@@ -103,8 +114,28 @@ def process_paper(
     if summary:
         print("  Using fg-zettelkasten summary as a scaffold")
 
+    # Optional: papers the show already covered that speak to this one. Never
+    # allowed to fail the episode — an error here yields no connections, and
+    # the script is written exactly as it was before.
+    related = []
+    if vault_bundle:
+        try:
+            related = select_related(
+                paper.id,
+                paper.title,
+                vault_bundle,
+                audio_generator.script_generator,
+                CLAUDE_CONNECTIONS_MODEL,
+                summary=summary,
+                content_text=paper.content_text or "",
+                paper_text=paper_text,
+                max_n=RELATED_WORK_MAX,
+            )
+        except Exception as e:
+            print(f"  Related work unavailable ({e}); continuing without connections")
+
     podcast_result = audio_generator.generate_podcast(
-        paper_text, paper.title, audio_path, summary=summary
+        paper_text, paper.title, audio_path, summary=summary, related=related
     )
     if not podcast_result:
         print("  Failed to generate podcast. Skipping paper.")
@@ -315,6 +346,19 @@ def main():
     # so Spotify/Apple listeners still receive about one per slot.
     print(f"\nPublication paced one per {MIN_HOURS_BETWEEN_EPISODES}h")
 
+    # Fetched once for the whole run: every queued paper ranks against the same
+    # vault, and the archive is ~12 MB.
+    vault_bundle = None
+    if RELATED_WORK_ENABLED:
+        print("\nFetching the fg-zettelkasten vault for related work...")
+        try:
+            vault_bundle = fetch_vault_bundle(ZETTELKASTEN_TARBALL_URL)
+        except Exception as e:
+            # Belt and braces: fetch_vault_bundle already returns None for the
+            # failures it anticipates, but nothing about related work is worth
+            # losing a run of episodes over.
+            print(f"  Vault unavailable ({e}); episodes will have no connections")
+
     successful = 0
     failed = 0
     # A paper with no PDF is an expected outcome, not a fault: own papers are
@@ -333,7 +377,7 @@ def main():
                 skipped += 1
                 continue
             print(f"  Extracted {len(paper_text)} characters from Drive PDF")
-            if process_paper(paper, paper_text, audio_generator):
+            if process_paper(paper, paper_text, audio_generator, vault_bundle):
                 successful += 1
             else:
                 failed += 1
@@ -352,7 +396,7 @@ def main():
                 print(f"No PDF for own paper {paper.id}; skipping.")
                 skipped += 1
                 continue
-            if process_paper(paper, paper_text, audio_generator):
+            if process_paper(paper, paper_text, audio_generator, vault_bundle):
                 successful += 1
             else:
                 failed += 1
