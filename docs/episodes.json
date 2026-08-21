@@ -2464,7 +2464,7 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "",
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-fake-news-as-a-political-weapon/id1866587707?i=1000776375808",
       "audio_mismatch": false
     },
     {
@@ -2500,6 +2500,436 @@
         "King, Gary",
         "Nakamura, Kentaro",
         "Stewart, Brandon M"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-do-survey-respondents-actually-understand/id1866587707?i=1000776719253",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Kotz2026-lk",
+      "title": "FG's Research Radio: Can AI Really Change Skeptics' Minds? The Surprising Answer",
+      "description": "AI-generated podcast discussion.\n\nReference:\nKotz, J., Tiede, K. E., Meyer, J., Sterba, M., Breunig, C., & Gaissmaier, W. (2026). Conversational AI shifts beliefs and policy support among skeptics across contested societal issues. https://doi.org/10.31234/osf.io/7szrn_v1",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Kotz2026-lk.mp3",
+      "audio_size": 5382645,
+      "duration": 619,
+      "pub_date": "2026-07-14T13:11:17.175711+00:00",
+      "authors": [
+        "Johannes Kotz",
+        "Kevin E. Tiede",
+        "Jelena Meyer",
+        "Maj-Britt Sterba",
+        "Christian Breunig",
+        "Wolfgang Gaissmaier"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-can-ai-really-change-skeptics-minds/id1866587707?i=1000776870608",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Schemer2026-mh",
+      "title": "FG's Research Radio: The Measurement Problem: Why Studies Disagree on Media Polarization",
+      "description": "AI-generated podcast discussion.\n\nReference:\nSchemer, C., Langmann, K., Hasell, A., & Weeks, B. (2026). Does the method affect the outcome? How measures of partisan slant of media outlets and affective polarization drive results about polarization in the United States. https://doi.org/10.1080/10584609.2026.2699105",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Schemer2026-mh.mp3",
+      "audio_size": 5119029,
+      "duration": 658,
+      "pub_date": "2026-07-15T13:11:17.175711+00:00",
+      "authors": [
+        "Christian Schemer",
+        "Klara Langmann",
+        "Ariel Hasell",
+        "Brian Weeks"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-measurement-problem-why/id1866587707?i=1000777038553",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Zheng2026-bi",
+      "title": "FG's Research Radio: How to Actually Sample YouTube and TikTok Without Permission",
+      "description": "AI-generated podcast discussion.\n\nReference:\nZheng, K., Keeney, R., McGrady, R., Jaisingh, V., & Zuckerman, E. (2026). TubeStats and TokStats: Research tools for random samples of YouTube and TikTok. https://doi.org/10.17645/mac.12085",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Zheng2026-bi.mp3",
+      "audio_size": 5938917,
+      "duration": 724,
+      "pub_date": "2026-07-16T13:11:17.175711+00:00",
+      "authors": [
+        "Kevin Zheng",
+        "Reagan Keeney",
+        "Ryan McGrady",
+        "Vikramaditya Jaisingh",
+        "Ethan Zuckerman"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-how-to-actually-sample-youtube-and/id1866587707?i=1000777190505",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Goldberg2026-eb",
+      "title": "FG's Research Radio: Can AI Fix Our Broken Online Public Squares?",
+      "description": "AI-generated podcast discussion.\n\nReference:\nGoldberg, B., Acosta-Navas, D., Bakker, M., Beacock, I., Botvinick, M., Buch, P., DiResta, R., Donthi, N., Fast, N., Iyer, R., Jalan, Z., Konya, A., Danciu, G. K., Landemore, H., Marwick, A., Miller, C., Ovadya, A., Saltz, E., Schirch, L., Shalom, D., Siddarth, D., Sieker, F., Small, C., Stray, J., Tang, A., Tessler, M. H., & Zhang, A. (2026). AI and the future of digital public squares. https://doi.org/10.1177/26339137261459441",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Goldberg2026-eb.mp3",
+      "audio_size": 5058789,
+      "duration": 704,
+      "pub_date": "2026-07-17T13:11:17.175711+00:00",
+      "authors": [
+        "Beth Goldberg",
+        "Diana Acosta-Navas",
+        "Michiel Bakker",
+        "Ian Beacock",
+        "Matt Botvinick",
+        "Prateek Buch",
+        "Ren\u00e9e DiResta",
+        "Nandika Donthi",
+        "Nathanael Fast",
+        "Ravi Iyer",
+        "Zaria Jalan",
+        "Andrew Konya",
+        "Grace Kwak Danciu",
+        "H\u00e9l\u00e8ne Landemore",
+        "Alice Marwick",
+        "Carl Miller",
+        "Aviv Ovadya",
+        "Emily Saltz",
+        "Lisa Schirch",
+        "Dalit Shalom",
+        "Divya Siddarth",
+        "Felix Sieker",
+        "Christopher Small",
+        "Jonathan Stray",
+        "Audrey Tang",
+        "Michael Henry Tessler",
+        "Amy Zhang"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-can-ai-fix-our-broken-online-public/id1866587707?i=1000777306595",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Ramos2026-qo",
+      "title": "FG's Research Radio: When Fact-Checking Fails: The Logic Behind Viral Conspiracies",
+      "description": "AI-generated podcast discussion.\n\nReference:\nRamos, C., Jim\u00e9nez-Cruz, C., & Hern\u00e1ndez-Escayola, P. (2026). Narrative monitoring and argument-checking: Enhancing effectiveness in countering disinformation beyond fact-checking. https://doi.org/10.37016/mr-2020-198",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Ramos2026-qo.mp3",
+      "audio_size": 5174085,
+      "duration": 581,
+      "pub_date": "2026-07-18T13:11:17.175711+00:00",
+      "authors": [
+        "Celia Ramos",
+        "Clara Jim\u00e9nez-Cruz",
+        "Pablo Hern\u00e1ndez-Escayola"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-when-fact-checking-fails-the-logic/id1866587707?i=1000777407869",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Bruns2026-pn",
+      "title": "FG's Research Radio: When Platforms Lock the Doors to Research",
+      "description": "AI-generated podcast discussion.\n\nReference:\nBruns, A., & Vodden, L. (2026). The challenges of working with platform data from clean room environments. https://doi.org/10.25358/openscience-15825",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Bruns2026-pn.mp3",
+      "audio_size": 4799637,
+      "duration": 634,
+      "pub_date": "2026-07-19T13:11:17.175711+00:00",
+      "authors": [
+        "Axel Bruns",
+        "Laura Vodden"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-when-platforms-lock-the-doors-to/id1866587707?i=1000777535116",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Rossini2026-mj",
+      "title": "FG's Research Radio: How Disinformation Erodes Democracy: Inside Brazil's Election Crisis",
+      "description": "AI-generated podcast discussion.\n\nReference:\nRossini, P., Mont'Alverne, C., & Kalogeropoulos, A. (2026). Disrupting democracy: how informational pathways and misinformation shape trust in election results. https://doi.org/10.1080/17457289.2026.2701896",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Rossini2026-mj.mp3",
+      "audio_size": 5033301,
+      "duration": 700,
+      "pub_date": "2026-07-20T13:11:17.175711+00:00",
+      "authors": [
+        "Patr\u00edcia Rossini",
+        "Camila Mont'Alverne",
+        "Antonis Kalogeropoulos"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-how-disinformation-erodes-democracy/id1866587707?i=1000777581555",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Rogers2026-cy",
+      "title": "FG's Research Radio: Bridging the Fringe: How Borderline Content Secretly Shapes Online Influence",
+      "description": "AI-generated podcast discussion.\n\nReference:\nRogers, R., & Koronska, K. (2026). Beyond verification| post-truth spaces: Studying authenticity and influence on the internet. https://doi.org/10.65476/1fw44702",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Rogers2026-cy.mp3",
+      "audio_size": 5962869,
+      "duration": 691,
+      "pub_date": "2026-07-21T13:11:17.175711+00:00",
+      "authors": [
+        "Richard Rogers",
+        "Kamila Koronska"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-bridging-the-fringe-how-borderline/id1866587707?i=1000777855573",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Eady2025-vm",
+      "title": "FG's Research Radio: Safe Seats and Extreme Feeds: Who's Really Polarizing Our Politics",
+      "description": "AI-generated podcast discussion.\n\nReference:\nEady, G., Bonneau, R., Tucker, J. A., & Nagler, J. (2025). News sharing on social media: Mapping the ideology of news media, politicians, and the mass public. https://doi.org/10.31219/osf.io/ch8gj",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Eady2025-vm.mp3",
+      "audio_size": 4837509,
+      "duration": 719,
+      "pub_date": "2026-07-22T13:11:17.175711+00:00",
+      "authors": [
+        "Gregory Eady",
+        "Richard Bonneau",
+        "Joshua A Tucker",
+        "Jonathan Nagler"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-safe-seats-and-extreme-feeds-whos/id1866587707?i=1000778009373",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Marino2026-he",
+      "title": "FG's Research Radio: Echo Chambers Under Siege: When Partisan Communities Crack",
+      "description": "AI-generated podcast discussion.\n\nReference:\nMarino, G., Paroni, B., & Giglietto, F. (2026). Measuring partisan community dynamics: a longitudinal analysis of affective engagement in pro-Bolsonaro Facebook networks. https://doi.org/10.1080/1369118x.2026.2696929",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Marino2026-he.mp3",
+      "audio_size": 5705445,
+      "duration": 587,
+      "pub_date": "2026-07-23T13:11:17.175711+00:00",
+      "authors": [
+        "Giada Marino",
+        "Bruna Paroni",
+        "Fabio Giglietto"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-echo-chambers-under-siege-when-partisan/id1866587707?i=1000778176512",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Marino2026-14665e93",
+      "title": "FG's Research Radio: Echo Chambers Aren't Forever: What Happened to Brazil's Political Communities",
+      "description": "AI-generated podcast discussion.\n\nReference:\nMarino, G., Paroni, B., & Giglietto, F. (2026). Measuring partisan community dynamics: a longitudinal analysis of affective engagement in pro-Bolsonaro Facebook networks. https://doi.org/10.1080/1369118X.2026.2696929",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Marino2026-14665e93.mp3",
+      "audio_size": 6283005,
+      "duration": 675,
+      "pub_date": "2026-07-24T13:11:17.175711+00:00",
+      "authors": [
+        "Giada Marino",
+        "Bruna Paroni",
+        "Fabio Giglietto"
+      ],
+      "own": true,
+      "spotify_url": "",
+      "apple_url": "",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Wack2026-bt",
+      "title": "FG's Research Radio: When Comments Matter More Than the Deepfake Itself",
+      "description": "AI-generated podcast discussion.\n\nReference:\nWack, M., & Prochaska, S. (2026). Making sense of AI-generated disinformation: How audience interpretations influence the impact of deepfakes in Kenya. https://doi.org/10.1177/20563051261462092",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Wack2026-bt.mp3",
+      "audio_size": 5345229,
+      "duration": 643,
+      "pub_date": "2026-07-25T13:11:17.175711+00:00",
+      "authors": [
+        "Morgan Wack",
+        "Stephen Prochaska"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-when-comments-matter-more-than-the/id1866587707?i=1000778395772",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Mattis2026-gu",
+      "title": "FG's Research Radio: When AI Fact-Checks, Trust Falls: The Disclosure Dilemma",
+      "description": "AI-generated podcast discussion.\n\nReference:\nMattis, N., Kieslich, K., & Vreese, C. H. D. (2026). Feeling iffy about generative AI: Investigating audiences\u2019 trustworthiness perceptions of task-specific AI disclosures. https://doi.org/10.1080/21670811.2026.2703599",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Mattis2026-gu.mp3",
+      "audio_size": 7049517,
+      "duration": 822,
+      "pub_date": "2026-07-27T15:28:47.771873+00:00",
+      "authors": [
+        "Nicolas Mattis",
+        "Kimon Kieslich",
+        "Claes Holger de Vreese"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-when-ai-fact-checks-trust-falls/id1866587707?i=1000778564036",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Balluff2026-ev",
+      "title": "FG's Research Radio: How Alternative Media Actually Depend on the Mainstream",
+      "description": "AI-generated podcast discussion.\n\nReference:\nBalluff, P., Boomgaarden, H. G., & Waldherr, A. (2026). Relying on the mainstream? Entity networks in alternative media. https://doi.org/10.31235/osf.io/43nvp_v1",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Balluff2026-ev.mp3",
+      "audio_size": 5043573,
+      "duration": 728,
+      "pub_date": "2026-07-28T15:28:47.771873+00:00",
+      "authors": [
+        "Paul Balluff",
+        "Hajo G. Boomgaarden",
+        "Annie Waldherr"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-how-alternative-media-actually-depend/id1866587707?i=1000778850854",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Galip2026-ix",
+      "title": "FG's Research Radio: When AI Eats Itself: The Gimmick of Generative Slop",
+      "description": "AI-generated podcast discussion.\n\nReference:\nGalip, I., & Lupinacci, L. (2026). Degenerative AI: AI slop, brainrot, and the gimmick of generative culture. https://doi.org/10.1177/13675494261468638",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Galip2026-ix.mp3",
+      "audio_size": 5310909,
+      "duration": 665,
+      "pub_date": "2026-08-07T09:40:20.097142+00:00",
+      "authors": [
+        "Idil Galip",
+        "Ludmila Lupinacci"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-when-ai-eats-itself-the-gimmick/id1866587707?i=1000780431410",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Kakavand2026-kt",
+      "title": "FG's Research Radio: The Far Right Looks Different on Every Platform",
+      "description": "AI-generated podcast discussion.\n\nReference:\nKakavand, A. E., Righetti, N., & Waldherr, A. (2026). Multi-platform research in the light of technology affordances: networks of the far right in Germany. https://doi.org/10.1080/19331681.2026.2697186",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Kakavand2026-kt.mp3",
+      "audio_size": 5782869,
+      "duration": 674,
+      "pub_date": "2026-08-11T08:08:04.463741+00:00",
+      "authors": [
+        "Azade E. Kakavand",
+        "Nicola Righetti",
+        "Annie Waldherr"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-far-right-looks-different-on/id1866587707?i=1000782630365",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Bergeron-Boutin2026-yh",
+      "title": "FG's Research Radio: The Misinformation Paradox: Rare Exposure, Zero Impact",
+      "description": "AI-generated podcast discussion.\n\nReference:\nBergeron-Boutin, O., Nyhan, B., Settle, J., Thorson, E., Wojcieszak, M., Brown, T., Crespo-Tenorio, A., Rivera, C. V., Allcott, H., Barber\u00e1, P., Dimmery, D., Freelon, D., Gentzkow, M., Gonz\u00e1lez-Bail\u00f3n, S., Guess, A. M., Kennedy, E., Kim, Y. M., Lazer, D., Malhotra, N., Moehler, D., Pan, J., Thomas, D. R., Tromble, R., Wilkins, A., Xiong, B., Jonge, C. K. D., Franco, A., Mason, W., Stroud, N. J., & Tucker, J. A. (2026). Untrustworthy sources on Facebook and Instagram in 2020: Concentrated exposure but no attitudinal effects. https://doi.org/10.1126/sciadv.adz6502",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Bergeron-Boutin2026-yh.mp3",
+      "audio_size": 5293581,
+      "duration": 674,
+      "pub_date": "2026-08-14T08:19:36.156752+00:00",
+      "authors": [
+        "Olivier Bergeron-Boutin",
+        "Brendan Nyhan",
+        "Jaime Settle",
+        "Emily Thorson",
+        "Magdalena Wojcieszak",
+        "Taylor Brown",
+        "Adriana Crespo-Tenorio",
+        "Carlos Velasco Rivera",
+        "Hunt Allcott",
+        "Pablo Barber\u00e1",
+        "Drew Dimmery",
+        "Deen Freelon",
+        "Matthew Gentzkow",
+        "Sandra Gonz\u00e1lez-Bail\u00f3n",
+        "Andrew M. Guess",
+        "Edward Kennedy",
+        "Young Mie Kim",
+        "David Lazer",
+        "Neil Malhotra",
+        "Devra Moehler",
+        "Jennifer Pan",
+        "Daniel Robert Thomas",
+        "Rebekah Tromble",
+        "Arjun Wilkins",
+        "Beixian Xiong",
+        "Chad Kiewiet de Jonge",
+        "Annie Franco",
+        "Winter Mason",
+        "Natalie Jomini Stroud",
+        "Joshua A. Tucker"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-misinformation-paradox-rare/id1866587707?i=1000783271147",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Anicker2024-vp",
+      "title": "FG's Research Radio: Who Gets to Count as an Agent? The Hidden Politics of AI Agency",
+      "description": "AI-generated podcast discussion.\n\nReference:\nAnicker, F., Fla\u00dfhoff, G., & Marcinkowski, F. (2024). The matrix of AI agency: On the demarcation problem in social theory. https://doi.org/10.1177/07352751241289925",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Anicker2024-vp.mp3",
+      "audio_size": 3355461,
+      "duration": 391,
+      "pub_date": "2026-08-15T08:19:36.156752+00:00",
+      "authors": [
+        "Fabian Anicker",
+        "Golo Fla\u00dfhoff",
+        "Frank Marcinkowski"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-who-gets-to-count-as-an-agent/id1866587707?i=1000783562249",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Tang2026-gu",
+      "title": "FG's Research Radio: The Post-Creator: Inside AI's Viral Content Factories",
+      "description": "AI-generated podcast discussion.\n\nReference:\nTang, J., Yu, X., Wikstr\u00f6m, P., & Pappalardo, K. (2026). Behind the \u201cAI slop\u201d: exploring the AI-generated viral short video production in China. https://doi.org/10.1007/s00146-026-03254-9",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Tang2026-gu.mp3",
+      "audio_size": 5400573,
+      "duration": 720,
+      "pub_date": "2026-08-16T08:19:36.156752+00:00",
+      "authors": [
+        "Jiaru Tang",
+        "Xiaoting Yu",
+        "Patrik Wikstr\u00f6m",
+        "Kylie Pappalardo"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-post-creator-inside-ais-viral/id1866587707?i=1000783749591",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Rauchfleisch2026-fa",
+      "title": "FG's Research Radio: When AI Says What It's Doing, Persuasion Drops in Half",
+      "description": "AI-generated podcast discussion.\n\nReference:\nRauchfleisch, A., & Jungherr, A. (2026). Toward meaningful transparency for AI chatbots: Disclosing persuasive intent reduces persuasion. http://arxiv.org/abs/2608.11794v1",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Rauchfleisch2026-fa.mp3",
+      "audio_size": 6626709,
+      "duration": 702,
+      "pub_date": "2026-08-17T08:19:36.156752+00:00",
+      "authors": [
+        "Adrian Rauchfleisch",
+        "Andreas Jungherr"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-when-ai-says-what-its-doing-persuasion/id1866587707?i=1000784005100",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Groebner2026-pc",
+      "title": "FG's Research Radio: The Transnational Far-Right Audience YouTube Won't Talk About",
+      "description": "AI-generated podcast discussion.\n\nReference:\nGroebner, K. (2026). From national outlets to transnational audiences: far-right hyperpartisan news sources on YouTube. https://doi.org/10.1177/1329878x261474201",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Groebner2026-pc.mp3",
+      "audio_size": 6969045,
+      "duration": 798,
+      "pub_date": "2026-08-18T08:19:36.156752+00:00",
+      "authors": [
+        "Klaus Groebner"
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",

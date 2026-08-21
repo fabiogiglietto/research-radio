@@ -39,12 +39,20 @@ class ClaudeScriptGenerator:
     MAX_RETRIES = 3
     RETRY_BASE_DELAY = 2  # seconds
 
-    def __init__(self, api_key: str, model: str, title_model: Optional[str] = None):
-        """Initialize with an Anthropic API key and the script model id.
+    def __init__(self, api_key: Optional[str], model: str,
+                 title_model: Optional[str] = None):
+        """Initialize with the script model id and an optional Anthropic API key.
+
+        Pass `api_key=None` (the CI path) to construct the SDK client zero-arg
+        so it resolves whatever credential the environment provides — an API
+        key, or a Workload Identity Federation token exchange. Passing an
+        explicit api_key pins tier 1 of the SDK's credential chain, which
+        "always overrides everything else" and would defeat federation.
 
         `title_model` (default: same as `model`) handles only the short
         episode-title call — a cheap model is fine there."""
-        self.client = anthropic.Anthropic(api_key=api_key)
+        self.client = anthropic.Anthropic(api_key=api_key) if api_key \
+            else anthropic.Anthropic()
         self.model = model
         self.title_model = title_model or model
 

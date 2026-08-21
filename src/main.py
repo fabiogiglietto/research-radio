@@ -23,7 +23,7 @@ from config import (
     PROCESSED_FILE,
     AUDIO_DIR,
     GEMINI_API_KEY,
-    ANTHROPIC_API_KEY,
+    anthropic_credential_source,
     GOOGLE_APPLICATION_CREDENTIALS,
     GOOGLE_DRIVE_FOLDER_ID,
     TTS_HOST_VOICE,
@@ -249,8 +249,12 @@ def main():
         print("Error: GEMINI_API_KEY not set")
         sys.exit(1)
 
-    if not ANTHROPIC_API_KEY:
-        print("Error: ANTHROPIC_API_KEY not set")
+    # Not a bare ANTHROPIC_API_KEY check: under Workload Identity Federation
+    # there is no API key, and the SDK federates from the OIDC token instead.
+    if anthropic_credential_source() is None:
+        print("Error: no Anthropic credentials. Set ANTHROPIC_API_KEY, or set "
+              "ANTHROPIC_FEDERATION_RULE_ID / _ORGANIZATION_ID / "
+              "_SERVICE_ACCOUNT_ID / _IDENTITY_TOKEN_FILE for federation.")
         sys.exit(1)
 
     if not GOOGLE_APPLICATION_CREDENTIALS:

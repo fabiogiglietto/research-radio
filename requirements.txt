@@ -1,10 +1,10 @@
 # Google APIs
 google-genai>=2.10.0          # Gemini API (new SDK for 2.0+)
-google-api-python-client>=2.100.0  # Google Drive API
+google-api-python-client>=2.198.0  # Google Drive API
 google-auth>=2.23.0          # Authentication
 
 # Anthropic / Claude API (podcast script generation)
-anthropic>=0.40
+anthropic>=0.116.0
 
 # PDF processing
 pypdf>=6.14.2
@@ -17,7 +17,7 @@ feedgen>=1.0.0
 python-dotenv>=1.2.2
 
 # GitHub
-PyGithub>=2.1.0
+PyGithub>=2.9.1
 
 # Feed contract validation (schema/feed.schema.json)
 jsonschema>=4.26.0
