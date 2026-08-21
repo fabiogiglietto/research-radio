@@ -39,7 +39,12 @@ def anthropic_credential_source():
              or os.getenv("ANTHROPIC_IDENTITY_TOKEN"))
     )
     return "federation" if federated else None
-CLAUDE_SCRIPT_MODEL = os.getenv("CLAUDE_SCRIPT_MODEL", "claude-opus-4-8")
+
+
+# Moved Opus -> Sonnet 5 as a cost measure (~40-55% cheaper). A/B against
+# claude-opus-4-8 before treating as settled; revert (or set CLAUDE_SCRIPT_MODEL
+# env) if script quality regresses.
+CLAUDE_SCRIPT_MODEL = os.getenv("CLAUDE_SCRIPT_MODEL", "claude-sonnet-5")
 # Episode titles are classification-grade work — a cheap model suffices.
 CLAUDE_TITLE_MODEL = os.getenv("CLAUDE_TITLE_MODEL", "claude-haiku-4-5")
 

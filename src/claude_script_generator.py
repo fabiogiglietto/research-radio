@@ -160,7 +160,11 @@ Generate the podcast script now:"""
         try:
             return self._complete_with_retry(
                 model=self.model,
-                max_tokens=8192,
+                # CLAUDE_SCRIPT_MODEL is Sonnet 5, which runs adaptive thinking
+                # by default (thinking counts against max_tokens); 12000 leaves
+                # headroom so the dialogue script is not truncated. Kept under
+                # ~16000 so the non-streaming call does not risk an HTTP timeout.
+                max_tokens=12000,
                 messages=[{"role": "user", "content": prompt}],
             ).strip()
         except Exception as e:
