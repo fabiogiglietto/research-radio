@@ -7,6 +7,7 @@ Gemini is used only for multi-speaker TTS.
 
 import os
 import subprocess
+import httpx
 import time
 from typing import Optional
 from dataclasses import dataclass
@@ -45,6 +46,25 @@ class GeminiAudioGenerator:
     MAX_RETRIES = 3
     RETRY_BASE_DELAY = 2  # seconds
 
+    # google-genai leaves HttpOptions.timeout at None, which reaches httpx as
+    # timeout=None — no timeout at all. When the TTS endpoint degraded on
+    # 2026-08-18 the request simply never returned: three runs burned GitHub's
+    # full 6h job ceiling, and one took 4h52m before the server hung up with
+    # "Server disconnected without sending a response". A healthy multi-speaker
+    # render of a 12-minute episode takes 4.5-5 min (measured 2026-08-21), so
+    # 8 min is generous headroom while still failing long before the 25m the
+    # workflow allows the whole generator.
+    # NOTE: HttpOptions.timeout is in MILLISECONDS (google-genai converts it to
+    # seconds for httpx internally). Verified against 2.10.0, the version
+    # requirements.lock installs in CI.
+    TTS_TIMEOUT_MS = 8 * 60 * 1000
+
+    # Ceiling on all attempts for one episode. Retrying a timeout is worth it
+    # (the 502 seen on 2026-08-21 cleared on the first retry), but 3 unbounded
+    # attempts at 8 min each would exceed the generator's own 25m budget and
+    # starve every remaining paper. Once this is spent, stop retrying.
+    TTS_TOTAL_BUDGET_SECONDS = 15 * 60
+
     def __init__(self, api_key: str):
         """Initialize with the Gemini API key.
 
@@ -53,25 +73,53 @@ class GeminiAudioGenerator:
         Federation, which ClaudeScriptGenerator handles by constructing the SDK
         client zero-arg so it federates instead.
         """
-        self.client = genai.Client(api_key=api_key)
+        self.client = genai.Client(
+            api_key=api_key,
+            http_options=types.HttpOptions(timeout=self.TTS_TIMEOUT_MS),
+        )
         self.script_generator = ClaudeScriptGenerator(
             ANTHROPIC_API_KEY, CLAUDE_SCRIPT_MODEL, title_model=CLAUDE_TITLE_MODEL
         )
 
     def _generate_with_retry(self, **kwargs):
-        """Call generate_content with retry on transient errors."""
+        """Call generate_content with retry on transient errors.
+
+        A request that exceeds TTS_TIMEOUT_MS raises httpx.TimeoutException
+        rather than hanging. That counts as transient — the endpoint stalling
+        for one attempt says nothing about the next — but every attempt shares
+        TTS_TOTAL_BUDGET_SECONDS so a persistently wedged endpoint costs this
+        episode a bounded amount of time instead of the whole run.
+        """
+        deadline = time.monotonic() + self.TTS_TOTAL_BUDGET_SECONDS
         for attempt in range(self.MAX_RETRIES):
             try:
                 return self.client.models.generate_content(**kwargs)
             except Exception as e:
+                # Timeouts carry no HTTP status, so match the type rather than
+                # the string — str(httpx.ReadTimeout) is often just ''.
+                is_timeout = isinstance(e, httpx.TimeoutException)
                 error_str = str(e)
-                is_transient = any(code in error_str for code in ['429', '500', '502', '503', '504', 'RESOURCE_EXHAUSTED'])
-                if is_transient and attempt < self.MAX_RETRIES - 1:
-                    delay = self.RETRY_BASE_DELAY * (2 ** attempt)
-                    print(f"  Retrying in {delay}s (attempt {attempt + 1}/{self.MAX_RETRIES}): {e}")
-                    time.sleep(delay)
-                    continue
-                raise
+                is_transient = is_timeout or any(
+                    code in error_str
+                    for code in ['429', '500', '502', '503', '504', 'RESOURCE_EXHAUSTED']
+                )
+                if is_timeout:
+                    print(
+                        f"  TTS request exceeded {self.TTS_TIMEOUT_MS // 1000}s "
+                        f"(attempt {attempt + 1}/{self.MAX_RETRIES})"
+                    )
+                if not is_transient or attempt >= self.MAX_RETRIES - 1:
+                    raise
+
+                delay = self.RETRY_BASE_DELAY * (2 ** attempt)
+                if time.monotonic() + delay >= deadline:
+                    print(
+                        f"  TTS retry budget ({self.TTS_TOTAL_BUDGET_SECONDS}s) "
+                        f"exhausted; giving up on this episode."
+                    )
+                    raise
+                print(f"  Retrying in {delay}s (attempt {attempt + 1}/{self.MAX_RETRIES}): {e}")
+                time.sleep(delay)
 
     def generate_audio(
         self,

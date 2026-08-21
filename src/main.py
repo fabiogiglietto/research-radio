@@ -307,6 +307,12 @@ def main():
 
     successful = 0
     failed = 0
+    # A paper with no PDF is an expected outcome, not a fault: own papers are
+    # skipped by design when no open-access PDF exists, and some toread entries
+    # have no Paperpile PDF yet (see MISSING_PDFS.md). Counting those as
+    # failures is what made "Generated: 0, Failed: 5" indistinguishable from a
+    # total outage, so they are tracked separately and never alert.
+    skipped = 0
 
     # toread papers — text comes from the matched Paperpile Drive PDF.
     for paper in toread_papers:
@@ -314,7 +320,7 @@ def main():
             paper_text = drive_client.get_pdf_text(paper)
             if not paper_text:
                 print(f"\nNo PDF text for {paper.id}; skipping.")
-                failed += 1
+                skipped += 1
                 continue
             print(f"  Extracted {len(paper_text)} characters from Drive PDF")
             if process_paper(paper, paper_text, audio_generator):
@@ -334,7 +340,7 @@ def main():
             paper_text = resolve_own_paper_text(paper, drive_client)
             if not paper_text:
                 print(f"No PDF for own paper {paper.id}; skipping.")
-                failed += 1
+                skipped += 1
                 continue
             if process_paper(paper, paper_text, audio_generator):
                 successful += 1
@@ -360,7 +366,31 @@ def main():
     print("Summary:")
     print(f"  Generated: {successful}")
     print(f"  Failed: {failed}")
+    print(f"  Skipped (no PDF): {skipped}")
     print("="*60)
+
+    # Exit status is the only thing the workflow's `if: failure()` alert can
+    # see. Exiting 0 unconditionally is why the 2026-08-20 run — every TTS call
+    # dead, "Generated: 0, Failed: 5" — was still reported as a green build and
+    # nobody was paged for three days.
+    #
+    # Only a run that produced *nothing* while hitting real errors fails the
+    # job. That case has no new episodes to lose, so failing here costs no
+    # work. When some episodes did generate, a partial failure must not abort
+    # the run: the steps after this one commit episodes.json and push the audio
+    # URLs, and skipping them would strand the episodes already uploaded to
+    # Releases and regenerate them next run.
+    if failed:
+        if successful == 0:
+            print(
+                f"::error::Generated no episodes; {failed} paper(s) failed with "
+                f"real errors. See the log above for the failing stage."
+            )
+            sys.exit(1)
+        print(
+            f"::warning::{failed} paper(s) failed, {successful} succeeded. "
+            f"Committing the successful episodes."
+        )
 
 
 if __name__ == "__main__":
