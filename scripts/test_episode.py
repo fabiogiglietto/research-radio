@@ -26,6 +26,7 @@ sys.path.insert(0, os.path.join(ROOT, "src"))
 from config import (
     GEMINI_API_KEY,
     ANTHROPIC_API_KEY,
+    anthropic_credential_source,
     CLAUDE_SCRIPT_MODEL,
     CLAUDE_TITLE_MODEL,
     GOOGLE_APPLICATION_CREDENTIALS,
@@ -75,7 +76,11 @@ def main() -> None:
     parser.add_argument("--script-only", action="store_true", help="skip Gemini TTS")
     args = parser.parse_args()
 
-    _require("ANTHROPIC_API_KEY", ANTHROPIC_API_KEY)
+    # Accepts a federated credential too, so this smoke test works anywhere
+    # the real pipeline does.
+    if anthropic_credential_source() is None:
+        raise SystemExit("Missing Anthropic credentials: set ANTHROPIC_API_KEY "
+                         "(or the ANTHROPIC_FEDERATION_* quartet)")
     if not args.script_only:
         _require("GEMINI_API_KEY", GEMINI_API_KEY)
 

@@ -16,7 +16,35 @@ GEMINI_TTS_MODEL = os.getenv("GEMINI_TTS_MODEL", "gemini-3.1-flash-tts-preview")
 
 # Anthropic / Claude API (writes the podcast dialogue script)
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
-CLAUDE_SCRIPT_MODEL = os.getenv("CLAUDE_SCRIPT_MODEL", "claude-opus-4-8")
+
+
+def anthropic_credential_source():
+    """Which credential the Anthropic SDK will resolve, or None if it finds none.
+
+    Deliberately not a bare ANTHROPIC_API_KEY check. In CI the credentials come
+    from Workload Identity Federation: the workflow writes a short-lived GitHub
+    OIDC token to a file and the SDK exchanges it for an access token. There is
+    no API key at all on that path, so gating on one would abort every CI run
+    while local runs kept working.
+
+    Federation needs the whole quartet; a partial set is a misconfiguration.
+    """
+    if os.getenv("ANTHROPIC_API_KEY") or os.getenv("ANTHROPIC_AUTH_TOKEN"):
+        return "api-key"
+    federated = (
+        os.getenv("ANTHROPIC_FEDERATION_RULE_ID")
+        and os.getenv("ANTHROPIC_ORGANIZATION_ID")
+        and os.getenv("ANTHROPIC_SERVICE_ACCOUNT_ID")
+        and (os.getenv("ANTHROPIC_IDENTITY_TOKEN_FILE")
+             or os.getenv("ANTHROPIC_IDENTITY_TOKEN"))
+    )
+    return "federation" if federated else None
+
+
+# Moved Opus -> Sonnet 5 as a cost measure (~40-55% cheaper). A/B against
+# claude-opus-4-8 before treating as settled; revert (or set CLAUDE_SCRIPT_MODEL
+# env) if script quality regresses.
+CLAUDE_SCRIPT_MODEL = os.getenv("CLAUDE_SCRIPT_MODEL", "claude-sonnet-5")
 # Episode titles are classification-grade work — a cheap model suffices.
 CLAUDE_TITLE_MODEL = os.getenv("CLAUDE_TITLE_MODEL", "claude-haiku-4-5")
 
