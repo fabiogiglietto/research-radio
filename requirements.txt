@@ -18,7 +18,7 @@ httpx>=0.28.1
 feedgen>=1.0.0
 
 # Environment
-python-dotenv>=1.2.2
+python-dotenv>=1.2.3
 
 # GitHub
 PyGithub>=2.9.1
