@@ -100,8 +100,14 @@ jobs:
           # keeps the step's stdout pipe open can stall the runner's step
           # teardown. `|| true` keeps a transient fetch failure from killing
           # the loop under `set -e`. OIDC_ECHO_CLAIMS=0 keeps the loop from
-          # reprinting the claims block every two minutes.
-          ( while true; do sleep 120; OIDC_ECHO_CLAIMS=0 bash .github/scripts/mint-oidc-token.sh || true; done ) >/dev/null 2>&1 &
+          # reprinting the claims block on every tick.
+          # 60s, down from 120s: the SDK opens its advisory refresh window at
+          # ADVISORY_REFRESH_SECONDS = 120 remaining and hard-fails at
+          # MANDATORY_REFRESH_SECONDS = 30, so a 120s rotation can leave a
+          # burned assertion in place for most of that window. That is how
+          # fg-zettelkasten's recluster died on 2026-08-24 with no refresher at
+          # all; this margin was always thinner than it looked.
+          ( while true; do sleep 60; OIDC_ECHO_CLAIMS=0 bash .github/scripts/mint-oidc-token.sh || true; done ) >/dev/null 2>&1 &
 
       - name: Run podcast generator
         # The step that has hung every time: TTS, the Drive download loop and
