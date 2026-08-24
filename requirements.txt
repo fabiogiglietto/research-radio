@@ -1,5 +1,5 @@
 # Google APIs
-google-genai>=2.11.0          # Gemini API (new SDK for 2.0+)
+google-genai>=2.19.0          # Gemini API (new SDK for 2.0+)
 google-api-python-client>=2.198.0  # Google Drive API
 google-auth>=2.55.2          # Authentication
 
