@@ -3,9 +3,6 @@
 venv/
 .venv/
 
-# Claude Code local config
-CLAUDE.md
-
 # Audio files (uploaded to GitHub Releases)
 audio/*.mp3
 
