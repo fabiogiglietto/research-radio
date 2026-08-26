@@ -81,29 +81,15 @@ jobs:
           mkdir -p credentials
           printf '%s' "$GCP_SA_KEY" > credentials/service-account.json
 
-      # Workload Identity Federation. The minted Anthropic token lives at most
-      # twice the remaining life of the GitHub JWT, and that JWT expires ~5 min
-      # after issuance — so the effective ceiling is ~10 minutes regardless of
-      # the rule's token_lifetime_seconds. This job has run for hours, so a
-      # single fetch is not enough: refresh the file in the background and let
-      # the SDK re-read it on each exchange. Write-then-mv keeps the SDK from
-      # ever reading a half-written JWT.
-      - name: Fetch OIDC token and keep it fresh
-        env:
-          ANTHROPIC_IDENTITY_TOKEN_FILE: ${{ runner.temp }}/anthropic-oidc-jwt
-        run: |
-          fetch() {
-            curl -sS -H "Authorization: Bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
-              "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=https://api.anthropic.com" \
-              | jq -r .value > "$ANTHROPIC_IDENTITY_TOKEN_FILE.tmp" \
-              && mv "$ANTHROPIC_IDENTITY_TOKEN_FILE.tmp" "$ANTHROPIC_IDENTITY_TOKEN_FILE"
-          }
-          fetch
-          # Output redirected and the loop detached: a background process that
-          # keeps the step's stdout pipe open can stall the runner's step
-          # teardown. `|| true` keeps a transient fetch failure from killing
-          # the loop under `set -e`.
-          ( while true; do sleep 120; fetch || true; done ) >/dev/null 2>&1 &
+      # Workload Identity Federation preflight. The generator mints its own
+      # OIDC assertions in-process, one per token exchange — see
+      # src/anthropic_credentials.py for why nothing is written to
+      # ANTHROPIC_IDENTITY_TOKEN_FILE any more. This step mints one and throws
+      # it away, so a broken rule, a missing id-token permission or a wrong
+      # audience fails here in seconds instead of twenty minutes into a run.
+      # An assertion is only burned by an exchange; an unused one just expires.
+      - name: Verify OIDC minting
+        run: python -m src.anthropic_credentials
 
       - name: Run podcast generator
         # The step that has hung every time: TTS, the Drive download loop and
@@ -119,10 +105,12 @@ jobs:
           # traceback of every thread, naming the exact line it is stuck on.
           PYTHONFAULTHANDLER: 1
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          # Workload Identity Federation — no API key. The SDK exchanges the
-          # OIDC token (refreshed above) for a short-lived access token. Do not
-          # reintroduce ANTHROPIC_API_KEY here: it outranks federation in the
-          # credential chain and would silently shadow it.
+          # Workload Identity Federation — no API key. The SDK exchanges a
+          # GitHub OIDC assertion for a short-lived access token, and the
+          # assertion is minted inside each exchange from the ACTIONS_ID_TOKEN_*
+          # pair the runner injects into this step. Do not reintroduce
+          # ANTHROPIC_API_KEY here: it outranks federation in the credential
+          # chain and would silently shadow it.
           ANTHROPIC_FEDERATION_RULE_ID: ${{ vars.ANTHROPIC_FEDERATION_RULE_ID }}
           ANTHROPIC_ORGANIZATION_ID: ${{ vars.ANTHROPIC_ORGANIZATION_ID }}
           ANTHROPIC_SERVICE_ACCOUNT_ID: ${{ vars.ANTHROPIC_SERVICE_ACCOUNT_ID }}
@@ -130,7 +118,6 @@ jobs:
           # workspace: without it the token exchange 401s. Harmless when the
           # rule resolves to a single workspace, and empty if the var is unset.
           ANTHROPIC_WORKSPACE_ID: ${{ vars.ANTHROPIC_WORKSPACE_ID }}
-          ANTHROPIC_IDENTITY_TOKEN_FILE: ${{ runner.temp }}/anthropic-oidc-jwt
           GOOGLE_APPLICATION_CREDENTIALS: credentials/service-account.json
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPO: ${{ github.repository }}

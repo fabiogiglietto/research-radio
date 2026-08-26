@@ -28,14 +28,19 @@ def anthropic_credential_source():
     while local runs kept working.
 
     Federation needs the whole quartet; a partial set is a misconfiguration.
+    The fourth member is the identity token: in CI the assertion is minted
+    per exchange from the GitHub OIDC endpoint (`src/anthropic_credentials.py`),
+    so the endpoint's presence counts alongside the SDK's own file/env vars.
     """
     if os.getenv("ANTHROPIC_API_KEY") or os.getenv("ANTHROPIC_AUTH_TOKEN"):
         return "api-key"
+    from src.anthropic_credentials import actions_oidc_available
     federated = (
         os.getenv("ANTHROPIC_FEDERATION_RULE_ID")
         and os.getenv("ANTHROPIC_ORGANIZATION_ID")
         and os.getenv("ANTHROPIC_SERVICE_ACCOUNT_ID")
-        and (os.getenv("ANTHROPIC_IDENTITY_TOKEN_FILE")
+        and (actions_oidc_available()
+             or os.getenv("ANTHROPIC_IDENTITY_TOKEN_FILE")
              or os.getenv("ANTHROPIC_IDENTITY_TOKEN"))
     )
     return "federation" if federated else None

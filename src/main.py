@@ -295,7 +295,8 @@ def main():
     if anthropic_credential_source() is None:
         print("Error: no Anthropic credentials. Set ANTHROPIC_API_KEY, or set "
               "ANTHROPIC_FEDERATION_RULE_ID / _ORGANIZATION_ID / "
-              "_SERVICE_ACCOUNT_ID / _IDENTITY_TOKEN_FILE for federation.")
+              "_SERVICE_ACCOUNT_ID for federation (the OIDC assertion itself "
+              "is minted per exchange from the GitHub Actions endpoint).")
         sys.exit(1)
 
     if not GOOGLE_APPLICATION_CREDENTIALS:

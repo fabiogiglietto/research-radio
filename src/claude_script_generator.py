@@ -13,6 +13,11 @@ from typing import Optional
 
 import anthropic
 
+try:  # this module is imported both as `claude_script_generator` and `src.…`
+    from src.anthropic_credentials import federated_credentials
+except ImportError:
+    from anthropic_credentials import federated_credentials
+
 # HTTP statuses worth retrying (rate limit, overload, transient server errors).
 _RETRYABLE_STATUS = {429, 500, 502, 503, 504, 529}
 
@@ -85,8 +90,17 @@ class ClaudeScriptGenerator:
 
         `title_model` (default: same as `model`) handles only the short
         episode-title call — a cheap model is fine there."""
-        self.client = anthropic.Anthropic(api_key=api_key) if api_key \
-            else anthropic.Anthropic()
+        if api_key:
+            self.client = anthropic.Anthropic(api_key=api_key)
+        else:
+            # In CI, hand the SDK credentials that mint a fresh single-use OIDC
+            # assertion inside each token exchange — a run outlives any one
+            # assertion, and a replayed one 401s (see anthropic_credentials).
+            # Outside CI this is None and the zero-arg client resolves whatever
+            # the environment provides.
+            credentials = federated_credentials()
+            self.client = anthropic.Anthropic(credentials=credentials) if credentials \
+                else anthropic.Anthropic()
         self.model = model
         self.title_model = title_model or model
 
@@ -113,6 +127,19 @@ class ClaudeScriptGenerator:
                     continue
                 raise
             except anthropic.APIConnectionError as e:
+                if attempt < self.MAX_RETRIES - 1:
+                    delay = self.RETRY_BASE_DELAY * (2 ** attempt)
+                    print(f"  Retrying in {delay}s (attempt {attempt + 1}/{self.MAX_RETRIES}): {e}")
+                    time.sleep(delay)
+                    continue
+                raise
+            except anthropic.AnthropicError as e:
+                # Credential errors land here, not in the two clauses above:
+                # a failed token exchange (or a failed mint inside it) raises
+                # WorkloadIdentityError, which is an AnthropicError with no
+                # status code. Retrying is worth an attempt — the next try
+                # mints a brand-new assertion — but it must not loop forever
+                # on a genuinely broken rule, so it obeys the same budget.
                 if attempt < self.MAX_RETRIES - 1:
                     delay = self.RETRY_BASE_DELAY * (2 ** attempt)
                     print(f"  Retrying in {delay}s (attempt {attempt + 1}/{self.MAX_RETRIES}): {e}")
