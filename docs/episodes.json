@@ -2988,6 +2988,23 @@
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-coordination-isnt-deception-mapping/id1866587707?i=1000785440316",
       "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Park2026-tr",
+      "title": "FG's Research Radio: When Researchers Stick Their Heads Above the Parapets",
+      "description": "AI-generated podcast discussion.\n\nReference:\nSunoo, P., & R, T. D. (2026). \"Sticking their heads out above the parapets\": Lived Experiences of Legal Risks in Research. https://scholar.google.com/scholar?q=%22Sticking%20their%20heads%20out%20above%20the%20parapets%22%3A%20Lived%20Experiences%20of%20Legal%20Risks%20in%20Research",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Park2026-tr.mp3",
+      "audio_size": 5211453,
+      "duration": 601,
+      "pub_date": "2026-08-31T14:40:55.552721+00:00",
+      "authors": [
+        "Park, Sunoo",
+        "Thomas, Daniel R"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
     }
   ]
 }
