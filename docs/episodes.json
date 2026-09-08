@@ -3029,6 +3029,31 @@
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-when-search-engines-amplify-conspiracy/id1866587707?i=1000787390316",
       "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Holland_Levin2026-qx",
+      "title": "FG's Research Radio: How \"Woke\" Got Hijacked: A Cross-Platform Anatomy",
+      "description": "AI-generated podcast discussion.\n\nReference:\nLevin, S. H., Wang, R., Seo, J., Leong, Y. Y., Bennett, E., Yang, D., Yang, Z., Chen, M., Zhang, Y., & Suk, J. (2026). From \\#StayWoke to \u201cculture wars\u201d: How social justice discourse is separately and synergistically politicized on twitter and YouTube. https://doi.org/10.1080/10584609.2026.2717428",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Holland_Levin2026-qx.mp3",
+      "audio_size": 4785261,
+      "duration": 588,
+      "pub_date": "2026-09-08T09:55:44.267213+00:00",
+      "authors": [
+        "Sara Holland Levin",
+        "Rui Wang",
+        "Junwan Seo",
+        "Yi Yin Leong",
+        "Emma Bennett",
+        "Dongdong Yang",
+        "Zhuohui Yang",
+        "Matt Chen",
+        "Yini Zhang",
+        "Jiyoun Suk"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
     }
   ]
 }
