@@ -7,7 +7,7 @@ google-auth>=2.55.2          # Authentication
 anthropic>=0.116.0
 
 # PDF processing
-pypdf>=6.14.2
+pypdf>=6.16.1
 
 # Web and RSS
 requests>=2.34.2
