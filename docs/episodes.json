@@ -3074,6 +3074,23 @@
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-podcast-gender-code-how/id1866587707?i=1000788829687",
       "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Gaber2022-bk",
+      "title": "FG's Research Radio: When the Rebuttal Is the Real Strategy: Inside Strategic Lying",
+      "description": "AI-generated podcast discussion.\n\nReference:\nGaber, I., & Fisher, C. (2022). \u201cstrategic lying\u201d: The case of Brexit and the 2019 U.k. election. https://doi.org/10.1177/1940161221994100",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Gaber2022-bk.mp3",
+      "audio_size": 5350629,
+      "duration": 575,
+      "pub_date": "2026-09-16T10:17:13.790257+00:00",
+      "authors": [
+        "Ivor Gaber",
+        "Caroline Fisher"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
     }
   ]
 }
