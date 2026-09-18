@@ -3091,6 +3091,26 @@
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-when-the-rebuttal-is-the-real/id1866587707?i=1000790012147",
       "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Gomez-Zara2026-as",
+      "title": "FG's Research Radio: When Your Codebook Disagrees With You: Teaching AI to Rethink Research",
+      "description": "AI-generated podcast discussion.\n\nReference:\nG\u00f3mez-Zar\u00e1, D., Valdivieso, H., P\u00e9rez, J., Parra, D., & Valenzuela, S. (2026). Revisiting framing codebooks with AI: Employing large language models as analytical collaborators in deductive content analysis. https://doi.org/10.1080/21670811.2026.2730327",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Gomez-Zara2026-as.mp3",
+      "audio_size": 4997421,
+      "duration": 624,
+      "pub_date": "2026-09-18T06:12:44.492654+00:00",
+      "authors": [
+        "Diego G\u00f3mez-Zar\u00e1",
+        "Hern\u00e1n Valdivieso",
+        "Jorge P\u00e9rez",
+        "Denis Parra",
+        "Sebasti\u00e1n Valenzuela"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
     }
   ]
 }
