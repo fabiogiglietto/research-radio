@@ -210,6 +210,10 @@ def get_papers_from_drive(drive_client: DriveClient, processed_file: str, max_ag
     for paper in all_papers:
         if paper.id in processed_ids:
             continue
+        # Classics (toread `_classic`, Paperpile's Classics folder) are added
+        # in bulk for the kasten only: no episode.
+        if paper.is_classic:
+            continue
 
         # Check if PDF exists in Drive
         pdf_info = drive_client.find_pdf(paper)

@@ -4,6 +4,7 @@ Google Drive Client - Finds and downloads PDFs from PaperPile's Drive folder.
 
 import io
 import re
+import unicodedata
 from typing import Optional
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
@@ -79,6 +80,9 @@ class DriveClient:
     def _normalize_for_search(self, text: str) -> str:
         """Normalize text for fuzzy matching."""
         # Remove special characters, lowercase, collapse whitespace
+        # Fold accents first (González-Bailón vs a "Gonzalez-Bailon" filename).
+        text = unicodedata.normalize("NFKD", text)
+        text = "".join(c for c in text if not unicodedata.combining(c))
         text = re.sub(r'[^\w\s]', '', text.lower())
         text = re.sub(r'\s+', ' ', text).strip()
         return text
@@ -182,6 +186,13 @@ class DriveClient:
             # matching mid-word) and the publication year in the filename.
             author_hit = len(author_last) >= 3 and author_last in file_tokens
             year_hit = bool(year) and year in file['name']
+            # Title overlap alone is not identity: a short, generic title ("The
+            # science of fake news") clears the gate against an unrelated paper
+            # on the same subject. Paperpile names files `Author et al. - Year -
+            # Title`, so the right file carries the surname or the year; demand
+            # one, or skip the paper rather than voice another paper's PDF.
+            if not (author_hit or year_hit):
+                continue
 
             key = (overlap, author_hit, year_hit)
             if key > best_key:
