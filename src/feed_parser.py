@@ -26,6 +26,9 @@ class Paper:
     doi: Optional[str] = None
     open_access_pdf_url: Optional[str] = None
     is_own: bool = False
+    # toread `_classic`: a foundational work from Paperpile's Classics folder.
+    # Classics get a kasten note but no episode — skipped in get_papers_from_drive.
+    is_classic: bool = False
 
     def __post_init__(self):
         """Extract PDF URL from available fields."""
@@ -105,7 +108,8 @@ def parse_papers(feed_data: dict) -> list[Paper]:
             content_text=item.get('content_text'),
             content_html=item.get('content_html'),
             date_published=item.get('date_published'),
-            authors=authors
+            authors=authors,
+            is_classic=item.get('_classic') is True,
         )
         papers.append(paper)
 
