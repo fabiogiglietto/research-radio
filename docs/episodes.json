@@ -3146,6 +3146,25 @@
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-why-populists-win-on-social-media/id1866587707?i=1000791863704",
       "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Di_Marco2026-xu",
+      "title": "FG's Research Radio: Detection Isn't Impact: Measuring What Coordinated Accounts Actually Do",
+      "description": "AI-generated podcast discussion.\n\nReference:\nMarco, N. D., Cinelli, M., Nakano, S., & Frosini, A. (2026). Optimal and heuristic strategies for evaluating the influence of coordinated behavior in information cascades and retweet networks. http://arxiv.org/abs/2609.24398v1",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Di_Marco2026-xu.mp3",
+      "audio_size": 4958421,
+      "duration": 569,
+      "pub_date": "2026-10-01T14:09:27.007721+00:00",
+      "authors": [
+        "Niccol\u00f2 Di Marco",
+        "Matteo Cinelli",
+        "Shinichi Nakano",
+        "Andrea Frosini"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
     }
   ]
 }
