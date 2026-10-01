@@ -3163,6 +3163,22 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-detection-isnt-impact-measuring/id1866587707?i=1000792582610",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Tuters2026-vo",
+      "title": "FG's Research Radio: How Conspiracy Spreads Without a Story",
+      "description": "AI-generated podcast discussion.\n\nReference:\nTuters, M. (2026). The Memeplex: Platform grammars and conspiratorial alignment around the Great Reset. https://doi.org/10.1177/14614448261446931",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Tuters2026-vo.mp3",
+      "audio_size": 5674245,
+      "duration": 643,
+      "pub_date": "2026-10-02T14:09:27.007721+00:00",
+      "authors": [
+        "Marc Tuters"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "",
       "audio_mismatch": false
     }
