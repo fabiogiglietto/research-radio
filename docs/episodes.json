@@ -3181,6 +3181,23 @@
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "",
       "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Crichton2026-kn",
+      "title": "FG's Research Radio: When AI Models Can't See Hate: The Politics of Sanitization",
+      "description": "AI-generated podcast discussion.\n\nReference:\nCrichton, F., & Torres, G. (2026). Re-generating hate. https://doi.org/10.1177/29768624261449726",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Crichton2026-kn.mp3",
+      "audio_size": 5642805,
+      "duration": 634,
+      "pub_date": "2026-10-03T14:09:27.007721+00:00",
+      "authors": [
+        "Fraser Crichton",
+        "Guillen Torres"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
     }
   ]
 }
