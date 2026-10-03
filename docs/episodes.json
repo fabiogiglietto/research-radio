@@ -3179,7 +3179,7 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
-      "apple_url": "",
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-how-conspiracy-spreads-without-a-story/id1866587707?i=1000792977154",
       "audio_mismatch": false
     },
     {
@@ -3193,6 +3193,23 @@
       "authors": [
         "Fraser Crichton",
         "Guillen Torres"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Rogers2026-zz",
+      "title": "FG's Research Radio: How Facebook Redefined Fake News Out of Existence",
+      "description": "AI-generated podcast discussion.\n\nReference:\nRogers, R., & Koronska, K. (2026). The performance of borderline content on Facebook. https://doi.org/10.4324/9781003693192-4",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Rogers2026-zz.mp3",
+      "audio_size": 4417125,
+      "duration": 628,
+      "pub_date": "2026-10-04T14:09:27.007721+00:00",
+      "authors": [
+        "Richard Rogers",
+        "Kamila Koronska"
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
