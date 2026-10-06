@@ -3213,6 +3213,22 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-how-facebook-redefined-fake-news/id1866587707?i=1000793271222",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Annabell2026-ev",
+      "title": "FG's Research Radio: What Does \"Data\" Actually Mean? Inside the EU's Regulatory Silence",
+      "description": "AI-generated podcast discussion.\n\nReference:\nAnnabell, T. (2026). Regulating a floating signifier: Interpretations of \u201cdata\u201d in the digital services act researcher access provision. https://doi.org/10.1177/29777984261486601",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Annabell2026-ev.mp3",
+      "audio_size": 4490757,
+      "duration": 628,
+      "pub_date": "2026-10-06T06:46:01.741986+00:00",
+      "authors": [
+        "Taylor Annabell"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "",
       "audio_mismatch": false
     }
