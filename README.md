@@ -90,11 +90,23 @@ python src/main.py
 **Automated (GitHub Actions):**
 The workflow runs hourly, checking for new papers and generating episodes automatically.
 
+**Audit published audio levels:**
+```bash
+python scripts/audit_audio_levels.py            # every MP3 in the "audio" release
+python scripts/audit_audio_levels.py --dir out/ # local files
+```
+Flags episodes whose speech level drops part-way through and writes a CSV.
+
+**Run the unit tests** (need ffmpeg):
+```bash
+python -m unittest discover -s tests
+```
+
 ## How It Works
 
 1. **Feed Parser** - Fetches papers from a JSON feed
 2. **Drive Client** - Finds and downloads matching PDFs from Google Drive
-3. **Audio Generation** - Claude writes a two-host conversation script, then Gemini TTS converts it to audio
+3. **Audio Generation** - Claude writes a two-host conversation script, then Gemini TTS converts it to audio. Every render is mastered with one ffmpeg chain (`dynaudnorm` + `loudnorm`, -16 LUFS) and checked by a level gate: if speech still sits >10 dB below the opening for >30 s, TTS is re-run once, then the episode fails rather than publishing
 4. **GitHub Uploader** - Uploads audio files to GitHub Releases
 5. **Feed Generator** - Creates/updates the RSS podcast feed
 

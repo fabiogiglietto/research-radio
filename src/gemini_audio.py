@@ -2,10 +2,13 @@
 Gemini Audio Generator - Generates podcast audio from a paper.
 
 The dialogue script is written by Claude (see claude_script_generator);
-Gemini is used only for multi-speaker TTS.
+Gemini is used only for multi-speaker TTS. Every render, whether Gemini
+returns MP3 or raw PCM, is mastered through one ffmpeg filter chain and then
+measured by the level gate before it can be published.
 """
 
 import os
+import re
 import subprocess
 import httpx
 import time
@@ -21,6 +24,7 @@ from config import (
     CLAUDE_TITLE_MODEL,
 )
 from claude_script_generator import ClaudeScriptGenerator
+from audio_levels import AudioToolError, LevelProfile, analyze, format_time
 
 
 @dataclass
@@ -71,7 +75,30 @@ class GeminiAudioGenerator:
     # the first retry — while a full 8-minute timeout does not, because a
     # second 8-minute wait cannot fit. That is the intended trade: one slow
     # episode must not consume the run.
+    #
+    # The budget is shared with the level gate below: the one extra render it
+    # may ask for comes out of the same allowance, not on top of it.
     TTS_TOTAL_BUDGET_SECONDS = 15 * 60
+
+    # Mastering applied to every render before it is published. Gemini's
+    # multi-speaker TTS has, on 38 of the first 170 episodes, let the speech
+    # level sink 10-45 dB a few minutes in and stay there (Bruns2026-pn:
+    # normal for 3.5 min, then ~30 dB down for the remaining six). dynaudnorm
+    # lifts quiet stretches back towards the opening level — 500 ms frames,
+    # a 31-frame Gaussian window so the gain moves over ~15 s rather than
+    # pumping, peak target 0.9, up to 40x gain — and loudnorm then sets the
+    # whole episode to podcast loudness (-16 LUFS, -1.5 dBTP, LRA 11).
+    # Tested on Bruns2026-pn: the late section comes back to about -20 dBFS
+    # against -17 at the start, from -55 before.
+    MASTER_FILTER = "dynaudnorm=f=500:g=31:p=0.9:m=40,loudnorm=I=-16:TP=-1.5:LRA=11"
+    MASTER_SAMPLE_RATE = 44100
+    MASTER_TIMEOUT_SECONDS = 10 * 60
+
+    # Renders the level gate may consume per episode: the first one plus one
+    # retry when the mastered output still shows a sustained drop. A second
+    # failure fails the episode; main.py then skips it (nothing is uploaded or
+    # registered) and the paper is retried on the next run.
+    LEVEL_GATE_RENDERS = 2
 
     def __init__(self, api_key: str):
         """Initialize with the Gemini API key.
@@ -89,7 +116,7 @@ class GeminiAudioGenerator:
             ANTHROPIC_API_KEY, CLAUDE_SCRIPT_MODEL, title_model=CLAUDE_TITLE_MODEL
         )
 
-    def _generate_with_retry(self, **kwargs):
+    def _generate_with_retry(self, *, deadline: Optional[float] = None, **kwargs):
         """Call generate_content with retry on transient errors.
 
         A request that exceeds TTS_TIMEOUT_MS raises httpx.TimeoutException
@@ -97,8 +124,12 @@ class GeminiAudioGenerator:
         for one attempt says nothing about the next — but every attempt shares
         TTS_TOTAL_BUDGET_SECONDS so a persistently wedged endpoint costs this
         episode a bounded amount of time instead of the whole run.
+
+        `deadline` is a time.monotonic() value; the caller passes one when
+        several calls (the level gate's re-render) must share one budget.
         """
-        deadline = time.monotonic() + self.TTS_TOTAL_BUDGET_SECONDS
+        if deadline is None:
+            deadline = time.monotonic() + self.TTS_TOTAL_BUDGET_SECONDS
         for attempt in range(self.MAX_RETRIES):
             try:
                 return self.client.models.generate_content(**kwargs)
@@ -150,14 +181,21 @@ class GeminiAudioGenerator:
         """
         Convert a multi-speaker script to audio using Gemini TTS.
 
+        Every render goes through _master_audio() and then the level gate
+        (_check_levels). A render whose mastered output still shows a
+        sustained drop is discarded and TTS is run once more, inside the same
+        TTS_TOTAL_BUDGET_SECONDS; if that one fails the gate too, the episode
+        fails rather than publishing audio that goes quiet part-way.
+
         Args:
             script: Formatted dialogue (Host: ... / Cohost: ...)
-            output_path: Path to save the audio file (will save as .wav, convert to .mp3)
+            output_path: Path to save the mastered MP3
             host_voice: Voice name for host (default: Kore)
             cohost_voice: Voice name for cohost (default: Charon)
 
         Returns:
-            True if successful, False otherwise
+            True if successful, False otherwise. On False, output_path does
+            not exist.
         """
         host_voice = host_voice or self.VOICES['host']
         cohost_voice = cohost_voice or self.VOICES['cohost']
@@ -167,61 +205,127 @@ class GeminiAudioGenerator:
 
 {script}"""
 
-        try:
-            response = self._generate_with_retry(
-                model=self.TTS_MODEL,
-                contents=tts_prompt,
-                config=types.GenerateContentConfig(
-                    response_modalities=["AUDIO"],
-                    speech_config=types.SpeechConfig(
-                        multi_speaker_voice_config=types.MultiSpeakerVoiceConfig(
-                            speaker_voice_configs=[
-                                types.SpeakerVoiceConfig(
-                                    speaker='Host',
-                                    voice_config=types.VoiceConfig(
-                                        prebuilt_voice_config=types.PrebuiltVoiceConfig(
-                                            voice_name=host_voice,
-                                        )
+        # One budget for everything this episode asks of the TTS endpoint,
+        # the gate's re-render included.
+        deadline = time.monotonic() + self.TTS_TOTAL_BUDGET_SECONDS
+
+        for render in range(1, self.LEVEL_GATE_RENDERS + 1):
+            try:
+                raw_path = self._render_tts(
+                    tts_prompt, host_voice, cohost_voice, output_path, deadline
+                )
+            except Exception as e:
+                print(f"Error generating audio: {e}")
+                return False
+
+            try:
+                self._master_audio(raw_path, output_path)
+            except AudioToolError as e:
+                print(f"Error mastering audio: {e}")
+                self._discard(output_path)
+                return False
+            finally:
+                self._discard(raw_path)
+
+            try:
+                profile = self._check_levels(output_path)
+            except AudioToolError as e:
+                print(f"Error measuring audio levels: {e}")
+                self._discard(output_path)
+                return False
+
+            if not profile.flagged:
+                return True
+
+            drop = profile.worst
+            print(
+                f"  Level gate: speech sits {drop.drop_db:.1f} dB below the opening "
+                f"from {format_time(drop.onset)} for {format_time(drop.duration)} "
+                f"(worst {drop.max_drop_db:.1f} dB) after mastering "
+                f"— render {render}/{self.LEVEL_GATE_RENDERS}"
+            )
+            self._discard(output_path)
+
+            if render >= self.LEVEL_GATE_RENDERS:
+                break
+            if time.monotonic() + self.TTS_TIMEOUT_MS / 1000 > deadline:
+                print(
+                    f"  TTS budget ({self.TTS_TOTAL_BUDGET_SECONDS}s) cannot absorb "
+                    f"another render; giving up on this episode."
+                )
+                break
+            print("  Re-rendering TTS once...")
+
+        print("Error generating audio: mastered audio failed the level gate; "
+              "episode not published")
+        return False
+
+    def _render_tts(
+        self,
+        tts_prompt: str,
+        host_voice: str,
+        cohost_voice: str,
+        output_path: str,
+        deadline: float,
+    ) -> str:
+        """Run one TTS request and write Gemini's audio untouched to a raw file.
+
+        Returns the raw file's path: `<output>.raw.mp3` when Gemini answers
+        with MP3, `<output>.raw.wav` when it answers with PCM. The caller
+        masters it into output_path and deletes it.
+        """
+        response = self._generate_with_retry(
+            deadline=deadline,
+            model=self.TTS_MODEL,
+            contents=tts_prompt,
+            config=types.GenerateContentConfig(
+                response_modalities=["AUDIO"],
+                speech_config=types.SpeechConfig(
+                    multi_speaker_voice_config=types.MultiSpeakerVoiceConfig(
+                        speaker_voice_configs=[
+                            types.SpeakerVoiceConfig(
+                                speaker='Host',
+                                voice_config=types.VoiceConfig(
+                                    prebuilt_voice_config=types.PrebuiltVoiceConfig(
+                                        voice_name=host_voice,
                                     )
-                                ),
-                                types.SpeakerVoiceConfig(
-                                    speaker='Cohost',
-                                    voice_config=types.VoiceConfig(
-                                        prebuilt_voice_config=types.PrebuiltVoiceConfig(
-                                            voice_name=cohost_voice,
-                                        )
+                                )
+                            ),
+                            types.SpeakerVoiceConfig(
+                                speaker='Cohost',
+                                voice_config=types.VoiceConfig(
+                                    prebuilt_voice_config=types.PrebuiltVoiceConfig(
+                                        voice_name=cohost_voice,
                                     )
-                                ),
-                            ]
-                        )
+                                )
+                            ),
+                        ]
                     )
                 )
             )
+        )
 
-            # Extract audio data
-            if (not response.candidates
-                    or not response.candidates[0].content.parts
-                    or not response.candidates[0].content.parts[0].inline_data):
-                raise ValueError("Gemini returned no audio data in response")
-            audio_data = response.candidates[0].content.parts[0].inline_data.data
+        # Extract audio data
+        if (not response.candidates
+                or not response.candidates[0].content.parts
+                or not response.candidates[0].content.parts[0].inline_data):
+            raise ValueError("Gemini returned no audio data in response")
+        inline = response.candidates[0].content.parts[0].inline_data
+        mime_type = inline.mime_type or ''
 
-            # Check response mime type — use direct write for MP3, convert for PCM
-            mime_type = response.candidates[0].content.parts[0].inline_data.mime_type
-            if mime_type and 'mp3' in mime_type:
-                with open(output_path, 'wb') as f:
-                    f.write(audio_data)
-            else:
-                # Fallback: save as WAV then convert to MP3
-                wav_path = output_path.replace('.mp3', '.wav')
-                self._save_wav(wav_path, audio_data)
-                if output_path.endswith('.mp3'):
-                    return self._convert_to_mp3(wav_path, output_path)
-
-            return True
-
-        except Exception as e:
-            print(f"Error generating audio: {e}")
-            return False
+        base = os.path.splitext(output_path)[0]
+        if 'mp3' in mime_type:
+            raw_path = f"{base}.raw.mp3"
+            with open(raw_path, 'wb') as f:
+                f.write(inline.data)
+        else:
+            # PCM (e.g. "audio/L16;codec=pcm;rate=24000"): wrap it as WAV so
+            # ffmpeg knows the sample rate.
+            rate_match = re.search(r'rate=(\d+)', mime_type)
+            rate = int(rate_match.group(1)) if rate_match else 24000
+            raw_path = f"{base}.raw.wav"
+            self._save_wav(raw_path, inline.data, rate=rate)
+        return raw_path
 
     def _save_wav(self, path: str, pcm_data: bytes, rate: int = 24000):
         """Save raw PCM data as WAV file."""
@@ -232,26 +336,57 @@ class GeminiAudioGenerator:
             wf.setframerate(rate)
             wf.writeframes(pcm_data)
 
-    def _convert_to_mp3(self, wav_path: str, mp3_path: str) -> bool:
-        """Convert WAV to MP3 using ffmpeg."""
+    def _master_audio(self, raw_path: str, output_path: str) -> None:
+        """Master a raw render (MP3 or WAV) into the published MP3.
+
+        Single ffmpeg pass: MASTER_FILTER, resample to MASTER_SAMPLE_RATE,
+        encode with libmp3lame at VBR quality 2. Both of Gemini's output
+        formats go through here, so the published file never depends on
+        which one the endpoint happened to return.
+
+        Raises AudioToolError when ffmpeg is missing or fails.
+        """
+        cmd = [
+            'ffmpeg', '-nostdin', '-hide_banner', '-loglevel', 'error', '-y',
+            '-i', raw_path,
+            '-vn',
+            '-af', self.MASTER_FILTER,
+            '-ar', str(self.MASTER_SAMPLE_RATE),
+            '-codec:a', 'libmp3lame', '-qscale:a', '2',
+            output_path,
+        ]
         try:
-            subprocess.run(
-                [
-                    'ffmpeg', '-y', '-i', wav_path,
-                    '-codec:a', 'libmp3lame', '-qscale:a', '2',
-                    mp3_path
-                ],
-                check=True,
-                capture_output=True
+            proc = subprocess.run(
+                cmd, capture_output=True, text=True,
+                timeout=self.MASTER_TIMEOUT_SECONDS, check=False,
             )
-            os.remove(wav_path)
-            return True
-        except subprocess.CalledProcessError as e:
-            print(f"Error converting to MP3: {e}")
-            return False
-        except FileNotFoundError:
-            print("ffmpeg not found. Please install ffmpeg.")
-            return False
+        except FileNotFoundError as e:
+            raise AudioToolError("ffmpeg not found. Please install ffmpeg.") from e
+        except subprocess.TimeoutExpired as e:
+            raise AudioToolError(
+                f"ffmpeg exceeded {self.MASTER_TIMEOUT_SECONDS}s mastering {raw_path}"
+            ) from e
+        if proc.returncode != 0 or not os.path.exists(output_path):
+            raise AudioToolError(
+                f"ffmpeg mastering failed (exit {proc.returncode}): "
+                f"{proc.stderr.strip()[-300:]}"
+            )
+
+    def _check_levels(self, path: str) -> LevelProfile:
+        """The level gate: the same check scripts/audit_audio_levels.py runs.
+
+        Mean volume in 20 s windows; flagged when any run of windows after the
+        first minute sits >10 dB below the first-two-minute median for >30 s.
+        """
+        return analyze(path)
+
+    @staticmethod
+    def _discard(path: Optional[str]) -> None:
+        if path and os.path.exists(path):
+            try:
+                os.remove(path)
+            except OSError:
+                pass
 
     def generate_podcast(
         self,
@@ -303,7 +438,7 @@ class GeminiAudioGenerator:
         else:
             print("  Warning: Failed to generate episode title, will use paper title")
 
-        # Step 3: Convert to audio (Gemini TTS)
+        # Step 3: Convert to audio (Gemini TTS), master, and gate on levels
         print("  Converting to audio...")
         if self.generate_audio(script, output_path):
             print(f"  Saved to: {output_path}")
