@@ -50,3 +50,6 @@ Thumbs.db
 # Marker written by src/main.py when a run produces no episodes despite real
 # errors; the workflow reads it to fail the job after commit and dispatch.
 .generator-total-failure
+
+# Default output of scripts/audit_audio_levels.py
+audio_level_audit.csv
