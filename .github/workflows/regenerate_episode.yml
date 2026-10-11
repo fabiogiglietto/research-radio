@@ -1,0 +1,107 @@
+name: Regenerate Episode
+
+# Re-renders already-published episodes whose audio is broken beyond repair
+# (a dead gap of silence, the wrong paper) through the production path and
+# replaces the release asset under the same filename; guid and pubDate are
+# untouched. See scripts/regenerate_episode.py. Manual only.
+on:
+  workflow_dispatch:
+    inputs:
+      ids:
+        description: >-
+          Episode ids to regenerate, space-separated (asset name without
+          .mp3, e.g. "Topinka2026-hb").
+        required: true
+
+# Shares the generator's group: a regeneration must not race a run that is
+# uploading assets or committing the same data files.
+concurrency:
+  group: podcast-generation
+  cancel-in-progress: false
+
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    permissions:
+      contents: write  # release assets + the data commit
+      id-token: write  # OIDC token for Anthropic Workload Identity Federation
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install ffmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Install dependencies
+        run: pip install -r requirements.lock
+
+      - name: Set up Google credentials
+        env:
+          GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+        run: |
+          mkdir -p credentials
+          printf '%s' "$GCP_SA_KEY" > credentials/service-account.json
+
+      # Same arrangement as check_papers.yml: the GitHub JWT lives ~5 min, so
+      # a background loop keeps the file fresh for the SDK to re-read.
+      - name: Fetch OIDC token and keep it fresh
+        env:
+          ANTHROPIC_IDENTITY_TOKEN_FILE: ${{ runner.temp }}/anthropic-oidc-jwt
+        run: |
+          bash .github/scripts/mint-oidc-token.sh
+          ( while true; do sleep 60; OIDC_ECHO_CLAIMS=0 bash .github/scripts/mint-oidc-token.sh || true; done ) >/dev/null 2>&1 &
+
+      - name: Regenerate
+        timeout-minutes: 30
+        env:
+          PYTHONFAULTHANDLER: 1
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          ANTHROPIC_FEDERATION_RULE_ID: ${{ vars.ANTHROPIC_FEDERATION_RULE_ID }}
+          ANTHROPIC_ORGANIZATION_ID: ${{ vars.ANTHROPIC_ORGANIZATION_ID }}
+          ANTHROPIC_SERVICE_ACCOUNT_ID: ${{ vars.ANTHROPIC_SERVICE_ACCOUNT_ID }}
+          ANTHROPIC_WORKSPACE_ID: ${{ vars.ANTHROPIC_WORKSPACE_ID }}
+          ANTHROPIC_IDENTITY_TOKEN_FILE: ${{ runner.temp }}/anthropic-oidc-jwt
+          GOOGLE_APPLICATION_CREDENTIALS: credentials/service-account.json
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPO: ${{ github.repository }}
+          IDS: ${{ inputs.ids }}
+        run: |
+          bash .github/scripts/mint-oidc-token.sh
+          # shellcheck disable=SC2086  # word-splitting the ids is the point
+          timeout --signal=SIGABRT --kill-after=1m 25m python -u scripts/regenerate_episode.py $IDS
+
+      - name: Commit updated data files
+        if: always()
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+          git add docs/episodes.json docs/feed.xml
+          if git diff --staged --quiet; then
+            echo "No data changes to commit."
+            exit 0
+          fi
+          git commit -m "Regenerate episode audio: update enclosure sizes [skip ci]"
+
+          for attempt in 1 2 3 4 5; do
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            if git push; then
+              echo "Pushed on attempt $attempt."
+              exit 0
+            fi
+            echo "Push attempt $attempt rejected (remote moved); retrying..."
+            sleep 5
+          done
+          echo "::error::Failed to push after 5 attempts."
+          exit 1
