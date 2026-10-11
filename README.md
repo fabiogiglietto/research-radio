@@ -98,7 +98,9 @@ python scripts/audit_audio_levels.py --dir out/ # local files
 Flags episodes whose speech level drops part-way through and writes a CSV.
 To repair flagged episodes in place (re-master, replace the release asset under the same name, fix enclosure sizes), run the **Repair Audio Levels** workflow from the Actions tab, or `python scripts/repair_audio_levels.py --execute` with a token that may edit releases.
 
-**Run the unit tests** (need ffmpeg):
+To regenerate an episode whose audio is broken beyond mastering (a dead gap, the wrong paper), run the **Regenerate Episode** workflow with its id; the asset is replaced under the same name and guid/pubDate stay put.
+
+**Run the unit tests** (need ffmpeg; CI runs them on every code change and weekly via `.github/workflows/tests.yml`):
 ```bash
 python -m unittest discover -s tests
 ```

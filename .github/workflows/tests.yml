@@ -1,0 +1,61 @@
+name: Tests
+
+# Unit tests (tests/): the audio level check, the mastering chain and the
+# publish gate, on synthetic audio rendered by ffmpeg — no network, no API
+# keys. Runs on every code change and weekly, so a drift in the runner's
+# ffmpeg (the dynaudnorm/loudnorm behaviour the gate depends on) is caught
+# even when the repo is quiet.
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/**'
+      - 'scripts/**'
+      - 'tests/**'
+      - 'config.py'
+      - 'requirements*'
+      - '.github/workflows/tests.yml'
+  pull_request:
+    paths:
+      - 'src/**'
+      - 'scripts/**'
+      - 'tests/**'
+      - 'config.py'
+      - 'requirements*'
+      - '.github/workflows/tests.yml'
+  schedule:
+    - cron: '17 6 * * 1'  # Mondays 06:17 UTC
+  workflow_dispatch:
+
+jobs:
+  unit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install ffmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Install dependencies
+        run: pip install -r requirements.lock
+
+      - name: Byte-compile sources
+        run: python -m compileall -q src scripts tests
+
+      - name: Run unit tests
+        run: python -m unittest discover -s tests -v
