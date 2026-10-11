@@ -1,0 +1,101 @@
+name: Repair Audio Levels
+
+# Re-masters already-published episodes whose speech goes quiet part-way
+# (see scripts/repair_audio_levels.py), replaces the release assets under
+# the same filenames and commits the new enclosure sizes. Manual only.
+#
+# Runs here rather than from a laptop because the Actions token is what has
+# write access to the "audio" release; a Claude Code cloud session's token
+# is refused ("Creating, editing, or deleting releases is not permitted").
+on:
+  workflow_dispatch:
+    inputs:
+      ids:
+        description: >-
+          Episode ids to repair, space-separated (asset name without .mp3).
+          Leave empty to repair every episode the level audit flags.
+        required: false
+        default: ""
+      execute:
+        description: >-
+          Replace the release assets and commit the new sizes. Unchecked =
+          dry run: download, master and re-audit only, nothing published changes.
+        type: boolean
+        default: false
+
+# Shares the generator's group so a repair never races a run that is
+# uploading new assets or committing the same data files.
+concurrency:
+  group: podcast-generation
+  cancel-in-progress: false
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    # 38 flagged episodes: ~800 MB of downloads, ~15 s of ffmpeg each.
+    timeout-minutes: 60
+
+    permissions:
+      contents: write  # release assets + the data commit
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install ffmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Install dependencies
+        run: pip install -r requirements.lock
+
+      - name: Repair
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPO: ${{ github.repository }}
+          IDS: ${{ inputs.ids }}
+          EXECUTE: ${{ inputs.execute }}
+        run: |
+          args=()
+          if [ -n "$IDS" ]; then
+            # shellcheck disable=SC2206  # word-splitting the ids is the point
+            args+=(--ids $IDS)
+          fi
+          if [ "$EXECUTE" = "true" ]; then
+            args+=(--execute)
+          fi
+          python -u scripts/repair_audio_levels.py "${args[@]}"
+
+      - name: Commit updated data files
+        if: inputs.execute
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+          git add docs/episodes.json docs/feed.xml
+          if git diff --staged --quiet; then
+            echo "No data changes to commit."
+            exit 0
+          fi
+          git commit -m "Repair audio levels: update enclosure sizes [skip ci]"
+
+          # Same commit-then-rebase-then-push loop as check_papers.yml, for the
+          # same reason: the generator may push to this branch meanwhile.
+          for attempt in 1 2 3 4 5; do
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            if git push; then
+              echo "Pushed on attempt $attempt."
+              exit 0
+            fi
+            echo "Push attempt $attempt rejected (remote moved); retrying..."
+            sleep 5
+          done
+          echo "::error::Failed to push after 5 attempts."
+          exit 1

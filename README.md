@@ -96,6 +96,7 @@ python scripts/audit_audio_levels.py            # every MP3 in the "audio" relea
 python scripts/audit_audio_levels.py --dir out/ # local files
 ```
 Flags episodes whose speech level drops part-way through and writes a CSV.
+To repair flagged episodes in place (re-master, replace the release asset under the same name, fix enclosure sizes), run the **Repair Audio Levels** workflow from the Actions tab, or `python scripts/repair_audio_levels.py --execute` with a token that may edit releases.
 
 **Run the unit tests** (need ffmpeg):
 ```bash
