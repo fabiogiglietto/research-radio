@@ -33,6 +33,23 @@ DURATION = 240      # seconds
 DROP_AT = 120       # the quiet half starts here
 DROP_DB = 30
 SAMPLE_RATE = 24000  # what Gemini's PCM comes back as
+TRUNCATED_DURATION = 90  # seconds
+
+
+def script_of(words: int) -> str:
+    """A two-speaker script with exactly `words` spoken words."""
+    lines, left, speaker = [], words, "Host"
+    while left:
+        n = min(50, left)
+        lines.append(f"{speaker}: " + " ".join(["word"] * n))
+        left -= n
+        speaker = "Cohost" if speaker == "Host" else "Host"
+    return "\n".join(lines)
+
+
+# 700 words: 175 wpm over the full 4-minute fixture (a normal read), 467 wpm
+# over the 90-second one (most of the script missing).
+FULL_SCRIPT = script_of(700)
 
 
 def _ffmpeg(*args):
@@ -49,14 +66,15 @@ def _source_filters(with_drop: bool) -> str:
     return f"{speechlike},volume=enable='gte(t,{DROP_AT})':volume=-{DROP_DB}dB"
 
 
-def make_synthetic(path: str, with_drop: bool, pcm: bool = False) -> None:
+def make_synthetic(path: str, with_drop: bool, pcm: bool = False,
+                   duration: int = DURATION) -> None:
     """Write the fixture as MP3, or as headerless 16-bit PCM when pcm=True."""
     codec = (["-f", "s16le", "-acodec", "pcm_s16le"] if pcm
              else ["-codec:a", "libmp3lame", "-q:a", "2"])
     _ffmpeg(
         "-f", "lavfi",
         "-i", f"anoisesrc=color=pink:seed=42:sample_rate={SAMPLE_RATE}"
-              f":duration={DURATION}:amplitude=0.5",
+              f":duration={duration}:amplitude=0.5",
         "-af", _source_filters(with_drop),
         *codec, path,
     )
@@ -102,6 +120,9 @@ class LevelGateTests(unittest.TestCase):
         make_synthetic(cls.bad_mp3, with_drop=True)
         make_synthetic(cls.good_mp3, with_drop=False)
         make_synthetic(cls.good_pcm, with_drop=False, pcm=True)
+        # A render that stopped part-way: level throughout, just too short.
+        cls.short_mp3 = os.path.join(cls.fixtures, "short.mp3")
+        make_synthetic(cls.short_mp3, with_drop=False, duration=TRUNCATED_DURATION)
 
     @classmethod
     def tearDownClass(cls):
@@ -228,6 +249,78 @@ class LevelGateTests(unittest.TestCase):
         self.assertEqual(rate, str(gen.MASTER_SAMPLE_RATE),
                          "output carries the mastering sample rate, not the PCM's")
         self.assertFalse(analyze(self.out).flagged)
+
+
+    # --- the completeness gate -------------------------------------------
+
+    def test_word_count_ignores_labels_and_stage_directions(self):
+        self.assertEqual(
+            GeminiAudioGenerator.script_word_count(
+                "Host: Hello there [laughs] friend\nCohost: Hi.\n  Host:  ok"),
+            5,
+        )
+        self.assertEqual(GeminiAudioGenerator.script_word_count(FULL_SCRIPT), 700)
+
+    def test_truncated_render_is_retried_then_fails(self):
+        gen = bare_generator()
+        short = self._read(self.short_mp3)
+        with mock.patch.object(gen, "_master_audio", side_effect=copy_master), \
+             mock.patch.object(
+                 gen, "_generate_with_retry",
+                 side_effect=[fake_response(short, "audio/mp3")] * 2,
+             ) as tts:
+            ok = gen.generate_audio(FULL_SCRIPT, self.out)
+
+        self.assertFalse(ok)
+        self.assertEqual(tts.call_count, 2, "exactly one retry")
+        self.assertEqual(self._leftovers(), [], "no file left for the uploader")
+
+    def test_complete_second_render_is_accepted(self):
+        gen = bare_generator()
+        short, good = self._read(self.short_mp3), self._read(self.good_mp3)
+        with mock.patch.object(gen, "_master_audio", side_effect=copy_master), \
+             mock.patch.object(
+                 gen, "_generate_with_retry",
+                 side_effect=[fake_response(short, "audio/mp3"),
+                              fake_response(good, "audio/mp3")],
+             ) as tts:
+            ok = gen.generate_audio(FULL_SCRIPT, self.out)
+
+        self.assertTrue(ok)
+        self.assertEqual(tts.call_count, 2)
+        self.assertEqual(self._leftovers(), ["episode.mp3"])
+
+    def test_short_script_is_not_judged_on_rate(self):
+        """A few lines over a long file is not evidence of anything."""
+        gen = bare_generator()
+        self.assertIsNone(gen._check_completeness(script_of(50), 10.0))
+
+
+class TransientErrorTests(unittest.TestCase):
+    """_generate_with_retry: which failures earn another TTS attempt."""
+
+    def _gen(self, side_effect):
+        gen = bare_generator()
+        gen.client = mock.Mock()
+        gen.client.models.generate_content.side_effect = side_effect
+        return gen
+
+    def test_dropped_connection_is_retried(self):
+        import httpx
+        dropped = httpx.RemoteProtocolError(
+            "peer closed connection without sending complete message body "
+            "(incomplete chunked read)")
+        gen = self._gen([dropped, "audio"])
+        with mock.patch("gemini_audio.time.sleep"):
+            self.assertEqual(gen._generate_with_retry(model="m"), "audio")
+        self.assertEqual(gen.client.models.generate_content.call_count, 2)
+
+    def test_non_transient_error_is_not_retried(self):
+        gen = self._gen([ValueError("400 INVALID_ARGUMENT")])
+        with mock.patch("gemini_audio.time.sleep"):
+            with self.assertRaises(ValueError):
+                gen._generate_with_retry(model="m")
+        self.assertEqual(gen.client.models.generate_content.call_count, 1)
 
 
 if __name__ == "__main__":
