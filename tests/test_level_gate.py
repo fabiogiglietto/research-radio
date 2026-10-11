@@ -296,5 +296,32 @@ class LevelGateTests(unittest.TestCase):
         self.assertIsNone(gen._check_completeness(script_of(50), 10.0))
 
 
+class TransientErrorTests(unittest.TestCase):
+    """_generate_with_retry: which failures earn another TTS attempt."""
+
+    def _gen(self, side_effect):
+        gen = bare_generator()
+        gen.client = mock.Mock()
+        gen.client.models.generate_content.side_effect = side_effect
+        return gen
+
+    def test_dropped_connection_is_retried(self):
+        import httpx
+        dropped = httpx.RemoteProtocolError(
+            "peer closed connection without sending complete message body "
+            "(incomplete chunked read)")
+        gen = self._gen([dropped, "audio"])
+        with mock.patch("gemini_audio.time.sleep"):
+            self.assertEqual(gen._generate_with_retry(model="m"), "audio")
+        self.assertEqual(gen.client.models.generate_content.call_count, 2)
+
+    def test_non_transient_error_is_not_retried(self):
+        gen = self._gen([ValueError("400 INVALID_ARGUMENT")])
+        with mock.patch("gemini_audio.time.sleep"):
+            with self.assertRaises(ValueError):
+                gen._generate_with_retry(model="m")
+        self.assertEqual(gen.client.models.generate_content.call_count, 1)
+
+
 if __name__ == "__main__":
     unittest.main()

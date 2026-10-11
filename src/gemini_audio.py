@@ -157,8 +157,19 @@ class GeminiAudioGenerator:
                     type(e).__module__.split(".")[0] == "httpx2"
                     and "Timeout" in type(e).__name__
                 )
+                # The server hanging up mid-response is the same class of
+                # failure as a 502: the 2026-10-11 Topinka2026-hb regeneration
+                # died after 4 min on "peer closed connection without sending
+                # complete message body (incomplete chunked read)" with 11 min
+                # of budget left and no retry. httpx raises RemoteProtocolError
+                # for that (and for "Server disconnected without sending a
+                # response"); match httpx2's twin by name, as for timeouts.
+                is_dropped = isinstance(e, httpx.RemoteProtocolError) or (
+                    type(e).__module__.split(".")[0] == "httpx2"
+                    and type(e).__name__ == "RemoteProtocolError"
+                )
                 error_str = str(e)
-                is_transient = is_timeout or any(
+                is_transient = is_timeout or is_dropped or any(
                     code in error_str
                     for code in ['429', '500', '502', '503', '504', 'RESOURCE_EXHAUSTED']
                 )
