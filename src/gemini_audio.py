@@ -99,6 +99,20 @@ class GeminiAudioGenerator:
     # registered) and the paper is retried on the next run.
     LEVEL_GATE_RENDERS = 2
 
+    # Completeness gate. Gemini can also stop rendering part-way through a
+    # script and return a clean, level, shorter file: the 2026-10-11
+    # regeneration of Topinka2026-hb came back at 6:01 and ended mid-sentence
+    # at 5:54, roughly half the script. The level gate cannot see that, so the
+    # render is also checked against the script it was given: if speaking the
+    # whole script in the rendered time would take more than
+    # MAX_SPEAKING_RATE_WPM, words are missing. The show's voices speak at
+    # ~165 wpm (Whisper transcript of that render: 987 words in 5:54), so 230
+    # leaves ~40% headroom for a brisk read while a render missing a third or
+    # more of its script still fails. Scripts shorter than
+    # MIN_WORDS_FOR_RATE_CHECK are not judged; the rate of a few lines is noise.
+    MAX_SPEAKING_RATE_WPM = 230
+    MIN_WORDS_FOR_RATE_CHECK = 200
+
     def __init__(self, api_key: str):
         """Initialize with the Gemini API key.
 
@@ -180,11 +194,13 @@ class GeminiAudioGenerator:
         """
         Convert a multi-speaker script to audio using Gemini TTS.
 
-        Every render goes through _master_audio() and then the level gate
-        (_check_levels). A render whose mastered output still shows a
-        sustained drop is discarded and TTS is run once more, inside the same
-        TTS_TOTAL_BUDGET_SECONDS; if that one fails the gate too, the episode
-        fails rather than publishing audio that goes quiet part-way.
+        Every render goes through _master_audio() and then two gates: the
+        level gate (_check_levels), and the completeness gate
+        (_check_completeness), which fails a render too short to contain its
+        script. A render failing either is discarded and TTS is run once more,
+        inside the same TTS_TOTAL_BUDGET_SECONDS; if that one fails too, the
+        episode fails rather than publishing audio that goes quiet or stops
+        part-way.
 
         Args:
             script: Formatted dialogue (Host: ... / Cohost: ...)
@@ -233,16 +249,21 @@ class GeminiAudioGenerator:
                 self._discard(output_path)
                 return False
 
-            if not profile.flagged:
+            truncation = self._check_completeness(script, profile.duration)
+            if not profile.flagged and truncation is None:
                 return True
 
-            drop = profile.worst
-            print(
-                f"  Level gate: speech sits {drop.drop_db:.1f} dB below the opening "
-                f"from {format_time(drop.onset)} for {format_time(drop.duration)} "
-                f"(worst {drop.max_drop_db:.1f} dB) after mastering "
-                f"— render {render}/{self.LEVEL_GATE_RENDERS}"
-            )
+            if profile.flagged:
+                drop = profile.worst
+                print(
+                    f"  Level gate: speech sits {drop.drop_db:.1f} dB below the opening "
+                    f"from {format_time(drop.onset)} for {format_time(drop.duration)} "
+                    f"(worst {drop.max_drop_db:.1f} dB) after mastering "
+                    f"— render {render}/{self.LEVEL_GATE_RENDERS}"
+                )
+            if truncation is not None:
+                print(f"  Completeness gate: {truncation} "
+                      f"— render {render}/{self.LEVEL_GATE_RENDERS}")
             self._discard(output_path)
 
             if render >= self.LEVEL_GATE_RENDERS:
@@ -255,8 +276,8 @@ class GeminiAudioGenerator:
                 break
             print("  Re-rendering TTS once...")
 
-        print("Error generating audio: mastered audio failed the level gate; "
-              "episode not published")
+        print("Error generating audio: mastered audio failed the level or "
+              "completeness gate; episode not published")
         return False
 
     def _render_tts(
@@ -354,6 +375,30 @@ class GeminiAudioGenerator:
         first minute sits >10 dB below the first-two-minute median for >30 s.
         """
         return analyze(path)
+
+    @staticmethod
+    def script_word_count(script: str) -> int:
+        """Spoken words in a dialogue script: speaker labels and bracketed
+        stage directions ("[laughs]") are not read aloud, so they don't count."""
+        spoken = re.sub(r'\[[^\]]*\]', ' ', script)
+        spoken = re.sub(r'(?m)^\s*(Host|Cohost)\s*:', ' ', spoken)
+        return len(spoken.split())
+
+    def _check_completeness(self, script: str, duration_seconds: float) -> Optional[str]:
+        """None when the render is long enough for its script, else why not."""
+        words = self.script_word_count(script)
+        if words < self.MIN_WORDS_FOR_RATE_CHECK:
+            return None
+        minutes = max(duration_seconds, 1.0) / 60
+        rate = words / minutes
+        if rate <= self.MAX_SPEAKING_RATE_WPM:
+            print(f"  Completeness: {words} words in {format_time(duration_seconds)} "
+                  f"({rate:.0f} wpm)")
+            return None
+        expected = words / self.MAX_SPEAKING_RATE_WPM * 60
+        return (f"{words}-word script rendered in only {format_time(duration_seconds)} "
+                f"({rate:.0f} wpm; a full read needs at least {format_time(expected)}) "
+                f"— TTS stopped part-way")
 
     @staticmethod
     def _discard(path: Optional[str]) -> None:
