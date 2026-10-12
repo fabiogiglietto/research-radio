@@ -3248,6 +3248,76 @@
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-when-ai-ate-the-platform-society/id1866587707?i=1000793876477",
       "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Wan2026-ai",
+      "title": "FG's Research Radio: Why Different People Click Differently: Political Efficacy and Algorithm Feeds",
+      "description": "AI-generated podcast discussion.\n\nReference:\nWan, J., Araujo, T., Helberger, N., & Vreese, C. D. (2026). How does political efficacy condition clicks on politics? Understanding information-selection behavior in algorithmic feeds over time. https://doi.org/10.1093/jcmc/zmag022",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Wan2026-ai.mp3",
+      "audio_size": 5979228,
+      "duration": 503,
+      "pub_date": "2026-10-12T16:26:55.993096+00:00",
+      "authors": [
+        "Jin Wan",
+        "Theo Araujo",
+        "Natali Helberger",
+        "Claes de Vreese"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Lukito2026-il",
+      "title": "FG's Research Radio: When Right-Wing Media Pick Their Platforms",
+      "description": "AI-generated podcast discussion.\n\nReference:\nLukito, J., Zhang, Y., Chen, B., Prochaska, S., Pruden, M. L., Yang, Y., Zhong, W., Brown, M. A., Dahlke, R., Greenfield, J., Suk, J., & Borah, P. (2026). Cross-platformization: How U.S. right-leaning media curate their posts on Twitter and Truth Social. https://doi.org/10.1177/14614448261470889",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Lukito2026-il.mp3",
+      "audio_size": 6809555,
+      "duration": 612,
+      "pub_date": "2026-10-13T16:26:55.993096+00:00",
+      "authors": [
+        "Josephine Lukito",
+        "Yini Zhang",
+        "Bin Chen",
+        "Stephen Prochaska",
+        "Meredith L. Pruden",
+        "Yunkang Yang",
+        "Wei Zhong",
+        "Megan A. Brown",
+        "Ross Dahlke",
+        "Jason Greenfield",
+        "Jiyoun Suk",
+        "Porismita Borah"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Schulz2026-ts",
+      "title": "FG's Research Radio: The Silence Between the Posts: Why Online Discourse Lies",
+      "description": "AI-generated podcast discussion.\n\nReference:\nSchulz, W., Robertson, C. E., Sj\u00e5stad, H., Ashokkumar, A., Oswald, L., Yang, J., Munzert, S., Bavel, J. J. V., & Guess, A. M. (2026). Online Discourse is Falsely Polarized by Self-Selection. https://doi.org/10.31234/osf.io/7z69m_v1",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Schulz2026-ts.mp3",
+      "audio_size": 7055597,
+      "duration": 616,
+      "pub_date": "2026-10-14T16:26:55.993096+00:00",
+      "authors": [
+        "Will Schulz",
+        "Claire Elizabeth Robertson",
+        "Hallgeir Sj\u00e5stad",
+        "Ashwini Ashokkumar",
+        "Lisa Oswald",
+        "JungHwan Yang",
+        "Simon Munzert",
+        "Jay Joseph Van Bavel",
+        "Andrew Markus Guess"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
     }
   ]
 }
