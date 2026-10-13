@@ -3352,6 +3352,26 @@
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "",
       "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:De_Leon2025-qn",
+      "title": "FG's Research Radio: How Extremists Weaponize Mainstream News Against You",
+      "description": "AI-generated podcast discussion.\n\nReference:\nLe\u00f3n, E. D., Kristensen, J. B., Makhortykh, M., Mayerh\u00f6ffer, E., & Adam, S. (2025). The political weaponization of online content: From direct to networked exposure. https://doi.org/10.31235/osf.io/grne7_v1",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/De_Leon2025-qn.mp3",
+      "audio_size": 6652170,
+      "duration": 618,
+      "pub_date": "2026-10-17T16:26:55.993096+00:00",
+      "authors": [
+        "Ernesto de Le\u00f3n",
+        "Jakob B\u00e6k Kristensen",
+        "Mykola Makhortykh",
+        "Eva Mayerh\u00f6ffer",
+        "Silke Adam"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
     }
   ]
 }
