@@ -3393,6 +3393,22 @@
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-when-ai-writers-meet-crowdsourced/id1866587707?i=1000797088361",
       "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Kuznetsova2026-hw",
+      "title": "FG's Research Radio: All Talk, No Rules: How Platforms Govern Climate Misinformation",
+      "description": "AI-generated podcast discussion.\n\nReference:\nKuznetsova, V. (2026). All talk, no rules: Content moderation practices and discursive strategies in platform governance of climate misinformation. https://doi.org/10.1177/29768624261499168",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Kuznetsova2026-hw.mp3",
+      "audio_size": 7565248,
+      "duration": 655,
+      "pub_date": "2026-10-25T12:00:47.474563+00:00",
+      "authors": [
+        "Vasilisa Kuznetsova"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
     }
   ]
 }
