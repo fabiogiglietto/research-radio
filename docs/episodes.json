@@ -3409,6 +3409,24 @@
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-all-talk-no-rules-how-platforms/id1866587707?i=1000798014869",
       "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Cullen2026-cb",
+      "title": "FG's Research Radio: When Platforms Become the Only Window: The Hidden Politics of API Research",
+      "description": "AI-generated podcast discussion.\n\nReference:\nCullen, Z. N., Ellison, N. B., & Pasquetto, I. V. (2026). Seeing like an API: Platform-mediated research and the politics of access. https://doi.org/10.1177/20539517261461463",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Cullen2026-cb.mp3",
+      "audio_size": 7471461,
+      "duration": 655,
+      "pub_date": "2026-10-26T13:51:05.712200+00:00",
+      "authors": [
+        "Zo\u00eb Natalia Cullen",
+        "Nicole B Ellison",
+        "Irene V Pasquetto"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
     }
   ]
 }
