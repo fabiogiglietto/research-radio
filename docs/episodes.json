@@ -3427,6 +3427,26 @@
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-when-platforms-become-the-only/id1866587707?i=1000798182354",
       "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Prochaska2026-pr",
+      "title": "FG's Research Radio: The Grammar of Conspiracy: Why Election Rumors Follow Predictable Patterns",
+      "description": "AI-generated podcast discussion.\n\nReference:\nProchaska, S., Bayar, M., Aske, A. B., Schafer, J., & Starbird, K. (2026). New election, same old story: How tropes form a grammar of election rumors. http://arxiv.org/abs/2610.37804v1",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Prochaska2026-pr.mp3",
+      "audio_size": 7300290,
+      "duration": 643,
+      "pub_date": "2026-10-31T11:58:38.207448+00:00",
+      "authors": [
+        "Stephen Prochaska",
+        "Mert Bayar",
+        "Ashlyn B. Aske",
+        "Joseph Schafer",
+        "Kate Starbird"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
     }
   ]
 }
