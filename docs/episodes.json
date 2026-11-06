@@ -3499,6 +3499,24 @@
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "",
       "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Iannucci2026-my",
+      "title": "FG's Research Radio: Dense Clusters Aren't Evidence: Rethinking Coordination Detection",
+      "description": "AI-generated podcast discussion.\n\nReference:\nIannucci, L., Matakos, A., & Kivel\u00e4, M. (2026). Statistical Detectability of Coordination. http://arxiv.org/abs/2610.37970v1",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Iannucci2026-my.mp3",
+      "audio_size": 6627626,
+      "duration": 578,
+      "pub_date": "2026-11-08T08:47:17.010242+00:00",
+      "authors": [
+        "Letizia Iannucci",
+        "Antonis Matakos",
+        "Mikko Kivel\u00e4"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
     }
   ]
 }
