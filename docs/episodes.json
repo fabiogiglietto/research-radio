@@ -3465,6 +3465,22 @@
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-teaching-machines-to-code-inside/id1866587707?i=1000799295927",
       "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Hegarty2026-qr",
+      "title": "FG's Research Radio: The Internet Decline Narrative: Who's Really Mourning?",
+      "description": "AI-generated podcast discussion.\n\nReference:\nHegarty, K. (2026). \u201cWhen did the internet become this awful?\u201d: the idea of decline in internet histories. https://doi.org/10.1080/24701475.2026.2760136",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Hegarty2026-qr.mp3",
+      "audio_size": 6360461,
+      "duration": 590,
+      "pub_date": "2026-11-06T08:47:17.010242+00:00",
+      "authors": [
+        "Kieran Hegarty"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
     }
   ]
 }
