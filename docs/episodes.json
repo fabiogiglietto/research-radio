@@ -3479,6 +3479,24 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-the-internet-decline-narrative/id1866587707?i=1000800213729",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:noauthor_undated-yy",
+      "title": "FG's Research Radio: When Dense Clusters Aren't What They Seem",
+      "description": "AI-generated podcast discussion.\n\nReference:\nIannucci, L., Matakos, A., & Kivel\u00e4, M. (2026). Statistical detectability of coordination. http://arxiv.org/abs/2610.37970v1",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/noauthor_undated-yy.mp3",
+      "audio_size": 4937435,
+      "duration": 429,
+      "pub_date": "2026-11-07T08:47:17.010242+00:00",
+      "authors": [
+        "Letizia Iannucci",
+        "Antonis Matakos",
+        "Mikko Kivel\u00e4"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "",
       "audio_mismatch": false
     }
