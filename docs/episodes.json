@@ -3517,6 +3517,41 @@
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "",
       "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Li2026-zv",
+      "title": "FG's Research Radio: When AI Content Drowns Out Human Creativity",
+      "description": "AI-generated podcast discussion.\n\nReference:\nLi, Z., & Banks, J. (2026). Defective, amplified, contested: Folk conceptualizations of AI slop. http://arxiv.org/abs/2610.14231v1",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Li2026-zv.mp3",
+      "audio_size": 7706048,
+      "duration": 655,
+      "pub_date": "2026-11-09T08:47:17.010242+00:00",
+      "authors": [
+        "Zhixin Li",
+        "Jaime Banks"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Altoe2026-wu",
+      "title": "FG's Research Radio: Catching Lies Before They Spread: The Twenty-Three Hour Window",
+      "description": "AI-generated podcast discussion.\n\nReference:\nAltoe, F., Pinto, S. M. G., & Pinto, H. S. (2026). Predicting narrative virality on social media streams for pre-peak misinformation triage. https://doi.org/10.1145/3799682.3840688",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Altoe2026-wu.mp3",
+      "audio_size": 6941165,
+      "duration": 618,
+      "pub_date": "2026-11-10T08:47:17.010242+00:00",
+      "authors": [
+        "Filipe Altoe",
+        "S\u00e9rgio Miguel Gon\u00e7alves Pinto",
+        "H. Sofia Pinto"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
     }
   ]
 }
