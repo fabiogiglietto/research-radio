@@ -4,7 +4,7 @@ google-api-python-client>=2.198.0  # Google Drive API
 google-auth>=2.56.3          # Authentication
 
 # Anthropic / Claude API (podcast script generation)
-anthropic>=0.116.0
+anthropic>=2.8.0
 
 # PDF processing
 pypdf>=6.16.1
