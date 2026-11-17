@@ -3568,6 +3568,23 @@
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-why-going-negative-doesnt-always/id1866587707?i=1000801596711",
       "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:So2026-up",
+      "title": "FG's Research Radio: When AI Makes Competence Cheap: Rethinking the Slop Crisis",
+      "description": "AI-generated podcast discussion.\n\nReference:\nSo, R. J., & Long, H. (2026). The social and cultural life of artificial intelligence (AI) slop: A research framework. https://doi.org/10.1177/20539517261506941",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/So2026-up.mp3",
+      "audio_size": 7406706,
+      "duration": 655,
+      "pub_date": "2026-11-17T18:07:45.590961+00:00",
+      "authors": [
+        "Richard Jean So",
+        "Hoyt Long"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
     }
   ]
 }
