@@ -3665,6 +3665,41 @@
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "",
       "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Fenis2027-sv",
+      "title": "FG's Research Radio: The Machinery Never Stops: Political Coordination Between Elections",
+      "description": "AI-generated podcast discussion.\n\nReference:\nFenis, M. R. B., Agonos, M. J. M., & Figueroa, P. D. (2027). From polls to persistence: Examining coordinated political discourse outside the Philippine election period on Facebook. https://doi.org/10.1111/aspp.70113",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Fenis2027-sv.mp3",
+      "audio_size": 5155721,
+      "duration": 465,
+      "pub_date": "2026-11-26T00:07:18.070967+00:00",
+      "authors": [
+        "Magello Rainer B. Fenis",
+        "Mariam Jayne M. Agonos",
+        "Petronilo D. Figueroa"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:King2026-av",
+      "title": "FG's Research Radio: When AI Reviews Beat the Best Human Experts",
+      "description": "AI-generated podcast discussion.\n\nReference:\nGary, K., & Steven, W. (2026). AI article reviews dominate human peer reviews at their best: Evidence and policy choices. https://scholar.google.com/scholar?q=AI%20article%20reviews%20dominate%20human%20peer%20reviews%20at%20their%20best%3A%20Evidence%20and%20policy%20choices",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/King2026-av.mp3",
+      "audio_size": 6679145,
+      "duration": 584,
+      "pub_date": "2026-11-27T00:07:18.070967+00:00",
+      "authors": [
+        "King, Gary",
+        "Worthington, Steven"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
     }
   ]
 }
