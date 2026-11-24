@@ -3631,6 +3631,40 @@
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-when-americans-unfriend-politics/id1866587707?i=1000802960849",
       "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Simon2012-pe",
+      "title": "FG's Research Radio: Half the World Uses AI Weekly\u2014And Barely Trusts the News",
+      "description": "AI-generated podcast discussion.\n\nReference:\nFelix, S., Kleis, N. R., & Richard, F. (2012). Generative AI and News Report 2026: From standalone tools to information infrastructure. https://scholar.google.com/scholar?q=Generative%20AI%20and%20News%20Report%202026%3A%20From%20standalone%20tools%20to%20information%20infrastructure",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Simon2012-pe.mp3",
+      "audio_size": 6700451,
+      "duration": 599,
+      "pub_date": "2026-11-24T00:07:18.070967+00:00",
+      "authors": [
+        "Simon, Felix",
+        "Nielsen, Rasmus Kleis",
+        "Fletcher, Richard"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Lompe2026-vm",
+      "title": "FG's Research Radio: Links Never Died: Following Controversy Across Platforms",
+      "description": "AI-generated podcast discussion.\n\nReference:\nLompe, M. (2026). The link has died; Long live the link! Cross-platform controversy mapping with the use of URLs. https://doi.org/10.1007/s10606-026-09557-1",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Lompe2026-vm.mp3",
+      "audio_size": 7195088,
+      "duration": 613,
+      "pub_date": "2026-11-25T00:07:18.070967+00:00",
+      "authors": [
+        "Maria Lompe"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "",
+      "audio_mismatch": false
     }
   ]
 }
