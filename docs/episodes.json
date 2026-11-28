@@ -3698,6 +3698,23 @@
       ],
       "own": false,
       "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
+      "apple_url": "https://podcasts.apple.com/us/podcast/fgs-research-radio-when-ai-reviews-beat-the-best/id1866587707?i=1000804420808",
+      "audio_mismatch": false
+    },
+    {
+      "id": "bibtex:Larsson2026-ga",
+      "title": "FG's Research Radio: Why Populism Wins on Facebook but Flops on Instagram",
+      "description": "AI-generated podcast discussion.\n\nReference:\nLarsson, A. O., & Skogerb\u00f8, E. (2026). From content to likes \u2013 how political parties\u2019 campaign posts trigger user engagement across Facebook, Instagram and Twitter. https://doi.org/10.1080/19331681.2026.2767282",
+      "audio_url": "https://github.com/fabiogiglietto/research-radio/releases/download/audio/Larsson2026-ga.mp3",
+      "audio_size": 5922482,
+      "duration": 521,
+      "pub_date": "2026-11-28T12:38:15.903599+00:00",
+      "authors": [
+        "Anders Olof Larsson",
+        "Eli Skogerb\u00f8"
+      ],
+      "own": false,
+      "spotify_url": "https://open.spotify.com/show/5V99ieB2ljNvcwPZ53EoPX",
       "apple_url": "",
       "audio_mismatch": false
     }
